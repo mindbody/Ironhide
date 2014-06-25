@@ -1,7 +1,9 @@
 package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
 
+import android.view.View;
 import com.google.android.apps.common.testing.ui.espresso.DataInteraction;
 import com.google.android.apps.common.testing.ui.espresso.matcher.ViewMatchers;
+import org.hamcrest.Matcher;
 
 import static com.google.android.apps.common.testing.ui.espresso.Espresso.onData;
 import static com.google.android.apps.common.testing.ui.espresso.matcher.ViewMatchers.withId;
@@ -30,6 +32,11 @@ public class ListAdapter<T> extends MindbodyView<T> {
     public ListAdapter(Class<T> type, Class itemType, int id) {
         this.type = type;
         adapter = onData(allOf(is(instanceOf(itemType)))).inAdapterView(ViewMatchers.withId(id));
+    }
+
+    public ListAdapter(Class<T> type, Class itemType, Matcher<View> selector) {
+        this.type = type;
+        adapter = onData(allOf(is(instanceOf(itemType)))).inAdapterView(selector);
     }
 
     public ListItem<T> getItemAtPosition(int index) {
