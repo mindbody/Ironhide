@@ -1,9 +1,15 @@
 package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
 
+import android.view.View;
+import com.google.android.apps.common.testing.ui.espresso.DataInteraction;
 import com.google.android.apps.common.testing.ui.espresso.matcher.ViewMatchers;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.MindbodyViewMatchers;
+import org.hamcrest.Matcher;
 
+import static com.google.android.apps.common.testing.ui.espresso.Espresso.onData;
 import static org.hamcrest.Matchers.allOf;
+import static org.hamcrest.Matchers.instanceOf;
+import static org.hamcrest.Matchers.is;
 
 /**
  * Extends MindbodyView
@@ -17,11 +23,17 @@ public class DynamicListAdapter<T> extends MindbodyView<T> {
 
     private int parentId;
     private Class itemType;
+    private DataInteraction adapter;
 
     public DynamicListAdapter(Class<T> type, Class itemType) {
         this.type = type;
         this.parentId = parentId;
         this.itemType = itemType;
+    }
+
+    public DynamicListAdapter(Class<T> type, Class itemType, Matcher<View> selector) {
+        this.type = type;
+        adapter = onData(allOf(is(instanceOf(itemType)))).inAdapterView(selector);
     }
 
     public Clickable<T> getItemAt(int index) {
