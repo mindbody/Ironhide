@@ -1,8 +1,7 @@
 <component name="libraryTable">
-  <library name="appcompat-v7-19.1.0">
+  <library name="Gradle: 19.1.0">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/lib/build/exploded-aar/com.android.support/appcompat-v7/19.1.0/classes.jar!/" />
-      <root url="file://$PROJECT_DIR$/lib/build/exploded-aar/com.android.support/appcompat-v7/19.1.0/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

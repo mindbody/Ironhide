@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: espresso-contrib-1.1-bundled">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/libs/espresso-contrib-1.1-bundled.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
