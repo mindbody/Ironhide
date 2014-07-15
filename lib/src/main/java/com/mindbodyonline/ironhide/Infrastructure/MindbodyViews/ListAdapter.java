@@ -21,22 +21,20 @@ import static org.hamcrest.Matchers.is;
  */
 public class ListAdapter<T> extends MindbodyView<T> {
 
-    DataInteraction adapter;
-
     // itemType is the class of the objects that make up the list items in the list view
     public ListAdapter(Class<T> type, Class itemType) {
         this.type = type;
-        adapter = onData(allOf(is(instanceOf(itemType))));
+        adapter = onData(is(instanceOf(itemType)));
     }
 
     public ListAdapter(Class<T> type, Class itemType, int id) {
         this.type = type;
-        adapter = onData(allOf(is(instanceOf(itemType)))).inAdapterView(ViewMatchers.withId(id));
+        adapter = onData(is(instanceOf(itemType))).inAdapterView(ViewMatchers.withId(id));
     }
 
     public ListAdapter(Class<T> type, Class itemType, Matcher<View> selector) {
         this.type = type;
-        adapter = onData(allOf(is(instanceOf(itemType)))).inAdapterView(selector);
+        adapter = onData(is(instanceOf(itemType))).inAdapterView(selector);
     }
 
     public ListItem<T> getItemAtPosition(int index) {

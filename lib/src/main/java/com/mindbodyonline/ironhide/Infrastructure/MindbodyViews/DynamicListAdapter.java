@@ -23,7 +23,6 @@ public class DynamicListAdapter<T> extends MindbodyView<T> {
 
     private int parentId;
     private Class itemType;
-    private DataInteraction adapter;
 
     public DynamicListAdapter(Class<T> type, Class itemType) {
         this.type = type;
@@ -33,7 +32,7 @@ public class DynamicListAdapter<T> extends MindbodyView<T> {
 
     public DynamicListAdapter(Class<T> type, Class itemType, Matcher<View> selector) {
         this.type = type;
-        adapter = onData(allOf(is(instanceOf(itemType)))).inAdapterView(selector);
+        adapter = onData(is(instanceOf(itemType))).inAdapterView(selector);
     }
 
     public Clickable<T> getItemAt(int index) {

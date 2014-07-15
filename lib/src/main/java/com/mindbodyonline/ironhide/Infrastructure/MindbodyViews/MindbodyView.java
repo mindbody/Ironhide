@@ -3,6 +3,7 @@ package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
 
 import android.view.View;
 
+import com.google.android.apps.common.testing.ui.espresso.DataInteraction;
 import com.mindbodyonline.ironhide.PageObjects.PageObject;
 import org.hamcrest.Matcher;
 
@@ -29,6 +30,7 @@ public class MindbodyView<T> {
     protected String text;
     protected Class<T> type;
     protected Matcher<View> selector;
+    protected DataInteraction adapter;
 
     /**
      * Gets the appropriate selector for the current view element
@@ -54,7 +56,10 @@ public class MindbodyView<T> {
      * @return The model returned by interacting with the element
      */
     protected T performAction(ViewAction viewAction) {
-        onView(getSelector()).perform(viewAction);
+        if(adapter != null)
+            adapter.perform(viewAction);
+        else
+            onView(getSelector()).perform(viewAction);
         return returnGeneric();
     }
 
@@ -66,7 +71,10 @@ public class MindbodyView<T> {
      * @return The model returned by interacting with the element
      */
     protected <E extends PageObject> E  performAction(Class<E> type, ViewAction viewAction) {
-        onView(getSelector()).perform(viewAction);
+        if(adapter != null)
+            adapter.perform(viewAction);
+        else
+            onView(getSelector()).perform(viewAction);
         return returnGeneric(type);
     }
 
@@ -77,7 +85,10 @@ public class MindbodyView<T> {
      * @return The model returned by interacting with the element
      */
     protected T checkMatches(Matcher<? super View> viewMatcher) {
-        onView(getSelector()).check(ViewAssertions.matches(viewMatcher));
+        if(adapter != null)
+            adapter.check(ViewAssertions.matches(viewMatcher));
+        else
+            onView(getSelector()).check(ViewAssertions.matches(viewMatcher));
         return returnGeneric();
     }
 
