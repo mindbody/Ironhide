@@ -4,6 +4,7 @@ package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
 import android.view.View;
 
 import com.google.android.apps.common.testing.ui.espresso.DataInteraction;
+import com.mindbodyonline.ironhide.Infrastructure.Extensions.MindbodyViewMatchers;
 import com.mindbodyonline.ironhide.PageObjects.PageObject;
 import org.hamcrest.Matcher;
 
@@ -326,6 +327,15 @@ public class MindbodyView<T> {
     public T hasImeAction(Matcher<Integer> imeActionMatcher) {
         return checkMatches(ViewMatchers.hasImeAction(imeActionMatcher));
     }
+
+    public T withHintText(int stringId) {
+        return checkMatches(MindbodyViewMatchers.withHintText(stringId));
+    }
+
+    public T withHintText(String string) {
+        return checkMatches(MindbodyViewMatchers.withHintText(string));
+    }
+
 
     /**
      * End ViewMatchers

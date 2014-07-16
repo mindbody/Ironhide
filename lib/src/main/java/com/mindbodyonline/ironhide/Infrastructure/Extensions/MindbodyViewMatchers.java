@@ -70,6 +70,27 @@ public class MindbodyViewMatchers {
         };
     }
 
+    public static Matcher<Object> withHintText(String string) {
+        checkNotNull(string);
+        return withHint(string);
+    }
+
+    private static Matcher<Object> withHint(final String string) {
+        return new BoundedMatcher<Object, EditText>(EditText.class) {
+            @Override
+            public boolean matchesSafely(EditText hint) {
+                assert hint.getResources() != null && hint.getHint() != null;
+                return string.equals(hint.getHint().toString());
+            }
+
+            @Override
+            public void describeTo(Description description) {
+                description.appendText("with hint ");
+                description.appendText(string + "");
+            }
+        };
+    }
+
     /**
      * Checks to see if a View is selected on the screen
      *
