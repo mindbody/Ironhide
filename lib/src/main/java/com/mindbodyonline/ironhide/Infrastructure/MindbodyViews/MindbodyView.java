@@ -221,6 +221,10 @@ public class MindbodyView<T> {
         return checkMatches(ViewMatchers.isEnabled());
     }
 
+    public T isNotEnabled() {
+        return checkMatches(not(ViewMatchers.isEnabled()));
+    }
+
     public T isFocusable() {
         return checkMatches(ViewMatchers.isFocusable());
     }
