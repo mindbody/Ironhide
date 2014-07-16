@@ -201,6 +201,12 @@ public class MindbodyView<T> {
         return checkMatches(ViewMatchers.withText(string));
     }
 
+    public T withNotText(int stringId) { return checkMatches(not(ViewMatchers.withText(stringId))); }
+
+    public T withNotText(String string) {
+        return checkMatches(not(ViewMatchers.withText(string)));
+    }
+
     public T withText(Matcher<String> stringMatcher) {
         return checkMatches(ViewMatchers.withText(stringMatcher));
     }
@@ -279,6 +285,10 @@ public class MindbodyView<T> {
 
     public T hasDescendant(MindbodyView<T> descendant) {
         return checkMatches(ViewMatchers.hasDescendant(descendant.getSelector()));
+    }
+
+    public T isNotClickable() {
+        return checkMatches(not(ViewMatchers.isClickable()));
     }
 
     public T isClickable() {
