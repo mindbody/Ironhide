@@ -3,11 +3,11 @@ apply plugin: 'maven'
 apply plugin: 'signing'
 
 group = "com.mindbodyonline.ironhide"
-version = "1.2.3"
+version = "1.2.4"
 
 android {
     compileSdkVersion 19
-    buildToolsVersion "19.0.3"
+    buildToolsVersion '19.1.0'
 
     defaultConfig {
         minSdkVersion 8

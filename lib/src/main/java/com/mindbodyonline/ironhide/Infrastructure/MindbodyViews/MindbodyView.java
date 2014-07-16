@@ -15,6 +15,7 @@ import com.google.android.apps.common.testing.ui.espresso.matcher.ViewMatchers;
 
 import static com.google.android.apps.common.testing.ui.espresso.Espresso.onView;
 import static com.google.android.apps.common.testing.ui.espresso.action.ViewActions.closeSoftKeyboard;
+import static org.hamcrest.Matchers.not;
 
 /**
  * Base Class for all page elements represented in the models for the Connect Test Suite
@@ -182,6 +183,10 @@ public class MindbodyView<T> {
 
     public T isDisplayed() {
         return checkMatches(ViewMatchers.isDisplayed());
+    }
+
+    public T isNotDisplayed() {
+        return checkMatches(not(ViewMatchers.isDisplayed()));
     }
 
     public T isCompletelyDisplayed() {
