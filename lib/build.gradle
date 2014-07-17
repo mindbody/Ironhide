@@ -3,7 +3,7 @@ apply plugin: 'maven'
 apply plugin: 'signing'
 
 group = "com.mindbodyonline.ironhide"
-version = "1.2.5"
+version = "1.2.7"
 
 android {
     compileSdkVersion 19
@@ -26,7 +26,7 @@ android {
 
 task coreLibJar(type: Jar) {
     baseName "Ironhide"
-    from fileTree(dir: 'build/classes/debug')
+    from fileTree(dir: 'build/intermediates/classes/debug')
 }
 
 artifacts {
@@ -76,6 +76,5 @@ uploadArchives {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:19.+'
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }

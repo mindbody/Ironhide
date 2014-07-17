@@ -6,6 +6,7 @@ import com.google.android.apps.common.testing.ui.espresso.matcher.BoundedMatcher
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.EnterTextAction;
 import com.google.android.apps.common.testing.ui.espresso.action.ViewActions;
 import com.google.android.apps.common.testing.ui.espresso.matcher.ViewMatchers;
+import com.mindbodyonline.ironhide.Infrastructure.Extensions.MindbodyViewMatchers;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
@@ -67,5 +68,12 @@ public class TextField<T> extends MindbodyView<T> {
             return false;
         }
         return true;
+    }
+    public T withHintText(int stringId) {
+        return checkMatches(MindbodyViewMatchers.withHintText(stringId));
+    }
+
+    public T withHintText(String string) {
+        return checkMatches(MindbodyViewMatchers.withHintText(string));
     }
 }
