@@ -25,7 +25,7 @@ import static org.hamcrest.Matchers.not;
  *
  * @param <T> The model the current element will return when interacted with
  */
-public class MindbodyView<T> {
+abstracts class MindbodyView<T> {
 
     protected int id;
     protected int stringId;
