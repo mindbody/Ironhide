@@ -38,6 +38,12 @@ public class DynamicListAdapter<T> extends MindbodyView<T> {
         this.itemType = itemType;
     }
 
+    public DynamicListAdapter(Class<T> type, Class itemType, Class parentClass){
+        this.type = type;
+        this.itemType = itemType;
+        this.parentClass = parentClass;
+    }
+
     public DynamicListAdapter(Class<T> type, Class itemType, int parentId, Class parentClass){
         this.type = type;
         this.parentId = parentId;
