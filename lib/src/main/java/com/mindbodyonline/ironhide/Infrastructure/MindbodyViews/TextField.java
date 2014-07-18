@@ -7,6 +7,7 @@ import com.mindbodyonline.ironhide.Infrastructure.Extensions.EnterTextAction;
 import com.google.android.apps.common.testing.ui.espresso.action.ViewActions;
 import com.google.android.apps.common.testing.ui.espresso.matcher.ViewMatchers;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.MindbodyViewMatchers;
+import com.mindbodyonline.ironhide.Infrastructure.Extensions.SetCursorAction;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
@@ -57,8 +58,16 @@ public class TextField<T> extends MindbodyView<T> {
         return performAction(enterTextAction(toType));
     }
 
+    public T setCursor() {
+        return performAction(setCursorAction());
+    }
+
     private EnterTextAction enterTextAction(String toType) {
         return new EnterTextAction(toType);
+    }
+
+    private SetCursorAction setCursorAction() {
+        return new SetCursorAction();
     }
 
     public boolean textFieldWithText(String string) {
