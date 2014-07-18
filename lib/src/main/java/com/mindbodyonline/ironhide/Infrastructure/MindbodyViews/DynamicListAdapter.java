@@ -72,7 +72,7 @@ public class DynamicListAdapter<T> extends MindbodyView<T> {
         return new Clickable<T>(type,
             allOf(ViewMatchers.isDisplayed(),
                 MindbodyViewMatchers.instanceOf(type),
-                MindbodyViewMatchers.hasIndex(1)
+                MindbodyViewMatchers.hasIndex(index)
                 , ViewMatchers.isDescendantOfA( MindbodyViewMatchers.instanceOf(parentClass))));
     }
 }
