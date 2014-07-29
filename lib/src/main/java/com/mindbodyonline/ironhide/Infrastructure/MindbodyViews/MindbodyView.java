@@ -186,6 +186,8 @@ abstract class MindbodyView<T> {
         return checkMatches(ViewMatchers.isDisplayed());
     }
 
+
+
     public T isNotDisplayed() {
         return checkMatches(not(ViewMatchers.isDisplayed()));
     }
@@ -356,4 +358,5 @@ abstract class MindbodyView<T> {
         }
         return returnGeneric();
     }
+
 }

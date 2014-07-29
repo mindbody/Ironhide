@@ -9,6 +9,7 @@ import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 
 import static com.google.android.apps.common.testing.testrunner.util.Checks.checkNotNull;
+import static org.hamcrest.Matchers.not;
 
 /**
  * Custom ViewMatchers used for ConnectView elements
@@ -124,6 +125,8 @@ public class MindbodyViewMatchers {
     public static Matcher<View> hasIndex(final int index) {
         return checkHasIndex(index);
     }
+
+    public static Matcher<View> doesNotHaveIndex(final int index) { return not(checkHasIndex(index));}
 
     private static Matcher<View> checkHasIndex(final int index) {
         return new BoundedMatcher<View, View>(View.class) {

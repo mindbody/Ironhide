@@ -15,12 +15,19 @@ public class MindbodyViewActions{
 
     }
 
-    public static ViewAction swipeDown() {
+    public static ViewAction swipeDownFast() {
         return new GeneralSwipeAction(Swipe.FAST, GeneralLocation.TOP_CENTER, GeneralLocation.BOTTOM_CENTER, Press.FINGER);
     }
 
-    public static ViewAction swipeUp() {
+    public static ViewAction swipeDownSlow() {
+        return new GeneralSwipeAction(Swipe.SLOW, GeneralLocation.TOP_CENTER, GeneralLocation.BOTTOM_CENTER, Press.FINGER);
+    }
+
+    public static ViewAction swipeUpFast() {
         return new GeneralSwipeAction(Swipe.FAST, GeneralLocation.BOTTOM_CENTER, GeneralLocation.TOP_CENTER, Press.FINGER);
     }
 
+    public static ViewAction swipeUpSlow() {
+        return new GeneralSwipeAction(Swipe.SLOW, GeneralLocation.BOTTOM_CENTER, GeneralLocation.TOP_CENTER, Press.FINGER);
+    }
 }
