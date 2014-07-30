@@ -186,7 +186,15 @@ abstract class MindbodyView<T> {
         return checkMatches(ViewMatchers.isDisplayed());
     }
 
+    public boolean isDisplayedBoolean() {
 
+        try{
+            checkMatches(ViewMatchers.isDisplayed());
+            return true;
+        }catch(Exception e){
+            return false;
+        }
+    }
 
     public T isNotDisplayed() {
         return checkMatches(not(ViewMatchers.isDisplayed()));
