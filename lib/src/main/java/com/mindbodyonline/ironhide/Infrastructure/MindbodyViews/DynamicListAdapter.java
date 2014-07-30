@@ -81,4 +81,14 @@ public class DynamicListAdapter<T> extends MindbodyView<T> {
                 MindbodyViewMatchers.hasIndex(index)
                 , ViewMatchers.isDescendantOfA( MindbodyViewMatchers.instanceOf(parentClass))));
     }
+
+    public Clickable<T> getItemFromText(String text){
+
+        return new Clickable<T>(type,
+                allOf(ViewMatchers.isDisplayed(),
+                MindbodyViewMatchers.instanceOf(itemType)
+                , ViewMatchers.withText(text)));
+
+
+    }
 }
