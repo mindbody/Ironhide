@@ -95,6 +95,21 @@ abstract class MindbodyView<T> {
     }
 
     /**
+     * Checks if an element matches a certain value using an Espresso ViewMatcher
+     *
+     * @param type The type of the PageObject to return
+     * @param viewMatcher The ViewMatcher used to check the element
+     * @return The model returned by interacting with the element
+     */
+    protected <E extends PageObject> E checkMatches(Class<E> type, Matcher<? super View> viewMatcher) {
+        if(adapter != null)
+            adapter.check(ViewAssertions.matches(viewMatcher));
+        else
+            onView(getSelector()).check(ViewAssertions.matches(viewMatcher));
+        return returnGeneric(type);
+    }
+
+    /**
      * Used whenever interacting with an element to return the correct following model
      *
      * @return The model returned by interacting with the element
@@ -188,6 +203,10 @@ abstract class MindbodyView<T> {
 
     public T isDisplayed() {
         return checkMatches(ViewMatchers.isDisplayed());
+    }
+
+    public <E extends PageObject> E isDisplayed(Class<E> type) {
+        return checkMatches(type, ViewMatchers.isDisplayed());
     }
 
     public boolean isDisplayedBoolean() {
