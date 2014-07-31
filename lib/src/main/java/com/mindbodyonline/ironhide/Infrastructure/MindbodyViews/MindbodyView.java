@@ -131,6 +131,10 @@ abstract class MindbodyView<T> {
         return performAction(ViewActions.scrollTo());
     }
 
+    public <E extends PageObject> E scrollTo(Class<E> type) {
+        return performAction(type, ViewActions.click());
+    }
+
     public T click() {
         return performAction(ViewActions.click());
     }
