@@ -165,4 +165,27 @@ public class MindbodyViewMatchers {
             }
         };
     }
+
+    /**
+     * Checks to see if a View has a certain number of children
+     * @param count The number of children to check the View has
+     * @return      A Matcher to check using Espresso ViewAssertions.matches method
+     */
+    public static Matcher<View> hasChildCount(final int count) {
+        return checkChildCount(count);
+    }
+
+    private static Matcher<View> checkChildCount(final int count) {
+        return new BoundedMatcher<View, View>(View.class) {
+            @Override
+            public boolean matchesSafely(View view) {
+                return view instanceof ViewGroup && ((ViewGroup) view).getChildCount() == count;
+            }
+
+            @Override
+            public void describeTo(Description description) {
+                description.appendText("Has " + count + " children");
+            }
+        };
+    }
 }
