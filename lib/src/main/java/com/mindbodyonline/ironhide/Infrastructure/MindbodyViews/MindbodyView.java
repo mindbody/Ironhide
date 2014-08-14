@@ -4,6 +4,7 @@ package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
 import android.view.View;
 
 import com.google.android.apps.common.testing.ui.espresso.DataInteraction;
+import com.google.android.apps.common.testing.ui.espresso.contrib.DrawerMatchers;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.MindbodyViewMatchers;
 import com.mindbodyonline.ironhide.PageObjects.PageObject;
 import org.hamcrest.Matcher;
@@ -200,6 +201,11 @@ abstract class MindbodyView<T> {
     /**
      * ViewMatchers
      */
+
+
+    public T isOpen() { return checkMatches(DrawerMatchers.isOpen()); }
+
+    public T isClosed() { return checkMatches(DrawerMatchers.isClosed()); }
 
     public T isDisplayed() {
         return checkMatches(ViewMatchers.isDisplayed());
