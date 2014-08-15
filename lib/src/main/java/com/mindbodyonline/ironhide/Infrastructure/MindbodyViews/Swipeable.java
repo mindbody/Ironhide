@@ -8,6 +8,7 @@ import com.google.android.apps.common.testing.ui.espresso.action.GeneralSwipeAct
 import com.google.android.apps.common.testing.ui.espresso.action.Press;
 import com.google.android.apps.common.testing.ui.espresso.action.Swipe;
 import com.google.android.apps.common.testing.ui.espresso.action.ViewActions;
+import com.google.android.apps.common.testing.ui.espresso.contrib.DrawerActions;
 import com.google.android.apps.common.testing.ui.espresso.matcher.ViewMatchers;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.MindbodyViewActions;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.MindbodyViewMatchers;
@@ -82,6 +83,26 @@ public class Swipeable<T> extends MindbodyView<T> {
             performAction(MindbodyViewActions.swipeUpSlow());
         }
         return performAction(MindbodyViewActions.swipeUpSlow());
+
+    }
+
+    public T swipeFullRight(){ return performAction(MindbodyViewActions.swipeFullRight()); }
+
+    public T swipeFullRight(int numTimes){
+        for(int i = 0; i < numTimes-1 ; i++){
+            performAction(MindbodyViewActions.swipeFullRight());
+        }
+        return performAction(MindbodyViewActions.swipeFullRight());
+
+    }
+
+    public T swipeFullLeft(){ return performAction(MindbodyViewActions.swipeFullLeft()); }
+
+    public T swipeFullLeft(int numTimes){
+        for(int i = 0; i < numTimes-1 ; i++){
+            performAction(MindbodyViewActions.swipeFullLeft());
+        }
+        return performAction(MindbodyViewActions.swipeFullLeft());
 
     }
 

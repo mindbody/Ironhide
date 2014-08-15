@@ -9,11 +9,12 @@ import com.google.android.apps.common.testing.ui.espresso.action.Swipe;
 /**
  * Created by Barbara.Wong on 7/21/2014.
  */
-public class MindbodyViewActions{
+public class MindbodyViewActions {
 
-    public MindbodyViewActions(){
+    public MindbodyViewActions() {
 
     }
+
 
     public static ViewAction swipeDownFast() {
         return new GeneralSwipeAction(Swipe.FAST, GeneralLocation.TOP_CENTER, GeneralLocation.BOTTOM_CENTER, Press.FINGER);
@@ -29,5 +30,13 @@ public class MindbodyViewActions{
 
     public static ViewAction swipeUpSlow() {
         return new GeneralSwipeAction(Swipe.SLOW, GeneralLocation.BOTTOM_CENTER, GeneralLocation.TOP_CENTER, Press.FINGER);
+    }
+
+    public static ViewAction swipeFullRight() {
+        return new GeneralSwipeAction(Swipe.SLOW, GeneralLocation.CENTER_LEFT, GeneralLocation.CENTER_RIGHT, Press.FINGER);
+    }
+
+    public static ViewAction swipeFullLeft() {
+        return new GeneralSwipeAction(Swipe.SLOW, GeneralLocation.CENTER_RIGHT, GeneralLocation.CENTER_LEFT, Press.FINGER);
     }
 }

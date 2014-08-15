@@ -1,10 +1,13 @@
 package com.mindbodyonline.ironhide.Infrastructure.Extensions;
 
+
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+
 import com.google.android.apps.common.testing.ui.espresso.matcher.BoundedMatcher;
+
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 

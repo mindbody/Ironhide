@@ -4,6 +4,7 @@ package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
 import android.view.View;
 
 import com.google.android.apps.common.testing.ui.espresso.DataInteraction;
+import com.google.android.apps.common.testing.ui.espresso.contrib.DrawerActions;
 import com.google.android.apps.common.testing.ui.espresso.contrib.DrawerMatchers;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.MindbodyViewMatchers;
 import com.mindbodyonline.ironhide.PageObjects.PageObject;
@@ -142,6 +143,8 @@ abstract class MindbodyView<T> {
     /**
      * ViewActions
      */
+
+    //public T closeDrawer(int id) { return performAction(DrawerActions.closeDrawer(id)); }
 
     public T scrollTo() {
         return performAction(ViewActions.scrollTo());
