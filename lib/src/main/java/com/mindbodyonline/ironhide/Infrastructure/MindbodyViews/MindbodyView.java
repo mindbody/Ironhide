@@ -399,7 +399,7 @@ public class MindbodyView<T> {
         return returnGeneric();
     }
 
-    public T waitForElement(MindbodyView view){
+    public T waitForElement(){
 
         boolean done = false;
         int pauseTime = 1000;
@@ -407,7 +407,7 @@ public class MindbodyView<T> {
         while(!done) {
             pause(pauseTime);
 
-            if (!view.isDisplayedBoolean()) {
+            if (!this.isDisplayedBoolean()) {
                 pauseTime += 1000;
 
                 if(pauseTime > 15000)
@@ -418,5 +418,4 @@ public class MindbodyView<T> {
         }
         return returnGeneric();
     }
-
 }
