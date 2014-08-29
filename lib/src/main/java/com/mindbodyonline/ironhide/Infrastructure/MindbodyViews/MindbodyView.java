@@ -27,7 +27,7 @@ import static org.hamcrest.Matchers.not;
  *
  * @param <T> The model the current element will return when interacted with
  */
-abstract class MindbodyView<T> {
+public class MindbodyView<T> {
 
     protected int id;
     protected int stringId;
@@ -395,6 +395,26 @@ abstract class MindbodyView<T> {
             Thread.sleep(timeInMillis);
         } catch (InterruptedException e) {
             e.printStackTrace();
+        }
+        return returnGeneric();
+    }
+
+    public T waitForElement(MindbodyView view){
+
+        boolean done = false;
+        int pauseTime = 1000;
+
+        while(!done) {
+            pause(pauseTime);
+
+            if (!view.isDisplayedBoolean()) {
+                pauseTime += 1000;
+
+                if(pauseTime > 15000)
+                    done = true;
+
+            } else
+                done = true;
         }
         return returnGeneric();
     }
