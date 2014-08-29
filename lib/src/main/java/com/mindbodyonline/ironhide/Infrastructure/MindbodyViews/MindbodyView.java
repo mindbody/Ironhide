@@ -401,21 +401,13 @@ public class MindbodyView<T> {
 
     public T waitForElement(){
 
-        boolean done = false;
-        int pauseTime = 1000;
+        int pauseTime = 0;
 
-        while(!done) {
-            pause(pauseTime);
-
-            if (!this.isDisplayedBoolean()) {
-                pauseTime += 1000;
-
-                if(pauseTime > 15000)
-                    done = true;
-
-            } else
-                done = true;
+        while(pauseTime <= 15000 && !this.isDisplayedBoolean()) {
+            pause(1000);
+            pauseTime += 1000;
         }
+
         return returnGeneric();
     }
 }
