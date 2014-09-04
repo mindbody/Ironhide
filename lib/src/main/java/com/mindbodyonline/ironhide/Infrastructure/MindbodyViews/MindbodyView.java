@@ -104,9 +104,8 @@ public class MindbodyView<T> {
      * @return  The model returned by interacting with the element
      */
     protected T checkAssertion(ViewAssertion viewAssertion) {
-        if(adapter != null) {
+        if(adapter != null)
             adapter.check(viewAssertion);
-        }
         else
             onView(getSelector()).check(viewAssertion);
         return returnGeneric();
