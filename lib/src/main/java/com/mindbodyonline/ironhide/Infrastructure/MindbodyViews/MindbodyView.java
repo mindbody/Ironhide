@@ -90,11 +90,7 @@ public class MindbodyView<T> {
      * @return The model returned by interacting with the element
      */
     protected T checkMatches(Matcher<? super View> viewMatcher) {
-        if(adapter != null)
-            adapter.check(ViewAssertions.matches(viewMatcher));
-        else
-            onView(getSelector()).check(ViewAssertions.matches(viewMatcher));
-        return returnGeneric();
+        return checkAssertion(ViewAssertions.matches(viewMatcher));
     }
 
     /**
