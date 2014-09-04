@@ -4,6 +4,7 @@ package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
 import android.view.View;
 
 import com.google.android.apps.common.testing.ui.espresso.DataInteraction;
+import com.google.android.apps.common.testing.ui.espresso.ViewAssertion;
 import com.google.android.apps.common.testing.ui.espresso.contrib.DrawerActions;
 import com.google.android.apps.common.testing.ui.espresso.contrib.DrawerMatchers;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.MindbodyViewMatchers;
@@ -93,6 +94,21 @@ public class MindbodyView<T> {
             adapter.check(ViewAssertions.matches(viewMatcher));
         else
             onView(getSelector()).check(ViewAssertions.matches(viewMatcher));
+        return returnGeneric();
+    }
+
+    /**
+     * Checks if an element matches a certain value using an Espresso ViewAssertion
+     *
+     * @param viewAssertion The ViewAssertion used to check the element
+     * @return  The model returned by interacting with the element
+     */
+    protected T checkAssertion(ViewAssertion viewAssertion) {
+        if(adapter != null) {
+            adapter.check(viewAssertion);
+        }
+        else
+            onView(getSelector()).check(viewAssertion);
         return returnGeneric();
     }
 
