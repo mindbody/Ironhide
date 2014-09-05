@@ -389,6 +389,20 @@ public class MindbodyView<T> {
     /*============================================================================================*/
 
     /**
+     * ViewAssertions
+     */
+
+    public T doesNotExist() {
+        return checkAssertion(ViewAssertions.doesNotExist());
+    }
+
+    /**
+     * End View Assertions
+     */
+
+    /*============================================================================================*/
+
+    /**
      * Misc Helper Methods
      */
 
