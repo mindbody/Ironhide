@@ -1,6 +1,7 @@
 package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
 
 
+import android.util.Log;
 import android.view.View;
 
 import com.google.android.apps.common.testing.ui.espresso.DataInteraction;
@@ -16,6 +17,8 @@ import com.google.android.apps.common.testing.ui.espresso.action.EspressoKey;
 import com.google.android.apps.common.testing.ui.espresso.action.ViewActions;
 import com.google.android.apps.common.testing.ui.espresso.assertion.ViewAssertions;
 import com.google.android.apps.common.testing.ui.espresso.matcher.ViewMatchers;
+
+import junit.framework.AssertionFailedError;
 
 import static com.google.android.apps.common.testing.ui.espresso.Espresso.onView;
 import static com.google.android.apps.common.testing.ui.espresso.action.ViewActions.closeSoftKeyboard;
@@ -236,6 +239,11 @@ public class MindbodyView<T> {
             return true;
         }catch(Exception e){
             return false;
+        }catch(AssertionFailedError e){
+            if (e.getMessage().contains("Expected: is displayed on the screen to the user")) {
+                return false;
+            }
+            throw e;
         }
     }
 
@@ -384,6 +392,20 @@ public class MindbodyView<T> {
 
     /**
      * End ViewMatchers
+     */
+
+    /*============================================================================================*/
+
+    /**
+     * ViewAssertions
+     */
+
+    public T doesNotExist() {
+        return checkAssertion(ViewAssertions.doesNotExist());
+    }
+
+    /**
+     * End View Assertions
      */
 
     /*============================================================================================*/
