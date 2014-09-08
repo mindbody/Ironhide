@@ -1,6 +1,7 @@
 package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
 
 
+import android.app.Activity;
 import android.util.Log;
 import android.view.View;
 
@@ -17,6 +18,7 @@ import com.google.android.apps.common.testing.ui.espresso.action.EspressoKey;
 import com.google.android.apps.common.testing.ui.espresso.action.ViewActions;
 import com.google.android.apps.common.testing.ui.espresso.assertion.ViewAssertions;
 import com.google.android.apps.common.testing.ui.espresso.matcher.ViewMatchers;
+import com.squareup.spoon.Spoon;
 
 import junit.framework.AssertionFailedError;
 
@@ -207,6 +209,11 @@ public class MindbodyView<T> {
     public T closeKeyboard() {
         onView(getSelector()).perform(closeSoftKeyboard());
         return pause();
+    }
+
+    public <E extends PageObject> E screenShot(Activity activity, String tag, Class<E> type) {
+        Spoon.screenshot(activity, tag);
+        return returnGeneric(type);
     }
 
     /**
