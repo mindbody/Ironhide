@@ -443,4 +443,9 @@ public class MindbodyView<T> {
 
         return returnGeneric();
     }
+
+    public <E extends PageObject> E waitForElement(Class<E> type) {
+        waitForElement();
+        return returnGeneric(type);
+    }
 }
