@@ -443,4 +443,9 @@ public class MindbodyView<T> {
 
         return returnGeneric();
     }
+
+    public MindbodyView waitForElementThen() {
+        waitForElement();
+        return this;
+    }
 }
