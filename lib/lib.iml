@@ -84,6 +84,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="espresso-contrib-1.1-bundled" level="project" />
     <orderEntry type="library" exported="" name="support-v4-19.1.0" level="project" />
+    <orderEntry type="library" exported="" name="spoon-client-1.1.1" level="project" />
   </component>
 </module>
 
