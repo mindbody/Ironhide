@@ -114,7 +114,7 @@ public class Swipeable<T> extends MindbodyView<T> {
                 return element.click();
 
             }catch (Exception e) {
-                performAction(MindbodyViewActions.swipeUpSlow());
+                performAction(MindbodyViewActions.swipeUpSlowHalf());
                 pause(200);
             }
         }

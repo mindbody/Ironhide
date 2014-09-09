@@ -403,9 +403,11 @@ public class MindbodyView<T> {
 
         int pauseTime = 0;
 
-        while(pauseTime <= 15000 && !this.isDisplayedBoolean()) {
-            pause(1000);
-            pauseTime += 1000;
+        pause();
+
+        while(pauseTime < 10 && !this.isDisplayedBoolean()) {
+            pause();
+            pauseTime++;
         }
 
         return returnGeneric();

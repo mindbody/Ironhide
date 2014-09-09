@@ -15,7 +15,6 @@ public class MindbodyViewActions {
 
     }
 
-
     public static ViewAction swipeDownFast() {
         return new GeneralSwipeAction(Swipe.FAST, GeneralLocation.TOP_CENTER, GeneralLocation.BOTTOM_CENTER, Press.FINGER);
     }
@@ -38,5 +37,9 @@ public class MindbodyViewActions {
 
     public static ViewAction swipeFullLeft() {
         return new GeneralSwipeAction(Swipe.SLOW, GeneralLocation.CENTER_RIGHT, GeneralLocation.CENTER_LEFT, Press.FINGER);
+    }
+
+    public static ViewAction swipeUpSlowHalf(){
+        return new GeneralSwipeAction(Swipe.SLOW, GeneralLocation.BOTTOM_CENTER, GeneralLocation.CENTER, Press.FINGER);
     }
 }
