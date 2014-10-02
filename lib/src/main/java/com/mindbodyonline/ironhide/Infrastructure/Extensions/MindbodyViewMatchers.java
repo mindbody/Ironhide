@@ -1,10 +1,12 @@
 package com.mindbodyonline.ironhide.Infrastructure.Extensions;
 
 
+import android.content.res.Resources;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.android.apps.common.testing.ui.espresso.matcher.BoundedMatcher;
 
@@ -188,6 +190,48 @@ public class MindbodyViewMatchers {
             @Override
             public void describeTo(Description description) {
                 description.appendText("Has " + count + " children");
+            }
+        };
+    }
+
+    /**
+     * Checks to see if a TextView's text contains a certain string given the string's resource id.
+     * (Adapted from Espresso.ViewMatchers.withText)
+     * @param resourceId    The string's resource id
+     * @return              A Matcher to check using Espresso ViewAssertions.matches method
+     */
+    public static Matcher<View> containsString(final int resourceId) {
+
+        return new BoundedMatcher<View, TextView>(TextView.class) {
+            private String resourceName = null;
+            private String expectedText = null;
+
+            @Override
+            public void describeTo(Description description) {
+                description.appendText("contains string from resource id: ");
+                description.appendValue(resourceId);
+                if (null != resourceName) {
+                    description.appendText("[");
+                    description.appendText(resourceName);
+                    description.appendText("]");
+                }
+                if (null != expectedText) {
+                    description.appendText(" value: ");
+                    description.appendText(expectedText);
+                }
+            }
+
+            @Override
+            public boolean matchesSafely(TextView textView) {
+                if (null == expectedText) {
+                    try {
+                        expectedText = textView.getResources().getString(resourceId);
+                        resourceName = textView.getResources().getResourceEntryName(resourceId);
+                    } catch (Resources.NotFoundException ignored) {
+                        /* view could be from a context unaware of the resource id. */
+                    }
+                }
+                return (null != expectedText) && textView.getText().toString().contains(expectedText);
             }
         };
     }
