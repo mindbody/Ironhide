@@ -231,7 +231,7 @@ public class MindbodyViewMatchers {
                         /* view could be from a context unaware of the resource id. */
                     }
                 }
-                return null != expectedText && textView.getText().toString().contains(expectedText);
+                return (null != expectedText) && textView.getText().toString().contains(expectedText);
             }
         };
     }
