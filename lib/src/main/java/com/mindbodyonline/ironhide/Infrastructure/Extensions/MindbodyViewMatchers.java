@@ -238,7 +238,7 @@ public class MindbodyViewMatchers {
     }
 
     /**
-     * Checks to see if a Checkable is checked.
+     * Checks to see if a CompoundButton is checked.
      * @return  A Matcher to check using Espresso ViewAssertions.matchers method
      */
     public static Matcher<View> isChecked() {
