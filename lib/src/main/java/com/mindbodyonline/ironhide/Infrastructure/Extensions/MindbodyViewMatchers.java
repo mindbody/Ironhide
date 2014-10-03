@@ -4,6 +4,7 @@ package com.mindbodyonline.ironhide.Infrastructure.Extensions;
 import android.content.res.Resources;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -232,6 +233,25 @@ public class MindbodyViewMatchers {
                     }
                 }
                 return (null != expectedText) && textView.getText().toString().contains(expectedText);
+            }
+        };
+    }
+
+    /**
+     * Checks to see if a Checkable is checked.
+     * @return  A Matcher to check using Espresso ViewAssertions.matchers method
+     */
+    public static Matcher<View> isChecked() {
+
+        return new BoundedMatcher<View, CompoundButton>(CompoundButton.class) {
+            @Override
+            protected boolean matchesSafely(CompoundButton compoundButton) {
+                return compoundButton.isChecked();
+            }
+
+            @Override
+            public void describeTo(Description description) {
+                description.appendText("instance of CompoundButton and is checked");
             }
         };
     }
