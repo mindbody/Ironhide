@@ -51,6 +51,11 @@ public class MindbodyView<T> {
         return this;
     }
 
+    /**
+     * Example use:
+     *  public Clickable<MyActivity> button = new Clickable<MyActivity>(MyActivity.class, R.id.button)
+     *      .setRootMatcher(getNondefaultRootMatcher(getActivity());
+     */
     public static Matcher<Root> getNondefaultRootMatcher(Activity rootActivity) {
         return withDecorView(not(is(rootActivity.getWindow().getDecorView())));
     }
