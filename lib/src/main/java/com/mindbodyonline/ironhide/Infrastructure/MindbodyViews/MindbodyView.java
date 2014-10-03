@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.google.android.apps.common.testing.ui.espresso.DataInteraction;
+import com.google.android.apps.common.testing.ui.espresso.Root;
 import com.google.android.apps.common.testing.ui.espresso.ViewAssertion;
 import com.google.android.apps.common.testing.ui.espresso.contrib.DrawerActions;
 import com.google.android.apps.common.testing.ui.espresso.contrib.DrawerMatchers;
@@ -24,6 +25,8 @@ import junit.framework.AssertionFailedError;
 
 import static com.google.android.apps.common.testing.ui.espresso.Espresso.onView;
 import static com.google.android.apps.common.testing.ui.espresso.action.ViewActions.closeSoftKeyboard;
+import static com.google.android.apps.common.testing.ui.espresso.matcher.RootMatchers.withDecorView;
+import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 
 /**
@@ -41,6 +44,16 @@ public class MindbodyView<T> {
     protected Class<T> type;
     protected Matcher<View> selector;
     protected DataInteraction adapter;
+    protected Matcher<Root> rootMatcher;
+
+    public MindbodyView<T> setRootMatcher(Matcher<Root> rootMatcher) {
+        this.rootMatcher = rootMatcher;
+        return this;
+    }
+
+    public static Matcher<Root> getNondefaultRootMatcher(View decorView) {
+        return withDecorView(not(is(decorView)));
+    }
 
     /**
      * Gets the appropriate selector for the current view element
@@ -68,6 +81,8 @@ public class MindbodyView<T> {
     protected T performAction(ViewAction viewAction) {
         if(adapter != null)
             adapter.perform(viewAction);
+        else if (rootMatcher != null)
+            onView(getSelector()).inRoot(rootMatcher).perform(viewAction);
         else
             onView(getSelector()).perform(viewAction);
         return returnGeneric();
@@ -83,6 +98,8 @@ public class MindbodyView<T> {
     protected <E extends PageObject> E  performAction(Class<E> type, ViewAction viewAction) {
         if(adapter != null)
             adapter.perform(viewAction);
+        else if (rootMatcher != null)
+            onView(getSelector()).inRoot(rootMatcher).perform(viewAction);
         else
             onView(getSelector()).perform(viewAction);
         return returnGeneric(type);
@@ -107,6 +124,8 @@ public class MindbodyView<T> {
     protected T checkAssertion(ViewAssertion viewAssertion) {
         if(adapter != null)
             adapter.check(viewAssertion);
+        else if (rootMatcher != null)
+            onView(getSelector()).inRoot(rootMatcher).check(viewAssertion);
         else
             onView(getSelector()).check(viewAssertion);
         return returnGeneric();
@@ -122,6 +141,8 @@ public class MindbodyView<T> {
     protected <E extends PageObject> E checkMatches(Class<E> type, Matcher<? super View> viewMatcher) {
         if(adapter != null)
             adapter.check(ViewAssertions.matches(viewMatcher));
+        else if (rootMatcher != null)
+            onView(getSelector()).inRoot(rootMatcher).check(ViewAssertions.matches(viewMatcher));
         else
             onView(getSelector()).check(ViewAssertions.matches(viewMatcher));
         return returnGeneric(type);
