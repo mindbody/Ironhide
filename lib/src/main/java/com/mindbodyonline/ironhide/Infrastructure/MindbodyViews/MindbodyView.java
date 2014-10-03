@@ -51,8 +51,8 @@ public class MindbodyView<T> {
         return this;
     }
 
-    public static Matcher<Root> getNondefaultRootMatcher(View decorView) {
-        return withDecorView(not(is(decorView)));
+    public static Matcher<Root> getNondefaultRootMatcher(Activity rootActivity) {
+        return withDecorView(not(is(rootActivity.getWindow().getDecorView())));
     }
 
     /**
