@@ -46,18 +46,19 @@ public class MindbodyView<T> {
     protected DataInteraction adapter;
     protected Matcher<Root> rootMatcher;
 
-    public MindbodyView<T> setRootMatcher(Matcher<Root> rootMatcher) {
-        this.rootMatcher = rootMatcher;
-        return this;
-    }
-
     /**
+     * Changes the root in which to find the view.
+     *
      * Example use:
      *  public Clickable<MyActivity> button = new Clickable<MyActivity>(MyActivity.class, R.id.button)
      *      .setRootMatcher(getNondefaultRootMatcher(getActivity());
+     *
+     * @param rootActivity The default root activity (if using MindbodyActivityInstrumentTestCase, pass the result of getActivity())
+     * @return The model for the view in another root
      */
-    public static Matcher<Root> getNondefaultRootMatcher(Activity rootActivity) {
-        return withDecorView(not(is(rootActivity.getWindow().getDecorView())));
+    public MindbodyView<T> setRootMatcher(Activity rootActivity) {
+        this.rootMatcher = withDecorView(not(is(rootActivity.getWindow().getDecorView())));
+        return this;
     }
 
     /**
