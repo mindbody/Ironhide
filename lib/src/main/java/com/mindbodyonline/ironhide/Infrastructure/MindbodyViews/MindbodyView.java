@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.View;
 
 import com.google.android.apps.common.testing.ui.espresso.DataInteraction;
-import com.google.android.apps.common.testing.ui.espresso.Root;
 import com.google.android.apps.common.testing.ui.espresso.ViewAssertion;
 import com.google.android.apps.common.testing.ui.espresso.contrib.DrawerActions;
 import com.google.android.apps.common.testing.ui.espresso.contrib.DrawerMatchers;
@@ -25,8 +24,6 @@ import junit.framework.AssertionFailedError;
 
 import static com.google.android.apps.common.testing.ui.espresso.Espresso.onView;
 import static com.google.android.apps.common.testing.ui.espresso.action.ViewActions.closeSoftKeyboard;
-import static com.google.android.apps.common.testing.ui.espresso.matcher.RootMatchers.withDecorView;
-import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 
 /**
