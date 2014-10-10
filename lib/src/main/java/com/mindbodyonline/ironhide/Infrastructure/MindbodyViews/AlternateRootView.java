@@ -23,6 +23,27 @@ import static org.hamcrest.Matchers.not;
  * @param <T> The model the current element will return when interacted with
  */
 public class AlternateRootView<T> extends MindbodyView<T> {
+    
+    public AlternateRootView(Class<T> type, int resourceId) {
+        this.type = type;
+        id = resourceId;
+    }
+
+    public AlternateRootView(Class<T> type, Matcher<View> selector) {
+        this.type = type;
+        this.selector = selector;
+    }
+
+    public AlternateRootView(Class<T> type, int resourceId, int stringResourceId) {
+        this.type = type;
+        id = resourceId;
+        stringId = stringResourceId;
+    }
+
+    public AlternateRootView(Class<T> type, String displayText) {
+        this.type = type;
+        text = displayText;
+    }
 
     /** {@inheritDoc} */
     @Override
