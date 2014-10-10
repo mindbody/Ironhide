@@ -44,22 +44,6 @@ public class MindbodyView<T> {
     protected Class<T> type;
     protected Matcher<View> selector;
     protected DataInteraction adapter;
-    protected Matcher<Root> rootMatcher;
-
-    /**
-     * Changes the root in which to find the view.
-     *
-     * Example use:
-     *  public Clickable<MyActivity> button = new Clickable<MyActivity>(MyActivity.class, R.id.button)
-     *      .setRootMatcher(getNondefaultRootMatcher(getActivity());
-     *
-     * @param rootActivity The default root activity (if using MindbodyActivityInstrumentTestCase, pass the result of getActivity())
-     * @return The model for the view in another root
-     */
-    public MindbodyView<T> setRootMatcher(Activity rootActivity) {
-        this.rootMatcher = withDecorView(not(is(rootActivity.getWindow().getDecorView())));
-        return this;
-    }
 
     /**
      * Gets the appropriate selector for the current view element
@@ -87,8 +71,6 @@ public class MindbodyView<T> {
     protected T performAction(ViewAction viewAction) {
         if(adapter != null)
             adapter.perform(viewAction);
-        else if (rootMatcher != null)
-            onView(getSelector()).inRoot(rootMatcher).perform(viewAction);
         else
             onView(getSelector()).perform(viewAction);
         return returnGeneric();
@@ -104,8 +86,6 @@ public class MindbodyView<T> {
     protected <E extends PageObject> E  performAction(Class<E> type, ViewAction viewAction) {
         if(adapter != null)
             adapter.perform(viewAction);
-        else if (rootMatcher != null)
-            onView(getSelector()).inRoot(rootMatcher).perform(viewAction);
         else
             onView(getSelector()).perform(viewAction);
         return returnGeneric(type);
@@ -130,8 +110,6 @@ public class MindbodyView<T> {
     protected T checkAssertion(ViewAssertion viewAssertion) {
         if(adapter != null)
             adapter.check(viewAssertion);
-        else if (rootMatcher != null)
-            onView(getSelector()).inRoot(rootMatcher).check(viewAssertion);
         else
             onView(getSelector()).check(viewAssertion);
         return returnGeneric();
@@ -147,8 +125,6 @@ public class MindbodyView<T> {
     protected <E extends PageObject> E checkMatches(Class<E> type, Matcher<? super View> viewMatcher) {
         if(adapter != null)
             adapter.check(ViewAssertions.matches(viewMatcher));
-        else if (rootMatcher != null)
-            onView(getSelector()).inRoot(rootMatcher).check(ViewAssertions.matches(viewMatcher));
         else
             onView(getSelector()).check(ViewAssertions.matches(viewMatcher));
         return returnGeneric(type);
