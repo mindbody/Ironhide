@@ -66,7 +66,7 @@ public class MindbodyView<T> {
      * @return The model returned by interacting with the element
      */
     protected T performAction(ViewAction viewAction) {
-        if(adapter != null)
+        if (adapter != null)
             adapter.perform(viewAction);
         else
             onView(getSelector()).perform(viewAction);
@@ -76,12 +76,12 @@ public class MindbodyView<T> {
     /**
      * Performs an Espresso ViewAction on an element
      *
-     * @param type The type of the PageObject to return
+     * @param type       The type of the PageObject to return
      * @param viewAction The ViewAction to execute
      * @return The model returned by interacting with the element
      */
-    protected <E extends PageObject> E  performAction(Class<E> type, ViewAction viewAction) {
-        if(adapter != null)
+    protected <E extends PageObject> E performAction(Class<E> type, ViewAction viewAction) {
+        if (adapter != null)
             adapter.perform(viewAction);
         else
             onView(getSelector()).perform(viewAction);
@@ -102,10 +102,10 @@ public class MindbodyView<T> {
      * Checks if an element matches a certain value using an Espresso ViewAssertion
      *
      * @param viewAssertion The ViewAssertion used to check the element
-     * @return  The model returned by interacting with the element
+     * @return The model returned by interacting with the element
      */
     protected T checkAssertion(ViewAssertion viewAssertion) {
-        if(adapter != null)
+        if (adapter != null)
             adapter.check(viewAssertion);
         else
             onView(getSelector()).check(viewAssertion);
@@ -115,12 +115,12 @@ public class MindbodyView<T> {
     /**
      * Checks if an element matches a certain value using an Espresso ViewMatcher
      *
-     * @param type The type of the PageObject to return
+     * @param type        The type of the PageObject to return
      * @param viewMatcher The ViewMatcher used to check the element
      * @return The model returned by interacting with the element
      */
     protected <E extends PageObject> E checkMatches(Class<E> type, Matcher<? super View> viewMatcher) {
-        if(adapter != null)
+        if (adapter != null)
             adapter.check(ViewAssertions.matches(viewMatcher));
         else
             onView(getSelector()).check(ViewAssertions.matches(viewMatcher));
@@ -161,7 +161,6 @@ public class MindbodyView<T> {
      */
 
     //public T closeDrawer(int id) { return performAction(DrawerActions.closeDrawer(id)); }
-
     public T scrollTo() {
         return performAction(ViewActions.scrollTo());
     }
@@ -227,9 +226,13 @@ public class MindbodyView<T> {
      */
 
 
-    public T isOpen() { return checkMatches(DrawerMatchers.isOpen()); }
+    public T isOpen() {
+        return checkMatches(DrawerMatchers.isOpen());
+    }
 
-    public T isClosed() { return checkMatches(DrawerMatchers.isClosed()); }
+    public T isClosed() {
+        return checkMatches(DrawerMatchers.isClosed());
+    }
 
     public T isDisplayed() {
         return checkMatches(ViewMatchers.isDisplayed());
@@ -240,17 +243,17 @@ public class MindbodyView<T> {
     }
 
     public boolean isDisplayedBoolean() {
-
-        try{
+        try {
             checkMatches(ViewMatchers.isDisplayed());
             return true;
-        }catch(Exception e){
+        } catch (Exception e) {
             return false;
-        }catch(AssertionFailedError e){
-            if (e.getMessage().contains("Expected: is displayed on the screen to the user")) {
-                return false;
-            }
-            throw e;
+        } catch (AssertionFailedError e) {
+//            if (e.getMessage().contains("Expected: is displayed on the screen to the user")) {
+//                return false;
+//            }
+//            throw e;
+            return false;
         }
     }
 
@@ -270,7 +273,9 @@ public class MindbodyView<T> {
         return checkMatches(ViewMatchers.withText(string));
     }
 
-    public T withNotText(int stringId) { return checkMatches(not(ViewMatchers.withText(stringId))); }
+    public T withNotText(int stringId) {
+        return checkMatches(not(ViewMatchers.withText(stringId)));
+    }
 
     public T withNotText(String string) {
         return checkMatches(not(ViewMatchers.withText(string)));
@@ -439,13 +444,13 @@ public class MindbodyView<T> {
         return returnGeneric();
     }
 
-    public T waitForElement(){
+    public T waitForElement() {
 
         int pauseTime = 0;
 
         pause();
 
-        while(pauseTime < 10 && !this.isDisplayedBoolean()) {
+        while (pauseTime < 10 && !this.isDisplayedBoolean()) {
             pause();
             pauseTime++;
         }
