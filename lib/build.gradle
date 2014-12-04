@@ -23,56 +23,10 @@ android {
     }
 }
 
-
 task coreLibJar(type: Jar) {
     baseName "Ironhide"
     from fileTree(dir: 'build/intermediates/classes/debug')
-}
-
-artifacts {
-    archives coreLibJar
-}
-
-signing {
-    sign configurations.archives
-}
-
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-
-            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
-                authentication(userName: ossrhUsername, password: ossrhPassword)
-            }
-
-            pom.project {
-                name 'Ironhide'
-                packaging 'jar'
-                description 'Testing fixture for MB Android applications'
-
-                scm {
-                    connection 'scm:svn:http://foo.googlecode.com/svn/trunk/'
-                    developerConnection 'scm:svn:https://foo.googlecode.com/svn/trunk/'
-                    url 'http://foo.googlecode.com/svn/trunk/'
-                }
-
-                licenses {
-                    license {
-                        name 'The Apache Software License, Version 2.0'
-                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    }
-                }
-                developers {
-                    developer {
-                        id 'eliot.mestre'
-                        name 'Eliot Mestre'
-
-                    }
-                }
-            }
-        }
-    }
+    exclude '**/BuildConfig.class/**'
 }
 
 dependencies {
