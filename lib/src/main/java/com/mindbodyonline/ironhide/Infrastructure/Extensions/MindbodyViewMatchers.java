@@ -1,7 +1,7 @@
 package com.mindbodyonline.ironhide.Infrastructure.Extensions;
 
-
 import android.content.res.Resources;
+import android.support.test.espresso.matcher.BoundedMatcher;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
@@ -9,12 +9,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.android.apps.common.testing.ui.espresso.matcher.BoundedMatcher;
-
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 
-import static com.google.android.apps.common.testing.testrunner.util.Checks.checkNotNull;
+import static android.support.test.internal.util.Checks.checkNotNull;
 import static org.hamcrest.Matchers.not;
 
 /**

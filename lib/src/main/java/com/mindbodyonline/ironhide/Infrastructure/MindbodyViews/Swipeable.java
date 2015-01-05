@@ -3,18 +3,11 @@ package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
 import android.app.Instrumentation;
 import android.graphics.Point;
 import android.os.SystemClock;
+import android.support.test.espresso.action.ViewActions;
+import android.support.test.espresso.matcher.ViewMatchers;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.CalendarView;
 
-import com.google.android.apps.common.testing.ui.espresso.ViewAction;
-import com.google.android.apps.common.testing.ui.espresso.action.GeneralLocation;
-import com.google.android.apps.common.testing.ui.espresso.action.GeneralSwipeAction;
-import com.google.android.apps.common.testing.ui.espresso.action.Press;
-import com.google.android.apps.common.testing.ui.espresso.action.Swipe;
-import com.google.android.apps.common.testing.ui.espresso.action.ViewActions;
-import com.google.android.apps.common.testing.ui.espresso.contrib.DrawerActions;
-import com.google.android.apps.common.testing.ui.espresso.matcher.ViewMatchers;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.MindbodyViewActions;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.MindbodyViewMatchers;
 

@@ -1,18 +1,11 @@
 package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
 
-import android.widget.EditText;
+import android.support.test.espresso.action.ViewActions;
+import android.support.test.espresso.matcher.ViewMatchers;
 
-import com.google.android.apps.common.testing.ui.espresso.matcher.BoundedMatcher;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.EnterTextAction;
-import com.google.android.apps.common.testing.ui.espresso.action.ViewActions;
-import com.google.android.apps.common.testing.ui.espresso.matcher.ViewMatchers;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.MindbodyViewMatchers;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.SetCursorAction;
-
-import org.hamcrest.Description;
-import org.hamcrest.Matcher;
-
-import static com.google.android.apps.common.testing.testrunner.util.Checks.checkNotNull;
 
 /**
  * Extends MindbodyView

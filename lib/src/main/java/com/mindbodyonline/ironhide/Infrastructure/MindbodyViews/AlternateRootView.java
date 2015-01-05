@@ -1,16 +1,16 @@
 package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
 
+import android.support.test.espresso.ViewAction;
+import android.support.test.espresso.ViewAssertion;
+import android.support.test.espresso.assertion.ViewAssertions;
 import android.view.View;
 
-import com.google.android.apps.common.testing.ui.espresso.ViewAction;
-import com.google.android.apps.common.testing.ui.espresso.ViewAssertion;
-import com.google.android.apps.common.testing.ui.espresso.assertion.ViewAssertions;
 import com.mindbodyonline.ironhide.PageObjects.PageObject;
 
 import org.hamcrest.Matcher;
 
-import static com.google.android.apps.common.testing.ui.espresso.Espresso.onView;
-import static com.google.android.apps.common.testing.ui.espresso.matcher.RootMatchers.DEFAULT;
+import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.matcher.RootMatchers.DEFAULT;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 

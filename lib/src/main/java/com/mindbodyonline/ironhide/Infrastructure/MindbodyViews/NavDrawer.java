@@ -1,17 +1,15 @@
 package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
 
+import android.support.test.espresso.UiController;
+import android.support.test.espresso.ViewAction;
+import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.View;
 
-import com.google.android.apps.common.testing.ui.espresso.UiController;
-import com.google.android.apps.common.testing.ui.espresso.ViewAction;
-import com.google.android.apps.common.testing.ui.espresso.contrib.DrawerActions;
-import com.google.android.apps.common.testing.ui.espresso.matcher.ViewMatchers;
-
 import org.hamcrest.Matcher;
 
-import static com.google.android.apps.common.testing.ui.espresso.Espresso.onView;
+import static android.support.test.espresso.Espresso.onView;
 
 /**
  * Created by Barbara.Wong on 8/14/2014.

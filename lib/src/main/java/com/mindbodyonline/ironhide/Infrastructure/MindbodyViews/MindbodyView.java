@@ -2,28 +2,25 @@ package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
 
 
 import android.app.Activity;
-import android.util.Log;
+import android.support.test.espresso.DataInteraction;
+import android.support.test.espresso.ViewAction;
+import android.support.test.espresso.ViewAssertion;
+import android.support.test.espresso.action.EspressoKey;
+import android.support.test.espresso.action.ViewActions;
+import android.support.test.espresso.assertion.ViewAssertions;
+import android.support.test.espresso.contrib.DrawerMatchers;
+import android.support.test.espresso.matcher.ViewMatchers;
 import android.view.View;
 
-import com.google.android.apps.common.testing.ui.espresso.DataInteraction;
-import com.google.android.apps.common.testing.ui.espresso.ViewAssertion;
-import com.google.android.apps.common.testing.ui.espresso.contrib.DrawerActions;
-import com.google.android.apps.common.testing.ui.espresso.contrib.DrawerMatchers;
-import com.mindbodyonline.ironhide.Infrastructure.Extensions.MindbodyViewMatchers;
 import com.mindbodyonline.ironhide.PageObjects.PageObject;
-import org.hamcrest.Matcher;
-
-import com.google.android.apps.common.testing.ui.espresso.ViewAction;
-import com.google.android.apps.common.testing.ui.espresso.action.EspressoKey;
-import com.google.android.apps.common.testing.ui.espresso.action.ViewActions;
-import com.google.android.apps.common.testing.ui.espresso.assertion.ViewAssertions;
-import com.google.android.apps.common.testing.ui.espresso.matcher.ViewMatchers;
 import com.squareup.spoon.Spoon;
 
 import junit.framework.AssertionFailedError;
 
-import static com.google.android.apps.common.testing.ui.espresso.Espresso.onView;
-import static com.google.android.apps.common.testing.ui.espresso.action.ViewActions.closeSoftKeyboard;
+import org.hamcrest.Matcher;
+
+import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static org.hamcrest.Matchers.not;
 
 /**

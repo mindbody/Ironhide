@@ -1,14 +1,13 @@
 package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
 
-import com.mindbodyonline.ironhide.Infrastructure.Extensions.PickDateAction;
+import android.support.test.espresso.ViewAction;
 import android.view.View;
 
-import com.google.android.apps.common.testing.ui.espresso.ViewAction;
+import com.mindbodyonline.ironhide.Infrastructure.Extensions.PickDateAction;
+
 import org.hamcrest.Matcher;
 
 import java.util.Date;
-
-import static com.google.android.apps.common.testing.ui.espresso.matcher.ViewMatchers.withId;
 
 /**
  * Extends MindbodyView

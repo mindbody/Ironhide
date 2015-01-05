@@ -1,16 +1,16 @@
 package com.mindbodyonline.ironhide.Infrastructure.Extensions;
 
+import android.support.test.espresso.UiController;
+import android.support.test.espresso.ViewAction;
 import android.view.View;
 import android.widget.DatePicker;
 
-import com.google.android.apps.common.testing.ui.espresso.UiController;
-import com.google.android.apps.common.testing.ui.espresso.ViewAction;
 import org.hamcrest.Matcher;
 
 import java.util.Date;
 
-import static com.google.android.apps.common.testing.testrunner.util.Checks.checkNotNull;
-import static com.google.android.apps.common.testing.ui.espresso.matcher.ViewMatchers.isDisplayed;
+import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static android.support.test.internal.util.Checks.checkNotNull;
 import static org.hamcrest.core.AllOf.allOf;
 
 /**
