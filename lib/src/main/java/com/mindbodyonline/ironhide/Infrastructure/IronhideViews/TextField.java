@@ -76,12 +76,13 @@ public class TextField<T> extends BaseView<T> {
         }
         return true;
     }
+
     public T withHintText(int stringId) {
-        return checkMatches(BaseViewMatchers.withHintText(stringId));
+        return checkMatches(ViewMatchers.withHint(stringId));
     }
 
     public T withHintText(String string) {
-        return checkMatches(BaseViewMatchers.withHintText(string));
+        return checkMatches(ViewMatchers.withHint(string));
     }
 
     public T openLink(Matcher<String> linkTextMatcher, Matcher<Uri> uriMatcher) {

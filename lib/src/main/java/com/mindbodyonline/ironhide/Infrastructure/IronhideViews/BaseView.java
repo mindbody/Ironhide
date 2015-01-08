@@ -97,6 +97,16 @@ public class BaseView<T> {
     }
 
     /**
+     * Need to find a way to support Root Views if we want total completeness
+     */
+//    protected T checkRootMatches(Matcher<android.support.test.espresso.Root> viewMatcher) {
+//        return checkAssertion(ViewAssertions.matches(viewMatcher));
+//    }
+
+
+
+
+    /**
      * Checks if an element matches a certain value using an Espresso ViewAssertion
      *
      * @param viewAssertion The ViewAssertion used to check the element
@@ -158,103 +168,203 @@ public class BaseView<T> {
      * ViewActions
      */
 
+    /**
+     * Close the Navigation Drawer.
+     * @param drawerLayoutId
+     * @return The model returned by interacting with the Element.
+     */
     public T closeDrawer(int drawerLayoutId) {
         DrawerActions.closeDrawer(drawerLayoutId);
 
         return returnGeneric();
     }
 
+    /**
+     * Open the Navigation drawer.
+     * @param drawerLayoutId
+     * @return The model returned by interacting with the Element.
+     */
     public T openDrawer(int drawerLayoutId) {
         DrawerActions.openDrawer(drawerLayoutId);
 
         return returnGeneric();
     }
 
+    /**
+     * Scroll to the element.
+     * @return The model returned by interacting with the element.
+     */
     public T scrollTo() {
         return performAction(ViewActions.scrollTo());
     }
 
+    /**
+     * Scroll to the element, but return the specified model (Given by the "type" argument).
+     * @param type The type of the page object to return to.
+     * @return     The model returned by interacting with the element.
+     */
     public <E extends PageObject> E scrollTo(Class<E> type) {
         return performAction(type, ViewActions.click());
     }
 
+    /**
+     * Click on the element.
+     * @return The model returned by interacting with the element.
+     */
     public T click() {
         return performAction(ViewActions.click());
     }
 
+    /**
+     * Click on the element, but return to the specified model (Given by the "type" argument).
+     * @param type The type of the page object to return to
+     * @return     The model returned by interacting with the element.
+     */
     public <E extends PageObject> E click(Class<E> type) {
         return performAction(type, ViewActions.click());
     }
 
+    /**
+     * Press the back button.
+     * @return     The model returned by interacting with the element.
+     */
     public T pressBack() {
         return performAction(ViewActions.pressBack());
     }
 
+    /**
+     * Press the back button, but return to the specified model (Given by the "type" argument).
+     * @param type The type of the page object to return to
+     * @return     The model returned by interacting with the element.
+     */
     public <E extends PageObject> E pressBack(Class<E> type) {
         return performAction(type, ViewActions.pressBack());
     }
 
+    /**
+     * Press the Ime action button.
+     * @return     The model returned by interacting with the element.
+     */
     public T pressImeActionButton() {
         return performAction(ViewActions.pressImeActionButton());
     }
 
+    /**
+     * Press the Ime action button, but return to the specified model (Given by the "type" argument).
+     * @param type The type of the page object to return to
+     * @return     The model returned by interacting with the element.
+     */
     public <E extends PageObject> E pressImeActionButton(Class<E> type) {
         return performAction(type, ViewActions.pressImeActionButton());
     }
 
+    /**
+     * Press the menu button.
+     * @return     The model returned by interacting with the element.
+     */
     public T pressMenuKey() {
         return performAction(ViewActions.pressMenuKey());
     }
 
+    /**
+     * Press the menu button, but return to the specified model (Given by the "type" argument).
+     * @param type The type of the page object to return to.
+     * @return     The model returned by interacting with the element.
+     */
     public <E extends PageObject> E pressMenuKey(Class<E> type) {
         return performAction(type, ViewActions.pressMenuKey());
     }
 
+    /**
+     * Press the specified key.
+     * @param keyCode The integer value of the key to be pressed.
+     * @return     The model returned by interacting with the element.
+     */
     public T pressKey(int keyCode) {
         return performAction(ViewActions.pressKey(keyCode));
     }
 
+    /**
+     * Press the specified key.
+     * @param type The type of page object to return to.
+     * @param keyCode The integer value of the key to be pressed.
+     * @return     The model returned by interacting with the element.
+     */
     public <E extends PageObject> E pressKey(Class<E> type, int keyCode) {
         return performAction(type, ViewActions.pressKey(keyCode));
     }
 
+    /**
+     * Press the specified key.
+     * @param key The EspressoKey object representation of the key to be pressed.
+     * @return The model returned by interacting with the element.
+     */
     public T pressKey(EspressoKey key) {
         return performAction(ViewActions.pressKey(key));
     }
 
+    /**
+     * Press the specified key, but return to the specified model (Given by the "type" argument).
+     * @param keyCode The EspressoKey object representation of the key to be pressed.
+     * @param type The type of the page object to return to.
+     * @return     The model returned by interacting with the element.
+     */
     public <E extends PageObject> E pressKey(Class<E> type, EspressoKey keyCode) {
         return performAction(type, ViewActions.pressKey(keyCode));
     }
 
+    /**
+     * Double click on the element.
+     * @return     The model returned by interacting with the element.
+     */
     public T doubleClick() {
         return performAction(ViewActions.doubleClick());
     }
 
+    /**
+     * Double click on the element, but return to the specified model (Given by the "type" argument).
+     * @param type The type of the page object to return to.
+     * @return     The model returned by interacting with the element.
+     */
     public <E extends PageObject> E doubleClick(Class<E> type) {
         return performAction(type, ViewActions.doubleClick());
     }
 
+    /**
+     * Long click on the element.
+     * @return     The model returned by interacting with the element.
+     */
     public T longClick() {
         return performAction(ViewActions.longClick());
     }
 
+    /**
+     * Long click on the element, but return to the specified model (Given by the "type" argument).
+     * @param type The type of the page object to return to.
+     * @return     The model returned by interacting with the element.
+     */
     public <E extends PageObject> E longClick(Class<E> type) {
         return performAction(type, ViewActions.longClick());
     }
 
+    /**
+     * Close the on-screen keyboard.
+     * @return     The model returned by interacting with the element.
+     */
     public T closeKeyboard() {
         onView(getSelector()).perform(closeSoftKeyboard());
         return pause();
     }
 
+    /**
+     * Close the on-screen keyboard, but return to the specified model (Given by the "type" argument).
+     * @param type The type of the page object to return to.
+     * @return     The model returned by interacting with the element.
+     */
     public <E extends PageObject> E closeKeyboard(Class<E> type) {
         return performAction(type, ViewActions.closeSoftKeyboard());
     }
 
-    public <E extends PageObject> E screenShot(Activity activity, String tag, Class<E> type) {
-        Spoon.screenshot(activity, tag);
-        return returnGeneric(type);
-    }
 
     /**
      * End ViewActions
@@ -445,6 +555,13 @@ public class BaseView<T> {
     public T hasImeAction(Matcher<Integer> imeActionMatcher) {
         return checkMatches(ViewMatchers.hasImeAction(imeActionMatcher));
     }
+
+    /**
+     * Unable to use RootMatchers as of yet.
+     */
+//    public T isDialog(){
+//        return checkMatches(RootMatchers.isDialog());
+//    }
 
     /**
      * End ViewMatchers
