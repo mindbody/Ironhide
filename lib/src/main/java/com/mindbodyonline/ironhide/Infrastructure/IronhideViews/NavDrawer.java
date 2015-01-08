@@ -46,6 +46,10 @@ public class NavDrawer<T> extends BaseView<T>{
         return returnGeneric();
     }
 
+    /**
+     *
+     * @return
+     */
     public T closeDrawer() {
 
         onView(ViewMatchers.withId(this.id)).perform(actionCloseDrawer());

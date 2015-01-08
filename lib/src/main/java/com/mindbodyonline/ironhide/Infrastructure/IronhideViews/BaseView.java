@@ -18,8 +18,6 @@ import android.view.View;
 import com.mindbodyonline.ironhide.PageObjects.PageObject;
 import com.squareup.spoon.Spoon;
 
-import junit.framework.AssertionFailedError;
-
 import org.hamcrest.Matcher;
 
 import static android.support.test.espresso.Espresso.onView;
@@ -192,33 +190,65 @@ public class BaseView<T> {
         return performAction(ViewActions.pressBack());
     }
 
+    public <E extends PageObject> E pressBack(Class<E> type) {
+        return performAction(type, ViewActions.pressBack());
+    }
+
     public T pressImeActionButton() {
         return performAction(ViewActions.pressImeActionButton());
+    }
+
+    public <E extends PageObject> E pressImeActionButton(Class<E> type) {
+        return performAction(type, ViewActions.pressImeActionButton());
     }
 
     public T pressMenuKey() {
         return performAction(ViewActions.pressMenuKey());
     }
 
+    public <E extends PageObject> E pressMenuKey(Class<E> type) {
+        return performAction(type, ViewActions.pressMenuKey());
+    }
+
     public T pressKey(int keyCode) {
         return performAction(ViewActions.pressKey(keyCode));
+    }
+
+    public <E extends PageObject> E pressKey(Class<E> type, int keyCode) {
+        return performAction(type, ViewActions.pressKey(keyCode));
     }
 
     public T pressKey(EspressoKey key) {
         return performAction(ViewActions.pressKey(key));
     }
 
+    public <E extends PageObject> E pressKey(Class<E> type, EspressoKey keyCode) {
+        return performAction(type, ViewActions.pressKey(keyCode));
+    }
+
     public T doubleClick() {
         return performAction(ViewActions.doubleClick());
+    }
+
+    public <E extends PageObject> E doubleClick(Class<E> type) {
+        return performAction(type, ViewActions.doubleClick());
     }
 
     public T longClick() {
         return performAction(ViewActions.longClick());
     }
 
+    public <E extends PageObject> E longClick(Class<E> type) {
+        return performAction(type, ViewActions.longClick());
+    }
+
     public T closeKeyboard() {
         onView(getSelector()).perform(closeSoftKeyboard());
         return pause();
+    }
+
+    public <E extends PageObject> E closeKeyboard(Class<E> type) {
+        return performAction(type, ViewActions.closeSoftKeyboard());
     }
 
     public <E extends PageObject> E screenShot(Activity activity, String tag, Class<E> type) {
@@ -253,20 +283,24 @@ public class BaseView<T> {
         return checkMatches(type, ViewMatchers.isDisplayed());
     }
 
-    public boolean isDisplayedBoolean() {
-        try {
-            checkMatches(ViewMatchers.isDisplayed());
-            return true;
-        } catch (Exception e) {
-            return false;
-        } catch (AssertionFailedError e) {
-//            if (e.getMessage().contains("Expected: is displayed on the screen to the user")) {
-//                return false;
-//            }
-//            throw e;
-            return false;
-        }
-    }
+    /**
+     * If this can't be refactored into something cleaner will be removed for Open Source release.
+     * @return
+     */
+//    public boolean isDisplayedBoolean() {
+//        try {
+//            checkMatches(ViewMatchers.isDisplayed());
+//            return true;
+//        } catch (Exception e) {
+//            return false;
+//        } catch (AssertionFailedError e) {
+////            if (e.getMessage().contains("Expected: is displayed on the screen to the user")) {
+////                return false;
+////            }
+////            throw e;
+//            return false;
+//        }
+//    }
 
     public T isNotDisplayed() {
         return checkMatches(not(ViewMatchers.isDisplayed()));
@@ -498,22 +532,25 @@ public class BaseView<T> {
         return returnGeneric();
     }
 
-    public T waitForElement() {
-
-        int pauseTime = 0;
-
-        pause();
-
-        while (pauseTime < 10 && !this.isDisplayedBoolean()) {
-            pause();
-            pauseTime++;
-        }
-
-        return returnGeneric();
-    }
-
-    public <E extends PageObject> E waitForElement(Class<E> type) {
-        waitForElement();
-        return returnGeneric(type);
-    }
+    /**
+     * Potential removal for Open Source if can't find an implementation that depends on isDisplayedBoolean.
+     */
+//    public T waitForElement() {
+//
+//        int pauseTime = 0;
+//
+//        pause();
+//
+//        while (pauseTime < 10 && !this.isDisplayedBoolean()) {
+//            pause();
+//            pauseTime++;
+//        }
+//
+//        return returnGeneric();
+//    }
+//
+//    public <E extends PageObject> E waitForElement(Class<E> type) {
+//        waitForElement();
+//        return returnGeneric(type);
+//    }
 }
