@@ -1,6 +1,7 @@
 package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
 
 import android.support.test.espresso.ViewAction;
+import android.support.test.espresso.contrib.PickerActions;
 import android.view.View;
 
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.PickDateAction;
@@ -42,10 +43,22 @@ public class DatePicker<T> extends MindbodyView<T> {
         text = displayText;
     }
 
+    public T setDate(int year, int monthOfYear, int dayOfMonth) {
+        return performAction(PickerActions.setDate(year, monthOfYear, dayOfMonth));
+    }
+
+    public T setTime(int hours, int minutes) {
+        return performAction(PickerActions.setTime(hours, minutes));
+    }
+
+    @Deprecated
+    // Espresso 2.0 provides contrib.PickerActions
     public T updateDate(Date date) {
         return performAction(setDate(date));
     }
 
+    @Deprecated
+    // Espresso 2.0 provides contrib.PickerActions
     private ViewAction setDate(Date date) {
         return new PickDateAction(date);
     }

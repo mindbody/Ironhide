@@ -2,6 +2,7 @@ package com.mindbodyonline.ironhide.Infrastructure.Extensions;
 
 import android.content.res.Resources;
 import android.support.test.espresso.matcher.BoundedMatcher;
+import android.support.test.espresso.matcher.ViewMatchers;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
@@ -49,10 +50,12 @@ public class MindbodyViewMatchers {
 
     /**
      * Checks an EditText to see if the hint text correspondes to the text pointed to by a String resource
+     * Deprecated: Espresso 2.0 provides ViewMatchers.withHint(int resourceId), use that instead
      *
      * @param stringId The String Resource ID to compare to the EditText's hint text
      * @return A Matcher to check using Espresso ViewAssertions.matches method
      */
+    @Deprecated
     public static Matcher<Object> withHintText(int stringId) {
         checkNotNull(stringId);
         return withHint(stringId);
@@ -75,6 +78,9 @@ public class MindbodyViewMatchers {
         };
     }
 
+    @Deprecated
+    // Deprecated: Espresso 2.0 provides ViewMatchers.withHint(String hintText)
+    //  along with ViewMatchers.withHint(Matcher<String> stringMatcher), use those instead
     public static Matcher<Object> withHintText(String string) {
         checkNotNull(string);
         return withHint(string);
@@ -98,9 +104,11 @@ public class MindbodyViewMatchers {
 
     /**
      * Checks to see if a View is selected on the screen
+     * Deprecated: Espresso 2.0 provides ViewMatchers.isSelected(), use that instead
      *
      * @return A Matcher to check using Espresso ViewAssertions.matches method
      */
+    @Deprecated
     public static Matcher<Object> isSelected() {
         return checkSelected();
     }
@@ -149,6 +157,9 @@ public class MindbodyViewMatchers {
 
     /**
      * Checks to see if a View is of a certain type
+     * NOTE: Espresso 2.0 provides ViewMatchers.isAssignableFrom(Class<? extends View> clazz),
+     *  which may or may not be a substitute for this method.
+     *
      * @param type The Class Type to compare the type of the View to
      * @return A Matcher to check using Espresso ViewAssertions.matches method
      */
@@ -237,20 +248,12 @@ public class MindbodyViewMatchers {
 
     /**
      * Checks to see if a CompoundButton is checked.
+     * Deprecated: Espresso 2.0 provides ViewMatchers.isChecked(), use that instead.
+     *
      * @return  A Matcher to check using Espresso ViewAssertions.matchers method
      */
+    @Deprecated
     public static Matcher<View> isChecked() {
-
-        return new BoundedMatcher<View, CompoundButton>(CompoundButton.class) {
-            @Override
-            protected boolean matchesSafely(CompoundButton compoundButton) {
-                return compoundButton.isChecked();
-            }
-
-            @Override
-            public void describeTo(Description description) {
-                description.appendText("instance of CompoundButton and is checked");
-            }
-        };
+        return ViewMatchers.isChecked();
     }
 }

@@ -1,11 +1,16 @@
 package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
 
+import android.net.Uri;
 import android.support.test.espresso.action.ViewActions;
 import android.support.test.espresso.matcher.ViewMatchers;
 
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.EnterTextAction;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.MindbodyViewMatchers;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.SetCursorAction;
+
+import org.hamcrest.Matcher;
+
+import static org.hamcrest.Matchers.anything;
 
 /**
  * Extends MindbodyView
@@ -77,5 +82,17 @@ public class TextField<T> extends MindbodyView<T> {
 
     public T withHintText(String string) {
         return checkMatches(MindbodyViewMatchers.withHintText(string));
+    }
+
+    public T openLink(Matcher<String> linkTextMatcher, Matcher<Uri> uriMatcher) {
+        return performAction(ViewActions.openLink(linkTextMatcher, uriMatcher));
+    }
+
+    public T openLinkWithText(Matcher<String> linkTextMatcher) {
+        return performAction(ViewActions.openLinkWithText(linkTextMatcher));
+    }
+
+    public T openLinkWithUri(Matcher<Uri> uriMatcher) {
+        return performAction(ViewActions.openLinkWithUri(uriMatcher));
     }
 }

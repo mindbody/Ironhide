@@ -7,8 +7,11 @@ import android.support.test.espresso.ViewAction;
 import android.support.test.espresso.ViewAssertion;
 import android.support.test.espresso.action.EspressoKey;
 import android.support.test.espresso.action.ViewActions;
+import android.support.test.espresso.assertion.PositionAssertions;
 import android.support.test.espresso.assertion.ViewAssertions;
+import android.support.test.espresso.contrib.DrawerActions;
 import android.support.test.espresso.contrib.DrawerMatchers;
+import android.support.test.espresso.matcher.RootMatchers;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.view.View;
 
@@ -157,7 +160,18 @@ public class MindbodyView<T> {
      * ViewActions
      */
 
-    //public T closeDrawer(int id) { return performAction(DrawerActions.closeDrawer(id)); }
+    public T closeDrawer(int drawerLayoutId) {
+        DrawerActions.closeDrawer(drawerLayoutId);
+
+        return returnGeneric();
+    }
+
+    public T openDrawer(int drawerLayoutId) {
+        DrawerActions.openDrawer(drawerLayoutId);
+
+        return returnGeneric();
+    }
+
     public T scrollTo() {
         return performAction(ViewActions.scrollTo());
     }
@@ -398,7 +412,6 @@ public class MindbodyView<T> {
         return checkMatches(ViewMatchers.hasImeAction(imeActionMatcher));
     }
 
-
     /**
      * End ViewMatchers
      */
@@ -413,9 +426,53 @@ public class MindbodyView<T> {
         return checkAssertion(ViewAssertions.doesNotExist());
     }
 
+    public T matches(Matcher<View> viewMatcher) {
+        return checkAssertion(ViewAssertions.matches(viewMatcher));
+    }
+
+    public T selectedDescendantsMatch(Matcher<View> selector, Matcher<View> matcher) {
+        return checkAssertion(ViewAssertions.selectedDescendantsMatch(selector, matcher));
+    }
+
     /**
      * End View Assertions
      */
+
+    /**
+     * Position-based Assertions
+     */
+
+    public T isAbove(Matcher<View> matcher) {
+        return checkAssertion(PositionAssertions.isAbove(matcher));
+    }
+
+    public T isBelow(Matcher<View> matcher) {
+        return checkAssertion(PositionAssertions.isBelow(matcher));
+    }
+
+    public T isBottomAlignedWith(Matcher<View> matcher) {
+        return checkAssertion(PositionAssertions.isBottomAlignedWith(matcher));
+    }
+
+    public T isLeftAlignedWith(Matcher<View> matcher) {
+        return checkAssertion(PositionAssertions.isLeftAlignedWith(matcher));
+    }
+
+    public T isLeftOf(Matcher<View> matcher) {
+        return checkAssertion(PositionAssertions.isLeftOf(matcher));
+    }
+
+    public T isRightAlignedWith(Matcher<View> matcher) {
+        return checkAssertion(PositionAssertions.isRightAlignedWith(matcher));
+    }
+
+    public T isRightOf(Matcher<View> matcher) {
+        return checkAssertion(PositionAssertions.isRightOf(matcher));
+    }
+
+    public T isTopAlignedWith(Matcher<View> matcher) {
+        return checkAssertion(PositionAssertions.isTopAlignedWith(matcher));
+    }
 
     /*============================================================================================*/
 

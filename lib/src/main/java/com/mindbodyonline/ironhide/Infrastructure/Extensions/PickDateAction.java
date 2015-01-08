@@ -17,6 +17,8 @@ import static org.hamcrest.core.AllOf.allOf;
  * Custom ViewAction which allows to interact with a DatePicker View and change its Date
  * May be supported by Espresso in the future
  */
+@Deprecated
+// Espresso 2.0 provides contrib.PickerActions
 public final class PickDateAction implements ViewAction {
 
     private final Date date;
