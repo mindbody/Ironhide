@@ -1,4 +1,4 @@
-package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
+package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
 import android.view.View;
 

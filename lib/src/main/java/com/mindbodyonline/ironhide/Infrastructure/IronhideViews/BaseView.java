@@ -1,4 +1,4 @@
-package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
+package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
 
 import android.app.Activity;
@@ -33,7 +33,7 @@ import static org.hamcrest.Matchers.not;
  *
  * @param <T> The model the current element will return when interacted with
  */
-public class MindbodyView<T> {
+public class BaseView<T> {
 
     protected int id;
     protected int stringId;

@@ -2,13 +2,47 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c5b5478-5db5-4473-b230-ff8fdf1e2377" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/LayoutView.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/MindbodyRecyclerView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/DatePicker.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/DatePicker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/MindbodyView.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/MindbodyView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/Extensions/MindbodyViewMatchers.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/Extensions/MindbodyViewMatchers.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/Extensions/PickDateAction.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/Extensions/PickDateAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/TextField.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/TextField.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/BaseView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/espresso_contrib_2_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/espresso_core_2_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/espresso_idling_resource_2_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/hamcrest_core_1_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/hamcrest_integration_1_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/hamcrest_library_1_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/javawriter_2_1_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/javax_annotation_api_1_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/javax_inject_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/jsr305_2_0_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/junit_dep_4_10.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_21_0_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/spoon_client_1_1_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/support_annotations_21_0_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_21_0_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/testing_support_lib_0_1.xml" />
+      <change type="DELETED" beforePath="C:\Users\gregory.sawers\Documents\GitHub\Ironhide\lib\src\main\java\com\mindbodyonline\ironhide\Infrastructure\MindbodyViews\AlternateRootView.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\gregory.sawers\Documents\GitHub\Ironhide\lib\src\main\java\com\mindbodyonline\ironhide\Infrastructure\MindbodyViews\Clickable.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\gregory.sawers\Documents\GitHub\Ironhide\lib\src\main\java\com\mindbodyonline\ironhide\Infrastructure\MindbodyViews\DatePicker.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\gregory.sawers\Documents\GitHub\Ironhide\lib\src\main\java\com\mindbodyonline\ironhide\Infrastructure\MindbodyViews\DynamicListAdapter.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\gregory.sawers\Documents\GitHub\Ironhide\lib\src\main\java\com\mindbodyonline\ironhide\Infrastructure\MindbodyViews\LayoutView.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\gregory.sawers\Documents\GitHub\Ironhide\lib\src\main\java\com\mindbodyonline\ironhide\Infrastructure\MindbodyViews\ListAdapter.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\gregory.sawers\Documents\GitHub\Ironhide\lib\src\main\java\com\mindbodyonline\ironhide\Infrastructure\MindbodyViews\ListItem.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\gregory.sawers\Documents\GitHub\Ironhide\lib\src\main\java\com\mindbodyonline\ironhide\Infrastructure\MindbodyViews\MindbodyRecyclerView.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\gregory.sawers\Documents\GitHub\Ironhide\lib\src\main\java\com\mindbodyonline\ironhide\Infrastructure\MindbodyViews\MindbodyView.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\gregory.sawers\Documents\GitHub\Ironhide\lib\src\main\java\com\mindbodyonline\ironhide\Infrastructure\MindbodyViews\NavDrawer.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\gregory.sawers\Documents\GitHub\Ironhide\lib\src\main\java\com\mindbodyonline\ironhide\Infrastructure\MindbodyViews\Swipeable.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\gregory.sawers\Documents\GitHub\Ironhide\lib\src\main\java\com\mindbodyonline\ironhide\Infrastructure\MindbodyViews\TextField.java" afterPath="" />
+      <change type="MOVED" beforePath="C:\Users\gregory.sawers\Documents\GitHub\Ironhide\lib\src\main\java\com\mindbodyonline\ironhide\Infrastructure\MindbodyViews\AlternateRootView.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/AlternateRootView.java" />
+      <change type="MOVED" beforePath="C:\Users\gregory.sawers\Documents\GitHub\Ironhide\lib\src\main\java\com\mindbodyonline\ironhide\Infrastructure\MindbodyViews\Clickable.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/Clickable.java" />
+      <change type="MOVED" beforePath="C:\Users\gregory.sawers\Documents\GitHub\Ironhide\lib\src\main\java\com\mindbodyonline\ironhide\Infrastructure\MindbodyViews\DatePicker.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/DatePicker.java" />
+      <change type="MOVED" beforePath="C:\Users\gregory.sawers\Documents\GitHub\Ironhide\lib\src\main\java\com\mindbodyonline\ironhide\Infrastructure\MindbodyViews\DynamicListAdapter.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/DynamicListAdapter.java" />
+      <change type="MOVED" beforePath="C:\Users\gregory.sawers\Documents\GitHub\Ironhide\lib\src\main\java\com\mindbodyonline\ironhide\Infrastructure\MindbodyViews\LayoutView.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/LayoutView.java" />
+      <change type="MOVED" beforePath="C:\Users\gregory.sawers\Documents\GitHub\Ironhide\lib\src\main\java\com\mindbodyonline\ironhide\Infrastructure\MindbodyViews\ListAdapter.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/ListAdapter.java" />
+      <change type="MOVED" beforePath="C:\Users\gregory.sawers\Documents\GitHub\Ironhide\lib\src\main\java\com\mindbodyonline\ironhide\Infrastructure\MindbodyViews\ListItem.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/ListItem.java" />
+      <change type="MOVED" beforePath="C:\Users\gregory.sawers\Documents\GitHub\Ironhide\lib\src\main\java\com\mindbodyonline\ironhide\Infrastructure\MindbodyViews\MindbodyRecyclerView.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/MindbodyRecyclerView.java" />
+      <change type="MOVED" beforePath="C:\Users\gregory.sawers\Documents\GitHub\Ironhide\lib\src\main\java\com\mindbodyonline\ironhide\Infrastructure\MindbodyViews\MindbodyView.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/BaseView.java" />
+      <change type="MOVED" beforePath="C:\Users\gregory.sawers\Documents\GitHub\Ironhide\lib\src\main\java\com\mindbodyonline\ironhide\Infrastructure\MindbodyViews\NavDrawer.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/NavDrawer.java" />
+      <change type="MOVED" beforePath="C:\Users\gregory.sawers\Documents\GitHub\Ironhide\lib\src\main\java\com\mindbodyonline\ironhide\Infrastructure\MindbodyViews\Swipeable.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/Swipeable.java" />
+      <change type="MOVED" beforePath="C:\Users\gregory.sawers\Documents\GitHub\Ironhide\lib\src\main\java\com\mindbodyonline\ironhide\Infrastructure\MindbodyViews\TextField.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/TextField.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/lib.iml" afterPath="$PROJECT_DIR$/lib/lib.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
@@ -66,8 +100,8 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <ui_properties converted="true" />
     <breakpoint_rules converted="true" />
+    <ui_properties converted="true" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -75,43 +109,45 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MindbodyView.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/MindbodyView.java">
+      <file leaf-file-name="BaseView.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/BaseView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-133.57143" vertical-offset="102" max-vertical-offset="8211">
-              <caret line="246" column="0" selection-start-line="246" selection-start-column="0" selection-end-line="246" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.33295062" vertical-offset="305" max-vertical-offset="7871">
+              <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#5960#5961#0" expanded="true" />
-                <element signature="e#6020#6021#0" expanded="true" />
-                <element signature="e#7722#7723#0" expanded="true" />
-                <element signature="e#7785#7786#0" expanded="true" />
-                <element signature="e#8728#8729#0" expanded="true" />
-                <element signature="e#8794#8795#0" expanded="true" />
-                <element signature="e#8952#8953#0" expanded="true" />
-                <element signature="e#9023#9024#0" expanded="true" />
-                <element signature="e#9887#9888#0" expanded="true" />
-                <element signature="e#9947#9948#0" expanded="true" />
-                <element signature="e#10428#10429#0" expanded="true" />
-                <element signature="e#10488#10489#0" expanded="true" />
-                <element signature="e#10652#10653#0" expanded="true" />
-                <element signature="e#10717#10718#0" expanded="true" />
-                <element signature="e#11229#11230#0" expanded="true" />
-                <element signature="e#11302#11303#0" expanded="true" />
-                <element signature="e#11580#11581#0" expanded="true" />
-                <element signature="e#11643#11644#0" expanded="true" />
-                <element signature="e#12331#12332#0" expanded="true" />
-                <element signature="e#12403#12404#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MindbodyRecyclerView.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/MindbodyRecyclerView.java">
+      <file leaf-file-name="AlternateRootView.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/AlternateRootView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6486797" vertical-offset="183" max-vertical-offset="1054">
-              <caret line="44" column="30" selection-start-line="44" selection-start-column="30" selection-end-line="44" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1377">
+              <caret line="22" column="76" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="76" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NavDrawer.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/NavDrawer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="1496">
+              <caret line="14" column="40" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MindbodyRecyclerView.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/MindbodyRecyclerView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1054">
+              <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -621,7 +657,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="4262010505056" />
+        <entry key="$PROJECT_DIR$" value="4248244444048" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -636,11 +672,11 @@
                       <ExternalModuleBuildClasspathPojo>
                         <option name="entries">
                           <list>
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder-model/1.0.0/builder-model-1.0.0-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle/1.0.0/gradle-1.0.0-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder/1.0.0/builder-1.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder-model/1.0.0/builder-model-1.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder-model/1.0.0/builder-model-1.0.0.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle/1.0.0/gradle-1.0.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder-model/1.0.0/builder-model-1.0.0.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder/1.0.0/builder-1.0.0.jar" />
                           </list>
                         </option>
@@ -653,11 +689,11 @@
                       <ExternalModuleBuildClasspathPojo>
                         <option name="entries">
                           <list>
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder-model/1.0.0/builder-model-1.0.0-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle/1.0.0/gradle-1.0.0-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder/1.0.0/builder-1.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder-model/1.0.0/builder-model-1.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder-model/1.0.0/builder-model-1.0.0.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle/1.0.0/gradle-1.0.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder-model/1.0.0/builder-model-1.0.0.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder/1.0.0/builder-1.0.0.jar" />
                           </list>
                         </option>
@@ -670,59 +706,108 @@
               <option name="name" value="lib" />
               <option name="projectBuildClasspath">
                 <list>
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/ant-1.9.3.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/ant-launcher-1.9.3.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/gradle-base-services-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/gradle-base-services-groovy-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/gradle-cli-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/gradle-core-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/gradle-docs-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/gradle-launcher-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/gradle-messaging-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/gradle-model-core-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/gradle-model-groovy-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/gradle-native-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/gradle-open-api-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/gradle-resources-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/gradle-tooling-api-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/gradle-ui-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/gradle-wrapper-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/groovy-all-2.3.6.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/ant-antlr-1.9.3.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-announce-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-antlr-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-build-comparison-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-build-init-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-code-quality-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-cunit-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-dependency-management-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-diagnostics-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-ear-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-ide-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-ide-native-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-ivy-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-jacoco-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-javascript-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-jetty-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-language-groovy-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-language-java-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-language-jvm-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-language-native-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-maven-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-osgi-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-platform-base-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-platform-jvm-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-platform-native-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-plugin-development-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-plugin-use-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-plugins-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-publish-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-reporting-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-resources-http-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-scala-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-signing-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-sonar-2.2.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/ivy-2.2.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/announce" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/antlr" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/base-services" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/base-services-groovy" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/build-comparison" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/build-init" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/cli" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/code-quality" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/core" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/cunit" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/dependency-management" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/diagnostics" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/ear" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/ide" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/ide-native" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/internal-integ-testing" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/internal-testing" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/ivy" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/jacoco" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/javascript" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/jetty" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/language-groovy" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/language-java" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/language-jvm" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/language-native" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/launcher" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/maven" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/messaging" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/model-core" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/model-groovy" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/native" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/open-api" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/osgi" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/platform-base" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/platform-jvm" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/platform-native" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/plugin-development" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/plugin-use" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/plugins" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/publish" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/reporting" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/resources" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/resources-http" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/scala" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/signing" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/sonar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/tooling-api" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/ui" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/wrapper" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/ant-1.9.3.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/ant-launcher-1.9.3.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-base-services-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-base-services-groovy-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-cli-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-core-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-docs-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-launcher-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-messaging-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-model-core-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-model-groovy-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-native-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-open-api-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-resources-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-tooling-api-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-ui-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-wrapper-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/groovy-all-2.3.6.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/ant-antlr-1.9.3.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-announce-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-antlr-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-build-comparison-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-build-init-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-code-quality-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-cunit-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-dependency-management-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-diagnostics-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-ear-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-ide-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-ide-native-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-ivy-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-jacoco-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-javascript-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-jetty-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-language-groovy-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-language-java-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-language-jvm-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-language-native-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-maven-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-osgi-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-platform-base-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-platform-jvm-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-platform-native-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-plugin-development-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-plugin-use-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-plugins-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-publish-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-reporting-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-resources-http-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-scala-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-signing-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-sonar-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/ivy-2.2.0.jar" />
                   <option value="$PROJECT_DIR$/buildSrc/src/main/java" />
                   <option value="$PROJECT_DIR$/buildSrc/src/main/groovy" />
                 </list>
@@ -754,6 +839,7 @@
         <option value="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/DatePicker.java" />
         <option value="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/Extensions/PickDateAction.java" />
         <option value="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/MindbodyRecyclerView.java" />
+        <option value="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/BaseView.java" />
       </list>
     </option>
   </component>
@@ -907,7 +993,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="MindbodyViews" />
+              <option name="myItemId" value="IronhideViews" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -951,9 +1037,9 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="AndroidView" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1137,14 +1223,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4516129" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1159,13 +1244,14 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18550107" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18550107" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5150167" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4516129" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1193,6 +1279,16 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/MindbodyRecyclerView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="183" max-vertical-offset="1054">
+          <caret line="44" column="30" selection-start-line="44" selection-start-column="30" selection-end-line="44" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="782">
@@ -1206,36 +1302,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="629" max-vertical-offset="782">
           <caret line="37" column="65" selection-start-line="37" selection-start-column="65" selection-end-line="37" selection-end-column="65" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/MindbodyView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="8007">
-          <caret line="9" column="44" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5960#5961#0" expanded="true" />
-            <element signature="e#6020#6021#0" expanded="true" />
-            <element signature="e#7722#7723#0" expanded="true" />
-            <element signature="e#7785#7786#0" expanded="true" />
-            <element signature="e#8728#8729#0" expanded="true" />
-            <element signature="e#8794#8795#0" expanded="true" />
-            <element signature="e#8952#8953#0" expanded="true" />
-            <element signature="e#9023#9024#0" expanded="true" />
-            <element signature="e#9887#9888#0" expanded="true" />
-            <element signature="e#9947#9948#0" expanded="true" />
-            <element signature="e#10428#10429#0" expanded="true" />
-            <element signature="e#10488#10489#0" expanded="true" />
-            <element signature="e#10652#10653#0" expanded="true" />
-            <element signature="e#10717#10718#0" expanded="true" />
-            <element signature="e#11229#11230#0" expanded="true" />
-            <element signature="e#11302#11303#0" expanded="true" />
-            <element signature="e#11580#11581#0" expanded="true" />
-            <element signature="e#11643#11644#0" expanded="true" />
-            <element signature="e#12331#12332#0" expanded="true" />
-            <element signature="e#12403#12404#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1271,36 +1337,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/MindbodyView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2822" max-vertical-offset="8007">
-          <caret line="166" column="0" selection-start-line="166" selection-start-column="0" selection-end-line="166" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5960#5961#0" expanded="true" />
-            <element signature="e#6020#6021#0" expanded="true" />
-            <element signature="e#7722#7723#0" expanded="true" />
-            <element signature="e#7785#7786#0" expanded="true" />
-            <element signature="e#8728#8729#0" expanded="true" />
-            <element signature="e#8794#8795#0" expanded="true" />
-            <element signature="e#8952#8953#0" expanded="true" />
-            <element signature="e#9023#9024#0" expanded="true" />
-            <element signature="e#9887#9888#0" expanded="true" />
-            <element signature="e#9947#9948#0" expanded="true" />
-            <element signature="e#10428#10429#0" expanded="true" />
-            <element signature="e#10488#10489#0" expanded="true" />
-            <element signature="e#10652#10653#0" expanded="true" />
-            <element signature="e#10717#10718#0" expanded="true" />
-            <element signature="e#11229#11230#0" expanded="true" />
-            <element signature="e#11302#11303#0" expanded="true" />
-            <element signature="e#11580#11581#0" expanded="true" />
-            <element signature="e#11643#11644#0" expanded="true" />
-            <element signature="e#12331#12332#0" expanded="true" />
-            <element signature="e#12403#12404#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="731">
@@ -1320,36 +1356,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="289">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/MindbodyView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2907" max-vertical-offset="8534">
-          <caret line="171" column="17" selection-start-line="171" selection-start-column="17" selection-end-line="171" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5960#5961#0" expanded="true" />
-            <element signature="e#6020#6021#0" expanded="true" />
-            <element signature="e#7722#7723#0" expanded="true" />
-            <element signature="e#7785#7786#0" expanded="true" />
-            <element signature="e#8728#8729#0" expanded="true" />
-            <element signature="e#8794#8795#0" expanded="true" />
-            <element signature="e#8952#8953#0" expanded="true" />
-            <element signature="e#9023#9024#0" expanded="true" />
-            <element signature="e#9887#9888#0" expanded="true" />
-            <element signature="e#9947#9948#0" expanded="true" />
-            <element signature="e#10428#10429#0" expanded="true" />
-            <element signature="e#10488#10489#0" expanded="true" />
-            <element signature="e#10652#10653#0" expanded="true" />
-            <element signature="e#10717#10718#0" expanded="true" />
-            <element signature="e#11229#11230#0" expanded="true" />
-            <element signature="e#11302#11303#0" expanded="true" />
-            <element signature="e#11580#11581#0" expanded="true" />
-            <element signature="e#11643#11644#0" expanded="true" />
-            <element signature="e#12331#12332#0" expanded="true" />
-            <element signature="e#12403#12404#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1375,36 +1381,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/MindbodyView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2907" max-vertical-offset="8007">
-          <caret line="171" column="17" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5960#5961#0" expanded="true" />
-            <element signature="e#6020#6021#0" expanded="true" />
-            <element signature="e#7722#7723#0" expanded="true" />
-            <element signature="e#7785#7786#0" expanded="true" />
-            <element signature="e#8728#8729#0" expanded="true" />
-            <element signature="e#8794#8795#0" expanded="true" />
-            <element signature="e#8952#8953#0" expanded="true" />
-            <element signature="e#9023#9024#0" expanded="true" />
-            <element signature="e#9887#9888#0" expanded="true" />
-            <element signature="e#9947#9948#0" expanded="true" />
-            <element signature="e#10428#10429#0" expanded="true" />
-            <element signature="e#10488#10489#0" expanded="true" />
-            <element signature="e#10652#10653#0" expanded="true" />
-            <element signature="e#10717#10718#0" expanded="true" />
-            <element signature="e#11229#11230#0" expanded="true" />
-            <element signature="e#11302#11303#0" expanded="true" />
-            <element signature="e#11580#11581#0" expanded="true" />
-            <element signature="e#11643#11644#0" expanded="true" />
-            <element signature="e#12331#12332#0" expanded="true" />
-            <element signature="e#12403#12404#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="169" max-vertical-offset="714">
@@ -1420,36 +1396,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/MindbodyView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2907" max-vertical-offset="8007">
-          <caret line="171" column="17" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5960#5961#0" expanded="true" />
-            <element signature="e#6020#6021#0" expanded="true" />
-            <element signature="e#7722#7723#0" expanded="true" />
-            <element signature="e#7785#7786#0" expanded="true" />
-            <element signature="e#8728#8729#0" expanded="true" />
-            <element signature="e#8794#8795#0" expanded="true" />
-            <element signature="e#8952#8953#0" expanded="true" />
-            <element signature="e#9023#9024#0" expanded="true" />
-            <element signature="e#9887#9888#0" expanded="true" />
-            <element signature="e#9947#9948#0" expanded="true" />
-            <element signature="e#10428#10429#0" expanded="true" />
-            <element signature="e#10488#10489#0" expanded="true" />
-            <element signature="e#10652#10653#0" expanded="true" />
-            <element signature="e#10717#10718#0" expanded="true" />
-            <element signature="e#11229#11230#0" expanded="true" />
-            <element signature="e#11302#11303#0" expanded="true" />
-            <element signature="e#11580#11581#0" expanded="true" />
-            <element signature="e#11643#11644#0" expanded="true" />
-            <element signature="e#12331#12332#0" expanded="true" />
-            <element signature="e#12403#12404#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="312" max-vertical-offset="1496">
@@ -1462,36 +1408,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="289">
           <caret line="11" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/MindbodyView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2907" max-vertical-offset="7616">
-          <caret line="171" column="17" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5960#5961#0" expanded="true" />
-            <element signature="e#6020#6021#0" expanded="true" />
-            <element signature="e#7722#7723#0" expanded="true" />
-            <element signature="e#7785#7786#0" expanded="true" />
-            <element signature="e#8728#8729#0" expanded="true" />
-            <element signature="e#8794#8795#0" expanded="true" />
-            <element signature="e#8952#8953#0" expanded="true" />
-            <element signature="e#9023#9024#0" expanded="true" />
-            <element signature="e#9887#9888#0" expanded="true" />
-            <element signature="e#9947#9948#0" expanded="true" />
-            <element signature="e#10428#10429#0" expanded="true" />
-            <element signature="e#10488#10489#0" expanded="true" />
-            <element signature="e#10652#10653#0" expanded="true" />
-            <element signature="e#10717#10718#0" expanded="true" />
-            <element signature="e#11229#11230#0" expanded="true" />
-            <element signature="e#11302#11303#0" expanded="true" />
-            <element signature="e#11580#11581#0" expanded="true" />
-            <element signature="e#11643#11644#0" expanded="true" />
-            <element signature="e#12331#12332#0" expanded="true" />
-            <element signature="e#12403#12404#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1517,7 +1433,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/DynamicListAdapter.java">
+    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/DynamicListAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1683">
           <caret line="9" column="55" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
@@ -1525,7 +1441,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/ListItem.java">
+    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/ListItem.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.84" vertical-offset="0" max-vertical-offset="1275">
           <caret line="13" column="3" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
@@ -1575,7 +1491,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/TextField.java">
+    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/TextField.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1023" max-vertical-offset="1564">
           <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
@@ -1585,7 +1501,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/Swipeable.java">
+    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/Swipeable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="273" max-vertical-offset="5287">
           <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
@@ -1607,11 +1523,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="782">
           <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/Clickable.java">
+    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/Clickable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.23421355" vertical-offset="0" max-vertical-offset="871">
           <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
@@ -1627,14 +1542,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/NavDrawer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1496">
-          <caret line="14" column="40" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/Extensions/PickDateAction.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="629">
@@ -1643,7 +1550,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/DatePicker.java">
+    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/DatePicker.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="234" max-vertical-offset="1156">
           <caret line="65" column="1" selection-start-line="65" selection-start-column="1" selection-end-line="65" selection-end-column="1" />
@@ -1653,7 +1560,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/ListAdapter.java">
+    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/ListAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="901">
           <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
@@ -1663,47 +1570,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/MindbodyView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-133.57143" vertical-offset="102" max-vertical-offset="8211">
-          <caret line="246" column="0" selection-start-line="246" selection-start-column="0" selection-end-line="246" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5960#5961#0" expanded="true" />
-            <element signature="e#6020#6021#0" expanded="true" />
-            <element signature="e#7722#7723#0" expanded="true" />
-            <element signature="e#7785#7786#0" expanded="true" />
-            <element signature="e#8728#8729#0" expanded="true" />
-            <element signature="e#8794#8795#0" expanded="true" />
-            <element signature="e#8952#8953#0" expanded="true" />
-            <element signature="e#9023#9024#0" expanded="true" />
-            <element signature="e#9887#9888#0" expanded="true" />
-            <element signature="e#9947#9948#0" expanded="true" />
-            <element signature="e#10428#10429#0" expanded="true" />
-            <element signature="e#10488#10489#0" expanded="true" />
-            <element signature="e#10652#10653#0" expanded="true" />
-            <element signature="e#10717#10718#0" expanded="true" />
-            <element signature="e#11229#11230#0" expanded="true" />
-            <element signature="e#11302#11303#0" expanded="true" />
-            <element signature="e#11580#11581#0" expanded="true" />
-            <element signature="e#11643#11644#0" expanded="true" />
-            <element signature="e#12331#12332#0" expanded="true" />
-            <element signature="e#12403#12404#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/AlternateRootView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="220" max-vertical-offset="1377">
-          <caret line="22" column="76" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="76" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/LayoutView.java">
+    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/LayoutView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43398392" vertical-offset="13" max-vertical-offset="1071">
           <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
@@ -1713,10 +1580,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/MindbodyRecyclerView.java">
+    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/MindbodyRecyclerView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6486797" vertical-offset="183" max-vertical-offset="1054">
-          <caret line="44" column="30" selection-start-line="44" selection-start-column="30" selection-end-line="44" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1054">
+          <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/NavDrawer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1496">
+          <caret line="14" column="40" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/build/intermediates/exploded-aar/com.android.support.test.espresso/espresso-core/2.0/classes.jar!/android/support/test/espresso/matcher/RootMatchers.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.100472815" vertical-offset="0" max-vertical-offset="846">
+          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/AlternateRootView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="220" max-vertical-offset="1377">
+          <caret line="22" column="76" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="76" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/BaseView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33295062" vertical-offset="305" max-vertical-offset="7871">
+          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
