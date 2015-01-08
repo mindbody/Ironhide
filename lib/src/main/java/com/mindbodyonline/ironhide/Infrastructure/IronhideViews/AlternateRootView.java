@@ -15,14 +15,14 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 
 /**
- * Extends MindbodyView
+ * Extends BaseView
  * Simple element that allows to access views that are not in the default root
  * defined by Espresso.RootMatchers
  * Use this when the element is not a child of the default root.
  *
  * @param <T> The model the current element will return when interacted with
  */
-public class AlternateRootView<T> extends MindbodyView<T> {
+public class AlternateRootView<T> extends BaseView<T> {
     
     public AlternateRootView(Class<T> type, int resourceId) {
         this.type = type;

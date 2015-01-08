@@ -5,14 +5,14 @@ import android.view.View;
 import org.hamcrest.Matcher;
 
 /**
- * Extends MindbodyView
+ * Extends BaseView
  * Most basic element in Connect Test Suite
- * Do not implement any action that are not available to MindbodyView
+ * Do not implement any action that are not available to BaseView
  * Use this for any general elements on the screen (e.g.: a background, etc.)
  *
  * @param <T> The model the current element will return when interacted with
  */
-public class Clickable<T> extends MindbodyView<T> {
+public class Clickable<T> extends BaseView<T> {
 
     public Clickable(Class<T> type, int resourceId) {
         this.type = type;

@@ -14,7 +14,7 @@ import static android.support.test.espresso.Espresso.onView;
 /**
  * Created by Barbara.Wong on 8/14/2014.
  */
-public class NavDrawer<T> extends MindbodyView<T>{
+public class NavDrawer<T> extends BaseView<T>{
 
     public NavDrawer(Class<T> type, int resourceId) {
         this.type = type;

@@ -5,7 +5,7 @@ import android.support.test.espresso.action.ViewActions;
 import android.support.test.espresso.matcher.ViewMatchers;
 
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.EnterTextAction;
-import com.mindbodyonline.ironhide.Infrastructure.Extensions.MindbodyViewMatchers;
+import com.mindbodyonline.ironhide.Infrastructure.Extensions.BaseViewMatchers;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.SetCursorAction;
 
 import org.hamcrest.Matcher;
@@ -13,14 +13,14 @@ import org.hamcrest.Matcher;
 import static org.hamcrest.Matchers.anything;
 
 /**
- * Extends MindbodyView
+ * Extends BaseView
  * Simple element that allows text interaction
  * Implements methods such as typeText, enterText, checkHintText
  * Only use this element when dealing with an editable text field (e.g.: an EditText View)
  *
  * @param <T> The model the current element will return when interacted with
  */
-public class TextField<T> extends MindbodyView<T> {
+public class TextField<T> extends BaseView<T> {
 
     public TextField(Class<T> type, int resourceId) {
         this.type = type;
@@ -77,11 +77,11 @@ public class TextField<T> extends MindbodyView<T> {
         return true;
     }
     public T withHintText(int stringId) {
-        return checkMatches(MindbodyViewMatchers.withHintText(stringId));
+        return checkMatches(BaseViewMatchers.withHintText(stringId));
     }
 
     public T withHintText(String string) {
-        return checkMatches(MindbodyViewMatchers.withHintText(string));
+        return checkMatches(BaseViewMatchers.withHintText(string));
     }
 
     public T openLink(Matcher<String> linkTextMatcher, Matcher<Uri> uriMatcher) {

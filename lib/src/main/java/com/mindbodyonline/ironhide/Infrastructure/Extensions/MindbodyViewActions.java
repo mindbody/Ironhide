@@ -9,9 +9,9 @@ import android.support.test.espresso.action.Swipe;
 /**
  * Created by Barbara.Wong on 7/21/2014.
  */
-public class MindbodyViewActions {
+public class BaseViewActions {
 
-    public MindbodyViewActions() {
+    public BaseViewActions() {
 
     }
 

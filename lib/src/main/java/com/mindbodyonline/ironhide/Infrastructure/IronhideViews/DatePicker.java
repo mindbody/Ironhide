@@ -11,14 +11,14 @@ import org.hamcrest.Matcher;
 import java.util.Date;
 
 /**
- * Extends MindbodyView
+ * Extends BaseView
  * Simple element that allows to interact with a DatePicker View
  * Implements updateDate method, which handles the PickDateAction ViewAction
  * Only use this element when dealing with an ImageView View
  *
  * @param <T> The model the current element will return when interacted with
  */
-public class DatePicker<T> extends MindbodyView<T> {
+public class DatePicker<T> extends BaseView<T> {
 
     public DatePicker(Class<T> type, int resourceId) {
         this.type = type;

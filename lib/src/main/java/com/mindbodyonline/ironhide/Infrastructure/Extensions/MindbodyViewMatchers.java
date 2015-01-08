@@ -20,7 +20,7 @@ import static org.hamcrest.Matchers.not;
  * Custom ViewMatchers used for ConnectView elements
  * These are already wrapped inside of elements, so there is little need to use them directly
  */
-public class MindbodyViewMatchers {
+public class BaseViewMatchers {
 
     /**
      * Checks an ImageView to see if the displayed image correspondes to the image pointed to by a Drawable resource

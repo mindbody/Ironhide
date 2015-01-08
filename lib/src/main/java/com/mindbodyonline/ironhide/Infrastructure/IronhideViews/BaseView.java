@@ -324,7 +324,7 @@ public class BaseView<T> {
         return checkMatches(ViewMatchers.hasFocus());
     }
 
-    public T hasSibling(MindbodyView<T> sibling) {
+    public T hasSibling(BaseView<T> sibling) {
         return checkMatches(ViewMatchers.hasSibling(sibling.getSelector()));
     }
 
@@ -368,7 +368,7 @@ public class BaseView<T> {
         return checkMatches(ViewMatchers.hasContentDescription());
     }
 
-    public T hasDescendant(MindbodyView<T> descendant) {
+    public T hasDescendant(BaseView<T> descendant) {
         return checkMatches(ViewMatchers.hasDescendant(descendant.getSelector()));
     }
 
@@ -380,7 +380,7 @@ public class BaseView<T> {
         return checkMatches(ViewMatchers.isClickable());
     }
 
-    public T isDescendantOfA(MindbodyView<T> parent) {
+    public T isDescendantOfA(BaseView<T> parent) {
         return checkMatches(ViewMatchers.isDescendantOfA(parent.getSelector()));
     }
 
@@ -388,11 +388,11 @@ public class BaseView<T> {
         return checkMatches(ViewMatchers.withEffectiveVisibility(visibility));
     }
 
-    public T withParent(MindbodyView<T> parent) {
+    public T withParent(BaseView<T> parent) {
         return checkMatches(ViewMatchers.withParent(parent.getSelector()));
     }
 
-    public T withChild(MindbodyView<T> child) {
+    public T withChild(BaseView<T> child) {
         return checkMatches(ViewMatchers.withChild(child.getSelector()));
     }
 

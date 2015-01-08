@@ -8,22 +8,22 @@ import android.support.test.espresso.matcher.ViewMatchers;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.mindbodyonline.ironhide.Infrastructure.Extensions.MindbodyViewActions;
-import com.mindbodyonline.ironhide.Infrastructure.Extensions.MindbodyViewMatchers;
+import com.mindbodyonline.ironhide.Infrastructure.Extensions.BaseViewActions;
+import com.mindbodyonline.ironhide.Infrastructure.Extensions.BaseViewMatchers;
 
 import org.hamcrest.Matcher;
 
 import static org.hamcrest.Matchers.allOf;
 
 /**
- * Extends MindbodyView
+ * Extends BaseView
  * Simple element that allows to perform a swipe on the screen
  * Implements swipeLeft and swipeRight methods
  * Use this when the main purpose of the element will be to swipe the screen
  *
  * @param <T> The model the current element will return when interacted with
  */
-public class Swipeable<T> extends MindbodyView<T> {
+public class Swipeable<T> extends BaseView<T> {
 
     public Swipeable(Class<T> type, int resourceId) {
         this.id = resourceId;
@@ -58,53 +58,53 @@ public class Swipeable<T> extends MindbodyView<T> {
     }
 
     public T swipeDownFast(){
-        return performAction(MindbodyViewActions.swipeDownFast());
+        return performAction(BaseViewActions.swipeDownFast());
     }
 
     public T swipeDownSlow(){
-        return performAction(MindbodyViewActions.swipeDownSlow());
+        return performAction(BaseViewActions.swipeDownSlow());
     }
 
     public T swipeDownSlow(int numTimes){
         for(int i = 0; i < numTimes-1 ; i++){
-            performAction(MindbodyViewActions.swipeDownSlow());
+            performAction(BaseViewActions.swipeDownSlow());
         }
-        return performAction(MindbodyViewActions.swipeDownSlow());
+        return performAction(BaseViewActions.swipeDownSlow());
     }
 
-    public T swipeUpFast(){ return performAction(MindbodyViewActions.swipeUpFast()); }
+    public T swipeUpFast(){ return performAction(BaseViewActions.swipeUpFast()); }
 
-    public T swipeUpSlow(){ return performAction(MindbodyViewActions.swipeUpSlow()); }
+    public T swipeUpSlow(){ return performAction(BaseViewActions.swipeUpSlow()); }
 
     public T swipeUpSlow(int numTimes){
         for(int i = 0; i < numTimes-1 ; i++){
-            performAction(MindbodyViewActions.swipeUpSlow());
+            performAction(BaseViewActions.swipeUpSlow());
         }
-        return performAction(MindbodyViewActions.swipeUpSlow());
+        return performAction(BaseViewActions.swipeUpSlow());
 
     }
 
-    public T swipeFullRight(){ return performAction(MindbodyViewActions.swipeFullRight()); }
+    public T swipeFullRight(){ return performAction(BaseViewActions.swipeFullRight()); }
 
     public T swipeFullRight(int numTimes){
         for(int i = 0; i < numTimes-1 ; i++){
-            performAction(MindbodyViewActions.swipeFullRight());
+            performAction(BaseViewActions.swipeFullRight());
         }
-        return performAction(MindbodyViewActions.swipeFullRight());
+        return performAction(BaseViewActions.swipeFullRight());
 
     }
 
-    public T swipeFullLeft(){ return performAction(MindbodyViewActions.swipeFullLeft()); }
+    public T swipeFullLeft(){ return performAction(BaseViewActions.swipeFullLeft()); }
 
     public T swipeFullLeft(int numTimes){
         for(int i = 0; i < numTimes-1 ; i++){
-            performAction(MindbodyViewActions.swipeFullLeft());
+            performAction(BaseViewActions.swipeFullLeft());
         }
-        return performAction(MindbodyViewActions.swipeFullLeft());
+        return performAction(BaseViewActions.swipeFullLeft());
 
     }
 
-    public T scrollUpToClick(MindbodyView<T> element){
+    public T scrollUpToClick(BaseView<T> element){
 
         while (true) {
             try {
@@ -112,7 +112,7 @@ public class Swipeable<T> extends MindbodyView<T> {
                 return element.click();
 
             }catch (Exception e) {
-                performAction(MindbodyViewActions.swipeUpSlowHalf());
+                performAction(BaseViewActions.swipeUpSlowHalf());
                 pause(200);
             }
         }
@@ -120,7 +120,7 @@ public class Swipeable<T> extends MindbodyView<T> {
 
     public T selectFromListWithText(Class type, String string){
 
-        Clickable<T> Title = new Clickable<T>(this.type, allOf(MindbodyViewMatchers.instanceOf(type), ViewMatchers.withText(string)));
+        Clickable<T> Title = new Clickable<T>(this.type, allOf(BaseViewMatchers.instanceOf(type), ViewMatchers.withText(string)));
 
         return this.scrollUpToClick(Title);
     }

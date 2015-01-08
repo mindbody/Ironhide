@@ -7,7 +7,7 @@ import android.view.View;
 import org.hamcrest.Matcher;
 
 /**
- * Extends MindbodyView
+ * Extends BaseView
  * Defines a ViewGroup typically referenced as a layout.
  * Examples include LinearLayout, FrameLayout, and RelativeLayout.
  *
@@ -15,7 +15,7 @@ import org.hamcrest.Matcher;
  *
  * @param <T> The model the current element will return when interacted with
  */
-public class LayoutView<T> extends MindbodyView<T> {
+public class LayoutView<T> extends BaseView<T> {
 
     public LayoutView(Class<T> type, int resourceId) {
         this.type = type;

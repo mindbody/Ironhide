@@ -3,7 +3,7 @@ package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.view.View;
 
-import com.mindbodyonline.ironhide.Infrastructure.Extensions.MindbodyViewMatchers;
+import com.mindbodyonline.ironhide.Infrastructure.Extensions.BaseViewMatchers;
 
 import org.hamcrest.Matcher;
 
@@ -13,14 +13,14 @@ import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.is;
 
 /**
- * Extends MindbodyView
+ * Extends BaseView
  * Simple element that allows to interact with ListViews that have children added dynamically
  * Enables access to ListItems inside a dynamic ListView that does not use an adapter
  * This element is rarely used, as these types of ListViews are considered bad practice
  *
  * @param <T> The model the current element will return when interacted with
  */
-public class DynamicListAdapter<T> extends MindbodyView<T> {
+public class DynamicListAdapter<T> extends BaseView<T> {
 
     private int parentId;
     private Class parentClass;
@@ -59,16 +59,16 @@ public class DynamicListAdapter<T> extends MindbodyView<T> {
     public Clickable<T> getItemAt(int index) {
         return new Clickable<T>(type,
                 allOf(ViewMatchers.isDisplayed(),
-                        MindbodyViewMatchers.instanceOf(itemType),
-                        MindbodyViewMatchers.hasIndex(index)));
+                        BaseViewMatchers.instanceOf(itemType),
+                        BaseViewMatchers.hasIndex(index)));
     }
 
     public Clickable<T> getItemFromParentWithId(int index){
 
         return new Clickable<T>(type,
                 allOf(ViewMatchers.isDisplayed(),
-                        MindbodyViewMatchers.instanceOf(itemType),
-                        MindbodyViewMatchers.hasIndex(index)
+                        BaseViewMatchers.instanceOf(itemType),
+                        BaseViewMatchers.hasIndex(index)
                         ,ViewMatchers.isDescendantOfA(ViewMatchers.withId(parentId))));
     }
 
@@ -77,16 +77,16 @@ public class DynamicListAdapter<T> extends MindbodyView<T> {
 
         return new Clickable<T>(type,
             allOf(ViewMatchers.isDisplayed(),
-                MindbodyViewMatchers.instanceOf(itemType),
-                MindbodyViewMatchers.hasIndex(index)
-                , ViewMatchers.isDescendantOfA( MindbodyViewMatchers.instanceOf(parentClass))));
+                BaseViewMatchers.instanceOf(itemType),
+                BaseViewMatchers.hasIndex(index)
+                , ViewMatchers.isDescendantOfA( BaseViewMatchers.instanceOf(parentClass))));
     }
 
     public Clickable<T> getItemFromText(String text){
 
         return new Clickable<T>(type,
                 allOf(ViewMatchers.isDisplayed(),
-                MindbodyViewMatchers.instanceOf(itemType)
+                BaseViewMatchers.instanceOf(itemType)
                 , ViewMatchers.withText(text)));
 
 

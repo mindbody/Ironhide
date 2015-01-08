@@ -12,7 +12,7 @@ import org.hamcrest.Matcher;
  *
  * ViewActions to interact RecyclerView. RecyclerView works differently than AdapterView. In fact, RecyclerView is not an AdapterView anymore, hence it can't be used in combination with onData(Matcher).
  */
-public class MindbodyRecyclerView<T> extends MindbodyView<T> {
+public class MindbodyRecyclerView<T> extends BaseView<T> {
 
     public MindbodyRecyclerView(Class<T> type, int resourceId) {
         this.type = type;
