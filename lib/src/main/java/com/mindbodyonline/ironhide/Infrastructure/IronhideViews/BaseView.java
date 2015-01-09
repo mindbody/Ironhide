@@ -628,12 +628,7 @@ public class BaseView<T> {
      */
 
     public T pause() {
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        return returnGeneric();
+        return pause(PageObject.DEFAULT_PAUSE_TIME);
     }
 
     public T pause(int timeInMillis) {

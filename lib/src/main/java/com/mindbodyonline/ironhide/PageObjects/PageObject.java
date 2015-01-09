@@ -5,6 +5,8 @@ package com.mindbodyonline.ironhide.PageObjects;
  */
 public class PageObject {
 
+    public static final int DEFAULT_PAUSE_TIME = 2000;
+
     /**
      * Syntax sugar for pause(type, 2000).
      *
@@ -13,7 +15,7 @@ public class PageObject {
      * @return      a generic of passed in type
      */
     public <T extends PageObject> T pause(Class<T> type) {
-        return pause(type, 2000);
+        return pause(type, DEFAULT_PAUSE_TIME);
     }
 
     /**
