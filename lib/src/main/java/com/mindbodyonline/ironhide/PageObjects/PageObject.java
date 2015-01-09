@@ -20,6 +20,7 @@ public class PageObject {
 
     /**
      * Pauses the executing thread to wait for UI changes.
+     * Handles InterruptedException inside its body.
      *
      * @param type          the class for constructing a generic
      * @param timeInMillis  the amount of time to pause for
@@ -30,10 +31,13 @@ public class PageObject {
         try {
             Thread.sleep(timeInMillis);
             return type.newInstance();
-        } catch (Exception e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
-            return null;
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
         }
+        return null;
     }
-
 }

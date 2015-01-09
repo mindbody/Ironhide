@@ -139,10 +139,12 @@ public class BaseView<T> {
     protected T returnGeneric() {
         try {
             return type.newInstance();
-        } catch (Exception e) {
+        } catch (InstantiationException e) {
             e.printStackTrace();
-            return null;
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
         }
+        return null;
     }
 
     /**
@@ -154,10 +156,12 @@ public class BaseView<T> {
     protected <E extends PageObject> E returnGeneric(Class<E> type) {
         try {
             return type.newInstance();
-        } catch (Exception e) {
+        } catch (InstantiationException e) {
             e.printStackTrace();
-            return null;
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
         }
+        return null;
     }
 
     /**
@@ -400,10 +404,10 @@ public class BaseView<T> {
 //        } catch (Exception e) {
 //            return false;
 //        } catch (AssertionFailedError e) {
-////            if (e.getMessage().contains("Expected: is displayed on the screen to the user")) {
-////                return false;
-////            }
-////            throw e;
+//            if (e.getMessage().contains("Expected: is displayed on the screen to the user")) {
+//                return false;
+//            }
+//            throw e;
 //            return false;
 //        }
 //    }
