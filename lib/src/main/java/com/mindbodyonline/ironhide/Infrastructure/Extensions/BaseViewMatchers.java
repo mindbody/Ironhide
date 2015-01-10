@@ -23,6 +23,7 @@ public class BaseViewMatchers {
 
     /**
      * Checks an ImageView to see if the displayed image correspondes to the image pointed to by a Drawable resource
+     * NOTE: see open issue #94 for Espresso (https://code.google.com/p/android-test-kit/issues/detail?id=94)
      *
      * @param drawableId The Drawable Resource ID to compare to the ImageView's content
      * @return A Matcher to check using Espresso ViewAssertions.matches method
@@ -46,86 +47,6 @@ public class BaseViewMatchers {
             }
         };
     }
-
-    /**
-     * Checks an EditText to see if the hint text correspondes to the text pointed to by a String resource
-     * Deprecated: Espresso 2.0 provides ViewMatchers.withHint(int resourceId), use that instead
-     *
-     * @param stringId The String Resource ID to compare to the EditText's hint text
-     * @return A Matcher to check using Espresso ViewAssertions.matches method
-     */
-    @Deprecated
-    public static Matcher<Object> withHintText(int stringId) {
-        checkNotNull(stringId);
-        return withHint(stringId);
-    }
-
-    private static Matcher<Object> withHint(final int stringId) {
-        return new BoundedMatcher<Object, EditText>(EditText.class) {
-            @Override
-            public boolean matchesSafely(EditText hint) {
-                assert hint.getResources() != null && hint.getHint() != null;
-                String expectedText = hint.getResources().getString(stringId);
-                return expectedText.equals(hint.getHint().toString());
-            }
-
-            @Override
-            public void describeTo(Description description) {
-                description.appendText("with hint ");
-                description.appendText(stringId + "");
-            }
-        };
-    }
-
-    @Deprecated
-    // Deprecated: Espresso 2.0 provides ViewMatchers.withHint(String hintText)
-    //  along with ViewMatchers.withHint(Matcher<String> stringMatcher), use those instead
-    public static Matcher<Object> withHintText(String string) {
-        checkNotNull(string);
-        return withHint(string);
-    }
-
-    private static Matcher<Object> withHint(final String string) {
-        return new BoundedMatcher<Object, EditText>(EditText.class) {
-            @Override
-            public boolean matchesSafely(EditText hint) {
-                assert hint.getResources() != null && hint.getHint() != null;
-                return string.equals(hint.getHint().toString());
-            }
-
-            @Override
-            public void describeTo(Description description) {
-                description.appendText("with hint ");
-                description.appendText(string + "");
-            }
-        };
-    }
-
-    /**
-     * Checks to see if a View is selected on the screen
-     * Deprecated: Espresso 2.0 provides ViewMatchers.isSelected(), use that instead
-     *
-     * @return A Matcher to check using Espresso ViewAssertions.matches method
-     */
-    @Deprecated
-    public static Matcher<Object> isSelected() {
-        return checkSelected();
-    }
-
-    private static Matcher<Object> checkSelected() {
-        return new BoundedMatcher<Object, View>(View.class) {
-            @Override
-            public boolean matchesSafely(View view) {
-                return view.isSelected();
-            }
-
-            @Override
-            public void describeTo(Description description) {
-                description.appendText("is selected ");
-            }
-        };
-    }
-
 
     /**
      * Checks to see if a View has a certain index
@@ -243,16 +164,5 @@ public class BaseViewMatchers {
                 return (null != expectedText) && textView.getText().toString().contains(expectedText);
             }
         };
-    }
-
-    /**
-     * Checks to see if a CompoundButton is checked.
-     * Deprecated: Espresso 2.0 provides ViewMatchers.isChecked(), use that instead.
-     *
-     * @return  A Matcher to check using Espresso ViewAssertions.matchers method
-     */
-    @Deprecated
-    public static Matcher<View> isChecked() {
-        return ViewMatchers.isChecked();
     }
 }
