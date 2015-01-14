@@ -78,28 +78,28 @@ public class AlternateRootView<T> extends MindbodyView<T> {
     /** {@inheritDoc} */
     @Override
     protected T performAction(ViewAction viewAction) {
-        onView(getSelector()).inRoot(not(is(DEFAULT))).perform(viewAction);
+        onView(getSelector()).inRoot(rootMatcher).perform(viewAction);
         return returnGeneric();
     }
 
     /** {@inheritDoc} */
     @Override
     protected <E extends PageObject> E  performAction(Class<E> type, ViewAction viewAction) {
-        onView(getSelector()).inRoot(not(is(DEFAULT))).perform(viewAction);
+        onView(getSelector()).inRoot(rootMatcher).perform(viewAction);
         return returnGeneric(type);
     }
 
     /** {@inheritDoc} */
     @Override
     protected T checkAssertion(ViewAssertion viewAssertion) {
-        onView(getSelector()).inRoot(not(is(DEFAULT))).check(viewAssertion);
+        onView(getSelector()).inRoot(rootMatcher).check(viewAssertion);
         return returnGeneric();
     }
 
     /** {@inheritDoc} */
     @Override
     protected <E extends PageObject> E checkMatches(Class<E> type, Matcher<? super View> viewMatcher) {
-        onView(getSelector()).inRoot(not(is(DEFAULT))).check(ViewAssertions.matches(viewMatcher));
+        onView(getSelector()).inRoot(rootMatcher).check(ViewAssertions.matches(viewMatcher));
         return returnGeneric(type);
     }
 }
