@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.BaseViewMatchers;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.EnterTextAction;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.SetCursorAction;
+import com.mindbodyonline.ironhide.Infrastructure.Extensions.TextViewMatchers;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
@@ -105,30 +106,30 @@ public class TextField<T> extends BaseView<T> {
      */
 
     public T containsString(int resourceId) {
-        return checkMatches(BaseViewMatchers.containsString(resourceId));
+        return checkMatches(TextViewMatchers.containsString(resourceId));
     }
 
     public T endsWith(int resourceId) {
-        return checkMatches(BaseViewMatchers.endsWith(resourceId));
+        return checkMatches(TextViewMatchers.endsWith(resourceId));
     }
 
     public T equalToIgnoringCase(int resourceId) {
-        return checkMatches(BaseViewMatchers.equalToIgnoringCase(resourceId));
+        return checkMatches(TextViewMatchers.equalToIgnoringCase(resourceId));
     }
 
     public T equalToIgnoringWhiteSpace(int resourceId) {
-        return checkMatches(BaseViewMatchers.equalToIgnoringWhiteSpace(resourceId));
+        return checkMatches(TextViewMatchers.equalToIgnoringWhiteSpace(resourceId));
     }
 
     public T isEmptyOrNullString() {
-        return checkMatches(BaseViewMatchers.isEmptyOrNullString());
+        return checkMatches(TextViewMatchers.isEmptyOrNullString());
     }
 
     public T isEmptyString() {
-        return checkMatches(BaseViewMatchers.isEmptyString());
+        return checkMatches(TextViewMatchers.isEmptyString());
     }
 
     public T startsWith(final int resourceId) {
-        return checkMatches(BaseViewMatchers.startsWith(resourceId));
+        return checkMatches(TextViewMatchers.startsWith(resourceId));
     }
 }
