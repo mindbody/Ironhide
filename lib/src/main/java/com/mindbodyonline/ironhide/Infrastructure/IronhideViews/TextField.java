@@ -2,12 +2,18 @@ package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
 import android.net.Uri;
 import android.support.test.espresso.action.ViewActions;
+import android.support.test.espresso.matcher.BoundedMatcher;
 import android.support.test.espresso.matcher.ViewMatchers;
+import android.view.View;
+import android.widget.TextView;
 
+import com.mindbodyonline.ironhide.Infrastructure.Extensions.BaseViewMatchers;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.EnterTextAction;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.SetCursorAction;
 
+import org.hamcrest.Description;
 import org.hamcrest.Matcher;
+import org.hamcrest.Matchers;
 
 /**
  * Extends BaseView
@@ -92,5 +98,37 @@ public class TextField<T> extends BaseView<T> {
 
     public T openLinkWithUri(Matcher<Uri> uriMatcher) {
         return performAction(ViewActions.openLinkWithUri(uriMatcher));
+    }
+
+    /**
+     * More matchers
+     */
+
+    public T containsString(int resourceId) {
+        return checkMatches(BaseViewMatchers.containsString(resourceId));
+    }
+
+    public T endsWith(int resourceId) {
+        return checkMatches(BaseViewMatchers.endsWith(resourceId));
+    }
+
+    public T equalToIgnoringCase(int resourceId) {
+        return checkMatches(BaseViewMatchers.equalToIgnoringCase(resourceId));
+    }
+
+    public T equalToIgnoringWhiteSpace(int resourceId) {
+        return checkMatches(BaseViewMatchers.equalToIgnoringWhiteSpace(resourceId));
+    }
+
+    public T isEmptyOrNullString() {
+        return checkMatches(BaseViewMatchers.isEmptyOrNullString());
+    }
+
+    public T isEmptyString() {
+        return checkMatches(BaseViewMatchers.isEmptyString());
+    }
+
+    public T startsWith(final int resourceId) {
+        return checkMatches(BaseViewMatchers.startsWith(resourceId));
     }
 }
