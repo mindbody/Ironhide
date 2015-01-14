@@ -1,5 +1,6 @@
 package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
 
+import android.support.test.espresso.Root;
 import android.support.test.espresso.ViewAction;
 import android.support.test.espresso.ViewAssertion;
 import android.support.test.espresso.assertion.ViewAssertions;
@@ -19,11 +20,15 @@ import static org.hamcrest.Matchers.not;
  * Simple element that allows to access views that are not in the default root
  * defined by Espresso.RootMatchers
  * Use this when the element is not a child of the default root.
+ * Has constructors that take an additional Matcher<Root> parameter for specifying, otherwise
+ *  defaults to using any root that is not picked by default.
  *
  * @param <T> The model the current element will return when interacted with
  */
 public class AlternateRootView<T> extends MindbodyView<T> {
-    
+
+    protected Matcher<Root> rootMatcher = not(is(DEFAULT));
+
     public AlternateRootView(Class<T> type, int resourceId) {
         this.type = type;
         id = resourceId;
@@ -43,6 +48,31 @@ public class AlternateRootView<T> extends MindbodyView<T> {
     public AlternateRootView(Class<T> type, String displayText) {
         this.type = type;
         text = displayText;
+    }
+
+    public AlternateRootView(Class<T> type, int resourceId, Matcher<Root> rootMatcher) {
+        this.type = type;
+        id = resourceId;
+        this.rootMatcher = rootMatcher;
+    }
+
+    public AlternateRootView(Class<T> type, Matcher<View> selector, Matcher<Root> rootMatcher) {
+        this.type = type;
+        this.selector = selector;
+        this.rootMatcher = rootMatcher;
+    }
+
+    public AlternateRootView(Class<T> type, int resourceId, int stringResourceId, Matcher<Root> rootMatcher) {
+        this.type = type;
+        id = resourceId;
+        stringId = stringResourceId;
+        this.rootMatcher = rootMatcher;
+    }
+
+    public AlternateRootView(Class<T> type, String displayText, Matcher<Root> rootMatcher) {
+        this.type = type;
+        text = displayText;
+        this.rootMatcher = rootMatcher;
     }
 
     /** {@inheritDoc} */
