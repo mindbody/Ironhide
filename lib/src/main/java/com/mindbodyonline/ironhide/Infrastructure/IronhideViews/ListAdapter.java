@@ -36,11 +36,15 @@ public class ListAdapter<T> extends BaseView<T> {
     }
 
     public ListItem<T> getItemAtPosition(int index) {
-        try {
+        /**
+         * Users of this would have to catch NullPointerExceptions anyways
+         *  pending removal for OpenSource
+         */
+//        try {
             return new ListItem<T>(type, adapter.atPosition(index));
-        } catch (Exception e) {
-            return null;
-        }
+//        } catch (IndexOutOfBoundsException e) {
+//            return null;
+//        }
     }
 
     public ListItem<T> getFirst() {

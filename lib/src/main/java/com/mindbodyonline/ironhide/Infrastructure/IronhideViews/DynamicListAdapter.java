@@ -28,7 +28,6 @@ public class DynamicListAdapter<T> extends BaseView<T> {
 
     public DynamicListAdapter(Class<T> type, Class itemType) {
         this.type = type;
-        this.parentId = parentId;
         this.itemType = itemType;
     }
 

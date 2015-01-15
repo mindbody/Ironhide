@@ -4,8 +4,6 @@ import android.support.test.espresso.ViewAction;
 import android.support.test.espresso.contrib.PickerActions;
 import android.view.View;
 
-import com.mindbodyonline.ironhide.Infrastructure.Extensions.PickDateAction;
-
 import org.hamcrest.Matcher;
 
 import java.util.Date;
@@ -50,17 +48,4 @@ public class DatePicker<T> extends BaseView<T> {
     public T setTime(int hours, int minutes) {
         return performAction(PickerActions.setTime(hours, minutes));
     }
-
-    @Deprecated
-    // Espresso 2.0 provides contrib.PickerActions
-    public T updateDate(Date date) {
-        return performAction(setDate(date));
-    }
-
-    @Deprecated
-    // Espresso 2.0 provides contrib.PickerActions
-    private ViewAction setDate(Date date) {
-        return new PickDateAction(date);
-    }
-
 }

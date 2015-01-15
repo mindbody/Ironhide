@@ -5,6 +5,8 @@ package com.mindbodyonline.ironhide.PageObjects;
  */
 public class PageObject {
 
+    public static final int DEFAULT_PAUSE_TIME = 2000;
+
     /**
      * Syntax sugar for pause(type, 2000).
      *
@@ -13,11 +15,12 @@ public class PageObject {
      * @return      a generic of passed in type
      */
     public <T extends PageObject> T pause(Class<T> type) {
-        return pause(type, 2000);
+        return pause(type, DEFAULT_PAUSE_TIME);
     }
 
     /**
      * Pauses the executing thread to wait for UI changes.
+     * Handles InterruptedException inside its body.
      *
      * @param type          the class for constructing a generic
      * @param timeInMillis  the amount of time to pause for
@@ -28,10 +31,13 @@ public class PageObject {
         try {
             Thread.sleep(timeInMillis);
             return type.newInstance();
-        } catch (Exception e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
-            return null;
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
         }
+        return null;
     }
-
 }

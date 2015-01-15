@@ -5,13 +5,10 @@ import android.support.test.espresso.action.ViewActions;
 import android.support.test.espresso.matcher.ViewMatchers;
 
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.EnterTextAction;
-import com.mindbodyonline.ironhide.Infrastructure.Extensions.BaseViewMatchers;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.SetCursorAction;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.TextViewMatchers;
 
 import org.hamcrest.Matcher;
-
-import static org.hamcrest.Matchers.anything;
 
 /**
  * Extends BaseView

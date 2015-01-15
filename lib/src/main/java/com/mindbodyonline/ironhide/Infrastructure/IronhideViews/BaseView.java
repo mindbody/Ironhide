@@ -1,7 +1,5 @@
 package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
-
-import android.app.Activity;
 import android.support.test.espresso.DataInteraction;
 import android.support.test.espresso.ViewAction;
 import android.support.test.espresso.ViewAssertion;
@@ -11,12 +9,10 @@ import android.support.test.espresso.assertion.PositionAssertions;
 import android.support.test.espresso.assertion.ViewAssertions;
 import android.support.test.espresso.contrib.DrawerActions;
 import android.support.test.espresso.contrib.DrawerMatchers;
-import android.support.test.espresso.matcher.RootMatchers;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.view.View;
 
 import com.mindbodyonline.ironhide.PageObjects.PageObject;
-import com.squareup.spoon.Spoon;
 
 import org.hamcrest.Matcher;
 
@@ -143,10 +139,12 @@ public class BaseView<T> {
     protected T returnGeneric() {
         try {
             return type.newInstance();
-        } catch (Exception e) {
+        } catch (InstantiationException e) {
             e.printStackTrace();
-            return null;
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
         }
+        return null;
     }
 
     /**
@@ -158,10 +156,12 @@ public class BaseView<T> {
     protected <E extends PageObject> E returnGeneric(Class<E> type) {
         try {
             return type.newInstance();
-        } catch (Exception e) {
+        } catch (InstantiationException e) {
             e.printStackTrace();
-            return null;
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
         }
+        return null;
     }
 
     /**
@@ -429,10 +429,10 @@ public class BaseView<T> {
 //        } catch (Exception e) {
 //            return false;
 //        } catch (AssertionFailedError e) {
-////            if (e.getMessage().contains("Expected: is displayed on the screen to the user")) {
-////                return false;
-////            }
-////            throw e;
+//            if (e.getMessage().contains("Expected: is displayed on the screen to the user")) {
+//                return false;
+//            }
+//            throw e;
 //            return false;
 //        }
 //    }
@@ -802,12 +802,7 @@ public class BaseView<T> {
      */
 
     public T pause() {
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        return returnGeneric();
+        return pause(PageObject.DEFAULT_PAUSE_TIME);
     }
 
     public T pause(int timeInMillis) {

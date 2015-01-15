@@ -1,5 +1,6 @@
 package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
+import android.annotation.TargetApi;
 import android.app.Instrumentation;
 import android.graphics.Point;
 import android.os.SystemClock;
@@ -104,32 +105,37 @@ public class Swipeable<T> extends BaseView<T> {
 
     }
 
-    public T scrollUpToClick(BaseView<T> element){
+    /**
+     * Should be better written or removed for open source.
+     * (Besides the fact that it doesn't catch any assertion errors thrown in scrollUpToClick)
+     */
+    /*public T scrollUpToClick(BaseView<T> element){
 
         while (true) {
             try {
                 element.isDisplayed();
                 return element.click();
 
-            }catch (Exception e) {
+            } catch (Exception e) {
                 performAction(BaseViewActions.swipeUpSlowHalf());
                 pause(200);
             }
         }
-    }
+    }*/
 
-    public T selectFromListWithText(Class type, String string){
+    /*public T selectFromListWithText(Class type, String string){
 
         Clickable<T> Title = new Clickable<T>(this.type, allOf(BaseViewMatchers.instanceOf(type), ViewMatchers.withText(string)));
 
         return this.scrollUpToClick(Title);
-    }
+    }*/
 
     Point finger1Start;
     Point finger1End;
     Point finger2Start;
     Point finger2End;
 
+    @TargetApi(14)
     public void generateZoomGesture(Instrumentation inst,
                                     long startTime, boolean ifMove, Point startPoint1,
                                     Point startPoint2, Point endPoint1,
@@ -262,7 +268,7 @@ public class Swipeable<T> extends BaseView<T> {
         inst.sendPointerSync(event);
     }
 
-
+    @TargetApi(14)
     public T zoomAllIn(int phoneMaxX, int phoneMaxY){
 
         int zoomInNum = 6;
@@ -281,6 +287,7 @@ public class Swipeable<T> extends BaseView<T> {
 
     }
 
+    @TargetApi(14)
     public T zoomAllOut(int phoneMaxX, int phoneMaxY){
 
         int zoomOutNum = 3;
@@ -293,6 +300,7 @@ public class Swipeable<T> extends BaseView<T> {
         return this.zoom(zoomOutNum);
     }
 
+    @TargetApi(14)
     public T zoom(int numTimes) {
 
         Instrumentation instr = new Instrumentation();
