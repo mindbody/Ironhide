@@ -7,6 +7,7 @@ import android.support.test.espresso.matcher.ViewMatchers;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.EnterTextAction;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.MindbodyViewMatchers;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.SetCursorAction;
+import com.mindbodyonline.ironhide.Infrastructure.Extensions.TextViewMatchers;
 
 import org.hamcrest.Matcher;
 
@@ -94,5 +95,37 @@ public class TextField<T> extends MindbodyView<T> {
 
     public T openLinkWithUri(Matcher<Uri> uriMatcher) {
         return performAction(ViewActions.openLinkWithUri(uriMatcher));
+    }
+
+    /**
+     * More matchers
+     */
+
+    public T containsString(int resourceId) {
+        return checkMatches(TextViewMatchers.containsString(resourceId));
+    }
+
+    public T endsWith(int resourceId) {
+        return checkMatches(TextViewMatchers.endsWith(resourceId));
+    }
+
+    public T equalToIgnoringCase(int resourceId) {
+        return checkMatches(TextViewMatchers.equalToIgnoringCase(resourceId));
+    }
+
+    public T equalToIgnoringWhiteSpace(int resourceId) {
+        return checkMatches(TextViewMatchers.equalToIgnoringWhiteSpace(resourceId));
+    }
+
+    public T isEmptyOrNullString() {
+        return checkMatches(TextViewMatchers.isEmptyOrNullString());
+    }
+
+    public T isEmptyString() {
+        return checkMatches(TextViewMatchers.isEmptyString());
+    }
+
+    public T startsWith(final int resourceId) {
+        return checkMatches(TextViewMatchers.startsWith(resourceId));
     }
 }
