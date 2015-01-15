@@ -385,12 +385,20 @@ public class BaseView<T> {
         return checkMatches(DrawerMatchers.isOpen());
     }
 
+    public <E extends PageObject> E isOpen(Class<E> type) {
+        return checkMatches(type, DrawerMatchers.isOpen());
+    }
+
     /**
      * Checks to see if the Navigation Drawer is closed.
      * @return The model returned by interacting with this element.
      */
     public T isClosed() {
         return checkMatches(DrawerMatchers.isClosed());
+    }
+
+    public <E extends PageObject> E isClosed(Class<E> type) {
+        return checkMatches(type, DrawerMatchers.isClosed());
     }
 
     /**
