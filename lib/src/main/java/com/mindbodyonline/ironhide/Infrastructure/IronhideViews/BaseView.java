@@ -1114,14 +1114,29 @@ public class BaseView<T> {
      * ViewAssertions
      */
 
+    /**
+     * Checks if the element does not exist
+     * @return The model reached by interacting with this element.
+     */
     public T doesNotExist() {
         return checkAssertion(ViewAssertions.doesNotExist());
     }
 
+    /**
+     * Checks to see if the element matches the given Matcher
+     * @param viewMatcher Hamcrest Matcher to match the element against.
+     * @return The model reached by interacting with this element.
+     */
     public T matches(Matcher<View> viewMatcher) {
         return checkAssertion(ViewAssertions.matches(viewMatcher));
     }
 
+    /**
+     * Checks that the descendant views of the element selected by the selector match the specified matcher.
+     * @param selector Selector to choose which descendants to check.
+     * @param matcher Matcher to match the selected descendants against.
+     * @return The model reached by interacting with this element.
+     */
     public T selectedDescendantsMatch(Matcher<View> selector, Matcher<View> matcher) {
         return checkAssertion(ViewAssertions.selectedDescendantsMatch(selector, matcher));
     }
@@ -1134,34 +1149,74 @@ public class BaseView<T> {
      * Position-based Assertions
      */
 
+    /**
+     * Check to see if the element is above the given view.
+     * @param matcher Matcher representing a view to check if the element is above.
+     * @return The model reached by interacting with this element.
+     */
     public T isAbove(Matcher<View> matcher) {
         return checkAssertion(PositionAssertions.isAbove(matcher));
     }
 
+    /**
+     * Check to see if the element is below the given view.
+     * @param matcher Matcher representing a view to check if the element is below.
+     * @return The model reached by interacting with this element.
+     */
     public T isBelow(Matcher<View> matcher) {
         return checkAssertion(PositionAssertions.isBelow(matcher));
     }
 
+    /**
+     * Check to see if the element is bottom aligned with the given view.
+     * @param matcher Matcher representing a view to check if the element is bottom aligned with.
+     * @return The model reached by interacting with this element.
+     */
     public T isBottomAlignedWith(Matcher<View> matcher) {
         return checkAssertion(PositionAssertions.isBottomAlignedWith(matcher));
     }
 
+    /**
+     * Check to see if the element is right aligned with the given view.
+     * @param matcher Matcher representing a view to check if the element is right aligned with.
+     * @return The model reached by interacting with this element.
+     */
     public T isLeftAlignedWith(Matcher<View> matcher) {
         return checkAssertion(PositionAssertions.isLeftAlignedWith(matcher));
     }
 
+    /**
+     * Check to see if the element is left of the given view.
+     * @param matcher Matcher representing a view to check if the element is left of.
+     * @return The model reached by interacting with this element.
+     */
     public T isLeftOf(Matcher<View> matcher) {
         return checkAssertion(PositionAssertions.isLeftOf(matcher));
     }
 
+    /**
+     * Check to see if the element is right aligned with the given view.
+     * @param matcher Matcher representing a view to check if the element is right aligned with.
+     * @return The model reached by interacting with this element.
+     */
     public T isRightAlignedWith(Matcher<View> matcher) {
         return checkAssertion(PositionAssertions.isRightAlignedWith(matcher));
     }
 
+    /**
+     * Check to see if the element is right of the given view.
+     * @param matcher Matcher representing a view to check if the element is right of.
+     * @return The model reached by interacting with this element.
+     */
     public T isRightOf(Matcher<View> matcher) {
         return checkAssertion(PositionAssertions.isRightOf(matcher));
     }
 
+    /**
+     * Check to see if the element is top aligned with the given view.
+     * @param matcher Matcher representing a view to check if the element is top aligned with.
+     * @return The model reached by interacting with this element.
+     */
     public T isTopAlignedWith(Matcher<View> matcher) {
         return checkAssertion(PositionAssertions.isTopAlignedWith(matcher));
     }
@@ -1172,10 +1227,19 @@ public class BaseView<T> {
      * Misc Helper Methods
      */
 
+    /**
+     * Pause the test run for 2 seconds
+     * @return The model reached by interacting with this element.
+     */
     public T pause() {
         return pause(PageObject.DEFAULT_PAUSE_TIME);
     }
 
+    /**
+     * Pause the test run for a given amount of time(in milliseconds).
+     * @param timeInMillis Time, in milliseconds, to pause for.
+     * @return The model reached by interacting with this element.
+     */
     public T pause(int timeInMillis) {
         try {
             Thread.sleep(timeInMillis);
