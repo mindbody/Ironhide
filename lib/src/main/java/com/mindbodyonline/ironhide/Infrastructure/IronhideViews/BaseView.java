@@ -97,7 +97,7 @@ public class BaseView<T> {
     }
 
     /**
-     * Need to find a way to support Root Views if we want total completeness
+     * TODO: Need to find a way to support Root Views if we want total completeness
      */
 //    protected T checkRootMatches(Matcher<android.support.test.espresso.Root> viewMatcher) {
 //        return checkAssertion(ViewAssertions.matches(viewMatcher));
@@ -170,7 +170,7 @@ public class BaseView<T> {
 
     /**
      * Close the Navigation Drawer.
-     * @param drawerLayoutId
+     * @param drawerLayoutId The android id of the Drawer Layout
      * @return The model returned by interacting with the Element.
      */
     public T closeDrawer(int drawerLayoutId) {
@@ -181,7 +181,7 @@ public class BaseView<T> {
 
     /**
      * Open the Navigation drawer.
-     * @param drawerLayoutId
+     * @param drawerLayoutId The android id of the Drawer Layout
      * @return The model returned by interacting with the Element.
      */
     public T openDrawer(int drawerLayoutId) {
@@ -200,7 +200,7 @@ public class BaseView<T> {
 
     /**
      * Scroll to the element, but return the specified model (Given by the "type" argument).
-     * @param type The type of the page object to return to.
+     * @param type The PageObject to return to.
      * @return     The model returned by interacting with the element.
      */
     public <E extends PageObject> E scrollTo(Class<E> type) {
@@ -217,8 +217,8 @@ public class BaseView<T> {
 
     /**
      * Click on the element, but return to the specified model (Given by the "type" argument).
-     * @param type The type of the page object to return to
-     * @return     The model returned by interacting with the element.
+     * @param type The PageObject to return to.
+     * @return     The model given by the type parameter.
      */
     public <E extends PageObject> E click(Class<E> type) {
         return performAction(type, ViewActions.click());
@@ -234,8 +234,8 @@ public class BaseView<T> {
 
     /**
      * Press the back button, but return to the specified model (Given by the "type" argument).
-     * @param type The type of the page object to return to
-     * @return     The model returned by interacting with the element.
+     * @param type The PageObject to return to.
+     * @return    The model given by the type parameter.
      */
     public <E extends PageObject> E pressBack(Class<E> type) {
         return performAction(type, ViewActions.pressBack());
@@ -251,8 +251,8 @@ public class BaseView<T> {
 
     /**
      * Press the Ime action button, but return to the specified model (Given by the "type" argument).
-     * @param type The type of the page object to return to
-     * @return     The model returned by interacting with the element.
+     * @param type The PageObject to return to.
+     * @return     The model given by the type parameter.
      */
     public <E extends PageObject> E pressImeActionButton(Class<E> type) {
         return performAction(type, ViewActions.pressImeActionButton());
@@ -268,8 +268,8 @@ public class BaseView<T> {
 
     /**
      * Press the menu button, but return to the specified model (Given by the "type" argument).
-     * @param type The type of the page object to return to.
-     * @return     The model returned by interacting with the element.
+     * @param type The PageObject to return to.
+     * @return     The model given by the type parameter.
      */
     public <E extends PageObject> E pressMenuKey(Class<E> type) {
         return performAction(type, ViewActions.pressMenuKey());
@@ -286,9 +286,9 @@ public class BaseView<T> {
 
     /**
      * Press the specified key.
-     * @param type The type of page object to return to.
+     * @param type The PageObject to return to.
      * @param keyCode The integer value of the key to be pressed.
-     * @return     The model returned by interacting with the element.
+     * @return   The model given by the type parameter.
      */
     public <E extends PageObject> E pressKey(Class<E> type, int keyCode) {
         return performAction(type, ViewActions.pressKey(keyCode));
@@ -306,8 +306,8 @@ public class BaseView<T> {
     /**
      * Press the specified key, but return to the specified model (Given by the "type" argument).
      * @param keyCode The EspressoKey object representation of the key to be pressed.
-     * @param type The type of the page object to return to.
-     * @return     The model returned by interacting with the element.
+     * @param type The PageObject to return to.
+     * @return     The model given by the type parameter.
      */
     public <E extends PageObject> E pressKey(Class<E> type, EspressoKey keyCode) {
         return performAction(type, ViewActions.pressKey(keyCode));
@@ -323,8 +323,8 @@ public class BaseView<T> {
 
     /**
      * Double click on the element, but return to the specified model (Given by the "type" argument).
-     * @param type The type of the page object to return to.
-     * @return     The model returned by interacting with the element.
+     * @param type The PageObject to return to.
+     * @return    The model given by the type parameter.
      */
     public <E extends PageObject> E doubleClick(Class<E> type) {
         return performAction(type, ViewActions.doubleClick());
@@ -340,8 +340,8 @@ public class BaseView<T> {
 
     /**
      * Long click on the element, but return to the specified model (Given by the "type" argument).
-     * @param type The type of the page object to return to.
-     * @return     The model returned by interacting with the element.
+     * @param type The PageObject to return to.
+     * @return     The model given by the type parameter.
      */
     public <E extends PageObject> E longClick(Class<E> type) {
         return performAction(type, ViewActions.longClick());
@@ -358,8 +358,8 @@ public class BaseView<T> {
 
     /**
      * Close the on-screen keyboard, but return to the specified model (Given by the "type" argument).
-     * @param type The type of the page object to return to.
-     * @return     The model returned by interacting with the element.
+     * @param type The PageObject to return to.
+     * @return     The model given by the type parameter.
      */
     public <E extends PageObject> E closeKeyboard(Class<E> type) {
         return performAction(type, ViewActions.closeSoftKeyboard());
@@ -377,18 +377,35 @@ public class BaseView<T> {
      */
 
 
+    /**
+     * Checks to see if the Navigation Drawer is open.
+     * @return The model returned by interacting with this element.
+     */
     public T isOpen() {
         return checkMatches(DrawerMatchers.isOpen());
     }
 
+    /**
+     * Checks to see if the Navigation Drawer is closed.
+     * @return The model returned by interacting with this element.
+     */
     public T isClosed() {
         return checkMatches(DrawerMatchers.isClosed());
     }
 
+    /**
+     * Checks to see if the given object is at least partially displayed on the screen.
+     * @return The model returned by interacting with this element.
+     */
     public T isDisplayed() {
         return checkMatches(ViewMatchers.isDisplayed());
     }
 
+    /**
+     * Checks to see if the given object is at least partially displayed on the screen.
+     * @param type The PageObject to return to.
+     * @return The model given by the type object.
+     */
     public <E extends PageObject> E isDisplayed(Class<E> type) {
         return checkMatches(type, ViewMatchers.isDisplayed());
     }
@@ -412,148 +429,293 @@ public class BaseView<T> {
 //        }
 //    }
 
+
     public T isNotDisplayed() {
         return checkMatches(not(ViewMatchers.isDisplayed()));
+    }
+
+    public <E extends PageObject> E isNotDisplayed(Class<E> type) {
+        return checkMatches(type, not(ViewMatchers.isDisplayed()));
     }
 
     public T isCompletelyDisplayed() {
         return checkMatches(ViewMatchers.isCompletelyDisplayed());
     }
 
+    public <E extends PageObject> E isCompletelyDisplayed(Class<E> type) {
+        return checkMatches(type, ViewMatchers.isCompletelyDisplayed());
+    }
+
     public T withText(int stringId) {
         return checkMatches(ViewMatchers.withText(stringId));
     }
 
+    public <E extends PageObject> E withText(Class<E> type, int stringId) {
+        return checkMatches(type, ViewMatchers.withText(stringId));
+    }
+
+
     public T withText(String string) {
         return checkMatches(ViewMatchers.withText(string));
+    }
+
+    public <E extends PageObject> E withText(Class<E> type, String string) {
+        return checkMatches(type, ViewMatchers.withText(string));
     }
 
     public T withNotText(int stringId) {
         return checkMatches(not(ViewMatchers.withText(stringId)));
     }
 
+    public <E extends PageObject> E withNotText(Class<E> type, int stringId) {
+        return checkMatches(type, not(ViewMatchers.withText(stringId)));
+    }
+
     public T withNotText(String string) {
         return checkMatches(not(ViewMatchers.withText(string)));
+    }
+
+    public <E extends PageObject> E withNotText(Class<E> type, String string) {
+        return checkMatches(type, not(ViewMatchers.withText(string)));
     }
 
     public T withText(Matcher<String> stringMatcher) {
         return checkMatches(ViewMatchers.withText(stringMatcher));
     }
 
+    public <E extends PageObject> E withText(Class<E> type, Matcher<String> stringMatcher) {
+        return checkMatches(type, ViewMatchers.withText(stringMatcher));
+    }
+
     public T isAssignableFrom(Class<? extends View> fromClass) {
         return checkMatches(ViewMatchers.isAssignableFrom(fromClass));
+    }
+
+    public <E extends PageObject> E isAssignableFrom(Class<E> type, Class<? extends View> fromClass) {
+        return checkMatches(type, ViewMatchers.isAssignableFrom(fromClass));
     }
 
     public T withClassName(Matcher<String> classNameMatcher) {
         return checkMatches(ViewMatchers.withClassName(classNameMatcher));
     }
 
+    public <E extends PageObject> E withClassName(Class<E> type, Matcher<String> classNameMatcher) {
+        return checkMatches(type, ViewMatchers.withClassName(classNameMatcher));
+    }
+
     public T isDisplayingAtLeast(int areaPercentage) {
         return checkMatches(ViewMatchers.isDisplayingAtLeast(areaPercentage));
+    }
+
+    public <E extends PageObject> E withClassName(Class<E> type, int areaPercentage) {
+        return checkMatches(type, ViewMatchers.isDisplayingAtLeast(areaPercentage));
     }
 
     public T isEnabled() {
         return checkMatches(ViewMatchers.isEnabled());
     }
 
+    public <E extends PageObject> E withClassName(Class<E> type) {
+        return checkMatches(type, ViewMatchers.isEnabled());
+    }
+
     public T isNotEnabled() {
         return checkMatches(not(ViewMatchers.isEnabled()));
+    }
+
+    public <E extends PageObject> E isNotEnabled(Class<E> type) {
+        return checkMatches(type, not(ViewMatchers.isEnabled()));
     }
 
     public T isFocusable() {
         return checkMatches(ViewMatchers.isFocusable());
     }
 
+    public <E extends PageObject> E isFocusable(Class<E> type) {
+        return checkMatches(type, ViewMatchers.isFocusable());
+    }
+
     public T hasFocus() {
         return checkMatches(ViewMatchers.hasFocus());
+    }
+
+    public <E extends PageObject> E hasFocus(Class<E> type) {
+        return checkMatches(type, ViewMatchers.hasFocus());
     }
 
     public T hasSibling(BaseView<T> sibling) {
         return checkMatches(ViewMatchers.hasSibling(sibling.getSelector()));
     }
 
+    public <E extends PageObject> E hasSibling(Class<E> type, BaseView<T> sibling) {
+        return checkMatches(type, ViewMatchers.hasSibling(sibling.getSelector()));
+    }
+
     public T withContentDescription(String text) {
         return checkMatches(ViewMatchers.withContentDescription(text));
+    }
+
+    public <E extends PageObject> E withContentDescription(Class<E> type, String text) {
+        return checkMatches(type, ViewMatchers.withContentDescription(text));
     }
 
     public T withContentDescription(Matcher<? extends CharSequence> charSequenceMatcher) {
         return checkMatches(ViewMatchers.withContentDescription(charSequenceMatcher));
     }
 
+    public <E extends PageObject> E withContentDescription(Class<E> type, Matcher<? extends CharSequence> charSequenceMatcher) {
+        return checkMatches(type, ViewMatchers.withContentDescription(charSequenceMatcher));
+    }
+
     public T withId(int id) {
         return checkMatches(ViewMatchers.withId(id));
+    }
+
+    public <E extends PageObject> E withId(Class<E> type, int id) {
+        return checkMatches(type, ViewMatchers.withId(id));
     }
 
     public T withId(Matcher<Integer> integerMatcher) {
         return checkMatches(ViewMatchers.withId(integerMatcher));
     }
 
+    public <E extends PageObject> E withId(Class<E> type, Matcher<Integer> integerMatcher) {
+        return checkMatches(type, ViewMatchers.withId(integerMatcher));
+    }
+
     public T withTagKey(int key) {
         return checkMatches(ViewMatchers.withTagKey(key));
+    }
+
+    public <E extends PageObject> E withTagKey(Class<E> type, int key) {
+        return checkMatches(type, ViewMatchers.withTagKey(key));
     }
 
     public T withTagKey(int key, Matcher<Object> objectMatcher) {
         return checkMatches(ViewMatchers.withTagKey(key, objectMatcher));
     }
 
+    public <E extends PageObject> E withTagKey(Class<E> type, int key,  Matcher<Object> objectMatcher) {
+        return checkMatches(type, ViewMatchers.withTagKey(key, objectMatcher));
+    }
+
     public T withTagValue(Matcher<Object> tagValueMatcher) {
         return checkMatches(ViewMatchers.withTagValue(tagValueMatcher));
+    }
+
+    public <E extends PageObject> E withTagValue(Class<E> type, Matcher<Object> tagValueMatcher) {
+        return checkMatches(type, ViewMatchers.withTagValue(tagValueMatcher));
     }
 
     public T isNotChecked() {
         return checkMatches(ViewMatchers.isNotChecked());
     }
 
+    public <E extends PageObject> E isNotChecked(Class<E> type) {
+        return checkMatches(type, ViewMatchers.isNotChecked());
+    }
+
     public T isChecked() {
         return checkMatches(ViewMatchers.isChecked());
+    }
+
+    public <E extends PageObject> E isChecked(Class<E> type) {
+        return checkMatches(type, ViewMatchers.isChecked());
     }
 
     public T hasContentDescription() {
         return checkMatches(ViewMatchers.hasContentDescription());
     }
 
+    public <E extends PageObject> E hasContentDescription(Class<E> type) {
+        return checkMatches(type, ViewMatchers.hasContentDescription());
+    }
+
     public T hasDescendant(BaseView<T> descendant) {
         return checkMatches(ViewMatchers.hasDescendant(descendant.getSelector()));
+    }
+
+    public <E extends PageObject> E hasDescendant(Class<E> type, BaseView<T> descendant) {
+        return checkMatches(type, ViewMatchers.hasDescendant(descendant.getSelector()));
     }
 
     public T isNotClickable() {
         return checkMatches(not(ViewMatchers.isClickable()));
     }
 
+    public <E extends PageObject> E isNotClickable(Class<E> type) {
+        return checkMatches(type, not(ViewMatchers.isClickable()));
+    }
+
     public T isClickable() {
         return checkMatches(ViewMatchers.isClickable());
+    }
+
+    public <E extends PageObject> E isClickable(Class<E> type) {
+        return checkMatches(type, ViewMatchers.isClickable());
     }
 
     public T isDescendantOfA(BaseView<T> parent) {
         return checkMatches(ViewMatchers.isDescendantOfA(parent.getSelector()));
     }
 
+    public <E extends PageObject> E isDescendantOfA(Class<E> type, BaseView<T> parent) {
+        return checkMatches(type, ViewMatchers.isDescendantOfA(parent.getSelector()));
+    }
+
     public T withEffectiveVisibility(ViewMatchers.Visibility visibility) {
         return checkMatches(ViewMatchers.withEffectiveVisibility(visibility));
+    }
+
+    public <E extends PageObject> E withEffectiveVisibility(Class<E> type, ViewMatchers.Visibility visibility) {
+        return checkMatches(type, ViewMatchers.withEffectiveVisibility(visibility));
     }
 
     public T withParent(BaseView<T> parent) {
         return checkMatches(ViewMatchers.withParent(parent.getSelector()));
     }
 
+    public <E extends PageObject> E withParent(Class<E> type, BaseView<T> parent) {
+        return checkMatches(type, ViewMatchers.withParent(parent.getSelector()));
+    }
+
     public T withChild(BaseView<T> child) {
         return checkMatches(ViewMatchers.withChild(child.getSelector()));
+    }
+
+    public <E extends PageObject> E withChile(Class<E> type, BaseView<T> child) {
+        return checkMatches(type, ViewMatchers.withChild(child.getSelector()));
     }
 
     public T isRoot() {
         return checkMatches(ViewMatchers.isRoot());
     }
 
+    public <E extends PageObject> E isRoot(Class<E> type) {
+        return checkMatches(type, ViewMatchers.isRoot());
+    }
+
     public T supportsInputMethods() {
         return checkMatches(ViewMatchers.supportsInputMethods());
+    }
+
+    public <E extends PageObject> E supportsInputMethods(Class<E> type) {
+        return checkMatches(type, ViewMatchers.supportsInputMethods());
     }
 
     public T hasImeAction(int imeAction) {
         return checkMatches(ViewMatchers.hasImeAction(imeAction));
     }
 
+    public <E extends PageObject> E hasImeAction(Class<E> type, int imeAction) {
+        return checkMatches(type, ViewMatchers.hasImeAction(imeAction));
+    }
+
     public T hasImeAction(Matcher<Integer> imeActionMatcher) {
         return checkMatches(ViewMatchers.hasImeAction(imeActionMatcher));
+    }
+    public <E extends PageObject> E hasImeAction(Class<E> type, Matcher<Integer> imeActionMatcher) {
+        return checkMatches(type, ViewMatchers.hasImeAction(imeActionMatcher));
     }
 
     /**
