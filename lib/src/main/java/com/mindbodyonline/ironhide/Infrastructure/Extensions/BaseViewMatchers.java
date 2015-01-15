@@ -207,9 +207,12 @@ public class BaseViewMatchers {
     /**
      * Checks to see if a TextView's text contains a certain string given the string's resource id.
      * (Adapted from Espresso.ViewMatchers.withText)
+     * @deprecated use TextViewMatchers instead (more robust)
+     *
      * @param resourceId    The string's resource id
      * @return              A Matcher to check using Espresso ViewAssertions.matches method
      */
+    @Deprecated
     public static Matcher<View> containsString(final int resourceId) {
 
         return new BoundedMatcher<View, TextView>(TextView.class) {
