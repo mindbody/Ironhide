@@ -105,29 +105,4 @@ public class Swipeable<T> extends BaseView<T> {
         return performAction(BaseViewActions.swipeFullLeft());
 
     }
-
-    /**
-     * Should be better written or removed for open source.
-     * (Besides the fact that it doesn't catch any assertion errors thrown in scrollUpToClick)
-     */
-    /*public T scrollUpToClick(BaseView<T> element){
-
-        while (true) {
-            try {
-                element.isDisplayed();
-                return element.click();
-
-            } catch (Exception e) {
-                performAction(BaseViewActions.swipeUpSlowHalf());
-                pause(200);
-            }
-        }
-    }*/
-
-    /*public T selectFromListWithText(Class type, String string){
-
-        Clickable<T> Title = new Clickable<T>(this.type, allOf(BaseViewMatchers.instanceOf(type), ViewMatchers.withText(string)));
-
-        return this.scrollUpToClick(Title);
-    }*/
 }
