@@ -1,6 +1,7 @@
 package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
 import android.support.test.espresso.DataInteraction;
+import android.support.test.espresso.Root;
 import android.support.test.espresso.ViewAction;
 import android.support.test.espresso.ViewAssertion;
 import android.support.test.espresso.action.EspressoKey;
@@ -19,6 +20,8 @@ import org.hamcrest.Matcher;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static org.hamcrest.Matchers.not;
+import static android.support.test.espresso.matcher.RootMatchers.DEFAULT;
+import static org.hamcrest.Matchers.is;
 
 /**
  * Base Class for all page elements represented in the models for the Connect Test Suite
@@ -35,6 +38,7 @@ public class BaseView<T> {
     protected Class<T> type;
     protected Matcher<View> selector;
     protected DataInteraction adapter;
+    protected Matcher<Root> rootMatcher;
 
     /**
      * Gets the appropriate selector for the current view element
@@ -63,7 +67,7 @@ public class BaseView<T> {
         if (adapter != null)
             adapter.perform(viewAction);
         else
-            onView(getSelector()).perform(viewAction);
+            onView(getSelector()).inRoot(rootMatcher).perform(viewAction);
         return returnGeneric();
     }
 
@@ -78,7 +82,7 @@ public class BaseView<T> {
         if (adapter != null)
             adapter.perform(viewAction);
         else
-            onView(getSelector()).perform(viewAction);
+            onView(getSelector()).inRoot(rootMatcher).perform(viewAction);
         return returnGeneric(type);
     }
 
@@ -103,7 +107,7 @@ public class BaseView<T> {
         if (adapter != null)
             adapter.check(ViewAssertions.matches(viewMatcher));
         else
-            onView(getSelector()).check(ViewAssertions.matches(viewMatcher));
+            onView(getSelector()).inRoot(rootMatcher).check(ViewAssertions.matches(viewMatcher));
         return returnGeneric(type);
     }
 
@@ -124,7 +128,7 @@ public class BaseView<T> {
         if (adapter != null)
             adapter.check(viewAssertion);
         else
-            onView(getSelector()).check(viewAssertion);
+            onView(getSelector()).inRoot(rootMatcher).check(viewAssertion);
         return returnGeneric();
     }
 
@@ -159,6 +163,25 @@ public class BaseView<T> {
             e.printStackTrace();
         }
         return null;
+    }
+
+    /**
+     * Changes the root for this view to be anything that is not the default root selected by Espresso.
+     * @return this
+     */
+    protected BaseView<T> changeRoot() {
+        return changeRoot(not(is(DEFAULT)));
+    }
+
+    /**
+     * Changes the root for this view to match the given rootMatcher
+     * @param rootMatcher a rootMatcher using Espresso's RootMatchers
+     * @return  this
+     */
+    protected BaseView<T> changeRoot(Matcher<Root> rootMatcher) {
+        this.rootMatcher = rootMatcher;
+
+        return this;
     }
 
     /**
@@ -349,7 +372,7 @@ public class BaseView<T> {
      * @return     The model reached by interacting with this element.
      */
     public T closeKeyboard() {
-        onView(getSelector()).perform(closeSoftKeyboard());
+        onView(getSelector()).inRoot(rootMatcher).perform(closeSoftKeyboard());
         return pause();
     }
 
