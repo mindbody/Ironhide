@@ -93,14 +93,26 @@ public class BaseView<T> {
     }
 
     /**
+     * Checks if an element matches a certain value using an Espresso ViewMatcher
+     *
+     * @param type        The type of the PageObject to return
+     * @param viewMatcher The ViewMatcher used to check the element
+     * @return The model given by the type parameter.
+     */
+    protected <E extends PageObject> E checkMatches(Class<E> type, Matcher<? super View> viewMatcher) {
+        if (adapter != null)
+            adapter.check(ViewAssertions.matches(viewMatcher));
+        else
+            onView(getSelector()).check(ViewAssertions.matches(viewMatcher));
+        return returnGeneric(type);
+    }
+
+    /**
      * TODO: Need to find a way to support Root Views if we want total completeness
      */
 //    protected T checkRootMatches(Matcher<android.support.test.espresso.Root> viewMatcher) {
 //        return checkAssertion(ViewAssertions.matches(viewMatcher));
 //    }
-
-
-
 
     /**
      * Checks if an element matches a certain value using an Espresso ViewAssertion
@@ -114,21 +126,6 @@ public class BaseView<T> {
         else
             onView(getSelector()).check(viewAssertion);
         return returnGeneric();
-    }
-
-    /**
-     * Checks if an element matches a certain value using an Espresso ViewMatcher
-     *
-     * @param type        The type of the PageObject to return
-     * @param viewMatcher The ViewMatcher used to check the element
-     * @return The model reached by interacting with this element
-     */
-    protected <E extends PageObject> E checkMatches(Class<E> type, Matcher<? super View> viewMatcher) {
-        if (adapter != null)
-            adapter.check(ViewAssertions.matches(viewMatcher));
-        else
-            onView(getSelector()).check(ViewAssertions.matches(viewMatcher));
-        return returnGeneric(type);
     }
 
     /**
@@ -151,7 +148,7 @@ public class BaseView<T> {
      * Used whenever interacting with an element to return the correct following model
      *
      * @param type The type of PageObject to return
-     * @return The model reached by interacting with this element
+     * @return The model given by the type parameter.
      */
     protected <E extends PageObject> E returnGeneric(Class<E> type) {
         try {
@@ -427,26 +424,6 @@ public class BaseView<T> {
     public <E extends PageObject> E isDisplayed(Class<E> type) {
         return checkMatches(type, ViewMatchers.isDisplayed());
     }
-
-    /**
-     * If this can't be refactored into something cleaner will be removed for Open Source release.
-     * @return
-     */
-//    public boolean isDisplayedBoolean() {
-//        try {
-//            checkMatches(ViewMatchers.isDisplayed());
-//            return true;
-//        } catch (Exception e) {
-//            return false;
-//        } catch (AssertionFailedError e) {
-//            if (e.getMessage().contains("Expected: is displayed on the screen to the user")) {
-//                return false;
-//            }
-//            throw e;
-//            return false;
-//        }
-//    }
-
 
     /**
      * Check to see if the element is not displayed.
@@ -1097,12 +1074,6 @@ public class BaseView<T> {
         return checkMatches(type, ViewMatchers.hasImeAction(imeActionMatcher));
     }
 
-    /**
-     * Unable to use RootMatchers as of yet.
-     */
-//    public T isDialog(){
-//        return checkMatches(RootMatchers.isDialog());
-//    }
 
     /**
      * End ViewMatchers
@@ -1252,22 +1223,4 @@ public class BaseView<T> {
     /**
      * Potential removal for Open Source if can't find an implementation that depends on isDisplayedBoolean.
      */
-//    public T waitForElement() {
-//
-//        int pauseTime = 0;
-//
-//        pause();
-//
-//        while (pauseTime < 10 && !this.isDisplayedBoolean()) {
-//            pause();
-//            pauseTime++;
-//        }
-//
-//        return returnGeneric();
-//    }
-//
-//    public <E extends PageObject> E waitForElement(Class<E> type) {
-//        waitForElement();
-//        return returnGeneric(type);
-//    }
 }

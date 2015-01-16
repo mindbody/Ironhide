@@ -7,6 +7,7 @@ import android.support.test.espresso.matcher.ViewMatchers;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.EnterTextAction;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.SetCursorAction;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.TextViewMatchers;
+import com.mindbodyonline.ironhide.PageObjects.PageObject;
 
 import org.hamcrest.Matcher;
 
@@ -38,18 +39,39 @@ public class TextField<T> extends BaseView<T> {
         text = displayText;
     }
 
+    /**
+     * Type the given text into the element.
+     * @param toType Text to type
+     * @return The model reached by interacting with this element.
+     */
     public T typeText(String toType) {
         return performAction(ViewActions.typeText(toType));
     }
 
+
+    /**
+     * Clear the text from the element.
+     * @return The model reached by interacting with this element.
+     */
     public T clearText() {
         return performAction(ViewActions.clearText());
     }
 
+    /**
+     * Type the given text into the element. Element is assumed to have focus.
+     * @param stringToBeTyped Text to type.
+     * @return The model reached by interacting with this element.
+     */
     public T typeTextIntoFocusedView(String stringToBeTyped) {
         return performAction(ViewActions.typeTextIntoFocusedView(stringToBeTyped));
     }
 
+    /**
+     * Method to enter text by simulating a user inputing to the android keyboard.
+     * Useful when interacting with an EditText View which uses an OnTextChangedListener
+     * @param toType Text to type.
+     * @return The model reached by interacting with this element.
+     */
     public T enterText(String toType) {
         return performAction(enterTextAction(toType));
     }
