@@ -1,21 +1,11 @@
 package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
-import android.app.Instrumentation;
-import android.graphics.Point;
-import android.os.SystemClock;
 import android.support.test.espresso.action.ViewActions;
-import android.support.test.espresso.matcher.ViewMatchers;
-import android.view.MotionEvent;
 import android.view.View;
 
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.BaseViewActions;
-import com.mindbodyonline.ironhide.Infrastructure.Extensions.BaseViewMatchers;
 
 import org.hamcrest.Matcher;
-
-import static org.hamcrest.Matchers.allOf;
 
 /**
  * Extends BaseView

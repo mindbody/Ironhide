@@ -1,17 +1,12 @@
 package com.mindbodyonline.ironhide.Infrastructure.Extensions;
 
-import android.content.res.Resources;
 import android.support.test.espresso.matcher.BoundedMatcher;
-import android.support.test.espresso.matcher.ViewMatchers;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
-import org.hamcrest.Matchers;
 
 import static android.support.test.internal.util.Checks.checkNotNull;
 import static org.hamcrest.Matchers.not;
@@ -59,6 +54,10 @@ public class BaseViewMatchers {
         return checkHasIndex(index);
     }
 
+    /**
+     * @deprecated use: not(hasIndex(index))
+     */
+    @Deprecated
     public static Matcher<View> doesNotHaveIndex(final int index) { return not(checkHasIndex(index));}
 
     private static Matcher<View> checkHasIndex(final int index) {

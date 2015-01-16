@@ -3,7 +3,6 @@ package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 import android.support.test.espresso.Root;
 import android.support.test.espresso.ViewAction;
 import android.support.test.espresso.ViewAssertion;
-import android.support.test.espresso.ViewInteraction;
 import android.support.test.espresso.assertion.ViewAssertions;
 import android.view.View;
 

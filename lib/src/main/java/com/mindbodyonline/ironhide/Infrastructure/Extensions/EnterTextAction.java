@@ -31,7 +31,7 @@ public class EnterTextAction implements ViewAction {
 
     @Override
     public Matcher<View> getConstraints() {
-        return allOf(isDisplayed());
+        return isDisplayed();
     }
 
     @Override

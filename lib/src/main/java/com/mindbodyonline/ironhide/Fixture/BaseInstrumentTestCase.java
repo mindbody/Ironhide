@@ -6,8 +6,8 @@ import android.support.test.runner.AndroidJUnit4;
 import android.test.ActivityInstrumentationTestCase2;
 
 import org.junit.After;
-import org.junit.runner.RunWith;
 import org.junit.Before;
+import org.junit.runner.RunWith;
 
 /**
  * This class provides functional testing of a single activity.
@@ -28,18 +28,14 @@ public class BaseInstrumentTestCase<T extends Activity> extends ActivityInstrume
 
     protected Activity mActivity;
 
-    /**
-     * @deprecated String parameter is ignored, use constructor without String parameter
-     */
-    @Deprecated
-    public BaseInstrumentTestCase(String pkg, Class<T> activityClass) {
-        super(pkg, activityClass);
-    }
-
     public BaseInstrumentTestCase(Class<T> activityClass) {
         super(activityClass);
     }
 
+    /**
+     * The default setup for AndroidJUnit tests.
+     * If overrode, include the @Before tag.
+     */
     @Override
     @Before
     public void setUp() throws Exception {
@@ -48,6 +44,10 @@ public class BaseInstrumentTestCase<T extends Activity> extends ActivityInstrume
         mActivity = getActivity();
     }
 
+    /**
+     * The default tear down for AndroidJUnit tests.
+     * If overrode, include the @After tag.
+     */
     @Override
     @After
     public void tearDown() throws Exception {

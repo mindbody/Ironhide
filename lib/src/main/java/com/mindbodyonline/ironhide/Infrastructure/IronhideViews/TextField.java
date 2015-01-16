@@ -2,20 +2,13 @@ package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
 import android.net.Uri;
 import android.support.test.espresso.action.ViewActions;
-import android.support.test.espresso.matcher.BoundedMatcher;
 import android.support.test.espresso.matcher.ViewMatchers;
-import android.view.View;
-import android.widget.TextView;
 
-import com.mindbodyonline.ironhide.Infrastructure.Extensions.BaseViewMatchers;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.EnterTextAction;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.SetCursorAction;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.TextViewMatchers;
-import com.mindbodyonline.ironhide.PageObjects.PageObject;
 
-import org.hamcrest.Description;
 import org.hamcrest.Matcher;
-import org.hamcrest.Matchers;
 
 /**
  * Extends BaseView
@@ -73,7 +66,7 @@ public class TextField<T> extends BaseView<T> {
     }
 
     /**
-     * Method to enter text by simulating a user inputing to the android keyboard.
+     * Method to enter text by simulating a user inputting to the android keyboard.
      * Useful when interacting with an EditText View which uses an OnTextChangedListener
      * @param toType Text to type.
      * @return The model reached by interacting with this element.
