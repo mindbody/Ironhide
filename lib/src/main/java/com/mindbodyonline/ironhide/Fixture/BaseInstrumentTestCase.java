@@ -24,7 +24,7 @@ import org.junit.Before;
  *  - ensure all support repositories are updated to ensure successful builds
  */
 @RunWith(AndroidJUnit4.class)
-public class MindbodyActivityInstrumentTestCase<T extends Activity> extends ActivityInstrumentationTestCase2<T> {
+public class BaseInstrumentTestCase<T extends Activity> extends ActivityInstrumentationTestCase2<T> {
 
     protected Activity mActivity;
 
@@ -32,11 +32,11 @@ public class MindbodyActivityInstrumentTestCase<T extends Activity> extends Acti
      * @deprecated String parameter is ignored, use constructor without String parameter
      */
     @Deprecated
-    public MindbodyActivityInstrumentTestCase(String pkg, Class<T> activityClass) {
+    public BaseInstrumentTestCase(String pkg, Class<T> activityClass) {
         super(pkg, activityClass);
     }
 
-    public MindbodyActivityInstrumentTestCase(Class<T> activityClass) {
+    public BaseInstrumentTestCase(Class<T> activityClass) {
         super(activityClass);
     }
 
