@@ -18,19 +18,15 @@ import org.hamcrest.Matcher;
 public class LayoutView<T> extends BaseView<T> {
 
     public LayoutView(Class<T> type, int resourceId) {
-        this.type = type;
-        id = resourceId;
+        super(type, resourceId);
     }
 
     public LayoutView(Class<T> type, Matcher<View> selector) {
-        this.type = type;
-        this.selector = selector;
+        super(type, selector);
     }
 
-    public LayoutView(Class<T> type, int resourceId, int stringResourceId) {
-        this.type = type;
-        id = resourceId;
-        stringId = stringResourceId;
+    public LayoutView(Class<T> type, int IGNORED, int stringResourceId) {
+        super(type, IGNORED, stringResourceId);
     }
 
     /**

@@ -15,19 +15,15 @@ import org.hamcrest.Matcher;
 public class RecyclerViewWrapper<T> extends BaseView<T> {
 
     public RecyclerViewWrapper(Class<T> type, int resourceId) {
-        this.type = type;
-        id = resourceId;
+        super(type, resourceId);
     }
 
     public RecyclerViewWrapper(Class<T> type, Matcher<View> selector) {
-        this.type = type;
-        this.selector = selector;
+        super(type, selector);
     }
 
     public RecyclerViewWrapper(Class<T> type, int resourceId, int stringResourceId) {
-        this.type = type;
-        id = resourceId;
-        stringId = stringResourceId;
+        super(type, resourceId, stringResourceId);
     }
 
     public T actionOnHolderItem(Matcher<? extends RecyclerView.ViewHolder> viewHolderMatcher, ViewAction viewAction) {

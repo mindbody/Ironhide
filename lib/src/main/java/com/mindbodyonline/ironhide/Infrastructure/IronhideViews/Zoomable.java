@@ -25,13 +25,11 @@ public class Zoomable<T> extends BaseView<T> {
     private static final int EVENT_MIN_INTERVAL = 1000;
 
     public Zoomable(Class<T> type, int resourceId) {
-        this.id = resourceId;
-        this.type = type;
+        super(type, resourceId);
     }
 
     public Zoomable(Class<T> type, Matcher<View> selector) {
-        this.selector = selector;
-        this.type = type;
+        super(type, selector);
     }
 
     Point finger1Start;

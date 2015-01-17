@@ -28,79 +28,45 @@ import static org.hamcrest.Matchers.not;
 
 public class AlternateRootView<T> extends BaseView<T> {
 
-    protected Matcher<Root> rootMatcher = not(is(DEFAULT));
+    protected final Matcher<Root> rootMatcher = not(is(DEFAULT));
 
     public AlternateRootView(Class<T> type, int resourceId) {
-        this.type = type;
-        id = resourceId;
+        super(type, resourceId);
+        this.viewInteraction = viewInteraction.inRoot(rootMatcher);
     }
 
     public AlternateRootView(Class<T> type, Matcher<View> selector) {
-        this.type = type;
-        this.selector = selector;
+        super(type, selector);
+        this.viewInteraction = viewInteraction.inRoot(rootMatcher);
     }
 
-    public AlternateRootView(Class<T> type, int resourceId, int stringResourceId) {
-        this.type = type;
-        id = resourceId;
-        stringId = stringResourceId;
+    public AlternateRootView(Class<T> type, int IGNORED, int stringResourceId) {
+        super(type, IGNORED, stringResourceId);
+        this.viewInteraction = viewInteraction.inRoot(rootMatcher);
     }
 
     public AlternateRootView(Class<T> type, String displayText) {
-        this.type = type;
-        text = displayText;
+        super(type, displayText);
+        this.viewInteraction = viewInteraction.inRoot(rootMatcher);
     }
 
     public AlternateRootView(Class<T> type, int resourceId, Matcher<Root> rootMatcher) {
-        this.type = type;
-        id = resourceId;
-        this.rootMatcher = rootMatcher;
+        super(type, resourceId);
+        this.viewInteraction = viewInteraction.inRoot(rootMatcher);
     }
 
     public AlternateRootView(Class<T> type, Matcher<View> selector, Matcher<Root> rootMatcher) {
-        this.type = type;
-        this.selector = selector;
-        this.rootMatcher = rootMatcher;
+        super(type, selector);
+        this.viewInteraction = viewInteraction.inRoot(rootMatcher);
     }
 
-    public AlternateRootView(Class<T> type, int resourceId, int stringResourceId, Matcher<Root> rootMatcher) {
-        this.type = type;
-        id = resourceId;
-        stringId = stringResourceId;
-        this.rootMatcher = rootMatcher;
+    public AlternateRootView(Class<T> type, int IGNORED, int stringResourceId, Matcher<Root> rootMatcher) {
+        super(type, IGNORED, stringResourceId);
+        this.viewInteraction = viewInteraction.inRoot(rootMatcher);
     }
 
     public AlternateRootView(Class<T> type, String displayText, Matcher<Root> rootMatcher) {
-        this.type = type;
-        text = displayText;
-        this.rootMatcher = rootMatcher;
-    }
-
-    /** {@inheritDoc} */
-    @Override
-    protected T performAction(ViewAction viewAction) {
-        onView(getSelector()).inRoot(rootMatcher).perform(viewAction);
-        return returnGeneric();
-    }
-
-    /** {@inheritDoc} */
-    @Override
-    protected <E extends PageObject> E  performAction(Class<E> type, ViewAction viewAction) {
-        onView(getSelector()).inRoot(rootMatcher).perform(viewAction);
-        return returnGeneric(type);
-    }
-
-    /** {@inheritDoc} */
-    @Override
-    protected T checkAssertion(ViewAssertion viewAssertion) {
-        onView(getSelector()).inRoot(rootMatcher).check(viewAssertion);
-        return returnGeneric();
-    }
-
-    /** {@inheritDoc} */
-    @Override
-    protected <E extends PageObject> E checkMatches(Class<E> type, Matcher<? super View> viewMatcher) {
-        onView(getSelector()).inRoot(rootMatcher).check(ViewAssertions.matches(viewMatcher));
-        return returnGeneric(type);
+        super(type, displayText);
+        this.viewInteraction = viewInteraction.inRoot(rootMatcher);
     }
 }

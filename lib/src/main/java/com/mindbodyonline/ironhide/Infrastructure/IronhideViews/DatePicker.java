@@ -16,27 +16,21 @@ import org.hamcrest.Matcher;
 public class DatePicker<T> extends BaseView<T> {
 
     public DatePicker(Class<T> type, int resourceId) {
-        this.type = type;
-        id = resourceId;
+        super(type, resourceId);
     }
 
     public DatePicker(Class<T> type, Matcher<View> selector) {
-        this.type = type;
-        this.selector = selector;
+        super(type, selector);
     }
 
-    public DatePicker(Class<T> type, int resourceId, int stringResourceId) {
-        this.type = type;
-        id = resourceId;
-        stringId = stringResourceId;
+    public DatePicker(Class<T> type, int IGNORED, int stringResourceId) {
+        super(type, IGNORED, stringResourceId);
     }
 
     public DatePicker(Class<T> type, int resourceId, int stringResourceId, String displayText) {
-        this.type = type;
-        id = resourceId;
-        stringId = stringResourceId;
-        text = displayText;
+        super(type, displayText);
     }
+
 
     public T setDate(int year, int monthOfYear, int dayOfMonth) {
         return performAction(PickerActions.setDate(year, monthOfYear, dayOfMonth));

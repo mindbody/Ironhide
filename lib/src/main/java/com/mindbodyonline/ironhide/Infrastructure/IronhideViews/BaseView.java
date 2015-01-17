@@ -1,8 +1,8 @@
 package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
-import android.support.test.espresso.DataInteraction;
 import android.support.test.espresso.ViewAction;
 import android.support.test.espresso.ViewAssertion;
+import android.support.test.espresso.ViewInteraction;
 import android.support.test.espresso.action.EspressoKey;
 import android.support.test.espresso.action.ViewActions;
 import android.support.test.espresso.assertion.PositionAssertions;
@@ -29,12 +29,27 @@ import static org.hamcrest.Matchers.not;
  */
 public class BaseView<T> {
 
-    protected int id;
-    protected int stringId;
-    protected String text;
     protected Class<T> type;
     protected Matcher<View> selector;
-    protected DataInteraction adapter;
+    protected ViewInteraction viewInteraction;
+
+    protected BaseView(Class<T> type, int resourceId) {
+        this(type, ViewMatchers.withId(resourceId));
+    }
+
+    protected BaseView(Class<T> type, int IGNORED, int stringResourceId) {
+        this(type, ViewMatchers.withText(stringResourceId));
+    }
+
+    protected BaseView(Class<T> type, String displayText) {
+        this(type, ViewMatchers.withText(displayText));
+    }
+
+    protected BaseView(Class<T> type, Matcher<View> selector) {
+        this.type = type;
+        this.selector = selector;
+        this.viewInteraction = onView(selector);
+    }
 
     /**
      * Gets the appropriate selector for the current view element
@@ -43,14 +58,7 @@ public class BaseView<T> {
      * @return The highest order selector available for an element
      */
     protected Matcher<View> getSelector() {
-        if (selector != null)
-            return selector;
-        else if (stringId != 0)
-            return ViewMatchers.withText(stringId);
-        else if (text != null)
-            return ViewMatchers.withText(text);
-        else
-            return ViewMatchers.withId(id);
+        return selector;
     }
 
     /**
@@ -60,10 +68,7 @@ public class BaseView<T> {
      * @return The model reached by interacting with this element.
      */
     protected T performAction(ViewAction viewAction) {
-        if (adapter != null)
-            adapter.perform(viewAction);
-        else
-            onView(getSelector()).perform(viewAction);
+        viewInteraction.perform(viewAction);
         return returnGeneric();
     }
 
@@ -75,10 +80,7 @@ public class BaseView<T> {
      * @return The model given by the type parameter.
      */
     protected <E extends PageObject> E performAction(Class<E> type, ViewAction viewAction) {
-        if (adapter != null)
-            adapter.perform(viewAction);
-        else
-            onView(getSelector()).perform(viewAction);
+        viewInteraction.perform(viewAction);
         return returnGeneric(type);
     }
 
@@ -100,10 +102,7 @@ public class BaseView<T> {
      * @return The model given by the type parameter.
      */
     protected <E extends PageObject> E checkMatches(Class<E> type, Matcher<? super View> viewMatcher) {
-        if (adapter != null)
-            adapter.check(ViewAssertions.matches(viewMatcher));
-        else
-            onView(getSelector()).check(ViewAssertions.matches(viewMatcher));
+        viewInteraction.check(ViewAssertions.matches(viewMatcher));
         return returnGeneric(type);
     }
 
@@ -121,10 +120,7 @@ public class BaseView<T> {
      * @return The model reached by interacting with this element
      */
     protected T checkAssertion(ViewAssertion viewAssertion) {
-        if (adapter != null)
-            adapter.check(viewAssertion);
-        else
-            onView(getSelector()).check(viewAssertion);
+        viewInteraction.check(viewAssertion);
         return returnGeneric();
     }
 
@@ -349,7 +345,7 @@ public class BaseView<T> {
      * @return     The model reached by interacting with this element.
      */
     public T closeKeyboard() {
-        onView(getSelector()).perform(closeSoftKeyboard());
+        viewInteraction.perform(closeSoftKeyboard());
         return pause();
     }
 

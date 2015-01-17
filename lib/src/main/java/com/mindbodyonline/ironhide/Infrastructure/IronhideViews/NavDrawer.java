@@ -17,29 +17,24 @@ import static android.support.test.espresso.Espresso.onView;
 public class NavDrawer<T> extends BaseView<T>{
 
     public NavDrawer(Class<T> type, int resourceId) {
-        this.type = type;
-        id = resourceId;
+        super(type, resourceId);
     }
 
     public NavDrawer(Class<T> type, Matcher<View> selector) {
-        this.type = type;
-        this.selector = selector;
+        super(type, selector);
     }
 
-    public NavDrawer(Class<T> type, int resourceId, int stringResourceId) {
-        this.type = type;
-        id = resourceId;
-        stringId = stringResourceId;
+    public NavDrawer(Class<T> type, int IGNORED, int stringResourceId) {
+        super(type, IGNORED, stringResourceId);
     }
 
     public NavDrawer(Class<T> type, String displayText) {
-        this.type = type;
-        text = displayText;
+        super(type, displayText);
     }
 
     public T openDrawer() {
 
-        onView(ViewMatchers.withId(this.id)).perform(actionOpenDrawer());
+        viewInteraction.perform(actionOpenDrawer());
 
         pause();
 
@@ -52,7 +47,7 @@ public class NavDrawer<T> extends BaseView<T>{
      */
     public T closeDrawer() {
 
-        onView(ViewMatchers.withId(this.id)).perform(actionCloseDrawer());
+        viewInteraction.perform(actionCloseDrawer());
 
         pause();
 

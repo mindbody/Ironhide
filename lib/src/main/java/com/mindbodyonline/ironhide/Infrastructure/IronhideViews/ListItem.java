@@ -2,6 +2,7 @@ package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
 import android.support.test.espresso.DataInteraction;
 import android.support.test.espresso.ViewAction;
+import android.support.test.espresso.ViewAssertion;
 import android.support.test.espresso.action.ViewActions;
 import android.support.test.espresso.assertion.ViewAssertions;
 import android.support.test.espresso.matcher.ViewMatchers;
@@ -19,11 +20,55 @@ import org.hamcrest.Matcher;
  *
  * @param <T> The model the current element will return when interacted with
  */
-public class ListItem<T> extends BaseView<T> {
+public class ListItem<T extends PageObject> extends BaseView<T> {
+
+    private DataInteraction adapter;
 
     public ListItem(Class<T> type, DataInteraction item) {
+        super(type, (Matcher<View>) null);
         this.type = type;
         this.adapter = item;
+    }
+
+    @Override
+    protected T performAction(ViewAction viewAction) {
+        adapter.perform(viewAction);
+        return returnGeneric();
+    }
+
+    @Override
+    protected <E extends PageObject> E performAction(Class<E> type, ViewAction viewAction) {
+        adapter.perform(viewAction);
+        return returnGeneric(type);
+    }
+
+    @Override
+    protected T checkMatches(Matcher<? super View> viewMatcher) {
+        return checkAssertion(ViewAssertions.matches(viewMatcher));
+    }
+
+    @Override
+    protected <E extends PageObject> E checkMatches(Class<E> type, Matcher<? super View> viewMatcher) {
+        return checkAssertion(type, ViewAssertions.matches(viewMatcher));
+    }
+
+    @Override
+    protected T checkAssertion(ViewAssertion viewAssertion) {
+        adapter.check(viewAssertion);
+        return returnGeneric();
+    }
+
+    protected <E extends PageObject> E checkAssertion(Class<E> type, ViewAssertion viewAssertion) {
+        adapter.check(viewAssertion);
+        return returnGeneric(type);
+    }
+
+    @Override
+    public T closeKeyboard() {
+        T resultObject = performAction(ViewActions.closeSoftKeyboard());
+        pause();
+
+        return resultObject;
     }
 
     // Pass in the view to click and use its selector to find it within the list item

@@ -3,13 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="1905f372-6d34-42cf-8ffd-b59b82bddeb5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/AlternateRootView.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/AlternateRootView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Fixture/BaseInstrumentTestCase.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Fixture/BaseInstrumentTestCase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/Extensions/BaseViewActions.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/Extensions/BaseViewActions.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/Extensions/BaseViewMatchers.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/Extensions/BaseViewMatchers.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/BaseView.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/BaseView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/Clickable.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/Clickable.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/DatePicker.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/DatePicker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/Extensions/EnterTextAction.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/Extensions/EnterTextAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/DynamicListAdapter.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/DynamicListAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/LayoutView.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/LayoutView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/ListAdapter.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/ListAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/ListItem.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/ListItem.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/NavDrawer.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/NavDrawer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/RecyclerViewWrapper.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/RecyclerViewWrapper.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/Swipeable.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/Swipeable.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/TextField.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/TextField.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/Zoomable.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/Zoomable.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/lib.iml" afterPath="$PROJECT_DIR$/lib/lib.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Ironhide.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,25 +39,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="EnterTextAction.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/Extensions/EnterTextAction.java">
+      <file leaf-file-name="BaseView.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/BaseView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="867">
-              <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
+            <state vertical-scroll-proportion="-9.857142" vertical-offset="285" max-vertical-offset="19788">
+              <caret line="33" column="29" selection-start-line="33" selection-start-column="14" selection-end-line="33" selection-end-column="29" />
               <folding>
-                <element signature="e#1131#1132#0" expanded="true" />
-                <element signature="e#1167#1168#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#2378#2379#0" expanded="true" />
+                <element signature="e#2409#2410#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TextField.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="TextField.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/TextField.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.11710677" vertical-offset="1173" max-vertical-offset="2176">
-              <caret line="95" column="20" selection-start-line="95" selection-start-column="20" selection-end-line="95" selection-end-column="20" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2074">
+              <caret line="31" column="33" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
+              <folding>
+                <element signature="e#886#887#0" expanded="true" />
+                <element signature="e#925#926#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Zoomable.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/Zoomable.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.4293915" vertical-offset="0" max-vertical-offset="3570">
+              <caret line="31" column="30" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
+              <folding>
+                <element signature="e#864#865#0" expanded="true" />
+                <element signature="e#903#904#0" expanded="true" />
+                <element signature="e#965#966#0" expanded="true" />
+                <element signature="e#1002#1003#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -557,7 +583,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="4262950083983" />
+        <entry key="$PROJECT_DIR$" value="4262959972439" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -721,15 +747,25 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/Swipeable.java" />
-        <option value="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/AlternateRootView.java" />
         <option value="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/Extensions/TextViewMatchers.java" />
         <option value="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Fixture/BaseActivityInstrumentTestCase.java" />
         <option value="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Fixture/BaseInstrumentTestCase.java" />
         <option value="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/Extensions/BaseViewMatchers.java" />
         <option value="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/Extensions/BaseViewActions.java" />
         <option value="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/Extensions/EnterTextAction.java" />
+        <option value="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/AlternateRootView.java" />
+        <option value="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/Clickable.java" />
+        <option value="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/DatePicker.java" />
+        <option value="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/BaseView.java" />
+        <option value="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/DynamicListAdapter.java" />
+        <option value="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/LayoutView.java" />
+        <option value="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/ListAdapter.java" />
+        <option value="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/ListItem.java" />
+        <option value="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/NavDrawer.java" />
+        <option value="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/RecyclerViewWrapper.java" />
+        <option value="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/Swipeable.java" />
         <option value="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/TextField.java" />
+        <option value="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/Zoomable.java" />
       </list>
     </option>
   </component>
@@ -765,7 +801,28 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="AndroidView">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ironhide" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ironhide" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -883,6 +940,10 @@
               <option name="myItemId" value="Infrastructure" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="IronhideViews" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -924,27 +985,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="AndroidView">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Ironhide" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Ironhide" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -956,6 +996,8 @@
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="LayoutCode.rearrangeEntries" value="false" />
+    <property name="OverrideImplement.combined" value="true" />
+    <property name="OverrideImplement.overriding.sorted" value="false" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
@@ -1104,33 +1146,33 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1444563" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1154,29 +1196,29 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/Extensions/EnterTextAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1139">
+          <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/TextField.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1173" max-vertical-offset="2176">
+          <caret line="95" column="20" selection-start-line="95" selection-start-column="20" selection-end-line="95" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/Extensions/TextViewMatchers.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.5269805" vertical-offset="3413" max-vertical-offset="5610">
           <caret line="281" column="0" selection-start-line="281" selection-start-column="0" selection-end-line="281" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/Swipeable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.858783" vertical-offset="0" max-vertical-offset="1547">
-          <caret line="66" column="8" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/AlternateRootView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31687716" vertical-offset="812" max-vertical-offset="1683">
-          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1184,10 +1226,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.26608697" vertical-offset="204" max-vertical-offset="901">
           <caret line="28" column="33" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
-          <folding>
-            <element signature="e#1966#1967#0" expanded="true" />
-            <element signature="e#1998#1999#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1211,10 +1249,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="867">
           <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
-          <folding>
-            <element signature="e#1131#1132#0" expanded="true" />
-            <element signature="e#1167#1168#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1222,15 +1257,166 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34333733" vertical-offset="428" max-vertical-offset="2159">
           <caret line="43" column="58" selection-start-line="43" selection-start-column="58" selection-end-line="43" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/AlternateRootView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1105">
+          <caret line="62" column="67" selection-start-line="62" selection-start-column="67" selection-end-line="62" selection-end-column="67" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/Clickable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.52698046" vertical-offset="0" max-vertical-offset="871">
+          <caret line="29" column="33" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
+          <folding>
+            <element signature="e#521#522#0" expanded="false" />
+            <element signature="e#560#561#0" expanded="false" />
+            <element signature="e#623#624#0" expanded="false" />
+            <element signature="e#660#661#0" expanded="false" />
+            <element signature="e#847#848#0" expanded="false" />
+            <element signature="e#887#888#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/DatePicker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4684271" vertical-offset="0" max-vertical-offset="871">
+          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+          <folding>
+            <element signature="e#598#599#0" expanded="false" />
+            <element signature="e#637#638#0" expanded="false" />
+            <element signature="e#701#702#0" expanded="false" />
+            <element signature="e#738#739#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/DynamicListAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41446614" vertical-offset="557" max-vertical-offset="1530">
+          <caret line="54" column="4" selection-start-line="54" selection-start-column="4" selection-end-line="54" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/LayoutView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4684271" vertical-offset="0" max-vertical-offset="935">
+          <caret line="28" column="47" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
+          <folding>
+            <element signature="e#644#645#0" expanded="false" />
+            <element signature="e#683#684#0" expanded="false" />
+            <element signature="e#747#748#0" expanded="false" />
+            <element signature="e#784#785#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/ListAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="884">
+          <caret line="43" column="11" selection-start-line="43" selection-start-column="11" selection-end-line="43" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/build/intermediates/exploded-aar/com.android.support.test.espresso/espresso-core/2.0/classes.jar!/android/support/test/espresso/DataInteraction.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30612245" vertical-offset="0" max-vertical-offset="833">
+          <caret line="16" column="57" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/ListItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="557" max-vertical-offset="1870">
+          <caret line="70" column="28" selection-start-line="70" selection-start-column="28" selection-end-line="70" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/NavDrawer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="608" max-vertical-offset="1479">
+          <caret line="49" column="23" selection-start-line="49" selection-start-column="23" selection-end-line="49" selection-end-column="23" />
+          <folding>
+            <element signature="e#587#588#0" expanded="true" />
+            <element signature="e#626#627#0" expanded="true" />
+            <element signature="e#689#690#0" expanded="true" />
+            <element signature="e#726#727#0" expanded="true" />
+            <element signature="e#913#914#0" expanded="true" />
+            <element signature="e#953#954#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/RecyclerViewWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="901">
+          <caret line="25" column="50" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="50" />
+          <folding>
+            <element signature="e#696#697#0" expanded="true" />
+            <element signature="e#735#736#0" expanded="true" />
+            <element signature="e#808#809#0" expanded="true" />
+            <element signature="e#845#846#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/Swipeable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19517796" vertical-offset="153" max-vertical-offset="1513">
+          <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+          <folding>
+            <element signature="e#656#657#0" expanded="true" />
+            <element signature="e#695#696#0" expanded="true" />
+            <element signature="e#758#759#0" expanded="true" />
+            <element signature="e#795#796#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/BaseView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.857142" vertical-offset="285" max-vertical-offset="19788">
+          <caret line="33" column="29" selection-start-line="33" selection-start-column="14" selection-end-line="33" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2378#2379#0" expanded="true" />
+            <element signature="e#2409#2410#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/TextField.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11710677" vertical-offset="1173" max-vertical-offset="2176">
-          <caret line="95" column="20" selection-start-line="95" selection-start-column="20" selection-end-line="95" selection-end-column="20" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2074">
+          <caret line="31" column="33" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
+          <folding>
+            <element signature="e#886#887#0" expanded="true" />
+            <element signature="e#925#926#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/Zoomable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4293915" vertical-offset="0" max-vertical-offset="3570">
+          <caret line="31" column="30" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
+          <folding>
+            <element signature="e#864#865#0" expanded="true" />
+            <element signature="e#903#904#0" expanded="true" />
+            <element signature="e#965#966#0" expanded="true" />
+            <element signature="e#1002#1003#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -18,13 +18,11 @@ import org.hamcrest.Matcher;
 public class Swipeable<T> extends BaseView<T> {
 
     public Swipeable(Class<T> type, int resourceId) {
-        this.id = resourceId;
-        this.type = type;
+        super(type, resourceId);
     }
 
     public Swipeable(Class<T> type, Matcher<View> selector) {
-        this.selector = selector;
-        this.type = type;
+        super(type, selector);
     }
 
     public T swipeLeft() {

@@ -21,21 +21,15 @@ import org.hamcrest.Matcher;
 public class TextField<T> extends BaseView<T> {
 
     public TextField(Class<T> type, int resourceId) {
-        this.type = type;
-        id = resourceId;
+        super(type, resourceId);
     }
 
-    public TextField(Class<T> type, int resourceId, int stringResourceId) {
-        this.type = type;
-        id = resourceId;
-        stringId = stringResourceId;
+    public TextField(Class<T> type, int IGNORED, int stringResourceId) {
+        super(type, IGNORED, stringResourceId);
     }
 
     public TextField(Class<T> type, int resourceId, int stringResourceId, String displayText) {
-        this.type = type;
-        id = resourceId;
-        stringId = stringResourceId;
-        text = displayText;
+        super(type, displayText);
     }
 
     /**

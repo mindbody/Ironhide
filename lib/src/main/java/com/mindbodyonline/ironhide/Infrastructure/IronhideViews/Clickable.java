@@ -15,23 +15,18 @@ import org.hamcrest.Matcher;
 public class Clickable<T> extends BaseView<T> {
 
     public Clickable(Class<T> type, int resourceId) {
-        this.type = type;
-        id = resourceId;
+        super(type, resourceId);
     }
 
     public Clickable(Class<T> type, Matcher<View> selector) {
-        this.type = type;
-        this.selector = selector;
+        super(type, selector);
     }
 
-    public Clickable(Class<T> type, int resourceId, int stringResourceId) {
-        this.type = type;
-        id = resourceId;
-        stringId = stringResourceId;
+    public Clickable(Class<T> type, int IGNORED, int stringResourceId) {
+        super(type, IGNORED, stringResourceId);
     }
 
     public Clickable(Class<T> type, String displayText) {
-        this.type = type;
-        text = displayText;
+        super(type, displayText);
     }
 }

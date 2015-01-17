@@ -4,6 +4,7 @@ import android.support.test.espresso.matcher.ViewMatchers;
 import android.view.View;
 
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.BaseViewMatchers;
+import com.mindbodyonline.ironhide.PageObjects.PageObject;
 
 import org.hamcrest.Matcher;
 
@@ -20,8 +21,9 @@ import static org.hamcrest.Matchers.is;
  *
  * @param <T> The model the current element will return when interacted with
  */
-public class DynamicListAdapter<T> extends BaseView<T> {
+public class DynamicListAdapter<T extends PageObject> {
 
+    private Class<T> type;
     private int parentId;
     private Class parentClass;
     private Class itemType;
@@ -50,10 +52,6 @@ public class DynamicListAdapter<T> extends BaseView<T> {
         this.parentClass = parentClass;
     }
 
-    public DynamicListAdapter(Class<T> type, Class itemType, Matcher<View> selector) {
-        this.type = type;
-        adapter = onData(is(instanceOf(itemType))).inAdapterView(selector);
-    }
 
     public Clickable<T> getItemAt(int index) {
         return new Clickable<T>(type,
@@ -62,32 +60,26 @@ public class DynamicListAdapter<T> extends BaseView<T> {
                         BaseViewMatchers.hasIndex(index)));
     }
 
-    public Clickable<T> getItemFromParentWithId(int index){
-
+    public Clickable<T> getItemFromParentWithId(int index) {
         return new Clickable<T>(type,
                 allOf(ViewMatchers.isDisplayed(),
                         BaseViewMatchers.instanceOf(itemType),
-                        BaseViewMatchers.hasIndex(index)
-                        ,ViewMatchers.isDescendantOfA(ViewMatchers.withId(parentId))));
+                        BaseViewMatchers.hasIndex(index),
+                        ViewMatchers.isDescendantOfA(ViewMatchers.withId(parentId))));
     }
 
-
-    public Clickable<T> getItemFromParentWithClass(int index){
-
+    public Clickable<T> getItemFromParentWithClass(int index) {
         return new Clickable<T>(type,
             allOf(ViewMatchers.isDisplayed(),
-                BaseViewMatchers.instanceOf(itemType),
-                BaseViewMatchers.hasIndex(index)
-                , ViewMatchers.isDescendantOfA( BaseViewMatchers.instanceOf(parentClass))));
+                    BaseViewMatchers.instanceOf(itemType),
+                    BaseViewMatchers.hasIndex(index),
+                    ViewMatchers.isDescendantOfA( BaseViewMatchers.instanceOf(parentClass))));
     }
 
-    public Clickable<T> getItemFromText(String text){
-
+    public Clickable<T> getItemFromText(String text) {
         return new Clickable<T>(type,
                 allOf(ViewMatchers.isDisplayed(),
-                BaseViewMatchers.instanceOf(itemType)
-                , ViewMatchers.withText(text)));
-
-
+                        BaseViewMatchers.instanceOf(itemType),
+                        ViewMatchers.withText(text)));
     }
 }
