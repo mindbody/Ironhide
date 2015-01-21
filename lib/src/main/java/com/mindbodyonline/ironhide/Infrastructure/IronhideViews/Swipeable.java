@@ -1,5 +1,6 @@
 package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
+import android.support.test.espresso.Root;
 import android.support.test.espresso.action.ViewActions;
 import android.view.View;
 
@@ -23,6 +24,18 @@ public class Swipeable<T> extends BaseView<T> {
 
     public Swipeable(Class<T> type, Matcher<View> selector) {
         super(type, selector);
+    }
+
+    @Override
+    public Swipeable<T> changeRoot() {
+        super.changeRoot();
+        return this;
+    }
+
+    @Override
+    public Swipeable<T> inRoot(Matcher<Root> rootMatcher) {
+        super.inRoot(rootMatcher);
+        return this;
     }
 
     public T swipeLeft() {

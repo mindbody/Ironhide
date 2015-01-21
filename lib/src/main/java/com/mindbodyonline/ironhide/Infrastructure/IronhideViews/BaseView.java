@@ -1,5 +1,7 @@
 package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
+import android.support.test.espresso.DataInteraction;
+import android.support.test.espresso.Root;
 import android.support.test.espresso.ViewAction;
 import android.support.test.espresso.ViewAssertion;
 import android.support.test.espresso.ViewInteraction;
@@ -9,6 +11,7 @@ import android.support.test.espresso.assertion.PositionAssertions;
 import android.support.test.espresso.assertion.ViewAssertions;
 import android.support.test.espresso.contrib.DrawerActions;
 import android.support.test.espresso.contrib.DrawerMatchers;
+import android.support.test.espresso.matcher.RootMatchers;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.view.View;
 
@@ -19,6 +22,8 @@ import org.hamcrest.Matcher;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static org.hamcrest.Matchers.not;
+import static android.support.test.espresso.matcher.RootMatchers.DEFAULT;
+import static org.hamcrest.Matchers.is;
 
 /**
  * Base Class for all page elements represented in the models for the Connect Test Suite
@@ -155,6 +160,25 @@ public class BaseView<T> {
             e.printStackTrace();
         }
         return null;
+    }
+
+    /**
+     * Changes the root for this view to be anything that is not the default root selected by Espresso.
+     * @return this
+     */
+    public BaseView<T> changeRoot() {
+        return inRoot(not(is(DEFAULT)));
+    }
+
+    /**
+     * Changes the root for this view to match the given rootMatcher
+     * @param rootMatcher a rootMatcher using Espresso's RootMatchers
+     * @return  this
+     */
+    public BaseView<T> inRoot(Matcher<Root> rootMatcher) {
+        this.viewInteraction = this.viewInteraction.inRoot(rootMatcher);
+
+        return this;
     }
 
     /**

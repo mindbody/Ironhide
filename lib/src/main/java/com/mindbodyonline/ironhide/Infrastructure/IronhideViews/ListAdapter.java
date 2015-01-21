@@ -1,10 +1,11 @@
 package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
+import com.mindbodyonline.ironhide.PageObjects.PageObject;
+
 import android.support.test.espresso.DataInteraction;
+import android.support.test.espresso.Root;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.view.View;
-
-import com.mindbodyonline.ironhide.PageObjects.PageObject;
 
 import org.hamcrest.Matcher;
 

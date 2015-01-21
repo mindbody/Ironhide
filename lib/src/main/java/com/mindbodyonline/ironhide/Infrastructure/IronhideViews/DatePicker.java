@@ -1,5 +1,6 @@
 package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
+import android.support.test.espresso.Root;
 import android.support.test.espresso.contrib.PickerActions;
 import android.view.View;
 
@@ -38,5 +39,17 @@ public class DatePicker<T> extends BaseView<T> {
 
     public T setTime(int hours, int minutes) {
         return performAction(PickerActions.setTime(hours, minutes));
+    }
+
+    @Override
+    public DatePicker<T> changeRoot() {
+        super.changeRoot();
+        return this;
+    }
+
+    @Override
+    public DatePicker<T> inRoot(Matcher<Root> rootMatcher) {
+        super.inRoot(rootMatcher);
+        return this;
     }
 }

@@ -1,5 +1,6 @@
 package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
+import android.support.test.espresso.Root;
 import android.view.View;
 
 import org.hamcrest.Matcher;
@@ -28,5 +29,17 @@ public class Clickable<T> extends BaseView<T> {
 
     public Clickable(Class<T> type, String displayText) {
         super(type, displayText);
+    }
+
+    @Override
+    public Clickable<T> changeRoot() {
+        super.changeRoot();
+        return this;
+    }
+
+    @Override
+    public Clickable<T> inRoot(Matcher<Root> rootMatcher) {
+        super.inRoot(rootMatcher);
+        return this;
     }
 }

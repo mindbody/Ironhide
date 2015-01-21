@@ -1,5 +1,6 @@
 package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
+import android.support.test.espresso.Root;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.view.View;
 
@@ -81,5 +82,17 @@ public class DynamicListAdapter<T extends PageObject> {
                 allOf(ViewMatchers.isDisplayed(),
                         BaseViewMatchers.instanceOf(itemType),
                         ViewMatchers.withText(text)));
+    }
+
+    @Override
+    public DynamicListAdapter<T> changeRoot() {
+        super.changeRoot();
+        return this;
+    }
+
+    @Override
+    public DynamicListAdapter<T> inRoot(Matcher<Root> rootMatcher) {
+        super.inRoot(rootMatcher);
+        return this;
     }
 }

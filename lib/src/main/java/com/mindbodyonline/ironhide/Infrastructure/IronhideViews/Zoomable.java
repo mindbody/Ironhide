@@ -5,6 +5,7 @@ import android.annotation.TargetApi;
 import android.app.Instrumentation;
 import android.graphics.Point;
 import android.os.SystemClock;
+import android.support.test.espresso.Root;
 import android.support.test.espresso.action.ViewActions;
 import android.view.MotionEvent;
 import android.view.View;
@@ -30,6 +31,18 @@ public class Zoomable<T> extends BaseView<T> {
 
     public Zoomable(Class<T> type, Matcher<View> selector) {
         super(type, selector);
+    }
+
+    @Override
+    public Zoomable<T> changeRoot() {
+        super.changeRoot();
+        return this;
+    }
+
+    @Override
+    public Zoomable<T> inRoot(Matcher<Root> rootMatcher) {
+        super.inRoot(rootMatcher);
+        return this;
     }
 
     Point finger1Start;
