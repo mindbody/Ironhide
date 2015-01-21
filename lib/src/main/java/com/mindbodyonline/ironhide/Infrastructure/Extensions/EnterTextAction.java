@@ -14,7 +14,6 @@ import org.hamcrest.Matcher;
 
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.internal.util.Checks.checkNotNull;
-import static org.hamcrest.Matchers.allOf;
 
 /**
  * A Custom ViewAction that enters text by simulating Key events on the Android keyboard

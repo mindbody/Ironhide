@@ -2,17 +2,13 @@ package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
 import android.support.test.espresso.Root;
 import android.support.test.espresso.matcher.ViewMatchers;
-import android.view.View;
 
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.BaseViewMatchers;
 import com.mindbodyonline.ironhide.PageObjects.PageObject;
 
 import org.hamcrest.Matcher;
 
-import static android.support.test.espresso.Espresso.onData;
 import static org.hamcrest.Matchers.allOf;
-import static org.hamcrest.Matchers.instanceOf;
-import static org.hamcrest.Matchers.is;
 
 /**
  * Extends BaseView

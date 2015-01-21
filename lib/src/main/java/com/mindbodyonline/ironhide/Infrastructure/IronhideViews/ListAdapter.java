@@ -1,11 +1,10 @@
 package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
-import com.mindbodyonline.ironhide.PageObjects.PageObject;
-
 import android.support.test.espresso.DataInteraction;
-import android.support.test.espresso.Root;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.view.View;
+
+import com.mindbodyonline.ironhide.PageObjects.PageObject;
 
 import org.hamcrest.Matcher;
 
@@ -42,15 +41,7 @@ public class ListAdapter<T extends PageObject> {
     }
 
     public ListItem<T> getItemAtPosition(int index) {
-        /**
-         * Users of this would have to catch NullPointerExceptions anyways
-         *  pending removal for OpenSource
-         */
-//        try {
-            return new ListItem<T>(type, adapter.atPosition(index));
-//        } catch (IndexOutOfBoundsException e) {
-//            return null;
-//        }
+        return new ListItem<T>(type, adapter.atPosition(index));
     }
 
     public ListItem<T> getFirst() {

@@ -1,6 +1,5 @@
 package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
-import android.support.test.espresso.DataInteraction;
 import android.support.test.espresso.Root;
 import android.support.test.espresso.ViewAction;
 import android.support.test.espresso.ViewAssertion;
@@ -11,7 +10,6 @@ import android.support.test.espresso.assertion.PositionAssertions;
 import android.support.test.espresso.assertion.ViewAssertions;
 import android.support.test.espresso.contrib.DrawerActions;
 import android.support.test.espresso.contrib.DrawerMatchers;
-import android.support.test.espresso.matcher.RootMatchers;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.view.View;
 
@@ -21,9 +19,9 @@ import org.hamcrest.Matcher;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
-import static org.hamcrest.Matchers.not;
 import static android.support.test.espresso.matcher.RootMatchers.DEFAULT;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.not;
 
 /**
  * Base Class for all page elements represented in the models for the Connect Test Suite

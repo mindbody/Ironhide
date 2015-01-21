@@ -10,8 +10,6 @@ import android.view.View;
 
 import org.hamcrest.Matcher;
 
-import static android.support.test.espresso.Espresso.onView;
-
 /**
  * Created by Barbara.Wong on 8/14/2014.
  */
