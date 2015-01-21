@@ -1,6 +1,7 @@
 package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
 import android.net.Uri;
+import android.support.test.espresso.Root;
 import android.support.test.espresso.action.ViewActions;
 import android.support.test.espresso.matcher.ViewMatchers;
 
@@ -36,6 +37,18 @@ public class TextField<T> extends BaseView<T> {
         id = resourceId;
         stringId = stringResourceId;
         text = displayText;
+    }
+
+    @Override
+    public TextField<T> changeRoot() {
+        super.changeRoot();
+        return this;
+    }
+
+    @Override
+    public TextField<T> inRoot(Matcher<Root> rootMatcher) {
+        super.inRoot(rootMatcher);
+        return this;
     }
 
     /**

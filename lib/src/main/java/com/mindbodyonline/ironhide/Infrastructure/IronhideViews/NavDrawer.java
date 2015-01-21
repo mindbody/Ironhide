@@ -1,5 +1,6 @@
 package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
+import android.support.test.espresso.Root;
 import android.support.test.espresso.UiController;
 import android.support.test.espresso.ViewAction;
 import android.support.test.espresso.matcher.ViewMatchers;
@@ -35,6 +36,18 @@ public class NavDrawer<T> extends BaseView<T>{
     public NavDrawer(Class<T> type, String displayText) {
         this.type = type;
         text = displayText;
+    }
+
+    @Override
+    public NavDrawer<T> changeRoot() {
+        super.changeRoot();
+        return this;
+    }
+
+    @Override
+    public NavDrawer<T> inRoot(Matcher<Root> rootMatcher) {
+        super.inRoot(rootMatcher);
+        return this;
     }
 
     public T openDrawer() {

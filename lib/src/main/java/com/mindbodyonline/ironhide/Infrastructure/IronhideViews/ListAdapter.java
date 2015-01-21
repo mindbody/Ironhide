@@ -1,5 +1,6 @@
 package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
+import android.support.test.espresso.Root;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.view.View;
 
@@ -33,6 +34,18 @@ public class ListAdapter<T> extends BaseView<T> {
     public ListAdapter(Class<T> type, Class itemType, Matcher<View> selector) {
         this.type = type;
         adapter = onData(is(instanceOf(itemType))).inAdapterView(selector);
+    }
+
+    @Override
+    public ListAdapter<T> changeRoot() {
+        super.changeRoot();
+        return this;
+    }
+
+    @Override
+    public ListAdapter<T> inRoot(Matcher<Root> rootMatcher) {
+        super.inRoot(rootMatcher);
+        return this;
     }
 
     public ListItem<T> getItemAtPosition(int index) {

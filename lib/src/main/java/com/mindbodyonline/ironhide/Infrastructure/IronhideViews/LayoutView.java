@@ -1,5 +1,6 @@
 package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
+import android.support.test.espresso.Root;
 import android.support.test.espresso.assertion.LayoutAssertions;
 import android.support.test.espresso.matcher.LayoutMatchers;
 import android.view.View;
@@ -31,6 +32,18 @@ public class LayoutView<T> extends BaseView<T> {
         this.type = type;
         id = resourceId;
         stringId = stringResourceId;
+    }
+
+    @Override
+    public LayoutView<T> changeRoot() {
+        super.changeRoot();
+        return this;
+    }
+
+    @Override
+    public LayoutView<T> inRoot(Matcher<Root> rootMatcher) {
+        super.inRoot(rootMatcher);
+        return this;
     }
 
     /**

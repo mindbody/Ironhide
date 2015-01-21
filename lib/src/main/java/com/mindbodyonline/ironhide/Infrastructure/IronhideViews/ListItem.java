@@ -1,6 +1,7 @@
 package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
 import android.support.test.espresso.DataInteraction;
+import android.support.test.espresso.Root;
 import android.support.test.espresso.ViewAction;
 import android.support.test.espresso.action.ViewActions;
 import android.support.test.espresso.assertion.ViewAssertions;
@@ -24,6 +25,18 @@ public class ListItem<T> extends BaseView<T> {
     public ListItem(Class<T> type, DataInteraction item) {
         this.type = type;
         this.adapter = item;
+    }
+
+    @Override
+    public ListItem<T> changeRoot() {
+        super.changeRoot();
+        return this;
+    }
+
+    @Override
+    public ListItem<T> inRoot(Matcher<Root> rootMatcher) {
+        super.inRoot(rootMatcher);
+        return this;
     }
 
     // Pass in the view to click and use its selector to find it within the list item

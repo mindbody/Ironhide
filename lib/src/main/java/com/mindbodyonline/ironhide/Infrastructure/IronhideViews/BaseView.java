@@ -10,6 +10,7 @@ import android.support.test.espresso.assertion.PositionAssertions;
 import android.support.test.espresso.assertion.ViewAssertions;
 import android.support.test.espresso.contrib.DrawerActions;
 import android.support.test.espresso.contrib.DrawerMatchers;
+import android.support.test.espresso.matcher.RootMatchers;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.view.View;
 
@@ -38,7 +39,7 @@ public class BaseView<T> {
     protected Class<T> type;
     protected Matcher<View> selector;
     protected DataInteraction adapter;
-    protected Matcher<Root> rootMatcher;
+    protected Matcher<Root> rootMatcher = RootMatchers.DEFAULT;
 
     /**
      * Gets the appropriate selector for the current view element
@@ -169,8 +170,8 @@ public class BaseView<T> {
      * Changes the root for this view to be anything that is not the default root selected by Espresso.
      * @return this
      */
-    protected BaseView<T> changeRoot() {
-        return changeRoot(not(is(DEFAULT)));
+    public BaseView<T> changeRoot() {
+        return inRoot(not(is(DEFAULT)));
     }
 
     /**
@@ -178,7 +179,7 @@ public class BaseView<T> {
      * @param rootMatcher a rootMatcher using Espresso's RootMatchers
      * @return  this
      */
-    protected BaseView<T> changeRoot(Matcher<Root> rootMatcher) {
+    public BaseView<T> inRoot(Matcher<Root> rootMatcher) {
         this.rootMatcher = rootMatcher;
 
         return this;

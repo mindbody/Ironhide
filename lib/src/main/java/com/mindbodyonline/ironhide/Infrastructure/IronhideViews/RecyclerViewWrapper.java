@@ -1,5 +1,6 @@
 package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
+import android.support.test.espresso.Root;
 import android.support.test.espresso.ViewAction;
 import android.support.test.espresso.contrib.RecyclerViewActions;
 import android.support.v7.widget.RecyclerView;
@@ -28,6 +29,18 @@ public class RecyclerViewWrapper<T> extends BaseView<T> {
         this.type = type;
         id = resourceId;
         stringId = stringResourceId;
+    }
+
+    @Override
+    public RecyclerViewWrapper<T> changeRoot() {
+        super.changeRoot();
+        return this;
+    }
+
+    @Override
+    public RecyclerViewWrapper<T> inRoot(Matcher<Root> rootMatcher) {
+        super.inRoot(rootMatcher);
+        return this;
     }
 
     public T actionOnHolderItem(Matcher<? extends RecyclerView.ViewHolder> viewHolderMatcher, ViewAction viewAction) {
