@@ -17,7 +17,7 @@ import org.hamcrest.Matcher;
  */
 public class RecyclerViewWrapper<T extends PageObject> extends BaseView<T> {
 
-    private RecyclerViewWrapper(Class<T> type, Matcher<View> viewMatcher) {
+    public RecyclerViewWrapper(Class<T> type, Matcher<View> viewMatcher) {
         super(type, viewMatcher);
     }
 

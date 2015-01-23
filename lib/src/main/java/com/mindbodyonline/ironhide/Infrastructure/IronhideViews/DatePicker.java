@@ -18,7 +18,7 @@ import org.hamcrest.Matcher;
  */
 public class DatePicker<T extends PageObject> extends BaseView<T> {
 
-    private DatePicker(Class<T> type, Matcher<View> viewMatcher) {
+    public DatePicker(Class<T> type, Matcher<View> viewMatcher) {
         super(type, viewMatcher);
     }
 

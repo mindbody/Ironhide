@@ -17,7 +17,7 @@ import org.hamcrest.Matcher;
  */
 public class Clickable<T extends PageObject> extends BaseView<T> {
 
-    private Clickable(Class<T> type, Matcher<View> viewMatcher) {
+    public Clickable(Class<T> type, Matcher<View> viewMatcher) {
         super(type, viewMatcher);
     }
 

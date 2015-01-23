@@ -20,7 +20,7 @@ import org.hamcrest.Matcher;
  */
 public class LayoutView<T extends PageObject> extends BaseView<T> {
 
-    private LayoutView(Class<T> type, Matcher<View> viewMatcher) {
+    public LayoutView(Class<T> type, Matcher<View> viewMatcher) {
         super(type, viewMatcher);
     }
 

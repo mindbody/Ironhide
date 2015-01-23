@@ -18,7 +18,7 @@ import org.hamcrest.Matcher;
  */
 public class NavDrawer<T extends PageObject> extends BaseView<T>{
 
-    private NavDrawer(Class<T> type, Matcher<View> viewMatcher) {
+    public NavDrawer(Class<T> type, Matcher<View> viewMatcher) {
         super(type, viewMatcher);
     }
 

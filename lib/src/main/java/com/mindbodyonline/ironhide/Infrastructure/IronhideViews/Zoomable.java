@@ -27,7 +27,7 @@ public class Zoomable<T extends PageObject> extends BaseView<T> {
 
     private static final int EVENT_MIN_INTERVAL = 1000;
 
-    private Zoomable(Class<T> type, Matcher<View> selector) {
+    public Zoomable(Class<T> type, Matcher<View> selector) {
         super(type, selector);
     }
 
@@ -38,7 +38,7 @@ public class Zoomable<T extends PageObject> extends BaseView<T> {
     public Zoomable(Matcher<View> selector) {
         super(selector);
     }
-    
+
     @Override
     public Zoomable<T> changeRoot() {
         super.changeRoot();

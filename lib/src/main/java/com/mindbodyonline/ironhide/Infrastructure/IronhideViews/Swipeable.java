@@ -19,7 +19,7 @@ import org.hamcrest.Matcher;
  */
 public class Swipeable<T extends PageObject> extends BaseView<T> {
 
-    private Swipeable(Class<T> type, Matcher<View> selector) {
+    public Swipeable(Class<T> type, Matcher<View> selector) {
         super(type, selector);
     }
 

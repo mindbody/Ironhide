@@ -25,7 +25,7 @@ public class ListItem<T extends PageObject> extends BaseView<T> {
 
     private DataInteraction adapter;
 
-    private ListItem(Class<T> type, DataInteraction adapter) {
+    public ListItem(Class<T> type, DataInteraction adapter) {
         super(type, null);
         this.adapter = adapter;
     }

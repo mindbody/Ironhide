@@ -23,7 +23,7 @@ import org.hamcrest.Matcher;
  */
 public class TextField<T extends PageObject> extends BaseView<T> {
 
-    private TextField(Class<T> type, Matcher<View> selector) {
+    public TextField(Class<T> type, Matcher<View> selector) {
         super(type, selector);
     }
 
