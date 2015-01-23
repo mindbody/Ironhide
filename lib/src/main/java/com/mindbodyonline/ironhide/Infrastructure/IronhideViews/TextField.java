@@ -4,10 +4,12 @@ import android.net.Uri;
 import android.support.test.espresso.Root;
 import android.support.test.espresso.action.ViewActions;
 import android.support.test.espresso.matcher.ViewMatchers;
+import android.view.View;
 
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.EnterTextAction;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.SetCursorAction;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.TextViewMatchers;
+import com.mindbodyonline.ironhide.PageObjects.PageObject;
 
 import org.hamcrest.Matcher;
 
@@ -19,18 +21,26 @@ import org.hamcrest.Matcher;
  *
  * @param <T> The model the current element will return when interacted with
  */
-public class TextField<T> extends BaseView<T> {
+public class TextField<T extends PageObject> extends BaseView<T> {
 
-    public TextField(Class<T> type, int resourceId) {
-        super(type, resourceId);
+    private TextField(Class<T> type, Matcher<View> selector) {
+        super(type, selector);
     }
 
-    public TextField(Class<T> type, int IGNORED, int stringResourceId) {
-        super(type, IGNORED, stringResourceId);
+    public TextField(int resourceId) {
+        super(resourceId);
     }
 
-    public TextField(Class<T> type, int resourceId, int stringResourceId, String displayText) {
-        super(type, displayText);
+    public TextField(int IGNORED, int stringResourceId) {
+        super(IGNORED, stringResourceId);
+    }
+
+    public TextField(int resourceId, int stringResourceId, String displayText) {
+        super(displayText);
+    }
+
+    public TextField(Matcher<View> selector) {
+        super(selector);
     }
 
     @Override
@@ -43,6 +53,11 @@ public class TextField<T> extends BaseView<T> {
     public TextField<T> inRoot(Matcher<Root> rootMatcher) {
         super.inRoot(rootMatcher);
         return this;
+    }
+
+    @Override
+    public <E extends PageObject> TextField<E> goesTo(Class<E> type) {
+        return new TextField<E>(type, getSelector());
     }
 
     /**

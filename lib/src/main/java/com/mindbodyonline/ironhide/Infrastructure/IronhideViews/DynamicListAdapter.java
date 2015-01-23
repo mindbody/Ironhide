@@ -68,6 +68,6 @@ public class DynamicListAdapter<T extends PageObject> {
     }
 
     public Clickable<T> getItemMatching(Matcher<View> itemMatcher) {
-        return new Clickable<T>(type, allOf(childMatcher, itemMatcher));
+        return new Clickable<T>(allOf(childMatcher, itemMatcher)).goesTo(type);
     }
 }

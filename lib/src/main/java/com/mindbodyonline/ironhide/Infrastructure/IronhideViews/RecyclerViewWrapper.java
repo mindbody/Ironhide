@@ -6,6 +6,8 @@ import android.support.test.espresso.contrib.RecyclerViewActions;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.mindbodyonline.ironhide.PageObjects.PageObject;
+
 import org.hamcrest.Matcher;
 
 /**
@@ -13,18 +15,22 @@ import org.hamcrest.Matcher;
  *
  * ViewActions to interact RecyclerView. RecyclerView works differently than AdapterView. In fact, RecyclerView is not an AdapterView anymore, hence it can't be used in combination with onData(Matcher).
  */
-public class RecyclerViewWrapper<T> extends BaseView<T> {
+public class RecyclerViewWrapper<T extends PageObject> extends BaseView<T> {
 
-    public RecyclerViewWrapper(Class<T> type, int resourceId) {
-        super(type, resourceId);
+    private RecyclerViewWrapper(Class<T> type, Matcher<View> viewMatcher) {
+        super(type, viewMatcher);
     }
 
-    public RecyclerViewWrapper(Class<T> type, Matcher<View> selector) {
-        super(type, selector);
+    public RecyclerViewWrapper(int resourceId) {
+        super(resourceId);
     }
 
-    public RecyclerViewWrapper(Class<T> type, int resourceId, int stringResourceId) {
-        super(type, resourceId, stringResourceId);
+    public RecyclerViewWrapper(Matcher<View> selector) {
+        super(selector);
+    }
+
+    public RecyclerViewWrapper(int resourceId, int stringResourceId) {
+        super(resourceId, stringResourceId);
     }
 
     @Override
@@ -37,6 +43,11 @@ public class RecyclerViewWrapper<T> extends BaseView<T> {
     public RecyclerViewWrapper<T> inRoot(Matcher<Root> rootMatcher) {
         super.inRoot(rootMatcher);
         return this;
+    }
+
+    @Override
+    public <E extends PageObject> RecyclerViewWrapper<E> goesTo(Class<E> type) {
+        return new RecyclerViewWrapper<E>(type, getSelector());
     }
 
     public T actionOnHolderItem(Matcher<? extends RecyclerView.ViewHolder> viewHolderMatcher, ViewAction viewAction) {

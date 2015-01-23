@@ -25,10 +25,19 @@ public class ListItem<T extends PageObject> extends BaseView<T> {
 
     private DataInteraction adapter;
 
-    public ListItem(Class<T> type, DataInteraction item) {
-        super(type, (Matcher<View>) null);
-        this.type = type;
-        this.adapter = item;
+    private ListItem(Class<T> type, DataInteraction adapter) {
+        super(type, null);
+        this.adapter = adapter;
+    }
+
+    public ListItem(DataInteraction adapter) {
+        super((Matcher<View>) null);
+        this.adapter = adapter;
+    }
+
+    @Override
+    public <E extends PageObject> ListItem<E> goesTo(Class<E> type) {
+        return new ListItem<E>(type, adapter);
     }
 
     @Override

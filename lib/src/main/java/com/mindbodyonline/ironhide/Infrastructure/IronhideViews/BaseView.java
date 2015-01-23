@@ -30,28 +30,41 @@ import static org.hamcrest.Matchers.not;
  *
  * @param <T> The model the current element will return when interacted with
  */
-public class BaseView<T> {
+public class BaseView<T extends PageObject> {
 
     protected Class<T> type;
     protected Matcher<View> selector;
     protected ViewInteraction viewInteraction;
 
-    protected BaseView(Class<T> type, int resourceId) {
-        this(type, ViewMatchers.withId(resourceId));
-    }
-
-    protected BaseView(Class<T> type, int IGNORED, int stringResourceId) {
-        this(type, ViewMatchers.withText(stringResourceId));
-    }
-
-    protected BaseView(Class<T> type, String displayText) {
-        this(type, ViewMatchers.withText(displayText));
-    }
-
     protected BaseView(Class<T> type, Matcher<View> selector) {
         this.type = type;
         this.selector = selector;
         this.viewInteraction = onView(selector);
+    }
+
+    protected BaseView(int resourceId) {
+        this(ViewMatchers.withId(resourceId));
+    }
+
+    protected BaseView(int IGNORED, int stringResourceId) {
+        this(ViewMatchers.withText(stringResourceId));
+    }
+
+    protected BaseView(String displayText) {
+        this(ViewMatchers.withText(displayText));
+    }
+
+    protected BaseView(Matcher<View> selector) {
+        this.type = null;
+        this.selector = selector;
+        this.viewInteraction = onView(selector);
+    }
+
+    /**
+     * Changes the destination class by returning an object of the next type
+     */
+    protected <E extends PageObject> BaseView<E> goesTo(Class<E> type) {
+        return new BaseView<E>(type, selector);
     }
 
     /**
