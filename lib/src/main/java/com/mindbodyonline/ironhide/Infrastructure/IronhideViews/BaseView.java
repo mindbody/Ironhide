@@ -55,9 +55,7 @@ public class BaseView<T extends PageObject> {
     }
 
     protected BaseView(Matcher<View> selector) {
-        this.type = null;
-        this.selector = selector;
-        this.viewInteraction = onView(selector);
+        this(null, selector);
     }
 
     /**
@@ -89,18 +87,6 @@ public class BaseView<T extends PageObject> {
     }
 
     /**
-     * Performs an Espresso ViewAction on an element
-     *
-     * @param type       The type of the PageObject to return
-     * @param viewAction The ViewAction to execute
-     * @return The model given by the type parameter.
-     */
-    protected <E extends PageObject> E performAction(Class<E> type, ViewAction viewAction) {
-        viewInteraction.perform(viewAction);
-        return returnGeneric(type);
-    }
-
-    /**
      * Checks if an element matches a certain value using an Espresso ViewMatcher
      *
      * @param viewMatcher The ViewMatcher used to check the element
@@ -108,18 +94,6 @@ public class BaseView<T extends PageObject> {
      */
     protected T checkMatches(Matcher<? super View> viewMatcher) {
         return checkAssertion(ViewAssertions.matches(viewMatcher));
-    }
-
-    /**
-     * Checks if an element matches a certain value using an Espresso ViewMatcher
-     *
-     * @param type        The type of the PageObject to return
-     * @param viewMatcher The ViewMatcher used to check the element
-     * @return The model given by the type parameter.
-     */
-    protected <E extends PageObject> E checkMatches(Class<E> type, Matcher<? super View> viewMatcher) {
-        viewInteraction.check(ViewAssertions.matches(viewMatcher));
-        return returnGeneric(type);
     }
 
     /**
@@ -146,23 +120,6 @@ public class BaseView<T extends PageObject> {
      * @return The model reached by interacting with this element
      */
     protected T returnGeneric() {
-        try {
-            return type.newInstance();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    /**
-     * Used whenever interacting with an element to return the correct following model
-     *
-     * @param type The type of PageObject to return
-     * @return The model given by the type parameter.
-     */
-    protected <E extends PageObject> E returnGeneric(Class<E> type) {
         try {
             return type.newInstance();
         } catch (InstantiationException e) {
@@ -227,15 +184,6 @@ public class BaseView<T extends PageObject> {
     }
 
     /**
-     * Scroll to the element, but return the specified model (Given by the "type" argument).
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @return     The model given by the type parameter.
-     */
-    public <E extends PageObject> E scrollTo(Class<E> type) {
-        return performAction(type, ViewActions.click());
-    }
-
-    /**
      * Click on the element.
      * @return The model reached by interacting with this element.
      */
@@ -243,14 +191,6 @@ public class BaseView<T extends PageObject> {
         return performAction(ViewActions.click());
     }
 
-    /**
-     * Click on the element, but return to the specified model (Given by the "type" argument).
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @return     The model given by the type parameter.
-     */
-    public <E extends PageObject> E click(Class<E> type) {
-        return performAction(type, ViewActions.click());
-    }
 
     /**
      * Press the back button.
@@ -258,15 +198,6 @@ public class BaseView<T extends PageObject> {
      */
     public T pressBack() {
         return performAction(ViewActions.pressBack());
-    }
-
-    /**
-     * Press the back button, but return to the specified model (Given by the "type" argument).
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @return    The model given by the type parameter.
-     */
-    public <E extends PageObject> E pressBack(Class<E> type) {
-        return performAction(type, ViewActions.pressBack());
     }
 
     /**
@@ -278,29 +209,11 @@ public class BaseView<T extends PageObject> {
     }
 
     /**
-     * Press the Ime action button, but return to the specified model (Given by the "type" argument).
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @return     The model given by the type parameter.
-     */
-    public <E extends PageObject> E pressImeActionButton(Class<E> type) {
-        return performAction(type, ViewActions.pressImeActionButton());
-    }
-
-    /**
      * Press the menu button.
      * @return     The model reached by interacting with this element.
      */
     public T pressMenuKey() {
         return performAction(ViewActions.pressMenuKey());
-    }
-
-    /**
-     * Press the menu button, but return to the specified model (Given by the "type" argument).
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @return     The model given by the type parameter.
-     */
-    public <E extends PageObject> E pressMenuKey(Class<E> type) {
-        return performAction(type, ViewActions.pressMenuKey());
     }
 
     /**
@@ -314,31 +227,11 @@ public class BaseView<T extends PageObject> {
 
     /**
      * Press the specified key.
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @param keyCode The integer value of the key to be pressed.
-     * @return   The model given by the type parameter.
-     */
-    public <E extends PageObject> E pressKey(Class<E> type, int keyCode) {
-        return performAction(type, ViewActions.pressKey(keyCode));
-    }
-
-    /**
-     * Press the specified key.
      * @param key The EspressoKey object representation of the key to be pressed.
      * @return The model reached by interacting with this element.
      */
     public T pressKey(EspressoKey key) {
         return performAction(ViewActions.pressKey(key));
-    }
-
-    /**
-     * Press the specified key, but return to the specified model (Given by the "type" argument).
-     * @param keyCode The EspressoKey object representation of the key to be pressed.
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @return     The model given by the type parameter.
-     */
-    public <E extends PageObject> E pressKey(Class<E> type, EspressoKey keyCode) {
-        return performAction(type, ViewActions.pressKey(keyCode));
     }
 
     /**
@@ -350,29 +243,11 @@ public class BaseView<T extends PageObject> {
     }
 
     /**
-     * Double click on the element, but return to the specified model (Given by the "type" argument).
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @return    The model given by the type parameter.
-     */
-    public <E extends PageObject> E doubleClick(Class<E> type) {
-        return performAction(type, ViewActions.doubleClick());
-    }
-
-    /**
      * Long click on the element.
      * @return     The model reached by interacting with this element.
      */
     public T longClick() {
         return performAction(ViewActions.longClick());
-    }
-
-    /**
-     * Long click on the element, but return to the specified model (Given by the "type" argument).
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @return     The model given by the type parameter.
-     */
-    public <E extends PageObject> E longClick(Class<E> type) {
-        return performAction(type, ViewActions.longClick());
     }
 
     /**
@@ -385,16 +260,6 @@ public class BaseView<T extends PageObject> {
     }
 
     /**
-     * Close the on-screen keyboard, but return to the specified model (Given by the "type" argument).
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @return     The model given by the type parameter.
-     */
-    public <E extends PageObject> E closeKeyboard(Class<E> type) {
-        return performAction(type, ViewActions.closeSoftKeyboard());
-    }
-
-
-    /**
      * End ViewActions
      */
 
@@ -404,22 +269,12 @@ public class BaseView<T extends PageObject> {
      * ViewMatchers
      */
 
-
     /**
      * Checks to see if the Navigation Drawer is open.
      * @return The model reached by interacting with this element.
      */
     public T isOpen() {
         return checkMatches(DrawerMatchers.isOpen());
-    }
-
-    /**
-     * Checks to see if the Navigation Drawer is open.
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @return The model given by the type parameter.
-     */
-    public <E extends PageObject> E isOpen(Class<E> type) {
-        return checkMatches(type, DrawerMatchers.isOpen());
     }
 
     /**
@@ -431,29 +286,11 @@ public class BaseView<T extends PageObject> {
     }
 
     /**
-     * Checks to see if the Navigation Drawer is closed.
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @return The model given by the type parameter.
-     */
-    public <E extends PageObject> E isClosed(Class<E> type) {
-        return checkMatches(type, DrawerMatchers.isClosed());
-    }
-
-    /**
      * Checks to see if the given object is at least partially displayed on the screen.
      * @return The model reached by interacting with this element.
      */
     public T isDisplayed() {
         return checkMatches(ViewMatchers.isDisplayed());
-    }
-
-    /**
-     * Checks to see if the given object is at least partially displayed on the screen.
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @return The model given by the type parameter.
-     */
-    public <E extends PageObject> E isDisplayed(Class<E> type) {
-        return checkMatches(type, ViewMatchers.isDisplayed());
     }
 
     /**
@@ -465,29 +302,11 @@ public class BaseView<T extends PageObject> {
     }
 
     /**
-     * Check to see if the element is not displayed.
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @return The model given by the type parameter.
-     */
-    public <E extends PageObject> E isNotDisplayed(Class<E> type) {
-        return checkMatches(type, not(ViewMatchers.isDisplayed()));
-    }
-
-    /**
      * Check to see if all of the element is currently displayed.
      * @return The model reached by interacting with this element.
      */
     public T isCompletelyDisplayed() {
         return checkMatches(ViewMatchers.isCompletelyDisplayed());
-    }
-
-    /**
-     * Check to see if all of the element is currently displayed.
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @return The model given by the type parameter.
-     */
-    public <E extends PageObject> E isCompletelyDisplayed(Class<E> type) {
-        return checkMatches(type, ViewMatchers.isCompletelyDisplayed());
     }
 
     /**
@@ -501,17 +320,6 @@ public class BaseView<T extends PageObject> {
 
     /**
      * Check to see if the element contains the given text.
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @param stringId Resource id of the string to check for.
-     * @return The model given by the type parameter.
-     */
-    public <E extends PageObject> E withText(Class<E> type, int stringId) {
-        return checkMatches(type, ViewMatchers.withText(stringId));
-    }
-
-
-    /**
-     * Check to see if the element contains the given text.
      * @param string String to check for.
      * @return The model reached by interacting with this element.
      */
@@ -521,31 +329,11 @@ public class BaseView<T extends PageObject> {
 
     /**
      * Check to see if the element contains the given text.
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @param string String to check for.
-     * @return The model given by the type parameter.
-     */
-    public <E extends PageObject> E withText(Class<E> type, String string) {
-        return checkMatches(type, ViewMatchers.withText(string));
-    }
-
-    /**
-     * Check to see if the element contains the given text.
      * @param stringMatcher A hamcrest matcher that represents the string of text to check for.
      * @return The model reached by interacting with this element.
      */
     public T withText(Matcher<String> stringMatcher) {
         return checkMatches(ViewMatchers.withText(stringMatcher));
-    }
-
-    /**
-     * Check to see if the element contains the given text.
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @param stringMatcher A hamcrest matcher that represents the string of text to check for.
-     * @return The model given by the type parameter.
-     */
-    public <E extends PageObject> E withText(Class<E> type, Matcher<String> stringMatcher) {
-        return checkMatches(type, ViewMatchers.withText(stringMatcher));
     }
 
     /**
@@ -559,31 +347,11 @@ public class BaseView<T extends PageObject> {
 
     /**
      * Check to see if the element does not contain the given text.
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @param stringId Resource id of the string to check for.
-     * @return The model given by the type parameter.
-     */
-    public <E extends PageObject> E withNotText(Class<E> type, int stringId) {
-        return checkMatches(type, not(ViewMatchers.withText(stringId)));
-    }
-
-    /**
-     * Check to see if the element does not contain the given text.
      * @param string String to check for.
      * @return The model reached by interacting with this element.
      */
     public T withNotText(String string) {
         return checkMatches(not(ViewMatchers.withText(string)));
-    }
-
-    /**
-     * Check to see if the element does not contain the given text.
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @param string String to check for.
-     * @return The model given by the type parameter.
-     */
-    public <E extends PageObject> E withNotText(Class<E> type, String string) {
-        return checkMatches(type, not(ViewMatchers.withText(string)));
     }
 
     /**
@@ -593,10 +361,6 @@ public class BaseView<T extends PageObject> {
      */
     public T isAssignableFrom(Class<? extends View> fromClass) {
         return checkMatches(ViewMatchers.isAssignableFrom(fromClass));
-    }
-
-    public <E extends PageObject> E isAssignableFrom(Class<E> type, Class<? extends View> fromClass) {
-        return checkMatches(type, ViewMatchers.isAssignableFrom(fromClass));
     }
 
     /**
@@ -609,16 +373,6 @@ public class BaseView<T extends PageObject> {
     }
 
     /**
-     * Check to see if the element has the given class name.
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @param classNameMatcher Hamcrest Matcher that represents the class name.
-     * @return The model given by the type parameter.
-     */
-    public <E extends PageObject> E withClassName(Class<E> type, Matcher<String> classNameMatcher) {
-        return checkMatches(type, ViewMatchers.withClassName(classNameMatcher));
-    }
-
-    /**
      * Check to see if the element is displaying at least areaPercentage of its area on the screen.
      * @param areaPercentage The percentage of the element to check for.
      * @return The model reached by interacting with this element.
@@ -627,33 +381,12 @@ public class BaseView<T extends PageObject> {
         return checkMatches(ViewMatchers.isDisplayingAtLeast(areaPercentage));
     }
 
-
-    /**
-     * Check to see if the element is displaying at least areaPercentage of its area on the screen.
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @param areaPercentage The percentage of the element to check for.
-     * @return The model given by the type parameter.
-     */
-    public <E extends PageObject> E isDisplayingAtLeast(Class<E> type, int areaPercentage) {
-        return checkMatches(type, ViewMatchers.isDisplayingAtLeast(areaPercentage));
-    }
-
     /**
      * Check to see if the element is enabled.
      * @return The model reached by interacting with this element.
      */
     public T isEnabled() {
         return checkMatches(ViewMatchers.isEnabled());
-    }
-
-
-    /**
-     * Check to see if the element is enabled.
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @return The model given by the type parameter.
-     */
-    public <E extends PageObject> E isEnabled(Class<E> type) {
-        return checkMatches(type, ViewMatchers.isEnabled());
     }
 
     /**
@@ -665,15 +398,6 @@ public class BaseView<T extends PageObject> {
     }
 
     /**
-     * Check to see if the element is not enabled.
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @return The model given by the type parameter.
-     */
-    public <E extends PageObject> E isNotEnabled(Class<E> type) {
-        return checkMatches(type, not(ViewMatchers.isEnabled()));
-    }
-
-    /**
      * Check to see if the element is focusable
      * @return The model reached by interacting with this element.
      */
@@ -682,29 +406,11 @@ public class BaseView<T extends PageObject> {
     }
 
     /**
-     * Check to see if the element is focusable.
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @return The model given by the type parameter.
-     */
-    public <E extends PageObject> E isFocusable(Class<E> type) {
-        return checkMatches(type, ViewMatchers.isFocusable());
-    }
-
-    /**
      * Check to see if the element has the current focus.
      * @return The model reached by interacting with this element.
      */
     public T hasFocus() {
         return checkMatches(ViewMatchers.hasFocus());
-    }
-
-    /**
-     * Check to see if the element has the current focus.
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @return The model given by the type parameter.
-     */
-    public <E extends PageObject> E hasFocus(Class<E> type) {
-        return checkMatches(type, ViewMatchers.hasFocus());
     }
 
     /**
@@ -717,32 +423,12 @@ public class BaseView<T extends PageObject> {
     }
 
     /**
-     * Check to see if the element has a sibiling (another BaseView object with the same parent) matching the given BaseView.
-     * @param sibling The BaseView to check as a sibling.
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @return The model given by the type parameter.
-     */
-    public <E extends PageObject> E hasSibling(Class<E> type, BaseView<T> sibling) {
-        return checkMatches(type, ViewMatchers.hasSibling(sibling.getSelector()));
-    }
-
-    /**
      * Check to see if the element has the content description matching the given string.
      * @param text The string to check against the content description.
      * @return The model reached by interacting with this element.
      */
     public T withContentDescription(String text) {
         return checkMatches(ViewMatchers.withContentDescription(text));
-    }
-
-    /**
-     * Check to see if the element has the content description matching the given string.
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @param text The string to check against the content description.
-     * @return The model given by the type parameter.
-     */
-    public <E extends PageObject> E withContentDescription(Class<E> type, String text) {
-        return checkMatches(type, ViewMatchers.withContentDescription(text));
     }
 
     /**
@@ -755,32 +441,12 @@ public class BaseView<T extends PageObject> {
     }
 
     /**
-     * Check to see if the element has the content description matching the given Matcher
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @param charSequenceMatcher Hamcrest Matcher representing the text to check the content description against.
-     * @return The model given by the type parameter.
-     */
-    public <E extends PageObject> E withContentDescription(Class<E> type, Matcher<? extends CharSequence> charSequenceMatcher) {
-        return checkMatches(type, ViewMatchers.withContentDescription(charSequenceMatcher));
-    }
-
-    /**
      * Check to see if the element has the given resource id.
      * @param id Resource id to check.
      * @return The model reached by interacting with this element.
      */
     public T withId(int id) {
         return checkMatches(ViewMatchers.withId(id));
-    }
-
-    /**
-     * Check to see if the element has the given resource id.
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @param id Resource id to check.
-     * @return The model given by the type parameter.
-     */
-    public <E extends PageObject> E withId(Class<E> type, int id) {
-        return checkMatches(type, ViewMatchers.withId(id));
     }
 
     /**
@@ -793,16 +459,6 @@ public class BaseView<T extends PageObject> {
     }
 
     /**
-     * Check to see if the element has the given resource id, represented by a Hamcrest Matcher.
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @param integerMatcher Hamcrest Matcher representing the resource id to check for.
-     * @return The model given by the type parameter.
-     */
-    public <E extends PageObject> E withId(Class<E> type, Matcher<Integer> integerMatcher) {
-        return checkMatches(type, ViewMatchers.withId(integerMatcher));
-    }
-
-    /**
      * Check to see if the element has the given tag key.
      * @param key Tag Key to check against.
      * @return The model reached by interacting with this element.
@@ -811,23 +467,9 @@ public class BaseView<T extends PageObject> {
         return checkMatches(ViewMatchers.withTagKey(key));
     }
 
-    /**
-     * Check to see if the element has the given tag key.
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @param key Tag Key to check against.
-     * @return The model given by the type parameter.
-     */
-    public <E extends PageObject> E withTagKey(Class<E> type, int key) {
-        return checkMatches(type, ViewMatchers.withTagKey(key));
-    }
-
     // TODO: Dunno exactly how this method works.
     public T withTagKey(int key, Matcher<Object> objectMatcher) {
         return checkMatches(ViewMatchers.withTagKey(key, objectMatcher));
-    }
-
-    public <E extends PageObject> E withTagKey(Class<E> type, int key,  Matcher<Object> objectMatcher) {
-        return checkMatches(type, ViewMatchers.withTagKey(key, objectMatcher));
     }
 
     /**
@@ -840,30 +482,11 @@ public class BaseView<T extends PageObject> {
     }
 
     /**
-     * Check to see if the element has the given tag value.
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @param tagValueMatcher Hamcrest Matcher representing the tag value.
-     * @return The model given by the type parameter.
-     */
-    public <E extends PageObject> E withTagValue(Class<E> type, Matcher<Object> tagValueMatcher) {
-        return checkMatches(type, ViewMatchers.withTagValue(tagValueMatcher));
-    }
-
-    /**
      * Check to see if the element is a CompoundButton and is not in the checked state.
      * @return The model reached by interacting with this element.
      */
     public T isNotChecked() {
         return checkMatches(ViewMatchers.isNotChecked());
-    }
-
-    /**
-     * Check to see if the element is a CompoundButton and is not in the checked state.
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @return The model given by the type parameter.
-     */
-    public <E extends PageObject> E isNotChecked(Class<E> type) {
-        return checkMatches(type, ViewMatchers.isNotChecked());
     }
 
     /**
@@ -875,29 +498,11 @@ public class BaseView<T extends PageObject> {
     }
 
     /**
-     * Check to see if the element is a CompoundButton and is in the checked state.
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @return The model given by the type parameter.
-     */
-    public <E extends PageObject> E isChecked(Class<E> type) {
-        return checkMatches(type, ViewMatchers.isChecked());
-    }
-
-    /**
      * Check to see if the element has a content description.
      * @return The model reached by interacting with this element.
      */
     public T hasContentDescription() {
         return checkMatches(ViewMatchers.hasContentDescription());
-    }
-
-    /**
-     * Check to see if the element has a content description.
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @return The model given by the type parameter.
-     */
-    public <E extends PageObject> E hasContentDescription(Class<E> type) {
-        return checkMatches(type, ViewMatchers.hasContentDescription());
     }
 
     /**
@@ -910,30 +515,11 @@ public class BaseView<T extends PageObject> {
     }
 
     /**
-     * Check to see if the element has a descendant matching the given descendant.
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @param descendant The descendant(A BaseView) to match on.
-     * @return The model given by the type parameter.
-     */
-    public <E extends PageObject> E hasDescendant(Class<E> type, BaseView<T> descendant) {
-        return checkMatches(type, ViewMatchers.hasDescendant(descendant.getSelector()));
-    }
-
-    /**
      * Checks to see if the element is not clickable
      * @return The model reached by interacting with this element.
      */
     public T isNotClickable() {
         return checkMatches(not(ViewMatchers.isClickable()));
-    }
-
-    /**
-     * Checks to see if the element is not clickable.
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @return The model given by the type parameter.
-     */
-    public <E extends PageObject> E isNotClickable(Class<E> type) {
-        return checkMatches(type, not(ViewMatchers.isClickable()));
     }
 
     /**
@@ -945,31 +531,12 @@ public class BaseView<T extends PageObject> {
     }
 
     /**
-     * Checks to see if the element is clickable.
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @return The model given by the type parameter.
-     */
-    public <E extends PageObject> E isClickable(Class<E> type) {
-        return checkMatches(type, ViewMatchers.isClickable());
-    }
-
-    /**
      * Checks to see if the ancestor of the element matches the given ancestor.
      * @param parent The ancestor to check against.
      * @return The model reached by interacting with this element.
      */
     public T isDescendantOfA(BaseView<T> parent) {
         return checkMatches(ViewMatchers.isDescendantOfA(parent.getSelector()));
-    }
-
-    /**
-     * Checks to see if the ancestor of the element matches the given ancestor.
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @param parent The ancestor to check against.
-     * @return The model given by the type parameter.
-     */
-    public <E extends PageObject> E isDescendantOfA(Class<E> type, BaseView<T> parent) {
-        return checkMatches(type, ViewMatchers.isDescendantOfA(parent.getSelector()));
     }
 
     /**
@@ -984,34 +551,12 @@ public class BaseView<T extends PageObject> {
     }
 
     /**
-     * Checks to see if the view has the given "effective" visibility.
-     * Effective visibility takes into account not only the view's visibility value, but also that of its ancestors. In case of View.VISIBLE, this means that the view and all of its ancestors have visibility=VISIBLE. In case of GONE and INVISIBLE, it's the opposite - any GONE or INVISIBLE parent will make all of its children have their effective visibility.
-     * Note: Contrary to what the name may imply, view visibility does not directly translate into whether the view is displayed on screen (use isDisplayed() for that). For example, the view and all of its ancestors can have visibility=VISIBLE, but the view may need to be scrolled to in order to be actually visible to the user. Unless you're specifically targeting the visibility value with your test, use isDisplayed.
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @param visibility The visibility type to match against.
-     * @return The model given by the type parameter.
-     */
-    public <E extends PageObject> E withEffectiveVisibility(Class<E> type, ViewMatchers.Visibility visibility) {
-        return checkMatches(type, ViewMatchers.withEffectiveVisibility(visibility));
-    }
-
-    /**
      * Checks to see if the elements parent matches the given parent.
      * @param parent The parent to check against.
      * @return The model reached by interacting with this element.
      */
     public T withParent(BaseView<T> parent) {
         return checkMatches(ViewMatchers.withParent(parent.getSelector()));
-    }
-
-    /**
-     * Checks to see if the elements parent matches the given parent.
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @param parent The parent to check against.
-     * @return The model given by the type parameter.
-     */
-    public <E extends PageObject> E withParent(Class<E> type, BaseView<T> parent) {
-        return checkMatches(type, ViewMatchers.withParent(parent.getSelector()));
     }
 
     /**
@@ -1024,16 +569,6 @@ public class BaseView<T extends PageObject> {
     }
 
     /**
-     * Checks to see if the element has a child matching the given child.
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @param child The child to check against.
-     * @return The model given by the type parameter.
-     */
-    public <E extends PageObject> E withChild(Class<E> type, BaseView<T> child) {
-        return checkMatches(type, ViewMatchers.withChild(child.getSelector()));
-    }
-
-    /**
      * Checks to see if the element is the root view.
      * @return The model reached by interacting with this element.
      */
@@ -1042,29 +577,11 @@ public class BaseView<T extends PageObject> {
     }
 
     /**
-     * Checks to see if the element is the root view.
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @return The model given by the type parameter.
-     */
-    public <E extends PageObject> E isRoot(Class<E> type) {
-        return checkMatches(type, ViewMatchers.isRoot());
-    }
-
-    /**
      * Checks to see if the element supports input methods.
      * @return The model reached by interacting with this element.
      */
     public T supportsInputMethods() {
         return checkMatches(ViewMatchers.supportsInputMethods());
-    }
-
-    /**
-     * Checks to see if the element supports input methods.
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @return The model given by the type parameter.
-     */
-    public <E extends PageObject> E supportsInputMethods(Class<E> type) {
-        return checkMatches(type, ViewMatchers.supportsInputMethods());
     }
 
     /**
@@ -1078,33 +595,12 @@ public class BaseView<T extends PageObject> {
 
     /**
      * Checks to see if the element supports input methods (e.g. EditText) and have the specified IME action set in its EditorInfo.
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @param imeAction The IME action to match
-     * @return The model given by the type parameter.
-     */
-    public <E extends PageObject> E hasImeAction(Class<E> type, int imeAction) {
-        return checkMatches(type, ViewMatchers.hasImeAction(imeAction));
-    }
-
-    /**
-     * Checks to see if the element supports input methods (e.g. EditText) and have the specified IME action set in its EditorInfo.
      * @param imeActionMatcher Hamcrest Matcher that represents the IME action to match.
      * @return The model reached by interacting with this element.
      */
     public T hasImeAction(Matcher<Integer> imeActionMatcher) {
         return checkMatches(ViewMatchers.hasImeAction(imeActionMatcher));
     }
-
-    /**
-     * Checks to see if the element supports input methods (e.g. EditText) and have the specified IME action set in its EditorInfo.
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @param imeActionMatcher Hamcrest Matcher that represents the IME action to match.
-     * @return The model given by the type parameter.
-     */
-    public <E extends PageObject> E hasImeAction(Class<E> type, Matcher<Integer> imeActionMatcher) {
-        return checkMatches(type, ViewMatchers.hasImeAction(imeActionMatcher));
-    }
-
 
     /**
      * End ViewMatchers
@@ -1250,8 +746,4 @@ public class BaseView<T extends PageObject> {
         }
         return returnGeneric();
     }
-
-    /**
-     * Potential removal for Open Source if can't find an implementation that depends on isDisplayedBoolean.
-     */
 }
