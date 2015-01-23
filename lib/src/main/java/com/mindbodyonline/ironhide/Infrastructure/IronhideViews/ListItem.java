@@ -47,30 +47,14 @@ public class ListItem<T extends PageObject> extends BaseView<T> {
     }
 
     @Override
-    protected <E extends PageObject> E performAction(Class<E> type, ViewAction viewAction) {
-        adapter.perform(viewAction);
-        return returnGeneric(type);
-    }
-
-    @Override
     protected T checkMatches(Matcher<? super View> viewMatcher) {
         return checkAssertion(ViewAssertions.matches(viewMatcher));
-    }
-
-    @Override
-    protected <E extends PageObject> E checkMatches(Class<E> type, Matcher<? super View> viewMatcher) {
-        return checkAssertion(type, ViewAssertions.matches(viewMatcher));
     }
 
     @Override
     protected T checkAssertion(ViewAssertion viewAssertion) {
         adapter.check(viewAssertion);
         return returnGeneric();
-    }
-
-    protected <E extends PageObject> E checkAssertion(Class<E> type, ViewAssertion viewAssertion) {
-        adapter.check(viewAssertion);
-        return returnGeneric(type);
     }
 
     @Override
@@ -111,25 +95,5 @@ public class ListItem<T extends PageObject> extends BaseView<T> {
     public T checkChildView(BaseView<T> viewToMatch, Matcher<View> toCheck) {
         adapter.onChildView(viewToMatch.getSelector()).check(ViewAssertions.matches(toCheck));
         return returnGeneric();
-    }
-
-    public <E extends PageObject> E performOnChildView(BaseView<T> viewToMatch, ViewAction toPerform, Class<E> type) {
-        adapter.onChildView(viewToMatch.getSelector()).perform(toPerform);
-        return returnGeneric(type);
-    }
-
-    public <E extends PageObject> E checkChildView(BaseView<T> viewToMatch, Matcher<View> toCheck, Class<E> type) {
-        adapter.onChildView(viewToMatch.getSelector()).check(ViewAssertions.matches(toCheck));
-        return returnGeneric(type);
-    }
-
-    public <E extends PageObject> E clickChildView(BaseView<T> viewToClick, Class<E> type) {
-        adapter.onChildView(viewToClick.getSelector()).perform(ViewActions.click());
-        return returnGeneric(type);
-    }
-
-    public <E extends PageObject> E childViewIsDisplayed(BaseView<T> viewToMatch, Class<E> type) {
-        adapter.onChildView(viewToMatch.getSelector()).check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
-        return returnGeneric(type);
     }
 }
