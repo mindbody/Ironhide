@@ -43,13 +43,36 @@ public class DatePicker<T> extends BaseView<T> {
 
     @Override
     public DatePicker<T> changeRoot() {
-        super.changeRoot();
-        return this;
+        return (DatePicker<T>) super.changeRoot();
     }
 
     @Override
     public DatePicker<T> inRoot(Matcher<Root> rootMatcher) {
-        super.inRoot(rootMatcher);
-        return this;
+        return (DatePicker<T>) super.inRoot(rootMatcher);
+    }
+
+    @Override
+    public DatePicker<T> inDialogRoot() {
+        return (DatePicker<T>) super.inDialogRoot();
+    }
+
+    @Override
+    public DatePicker<T> inPlatformPopup() {
+        return (DatePicker<T>) super.inPlatformPopup();
+    }
+
+    @Override
+    public DatePicker<T> inTouchableRoot() {
+        return (DatePicker<T>) super.inTouchableRoot();
+    }
+
+    @Override
+    public DatePicker<T> inDecorView(Matcher<View> decorViewMatcher) {
+        return (DatePicker<T>) super.inDecorView(decorViewMatcher);
+    }
+
+    @Override
+    public DatePicker<T> inFocusableRoot() {
+        return (DatePicker<T>) super.inFocusableRoot();
     }
 }

@@ -4,6 +4,7 @@ import android.net.Uri;
 import android.support.test.espresso.Root;
 import android.support.test.espresso.action.ViewActions;
 import android.support.test.espresso.matcher.ViewMatchers;
+import android.view.View;
 
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.EnterTextAction;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.SetCursorAction;
@@ -33,18 +34,6 @@ public class TextField<T> extends BaseView<T> {
 
     public TextField(Class<T> type, int resourceId, int stringResourceId, String displayText) {
         super(type, displayText);
-    }
-
-    @Override
-    public TextField<T> changeRoot() {
-        super.changeRoot();
-        return this;
-    }
-
-    @Override
-    public TextField<T> inRoot(Matcher<Root> rootMatcher) {
-        super.inRoot(rootMatcher);
-        return this;
     }
 
     /**
@@ -167,5 +156,44 @@ public class TextField<T> extends BaseView<T> {
 
     public T startsWith(final int resourceId) {
         return checkMatches(TextViewMatchers.startsWith(resourceId));
+    }
+
+    /**
+     * Root Matchers return LayoutView
+     */
+
+    @Override
+    public TextField<T> changeRoot() {
+        return (TextField<T>) super.changeRoot();
+    }
+
+    @Override
+    public TextField<T> inRoot(Matcher<Root> rootMatcher) {
+        return (TextField<T>) super.inRoot(rootMatcher);
+    }
+
+    @Override
+    public TextField<T> inDialogRoot() {
+        return (TextField<T>) super.inDialogRoot();
+    }
+
+    @Override
+    public TextField<T> inPlatformPopup() {
+        return (TextField<T>) super.inPlatformPopup();
+    }
+
+    @Override
+    public TextField<T> inTouchableRoot() {
+        return (TextField<T>) super.inTouchableRoot();
+    }
+
+    @Override
+    public TextField<T> inDecorView(Matcher<View> decorViewMatcher) {
+        return (TextField<T>) super.inDecorView(decorViewMatcher);
+    }
+
+    @Override
+    public TextField<T> inFocusableRoot() {
+        return (TextField<T>) super.inFocusableRoot();
     }
 }

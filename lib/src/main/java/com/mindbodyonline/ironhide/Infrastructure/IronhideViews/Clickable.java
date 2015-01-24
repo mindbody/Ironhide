@@ -1,9 +1,14 @@
 package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
 import android.support.test.espresso.Root;
+import android.support.test.espresso.matcher.RootMatchers;
 import android.view.View;
 
 import org.hamcrest.Matcher;
+
+import static android.support.test.espresso.matcher.RootMatchers.DEFAULT;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.not;
 
 /**
  * Extends BaseView
@@ -33,13 +38,36 @@ public class Clickable<T> extends BaseView<T> {
 
     @Override
     public Clickable<T> changeRoot() {
-        super.changeRoot();
-        return this;
+        return (Clickable<T>) super.changeRoot();
     }
 
     @Override
     public Clickable<T> inRoot(Matcher<Root> rootMatcher) {
-        super.inRoot(rootMatcher);
-        return this;
+        return (Clickable<T>) super.inRoot(rootMatcher);
+    }
+
+    @Override
+    public Clickable<T> inDialogRoot() {
+        return (Clickable<T>) super.inDialogRoot();
+    }
+
+    @Override
+    public Clickable<T> inPlatformPopup() {
+        return (Clickable<T>) super.inPlatformPopup();
+    }
+
+    @Override
+    public Clickable<T> inTouchableRoot() {
+        return (Clickable<T>) super.inTouchableRoot();
+    }
+
+    @Override
+    public Clickable<T> inDecorView(Matcher<View> decorViewMatcher) {
+        return (Clickable<T>) super.inDecorView(decorViewMatcher);
+    }
+
+    @Override
+    public Clickable<T> inFocusableRoot() {
+        return (Clickable<T>) super.inFocusableRoot();
     }
 }

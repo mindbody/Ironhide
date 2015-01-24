@@ -26,18 +26,6 @@ public class Swipeable<T> extends BaseView<T> {
         super(type, selector);
     }
 
-    @Override
-    public Swipeable<T> changeRoot() {
-        super.changeRoot();
-        return this;
-    }
-
-    @Override
-    public Swipeable<T> inRoot(Matcher<Root> rootMatcher) {
-        super.inRoot(rootMatcher);
-        return this;
-    }
-
     public T swipeLeft() {
         return performAction(ViewActions.swipeLeft());
     }
@@ -105,5 +93,44 @@ public class Swipeable<T> extends BaseView<T> {
         }
         return performAction(BaseViewActions.swipeFullLeft());
 
+    }
+
+    /**
+     * Root Matchers return LayoutView
+     */
+
+    @Override
+    public Swipeable<T> changeRoot() {
+        return (Swipeable<T>) super.changeRoot();
+    }
+
+    @Override
+    public Swipeable<T> inRoot(Matcher<Root> rootMatcher) {
+        return (Swipeable<T>) super.inRoot(rootMatcher);
+    }
+
+    @Override
+    public Swipeable<T> inDialogRoot() {
+        return (Swipeable<T>) super.inDialogRoot();
+    }
+
+    @Override
+    public Swipeable<T> inPlatformPopup() {
+        return (Swipeable<T>) super.inPlatformPopup();
+    }
+
+    @Override
+    public Swipeable<T> inTouchableRoot() {
+        return (Swipeable<T>) super.inTouchableRoot();
+    }
+
+    @Override
+    public Swipeable<T> inDecorView(Matcher<View> decorViewMatcher) {
+        return (Swipeable<T>) super.inDecorView(decorViewMatcher);
+    }
+
+    @Override
+    public Swipeable<T> inFocusableRoot() {
+        return (Swipeable<T>) super.inFocusableRoot();
     }
 }

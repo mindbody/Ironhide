@@ -34,18 +34,6 @@ public class NavDrawer<T> extends BaseView<T>{
         super(type, displayText);
     }
 
-    @Override
-    public NavDrawer<T> changeRoot() {
-        super.changeRoot();
-        return this;
-    }
-
-    @Override
-    public NavDrawer<T> inRoot(Matcher<Root> rootMatcher) {
-        super.inRoot(rootMatcher);
-        return this;
-    }
-
     public T openDrawer() {
 
         viewInteraction.perform(actionOpenDrawer());
@@ -138,5 +126,44 @@ public class NavDrawer<T> extends BaseView<T>{
                 ((DrawerLayout) view).closeDrawer(GravityCompat.START);
             }
         };
+    }
+
+    /**
+     * Root Matchers return LayoutView
+     */
+
+    @Override
+    public NavDrawer<T> changeRoot() {
+        return (NavDrawer<T>) super.changeRoot();
+    }
+
+    @Override
+    public NavDrawer<T> inRoot(Matcher<Root> rootMatcher) {
+        return (NavDrawer<T>) super.inRoot(rootMatcher);
+    }
+
+    @Override
+    public NavDrawer<T> inDialogRoot() {
+        return (NavDrawer<T>) super.inDialogRoot();
+    }
+
+    @Override
+    public NavDrawer<T> inPlatformPopup() {
+        return (NavDrawer<T>) super.inPlatformPopup();
+    }
+
+    @Override
+    public NavDrawer<T> inTouchableRoot() {
+        return (NavDrawer<T>) super.inTouchableRoot();
+    }
+
+    @Override
+    public NavDrawer<T> inDecorView(Matcher<View> decorViewMatcher) {
+        return (NavDrawer<T>) super.inDecorView(decorViewMatcher);
+    }
+
+    @Override
+    public NavDrawer<T> inFocusableRoot() {
+        return (NavDrawer<T>) super.inFocusableRoot();
     }
 }

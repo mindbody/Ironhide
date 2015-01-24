@@ -30,18 +30,6 @@ public class LayoutView<T> extends BaseView<T> {
         super(type, IGNORED, stringResourceId);
     }
 
-    @Override
-    public LayoutView<T> changeRoot() {
-        super.changeRoot();
-        return this;
-    }
-
-    @Override
-    public LayoutView<T> inRoot(Matcher<Root> rootMatcher) {
-        super.inRoot(rootMatcher);
-        return this;
-    }
-
     /**
      * View matchers specific to layouts
      */
@@ -72,5 +60,44 @@ public class LayoutView<T> extends BaseView<T> {
 
     public T noOverlaps() {
         return checkAssertion(LayoutAssertions.noOverlaps());
+    }
+
+    /**
+     * Root Matchers return LayoutView
+     */
+
+    @Override
+    public LayoutView<T> changeRoot() {
+        return (LayoutView<T>) super.changeRoot();
+    }
+
+    @Override
+    public LayoutView<T> inRoot(Matcher<Root> rootMatcher) {
+        return (LayoutView<T>) super.inRoot(rootMatcher);
+    }
+
+    @Override
+    public LayoutView<T> inDialogRoot() {
+        return (LayoutView<T>) super.inDialogRoot();
+    }
+
+    @Override
+    public LayoutView<T> inPlatformPopup() {
+        return (LayoutView<T>) super.inPlatformPopup();
+    }
+
+    @Override
+    public LayoutView<T> inTouchableRoot() {
+        return (LayoutView<T>) super.inTouchableRoot();
+    }
+
+    @Override
+    public LayoutView<T> inDecorView(Matcher<View> decorViewMatcher) {
+        return (LayoutView<T>) super.inDecorView(decorViewMatcher);
+    }
+
+    @Override
+    public LayoutView<T> inFocusableRoot() {
+        return (LayoutView<T>) super.inFocusableRoot();
     }
 }

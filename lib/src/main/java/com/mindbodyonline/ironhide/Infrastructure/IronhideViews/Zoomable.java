@@ -33,18 +33,6 @@ public class Zoomable<T> extends BaseView<T> {
         super(type, selector);
     }
 
-    @Override
-    public Zoomable<T> changeRoot() {
-        super.changeRoot();
-        return this;
-    }
-
-    @Override
-    public Zoomable<T> inRoot(Matcher<Root> rootMatcher) {
-        super.inRoot(rootMatcher);
-        return this;
-    }
-
     Point finger1Start;
     Point finger1End;
     Point finger2Start;
@@ -222,5 +210,44 @@ public class Zoomable<T> extends BaseView<T> {
             generateZoomGesture(instr, SystemClock.uptimeMillis(), true, finger1Start, finger2Start, finger1End, finger2End, 3000);
 
         return returnGeneric();
+    }
+
+    /**
+     * Root Matchers return LayoutView
+     */
+
+    @Override
+    public Zoomable<T> changeRoot() {
+        return (Zoomable<T>) super.changeRoot();
+    }
+
+    @Override
+    public Zoomable<T> inRoot(Matcher<Root> rootMatcher) {
+        return (Zoomable<T>) super.inRoot(rootMatcher);
+    }
+
+    @Override
+    public Zoomable<T> inDialogRoot() {
+        return (Zoomable<T>) super.inDialogRoot();
+    }
+
+    @Override
+    public Zoomable<T> inPlatformPopup() {
+        return (Zoomable<T>) super.inPlatformPopup();
+    }
+
+    @Override
+    public Zoomable<T> inTouchableRoot() {
+        return (Zoomable<T>) super.inTouchableRoot();
+    }
+
+    @Override
+    public Zoomable<T> inDecorView(Matcher<View> decorViewMatcher) {
+        return (Zoomable<T>) super.inDecorView(decorViewMatcher);
+    }
+
+    @Override
+    public Zoomable<T> inFocusableRoot() {
+        return (Zoomable<T>) super.inFocusableRoot();
     }
 }
