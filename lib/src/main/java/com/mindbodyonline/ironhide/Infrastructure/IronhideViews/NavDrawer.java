@@ -1,5 +1,6 @@
 package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
+import android.graphics.pdf.PdfDocument;
 import android.support.test.espresso.Root;
 import android.support.test.espresso.UiController;
 import android.support.test.espresso.ViewAction;
@@ -16,22 +17,26 @@ import org.hamcrest.Matcher;
 /**
  * Created by Barbara.Wong on 8/14/2014.
  */
-public class NavDrawer<T> extends BaseView<T>{
+public class NavDrawer<T extends PageObject> extends BaseView<T>{
 
-    public NavDrawer(Class<T> type, int resourceId) {
-        super(type, resourceId);
+    public NavDrawer(Class<T> type, Matcher<View> viewMatcher) {
+        super(type, viewMatcher);
     }
 
-    public NavDrawer(Class<T> type, Matcher<View> selector) {
-        super(type, selector);
+    public NavDrawer(int resourceId) {
+        super(resourceId);
     }
 
-    public NavDrawer(Class<T> type, int IGNORED, int stringResourceId) {
-        super(type, IGNORED, stringResourceId);
+    public NavDrawer(Matcher<View> selector) {
+        super(selector);
     }
 
-    public NavDrawer(Class<T> type, String displayText) {
-        super(type, displayText);
+    public NavDrawer(int IGNORED, int stringResourceId) {
+        super(IGNORED, stringResourceId);
+    }
+
+    public NavDrawer(String displayText) {
+        super(displayText);
     }
 
     @Override
@@ -44,6 +49,11 @@ public class NavDrawer<T> extends BaseView<T>{
     public NavDrawer<T> inRoot(Matcher<Root> rootMatcher) {
         super.inRoot(rootMatcher);
         return this;
+    }
+
+    @Override
+    public <E extends PageObject> NavDrawer<E> goesTo(Class<E> type) {
+        return new NavDrawer<E>(type, getSelector());
     }
 
     public T openDrawer() {

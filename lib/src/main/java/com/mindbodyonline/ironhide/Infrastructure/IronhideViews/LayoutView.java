@@ -5,6 +5,8 @@ import android.support.test.espresso.assertion.LayoutAssertions;
 import android.support.test.espresso.matcher.LayoutMatchers;
 import android.view.View;
 
+import com.mindbodyonline.ironhide.PageObjects.PageObject;
+
 import org.hamcrest.Matcher;
 
 /**
@@ -16,18 +18,22 @@ import org.hamcrest.Matcher;
  *
  * @param <T> The model the current element will return when interacted with
  */
-public class LayoutView<T> extends BaseView<T> {
+public class LayoutView<T extends PageObject> extends BaseView<T> {
 
-    public LayoutView(Class<T> type, int resourceId) {
-        super(type, resourceId);
+    public LayoutView(Class<T> type, Matcher<View> viewMatcher) {
+        super(type, viewMatcher);
     }
 
-    public LayoutView(Class<T> type, Matcher<View> selector) {
-        super(type, selector);
+    public LayoutView(int resourceId) {
+        super(resourceId);
     }
 
-    public LayoutView(Class<T> type, int IGNORED, int stringResourceId) {
-        super(type, IGNORED, stringResourceId);
+    public LayoutView(Matcher<View> selector) {
+        super(selector);
+    }
+
+    public LayoutView(int IGNORED, int stringResourceId) {
+        super(IGNORED, stringResourceId);
     }
 
     @Override
@@ -40,6 +46,11 @@ public class LayoutView<T> extends BaseView<T> {
     public LayoutView<T> inRoot(Matcher<Root> rootMatcher) {
         super.inRoot(rootMatcher);
         return this;
+    }
+
+    @Override
+    protected <E extends PageObject> LayoutView<E> goesTo(Class<E> type) {
+        return new LayoutView<E>(type, getSelector());
     }
 
     /**

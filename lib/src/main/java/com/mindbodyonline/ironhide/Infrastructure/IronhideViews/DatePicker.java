@@ -4,6 +4,8 @@ import android.support.test.espresso.Root;
 import android.support.test.espresso.contrib.PickerActions;
 import android.view.View;
 
+import com.mindbodyonline.ironhide.PageObjects.PageObject;
+
 import org.hamcrest.Matcher;
 
 /**
@@ -14,22 +16,26 @@ import org.hamcrest.Matcher;
  *
  * @param <T> The model the current element will return when interacted with
  */
-public class DatePicker<T> extends BaseView<T> {
+public class DatePicker<T extends PageObject> extends BaseView<T> {
 
-    public DatePicker(Class<T> type, int resourceId) {
-        super(type, resourceId);
+    public DatePicker(Class<T> type, Matcher<View> viewMatcher) {
+        super(type, viewMatcher);
     }
 
-    public DatePicker(Class<T> type, Matcher<View> selector) {
-        super(type, selector);
+    public DatePicker(int resourceId) {
+        super(resourceId);
     }
 
-    public DatePicker(Class<T> type, int IGNORED, int stringResourceId) {
-        super(type, IGNORED, stringResourceId);
+    public DatePicker(Matcher<View> selector) {
+        super(selector);
     }
 
-    public DatePicker(Class<T> type, int resourceId, int stringResourceId, String displayText) {
-        super(type, displayText);
+    public DatePicker(int IGNORED, int stringResourceId) {
+        super(IGNORED, stringResourceId);
+    }
+
+    public DatePicker(int resourceId, int stringResourceId, String displayText) {
+        super(displayText);
     }
 
 
@@ -51,5 +57,10 @@ public class DatePicker<T> extends BaseView<T> {
     public DatePicker<T> inRoot(Matcher<Root> rootMatcher) {
         super.inRoot(rootMatcher);
         return this;
+    }
+
+    @Override
+    protected <E extends PageObject> DatePicker<E> goesTo(Class<E> type) {
+        return new DatePicker<E>(type, getSelector());
     }
 }

@@ -10,6 +10,8 @@ import android.support.test.espresso.action.ViewActions;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.mindbodyonline.ironhide.PageObjects.PageObject;
+
 import org.hamcrest.Matcher;
 
 /**
@@ -21,16 +23,20 @@ import org.hamcrest.Matcher;
  * @param <T> The model the current element will return when interacted with
  */
 @TargetApi(14)
-public class Zoomable<T> extends BaseView<T> {
+public class Zoomable<T extends PageObject> extends BaseView<T> {
 
     private static final int EVENT_MIN_INTERVAL = 1000;
 
-    public Zoomable(Class<T> type, int resourceId) {
-        super(type, resourceId);
-    }
-
     public Zoomable(Class<T> type, Matcher<View> selector) {
         super(type, selector);
+    }
+
+    public Zoomable(Class<T> type, int resourceId) {
+        super(resourceId);
+    }
+
+    public Zoomable(Matcher<View> selector) {
+        super(selector);
     }
 
     @Override

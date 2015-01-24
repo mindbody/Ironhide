@@ -5,6 +5,7 @@ import android.support.test.espresso.action.ViewActions;
 import android.view.View;
 
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.BaseViewActions;
+import com.mindbodyonline.ironhide.PageObjects.PageObject;
 
 import org.hamcrest.Matcher;
 
@@ -16,14 +17,18 @@ import org.hamcrest.Matcher;
  *
  * @param <T> The model the current element will return when interacted with
  */
-public class Swipeable<T> extends BaseView<T> {
-
-    public Swipeable(Class<T> type, int resourceId) {
-        super(type, resourceId);
-    }
+public class Swipeable<T extends PageObject> extends BaseView<T> {
 
     public Swipeable(Class<T> type, Matcher<View> selector) {
         super(type, selector);
+    }
+
+    public Swipeable(int resourceId) {
+        super(resourceId);
+    }
+
+    public Swipeable(Matcher<View> selector) {
+        super(selector);
     }
 
     @Override
@@ -36,6 +41,11 @@ public class Swipeable<T> extends BaseView<T> {
     public Swipeable<T> inRoot(Matcher<Root> rootMatcher) {
         super.inRoot(rootMatcher);
         return this;
+    }
+
+    @Override
+    public <E extends PageObject> Swipeable<E> goesTo(Class<E> type) {
+        return new Swipeable<E>(type, getSelector());
     }
 
     public T swipeLeft() {

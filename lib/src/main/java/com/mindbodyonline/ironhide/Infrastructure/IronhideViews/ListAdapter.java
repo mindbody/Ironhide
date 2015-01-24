@@ -41,10 +41,10 @@ public class ListAdapter<T extends PageObject> {
     }
 
     public ListItem<T> getItemAtPosition(int index) {
-        return new ListItem<T>(type, adapter.atPosition(index));
+        return new ListItem<T>(adapter.atPosition(index)).goesTo(type);
     }
 
     public ListItem<T> getFirst() {
-        return new ListItem<T>(type, adapter.atPosition(0));
+        return new ListItem<T>(adapter.atPosition(0)).goesTo(type);
     }
 }
