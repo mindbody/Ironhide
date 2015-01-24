@@ -18,7 +18,7 @@ import static org.hamcrest.Matchers.not;
 public class BaseViewMatchers {
 
     /**
-     * Checks an ImageView to see if the displayed image correspondes to the image pointed to by a Drawable resource
+     * Checks an ImageView to see if the displayed image corresponds to the image pointed to by a Drawable resource
      * NOTE: see open issue #94 for Espresso (https://code.google.com/p/android-test-kit/issues/detail?id=94)
      *
      * @param drawableId The Drawable Resource ID to compare to the ImageView's content
