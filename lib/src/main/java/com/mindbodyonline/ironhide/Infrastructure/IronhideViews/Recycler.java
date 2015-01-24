@@ -13,28 +13,28 @@ import org.hamcrest.Matcher;
  *
  * ViewActions to interact RecyclerView. RecyclerView works differently than AdapterView. In fact, RecyclerView is not an AdapterView anymore, hence it can't be used in combination with onData(Matcher).
  */
-public class RecyclerViewWrapper<T> extends BaseView<T> {
+public class Recycler<T> extends BaseView<T> {
 
-    public RecyclerViewWrapper(Class<T> type, int resourceId) {
+    public Recycler(Class<T> type, int resourceId) {
         super(type, resourceId);
     }
 
-    public RecyclerViewWrapper(Class<T> type, Matcher<View> selector) {
+    public Recycler(Class<T> type, Matcher<View> selector) {
         super(type, selector);
     }
 
-    public RecyclerViewWrapper(Class<T> type, int resourceId, int stringResourceId) {
+    public Recycler(Class<T> type, int resourceId, int stringResourceId) {
         super(type, resourceId, stringResourceId);
     }
 
     @Override
-    public RecyclerViewWrapper<T> changeRoot() {
+    public Recycler<T> changeRoot() {
         super.changeRoot();
         return this;
     }
 
     @Override
-    public RecyclerViewWrapper<T> inRoot(Matcher<Root> rootMatcher) {
+    public Recycler<T> inRoot(Matcher<Root> rootMatcher) {
         super.inRoot(rootMatcher);
         return this;
     }

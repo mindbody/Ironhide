@@ -11,6 +11,8 @@ import com.mindbodyonline.ironhide.Infrastructure.Extensions.TextViewMatchers;
 
 import org.hamcrest.Matcher;
 
+import static org.hamcrest.Matchers.is;
+
 /**
  * Extends BaseView
  * Simple element that allows text interaction
@@ -82,6 +84,10 @@ public class TextField<T> extends BaseView<T> {
         return performAction(enterTextAction(toType));
     }
 
+    public T replaceText(String newText) {
+        return performAction(ViewActions.replaceText(newText));
+    }
+
     public T setCursor() {
         return performAction(setCursorAction());
     }
@@ -119,8 +125,16 @@ public class TextField<T> extends BaseView<T> {
         return performAction(ViewActions.openLinkWithText(linkTextMatcher));
     }
 
+    public T openLinkWithText(String linkText) {
+        return performAction(ViewActions.openLinkWithText(linkText));
+    }
+
     public T openLinkWithUri(Matcher<Uri> uriMatcher) {
         return performAction(ViewActions.openLinkWithUri(uriMatcher));
+    }
+
+    public T openLinkWithUri(String uri) {
+        return performAction(ViewActions.openLinkWithUri(uri));
     }
 
     /**
