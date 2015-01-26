@@ -36,18 +36,7 @@ public class LayoutView<T extends PageObject> extends BaseView<T> {
         super(IGNORED, stringResourceId);
     }
 
-    @Override
-    public LayoutView<T> changeRoot() {
-        super.changeRoot();
-        return this;
-    }
-
-    @Override
-    public LayoutView<T> inRoot(Matcher<Root> rootMatcher) {
-        super.inRoot(rootMatcher);
-        return this;
-    }
-
+    /** {@inheritDoc} */
     @Override
     protected <E extends PageObject> LayoutView<E> goesTo(Class<E> type) {
         return new LayoutView<E>(type, getSelector());
@@ -83,5 +72,51 @@ public class LayoutView<T extends PageObject> extends BaseView<T> {
 
     public T noOverlaps() {
         return checkAssertion(LayoutAssertions.noOverlaps());
+    }
+
+    /**
+     * Root Matchers return LayoutView
+     */
+
+    /** {@inheritDoc} */
+    @Override
+    public LayoutView<T> changeRoot() {
+        return (LayoutView<T>) super.changeRoot();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public LayoutView<T> inRoot(Matcher<Root> rootMatcher) {
+        return (LayoutView<T>) super.inRoot(rootMatcher);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public LayoutView<T> inDialogRoot() {
+        return (LayoutView<T>) super.inDialogRoot();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public LayoutView<T> inPlatformPopup() {
+        return (LayoutView<T>) super.inPlatformPopup();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public LayoutView<T> inTouchableRoot() {
+        return (LayoutView<T>) super.inTouchableRoot();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public LayoutView<T> inDecorView(Matcher<View> decorViewMatcher) {
+        return (LayoutView<T>) super.inDecorView(decorViewMatcher);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public LayoutView<T> inFocusableRoot() {
+        return (LayoutView<T>) super.inFocusableRoot();
     }
 }

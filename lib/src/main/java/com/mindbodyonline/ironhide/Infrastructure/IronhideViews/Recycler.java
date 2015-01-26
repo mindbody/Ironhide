@@ -33,18 +33,7 @@ public class Recycler<T extends PageObject> extends BaseView<T> {
         super(resourceId, stringResourceId);
     }
 
-    @Override
-    public Recycler<T> changeRoot() {
-        super.changeRoot();
-        return this;
-    }
-
-    @Override
-    public Recycler<T> inRoot(Matcher<Root> rootMatcher) {
-        super.inRoot(rootMatcher);
-        return this;
-    }
-
+    /** {@inheritDoc} */
     @Override
     public <E extends PageObject> Recycler<E> goesTo(Class<E> type) {
         return new Recycler<E>(type, getSelector());
@@ -72,5 +61,51 @@ public class Recycler<T extends PageObject> extends BaseView<T> {
 
     public T scrollToPosition(int position) {
         return performAction(RecyclerViewActions.scrollToPosition(position));
+    }
+
+    /**
+     * Root Matchers return Recycler
+     */
+
+    /** {@inheritDoc} */
+    @Override
+    public Recycler<T> changeRoot() {
+        return (Recycler<T>) super.changeRoot();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public Recycler<T> inRoot(Matcher<Root> rootMatcher) {
+        return (Recycler<T>) super.inRoot(rootMatcher);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public Recycler<T> inDialogRoot() {
+        return (Recycler<T>) super.inDialogRoot();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public Recycler<T> inPlatformPopup() {
+        return (Recycler<T>) super.inPlatformPopup();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public Recycler<T> inTouchableRoot() {
+        return (Recycler<T>) super.inTouchableRoot();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public Recycler<T> inDecorView(Matcher<View> decorViewMatcher) {
+        return (Recycler<T>) super.inDecorView(decorViewMatcher);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public Recycler<T> inFocusableRoot() {
+        return (Recycler<T>) super.inFocusableRoot();
     }
 }

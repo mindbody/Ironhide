@@ -1,11 +1,16 @@
 package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
 import android.support.test.espresso.Root;
+import android.support.test.espresso.matcher.RootMatchers;
 import android.view.View;
 
 import com.mindbodyonline.ironhide.PageObjects.PageObject;
 
 import org.hamcrest.Matcher;
+
+import static android.support.test.espresso.matcher.RootMatchers.DEFAULT;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.not;
 
 /**
  * Extends BaseView
@@ -37,16 +42,50 @@ public class Clickable<T extends PageObject> extends BaseView<T> {
         super(displayText);
     }
 
+    /**
+     * Root Matchers return Clickable
+     */
+
+    /** {@inheritDoc} */
     @Override
     public Clickable<T> changeRoot() {
-        super.changeRoot();
-        return this;
+        return (Clickable<T>) super.changeRoot();
     }
 
+    /** {@inheritDoc} */
     @Override
     public Clickable<T> inRoot(Matcher<Root> rootMatcher) {
-        super.inRoot(rootMatcher);
-        return this;
+        return (Clickable<T>) super.inRoot(rootMatcher);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public Clickable<T> inDialogRoot() {
+        return (Clickable<T>) super.inDialogRoot();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public Clickable<T> inPlatformPopup() {
+        return (Clickable<T>) super.inPlatformPopup();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public Clickable<T> inTouchableRoot() {
+        return (Clickable<T>) super.inTouchableRoot();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public Clickable<T> inDecorView(Matcher<View> decorViewMatcher) {
+        return (Clickable<T>) super.inDecorView(decorViewMatcher);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public Clickable<T> inFocusableRoot() {
+        return (Clickable<T>) super.inFocusableRoot();
     }
 
     @Override

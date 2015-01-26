@@ -40,22 +40,9 @@ public class NavDrawer<T extends PageObject> extends BaseView<T>{
     }
 
     @Override
-    public NavDrawer<T> changeRoot() {
-        super.changeRoot();
-        return this;
-    }
-
-    @Override
-    public NavDrawer<T> inRoot(Matcher<Root> rootMatcher) {
-        super.inRoot(rootMatcher);
-        return this;
-    }
-
-    @Override
     public <E extends PageObject> NavDrawer<E> goesTo(Class<E> type) {
         return new NavDrawer<E>(type, getSelector());
     }
-
     public T openDrawer() {
 
         viewInteraction.perform(actionOpenDrawer());
@@ -87,29 +74,11 @@ public class NavDrawer<T extends PageObject> extends BaseView<T>{
     }
 
     /**
-     * Checks to see if the Navigation Drawer is open.
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @return The model given by the type parameter.
-     */
-    public <E extends PageObject> E isOpen(Class<E> type) {
-        return checkMatches(type, DrawerMatchers.isOpen());
-    }
-
-    /**
      * Checks to see if the Navigation Drawer is closed.
      * @return The model reached by interacting with this element.
      */
     public T isClosed() {
         return checkMatches(DrawerMatchers.isClosed());
-    }
-
-    /**
-     * Checks to see if the Navigation Drawer is closed.
-     * @param type The model to return to, used for chaining if a different model is wanted than the default model.
-     * @return The model given by the type parameter.
-     */
-    public <E extends PageObject> E isClosed(Class<E> type) {
-        return checkMatches(type, DrawerMatchers.isClosed());
     }
 
     private ViewAction actionOpenDrawer() {
@@ -148,5 +117,51 @@ public class NavDrawer<T extends PageObject> extends BaseView<T>{
                 ((DrawerLayout) view).closeDrawer(GravityCompat.START);
             }
         };
+    }
+
+    /**
+     * Root Matchers return NavDrawer
+     */
+
+    /** {@inheritDoc} */
+    @Override
+    public NavDrawer<T> changeRoot() {
+        return (NavDrawer<T>) super.changeRoot();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public NavDrawer<T> inRoot(Matcher<Root> rootMatcher) {
+        return (NavDrawer<T>) super.inRoot(rootMatcher);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public NavDrawer<T> inDialogRoot() {
+        return (NavDrawer<T>) super.inDialogRoot();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public NavDrawer<T> inPlatformPopup() {
+        return (NavDrawer<T>) super.inPlatformPopup();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public NavDrawer<T> inTouchableRoot() {
+        return (NavDrawer<T>) super.inTouchableRoot();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public NavDrawer<T> inDecorView(Matcher<View> decorViewMatcher) {
+        return (NavDrawer<T>) super.inDecorView(decorViewMatcher);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public NavDrawer<T> inFocusableRoot() {
+        return (NavDrawer<T>) super.inFocusableRoot();
     }
 }

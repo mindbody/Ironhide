@@ -10,6 +10,7 @@ import android.support.test.espresso.assertion.PositionAssertions;
 import android.support.test.espresso.assertion.ViewAssertions;
 import android.support.test.espresso.contrib.DrawerActions;
 import android.support.test.espresso.contrib.DrawerMatchers;
+import android.support.test.espresso.matcher.RootMatchers;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.view.View;
 
@@ -139,15 +140,54 @@ public class BaseView<T extends PageObject> {
     }
 
     /**
+     * Changes the root to search for this view to be a dialog
+     */
+    public BaseView<T> inDialogRoot() {
+        return inRoot(RootMatchers.isDialog());
+    }
+
+    /**
+     * Changes the root to search for this view to be a platform popup
+     */
+    public BaseView<T> inPlatformPopup() {
+        return inRoot(RootMatchers.isPlatformPopup());
+    }
+
+    /**
+     * Changes the root to search for this view to be touchable
+     */
+    public BaseView<T> inTouchableRoot() {
+        return inRoot(RootMatchers.isTouchable());
+    }
+
+    /**
+     * Changes the root to search for this view to be a decor view
+     */
+    public BaseView<T> inDecorView(Matcher<View> decorViewMatcher) {
+        return inRoot(RootMatchers.withDecorView(decorViewMatcher));
+    }
+
+    /**
+     * Changes the root to search for this view to be focusable
+     */
+    public BaseView<T> inFocusableRoot() {
+        return inRoot(RootMatchers.isFocusable());
+    }
+
+    /**
      * Changes the root for this view to match the given rootMatcher
      * @param rootMatcher a rootMatcher using Espresso's RootMatchers
      * @return  this
      */
-    public BaseView<T> inRoot(Matcher<Root> rootMatcher) {
+    protected BaseView<T> inRoot(Matcher<Root> rootMatcher) {
         this.viewInteraction = this.viewInteraction.inRoot(rootMatcher);
 
         return this;
     }
+
+    /**
+     * End Root changers
+     */
 
     /**
      * ViewActions

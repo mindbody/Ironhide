@@ -45,18 +45,7 @@ public class TextField<T extends PageObject> extends BaseView<T> {
         super(selector);
     }
 
-    @Override
-    public TextField<T> changeRoot() {
-        super.changeRoot();
-        return this;
-    }
-
-    @Override
-    public TextField<T> inRoot(Matcher<Root> rootMatcher) {
-        super.inRoot(rootMatcher);
-        return this;
-    }
-
+    /** {@inheritDoc} */
     @Override
     public <E extends PageObject> TextField<E> goesTo(Class<E> type) {
         return new TextField<E>(type, getSelector());
@@ -182,5 +171,51 @@ public class TextField<T extends PageObject> extends BaseView<T> {
 
     public T startsWith(final int resourceId) {
         return checkMatches(TextViewMatchers.startsWith(resourceId));
+    }
+
+    /**
+     * Root Matchers return LayoutView
+     */
+
+    /** {@inheritDoc} */
+    @Override
+    public TextField<T> changeRoot() {
+        return (TextField<T>) super.changeRoot();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public TextField<T> inRoot(Matcher<Root> rootMatcher) {
+        return (TextField<T>) super.inRoot(rootMatcher);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public TextField<T> inDialogRoot() {
+        return (TextField<T>) super.inDialogRoot();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public TextField<T> inPlatformPopup() {
+        return (TextField<T>) super.inPlatformPopup();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public TextField<T> inTouchableRoot() {
+        return (TextField<T>) super.inTouchableRoot();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public TextField<T> inDecorView(Matcher<View> decorViewMatcher) {
+        return (TextField<T>) super.inDecorView(decorViewMatcher);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public TextField<T> inFocusableRoot() {
+        return (TextField<T>) super.inFocusableRoot();
     }
 }
