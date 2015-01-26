@@ -4,7 +4,7 @@ import android.support.test.espresso.Root;
 import android.support.test.espresso.action.ViewActions;
 import android.view.View;
 
-import com.mindbodyonline.ironhide.Infrastructure.Extensions.BaseViewActions;
+import com.mindbodyonline.ironhide.Infrastructure.Extensions.SwipeActions;
 import com.mindbodyonline.ironhide.PageObjects.PageObject;
 
 import org.hamcrest.Matcher;
@@ -60,49 +60,49 @@ public class Swipeable<T extends PageObject> extends BaseView<T> {
     }
 
     public T swipeDownFast(){
-        return performAction(BaseViewActions.swipeDownFast());
+        return performAction(SwipeActions.swipeDownFast());
     }
 
     public T swipeDownSlow(){
-        return performAction(BaseViewActions.swipeDownSlow());
+        return performAction(SwipeActions.swipeDownSlow());
     }
 
     public T swipeDownSlow(int numTimes){
         for(int i = 0; i < numTimes-1 ; i++){
-            performAction(BaseViewActions.swipeDownSlow());
+            performAction(SwipeActions.swipeDownSlow());
         }
-        return performAction(BaseViewActions.swipeDownSlow());
+        return performAction(SwipeActions.swipeDownSlow());
     }
 
-    public T swipeUpFast(){ return performAction(BaseViewActions.swipeUpFast()); }
+    public T swipeUpFast(){ return performAction(SwipeActions.swipeUpFast()); }
 
-    public T swipeUpSlow(){ return performAction(BaseViewActions.swipeUpSlow()); }
+    public T swipeUpSlow(){ return performAction(SwipeActions.swipeUpSlow()); }
 
     public T swipeUpSlow(int numTimes){
         for(int i = 0; i < numTimes-1 ; i++){
-            performAction(BaseViewActions.swipeUpSlow());
+            performAction(SwipeActions.swipeUpSlow());
         }
-        return performAction(BaseViewActions.swipeUpSlow());
+        return performAction(SwipeActions.swipeUpSlow());
 
     }
 
-    public T swipeFullRight(){ return performAction(BaseViewActions.swipeFullRight()); }
+    public T swipeFullRight(){ return performAction(SwipeActions.swipeFullRight()); }
 
     public T swipeFullRight(int numTimes){
         for(int i = 0; i < numTimes-1 ; i++){
-            performAction(BaseViewActions.swipeFullRight());
+            performAction(SwipeActions.swipeFullRight());
         }
-        return performAction(BaseViewActions.swipeFullRight());
+        return performAction(SwipeActions.swipeFullRight());
 
     }
 
-    public T swipeFullLeft(){ return performAction(BaseViewActions.swipeFullLeft()); }
+    public T swipeFullLeft(){ return performAction(SwipeActions.swipeFullLeft()); }
 
     public T swipeFullLeft(int numTimes){
         for(int i = 0; i < numTimes-1 ; i++){
-            performAction(BaseViewActions.swipeFullLeft());
+            performAction(SwipeActions.swipeFullLeft());
         }
-        return performAction(BaseViewActions.swipeFullLeft());
+        return performAction(SwipeActions.swipeFullLeft());
 
     }
 
