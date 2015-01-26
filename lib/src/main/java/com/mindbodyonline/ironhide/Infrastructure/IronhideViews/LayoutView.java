@@ -66,36 +66,43 @@ public class LayoutView<T> extends BaseView<T> {
      * Root Matchers return LayoutView
      */
 
+    /** {@inheritDoc} */
     @Override
     public LayoutView<T> changeRoot() {
         return (LayoutView<T>) super.changeRoot();
     }
 
+    /** {@inheritDoc} */
     @Override
     public LayoutView<T> inRoot(Matcher<Root> rootMatcher) {
         return (LayoutView<T>) super.inRoot(rootMatcher);
     }
 
+    /** {@inheritDoc} */
     @Override
     public LayoutView<T> inDialogRoot() {
         return (LayoutView<T>) super.inDialogRoot();
     }
 
+    /** {@inheritDoc} */
     @Override
     public LayoutView<T> inPlatformPopup() {
         return (LayoutView<T>) super.inPlatformPopup();
     }
 
+    /** {@inheritDoc} */
     @Override
     public LayoutView<T> inTouchableRoot() {
         return (LayoutView<T>) super.inTouchableRoot();
     }
 
+    /** {@inheritDoc} */
     @Override
     public LayoutView<T> inDecorView(Matcher<View> decorViewMatcher) {
         return (LayoutView<T>) super.inDecorView(decorViewMatcher);
     }
 
+    /** {@inheritDoc} */
     @Override
     public LayoutView<T> inFocusableRoot() {
         return (LayoutView<T>) super.inFocusableRoot();

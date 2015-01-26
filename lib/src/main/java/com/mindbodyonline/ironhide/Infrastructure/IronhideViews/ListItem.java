@@ -114,39 +114,46 @@ public class ListItem<T extends PageObject> extends BaseView<T> {
     }
 
     /**
-     * Root Matchers return LayoutView
+     * Root Matchers return ListItem
      */
 
+    /** {@inheritDoc} */
     @Override
     public ListItem<T> changeRoot() {
         return (ListItem<T>) super.changeRoot();
     }
 
+    /** {@inheritDoc} */
     @Override
     public ListItem<T> inRoot(Matcher<Root> rootMatcher) {
         return (ListItem<T>) super.inRoot(rootMatcher);
     }
 
+    /** {@inheritDoc} */
     @Override
     public ListItem<T> inDialogRoot() {
         return (ListItem<T>) super.inDialogRoot();
     }
 
+    /** {@inheritDoc} */
     @Override
     public ListItem<T> inPlatformPopup() {
         return (ListItem<T>) super.inPlatformPopup();
     }
 
+    /** {@inheritDoc} */
     @Override
     public ListItem<T> inTouchableRoot() {
         return (ListItem<T>) super.inTouchableRoot();
     }
 
+    /** {@inheritDoc} */
     @Override
     public ListItem<T> inDecorView(Matcher<View> decorViewMatcher) {
         return (ListItem<T>) super.inDecorView(decorViewMatcher);
     }
 
+    /** {@inheritDoc} */
     @Override
     public ListItem<T> inFocusableRoot() {
         return (ListItem<T>) super.inFocusableRoot();

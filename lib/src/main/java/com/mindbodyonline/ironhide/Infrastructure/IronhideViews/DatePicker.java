@@ -41,36 +41,47 @@ public class DatePicker<T> extends BaseView<T> {
         return performAction(PickerActions.setTime(hours, minutes));
     }
 
+    /**
+     * Root Matchers return LayoutView
+     */
+
+    /** {@inheritDoc} */
     @Override
     public DatePicker<T> changeRoot() {
         return (DatePicker<T>) super.changeRoot();
     }
 
+    /** {@inheritDoc} */
     @Override
     public DatePicker<T> inRoot(Matcher<Root> rootMatcher) {
         return (DatePicker<T>) super.inRoot(rootMatcher);
     }
 
+    /** {@inheritDoc} */
     @Override
     public DatePicker<T> inDialogRoot() {
         return (DatePicker<T>) super.inDialogRoot();
     }
 
+    /** {@inheritDoc} */
     @Override
     public DatePicker<T> inPlatformPopup() {
         return (DatePicker<T>) super.inPlatformPopup();
     }
 
+    /** {@inheritDoc} */
     @Override
     public DatePicker<T> inTouchableRoot() {
         return (DatePicker<T>) super.inTouchableRoot();
     }
 
+    /** {@inheritDoc} */
     @Override
     public DatePicker<T> inDecorView(Matcher<View> decorViewMatcher) {
         return (DatePicker<T>) super.inDecorView(decorViewMatcher);
     }
 
+    /** {@inheritDoc} */
     @Override
     public DatePicker<T> inFocusableRoot() {
         return (DatePicker<T>) super.inFocusableRoot();

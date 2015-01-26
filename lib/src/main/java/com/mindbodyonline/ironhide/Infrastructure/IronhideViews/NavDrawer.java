@@ -129,39 +129,46 @@ public class NavDrawer<T> extends BaseView<T>{
     }
 
     /**
-     * Root Matchers return LayoutView
+     * Root Matchers return NavDrawer
      */
 
+    /** {@inheritDoc} */
     @Override
     public NavDrawer<T> changeRoot() {
         return (NavDrawer<T>) super.changeRoot();
     }
 
+    /** {@inheritDoc} */
     @Override
     public NavDrawer<T> inRoot(Matcher<Root> rootMatcher) {
         return (NavDrawer<T>) super.inRoot(rootMatcher);
     }
 
+    /** {@inheritDoc} */
     @Override
     public NavDrawer<T> inDialogRoot() {
         return (NavDrawer<T>) super.inDialogRoot();
     }
 
+    /** {@inheritDoc} */
     @Override
     public NavDrawer<T> inPlatformPopup() {
         return (NavDrawer<T>) super.inPlatformPopup();
     }
 
+    /** {@inheritDoc} */
     @Override
     public NavDrawer<T> inTouchableRoot() {
         return (NavDrawer<T>) super.inTouchableRoot();
     }
 
+    /** {@inheritDoc} */
     @Override
     public NavDrawer<T> inDecorView(Matcher<View> decorViewMatcher) {
         return (NavDrawer<T>) super.inDecorView(decorViewMatcher);
     }
 
+    /** {@inheritDoc} */
     @Override
     public NavDrawer<T> inFocusableRoot() {
         return (NavDrawer<T>) super.inFocusableRoot();

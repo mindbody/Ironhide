@@ -216,36 +216,43 @@ public class Zoomable<T> extends BaseView<T> {
      * Root Matchers return LayoutView
      */
 
+    /** {@inheritDoc} */
     @Override
     public Zoomable<T> changeRoot() {
         return (Zoomable<T>) super.changeRoot();
     }
 
+    /** {@inheritDoc} */
     @Override
     public Zoomable<T> inRoot(Matcher<Root> rootMatcher) {
         return (Zoomable<T>) super.inRoot(rootMatcher);
     }
 
+    /** {@inheritDoc} */
     @Override
     public Zoomable<T> inDialogRoot() {
         return (Zoomable<T>) super.inDialogRoot();
     }
 
+    /** {@inheritDoc} */
     @Override
     public Zoomable<T> inPlatformPopup() {
         return (Zoomable<T>) super.inPlatformPopup();
     }
 
+    /** {@inheritDoc} */
     @Override
     public Zoomable<T> inTouchableRoot() {
         return (Zoomable<T>) super.inTouchableRoot();
     }
 
+    /** {@inheritDoc} */
     @Override
     public Zoomable<T> inDecorView(Matcher<View> decorViewMatcher) {
         return (Zoomable<T>) super.inDecorView(decorViewMatcher);
     }
 
+    /** {@inheritDoc} */
     @Override
     public Zoomable<T> inFocusableRoot() {
         return (Zoomable<T>) super.inFocusableRoot();

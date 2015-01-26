@@ -36,36 +36,47 @@ public class Clickable<T> extends BaseView<T> {
         super(type, displayText);
     }
 
+    /**
+     * Root Matchers return Clickable
+     */
+
+    /** {@inheritDoc} */
     @Override
     public Clickable<T> changeRoot() {
         return (Clickable<T>) super.changeRoot();
     }
 
+    /** {@inheritDoc} */
     @Override
     public Clickable<T> inRoot(Matcher<Root> rootMatcher) {
         return (Clickable<T>) super.inRoot(rootMatcher);
     }
 
+    /** {@inheritDoc} */
     @Override
     public Clickable<T> inDialogRoot() {
         return (Clickable<T>) super.inDialogRoot();
     }
 
+    /** {@inheritDoc} */
     @Override
     public Clickable<T> inPlatformPopup() {
         return (Clickable<T>) super.inPlatformPopup();
     }
 
+    /** {@inheritDoc} */
     @Override
     public Clickable<T> inTouchableRoot() {
         return (Clickable<T>) super.inTouchableRoot();
     }
 
+    /** {@inheritDoc} */
     @Override
     public Clickable<T> inDecorView(Matcher<View> decorViewMatcher) {
         return (Clickable<T>) super.inDecorView(decorViewMatcher);
     }
 
+    /** {@inheritDoc} */
     @Override
     public Clickable<T> inFocusableRoot() {
         return (Clickable<T>) super.inFocusableRoot();

@@ -180,21 +180,21 @@ public class BaseView<T> {
     }
 
     /**
-     * Changes the root to search for this view to be focusable
+     * Changes the root to search for this view to be a platform popup
      */
     public BaseView<T> inPlatformPopup() {
         return inRoot(RootMatchers.isPlatformPopup());
     }
 
     /**
-     * Changes the root to search for this view to be focusable
+     * Changes the root to search for this view to be touchable
      */
     public BaseView<T> inTouchableRoot() {
         return inRoot(RootMatchers.isTouchable());
     }
 
     /**
-     * Changes the root to search for this view to be focusable
+     * Changes the root to search for this view to be a decor view
      */
     public BaseView<T> inDecorView(Matcher<View> decorViewMatcher) {
         return inRoot(RootMatchers.withDecorView(decorViewMatcher));

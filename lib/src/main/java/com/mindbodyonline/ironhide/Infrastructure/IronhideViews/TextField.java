@@ -162,36 +162,43 @@ public class TextField<T> extends BaseView<T> {
      * Root Matchers return LayoutView
      */
 
+    /** {@inheritDoc} */
     @Override
     public TextField<T> changeRoot() {
         return (TextField<T>) super.changeRoot();
     }
 
+    /** {@inheritDoc} */
     @Override
     public TextField<T> inRoot(Matcher<Root> rootMatcher) {
         return (TextField<T>) super.inRoot(rootMatcher);
     }
 
+    /** {@inheritDoc} */
     @Override
     public TextField<T> inDialogRoot() {
         return (TextField<T>) super.inDialogRoot();
     }
 
+    /** {@inheritDoc} */
     @Override
     public TextField<T> inPlatformPopup() {
         return (TextField<T>) super.inPlatformPopup();
     }
 
+    /** {@inheritDoc} */
     @Override
     public TextField<T> inTouchableRoot() {
         return (TextField<T>) super.inTouchableRoot();
     }
 
+    /** {@inheritDoc} */
     @Override
     public TextField<T> inDecorView(Matcher<View> decorViewMatcher) {
         return (TextField<T>) super.inDecorView(decorViewMatcher);
     }
 
+    /** {@inheritDoc} */
     @Override
     public TextField<T> inFocusableRoot() {
         return (TextField<T>) super.inFocusableRoot();
