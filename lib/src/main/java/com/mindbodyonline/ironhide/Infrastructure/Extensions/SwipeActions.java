@@ -9,7 +9,7 @@ import android.support.test.espresso.action.Swipe;
 /**
  * A collection of swipe methods for espresso with fast and slow versions (Espresso only supports fast swiping).
  */
-public class BaseViewActions {
+public class SwipeActions {
 
     public static ViewAction swipeDownFast() {
         return new GeneralSwipeAction(Swipe.FAST, GeneralLocation.TOP_CENTER, GeneralLocation.BOTTOM_CENTER, Press.FINGER);
