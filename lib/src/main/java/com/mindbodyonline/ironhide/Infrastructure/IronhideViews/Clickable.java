@@ -1,16 +1,11 @@
 package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
 import android.support.test.espresso.Root;
-import android.support.test.espresso.matcher.RootMatchers;
 import android.view.View;
 
 import com.mindbodyonline.ironhide.PageObjects.PageObject;
 
 import org.hamcrest.Matcher;
-
-import static android.support.test.espresso.matcher.RootMatchers.DEFAULT;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.not;
 
 /**
  * Extends BaseView
@@ -22,24 +17,36 @@ import static org.hamcrest.Matchers.not;
  */
 public class Clickable<T extends PageObject> extends BaseView<T> {
 
+    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(Class, org.hamcrest.Matcher) */
     public Clickable(Class<T> type, Matcher<View> viewMatcher) {
         super(type, viewMatcher);
     }
 
+    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(int) */
     public Clickable(int resourceId) {
         super(resourceId);
     }
 
+    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(org.hamcrest.Matcher) */
     public Clickable(Matcher<View> selector) {
         super(selector);
     }
 
+    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(int, int) */
     public Clickable(int IGNORED, int stringResourceId) {
         super(IGNORED, stringResourceId);
     }
 
+    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(String) */
     public Clickable(String displayText) {
         super(displayText);
+    }
+
+
+    /** {@inheritDoc} */
+    @Override
+    public <E extends PageObject> Clickable<E> goesTo(Class<E> type) {
+        return new Clickable<E>(type, getSelector());
     }
 
     /**
@@ -86,10 +93,5 @@ public class Clickable<T extends PageObject> extends BaseView<T> {
     @Override
     public Clickable<T> inFocusableRoot() {
         return (Clickable<T>) super.inFocusableRoot();
-    }
-
-    @Override
-    public <E extends PageObject> Clickable<E> goesTo(Class<E> type) {
-        return new Clickable<E>(type, getSelector());
     }
 }

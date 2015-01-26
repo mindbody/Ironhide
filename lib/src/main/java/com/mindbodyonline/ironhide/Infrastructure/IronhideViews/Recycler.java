@@ -13,24 +13,29 @@ import org.hamcrest.Matcher;
 /**
  * Wrapper for RecyclerViewActions that act specifically on RecyclerViews.
  *
- * ViewActions to interact RecyclerView. RecyclerView works differently than AdapterView. In fact, RecyclerView is not an AdapterView anymore, hence it can't be used in combination with onData(Matcher).
+ * ViewActions to interact RecyclerView. RecyclerView works differently than AdapterView.
+ * RecyclerView is not an AdapterView anymore, hence it can't be used in combination with onData(Matcher).
  */
 public class Recycler<T extends PageObject> extends BaseView<T> {
 
+    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(Class, org.hamcrest.Matcher) */
     public Recycler(Class<T> type, Matcher<View> viewMatcher) {
         super(type, viewMatcher);
     }
 
+    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(int) */
     public Recycler(int resourceId) {
         super(resourceId);
     }
 
+    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(org.hamcrest.Matcher) */
     public Recycler(Matcher<View> selector) {
         super(selector);
     }
 
-    public Recycler(int resourceId, int stringResourceId) {
-        super(resourceId, stringResourceId);
+    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(int, int) */
+    public Recycler(int IGNORED, int stringResourceId) {
+        super(IGNORED, stringResourceId);
     }
 
     /** {@inheritDoc} */

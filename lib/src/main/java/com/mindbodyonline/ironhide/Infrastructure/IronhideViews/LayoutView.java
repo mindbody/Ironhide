@@ -20,18 +20,22 @@ import org.hamcrest.Matcher;
  */
 public class LayoutView<T extends PageObject> extends BaseView<T> {
 
+    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(Class, org.hamcrest.Matcher) */
     public LayoutView(Class<T> type, Matcher<View> viewMatcher) {
         super(type, viewMatcher);
     }
 
+    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(int) */
     public LayoutView(int resourceId) {
         super(resourceId);
     }
 
+    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(org.hamcrest.Matcher) */
     public LayoutView(Matcher<View> selector) {
         super(selector);
     }
 
+    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(int, int) */
     public LayoutView(int IGNORED, int stringResourceId) {
         super(IGNORED, stringResourceId);
     }
@@ -46,10 +50,20 @@ public class LayoutView<T extends PageObject> extends BaseView<T> {
      * View matchers specific to layouts
      */
 
+    /**
+     * Checks to see if this view matches {@code LayoutMatchers.hasEllipsizedText()}
+     * @see android.support.test.espresso.matcher.LayoutMatchers#hasEllipsizedText()
+     * @return  The model reached by interacting with this element.
+     */
     public T hasEllipsizedText() {
         return matches(LayoutMatchers.hasEllipsizedText());
     }
 
+    /**
+     * Checks to see if this view matches {@code LayoutMatchers.hasMultilineText()}
+     * @see android.support.test.espresso.matcher.LayoutMatchers#hasMultilineText()
+     * @return  The model reached by interacting with this element.
+     */
     public T hasMultilineText() {
         return matches(LayoutMatchers.hasMultilineText());
     }
@@ -58,18 +72,38 @@ public class LayoutView<T extends PageObject> extends BaseView<T> {
      * View assertions specific to layouts
      */
 
+    /**
+     * Checks to see if this view matches assertion {@code LayoutAssertions.noEllipsizedText()}
+     * @see android.support.test.espresso.assertion.LayoutAssertions#noEllipsizedText()
+     * @return  The model reached by interacting with this element.
+     */
     public T noEllipsizedText() {
         return checkAssertion(LayoutAssertions.noEllipsizedText());
     }
 
+    /**
+     * Checks to see if this view matches assertion {@code LayoutAssertions.noMultilineButtons()}
+     * @see android.support.test.espresso.assertion.LayoutAssertions#noMultilineButtons()
+     * @return  The model reached by interacting with this element.
+     */
     public T noMultilineButtons() {
         return checkAssertion(LayoutAssertions.noMultilineButtons());
     }
 
+    /**
+     * Checks to see if this view matches assertion {@code LayoutAssertions.noOverlaps(org.hamcrest.Matcher)}
+     * @see android.support.test.espresso.assertion.LayoutAssertions#noOverlaps(org.hamcrest.Matcher)
+     * @return  The model reached by interacting with this element.
+     */
     public T noOverlaps(Matcher<View> selector) {
         return checkAssertion(LayoutAssertions.noOverlaps(selector));
     }
 
+    /**
+     * Checks to see if this view matches assertion {@code LayoutAssertions.noMultilineButtons()}
+     * @see android.support.test.espresso.assertion.LayoutAssertions#noOverlaps()
+     * @return  The model reached by interacting with this element.
+     */
     public T noOverlaps() {
         return checkAssertion(LayoutAssertions.noOverlaps());
     }

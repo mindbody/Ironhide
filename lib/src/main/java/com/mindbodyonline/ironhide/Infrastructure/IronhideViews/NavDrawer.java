@@ -1,6 +1,5 @@
 package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
-import android.graphics.pdf.PdfDocument;
 import android.support.test.espresso.Root;
 import android.support.test.espresso.UiController;
 import android.support.test.espresso.ViewAction;

@@ -25,19 +25,26 @@ public class ListAdapter<T extends PageObject> {
     private Class<T> type;
     private DataInteraction adapter;
 
-    // itemType is the class of the objects that make up the list items in the list view
-    public ListAdapter(Class<T> type, Class itemType) {
+    private ListAdapter(Class<T> type, DataInteraction adapter) {
         this.type = type;
+        this.adapter = adapter;
+    }
+
+    // itemType is the class of the objects that make up the list items in the list view
+    public ListAdapter(Class itemType) {
         adapter = onData(is(instanceOf(itemType)));
     }
 
-    public ListAdapter(Class<T> type, Class itemType, int id) {
-        this(type, itemType, ViewMatchers.withId(id));
+    public ListAdapter(Class itemType, int id) {
+        this(itemType, ViewMatchers.withId(id));
     }
 
-    public ListAdapter(Class<T> type, Class itemType, Matcher<View> selector) {
-        this.type = type;
+    public ListAdapter(Class itemType, Matcher<View> selector) {
         adapter = onData(is(instanceOf(itemType))).inAdapterView(selector);
+    }
+
+    public <E extends PageObject> ListAdapter<E> goesTo(Class<E> type) {
+        return new ListAdapter<E>(type, adapter);
     }
 
     public ListItem<T> getItemAtPosition(int index) {

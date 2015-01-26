@@ -19,14 +19,17 @@ import org.hamcrest.Matcher;
  */
 public class Swipeable<T extends PageObject> extends BaseView<T> {
 
+    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(Class, org.hamcrest.Matcher) */
     public Swipeable(Class<T> type, Matcher<View> selector) {
         super(type, selector);
     }
 
+    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(int) */
     public Swipeable(int resourceId) {
         super(resourceId);
     }
 
+    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(org.hamcrest.Matcher) */
     public Swipeable(Matcher<View> selector) {
         super(selector);
     }

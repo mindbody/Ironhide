@@ -11,38 +11,55 @@ import org.hamcrest.Matcher;
 /**
  * Extends BaseView
  * Simple element that allows to interact with a DatePicker View
- * Implements updateDate method, which handles the PickDateAction ViewAction
- * Only use this element when dealing with an ImageView View
  *
  * @param <T> The model the current element will return when interacted with
  */
 public class DatePicker<T extends PageObject> extends BaseView<T> {
 
+    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(Class, org.hamcrest.Matcher) */
     public DatePicker(Class<T> type, Matcher<View> viewMatcher) {
         super(type, viewMatcher);
     }
 
+    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(int) */
     public DatePicker(int resourceId) {
         super(resourceId);
     }
 
+    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(org.hamcrest.Matcher) */
     public DatePicker(Matcher<View> selector) {
         super(selector);
     }
 
+    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(int, int) */
     public DatePicker(int IGNORED, int stringResourceId) {
         super(IGNORED, stringResourceId);
     }
 
-    public DatePicker(int resourceId, int stringResourceId, String displayText) {
+    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(String) */
+    public DatePicker(String displayText) {
         super(displayText);
     }
 
 
+    /** {@inheritDoc} */
+    @Override
+    protected <E extends PageObject> DatePicker<E> goesTo(Class<E> type) {
+        return new DatePicker<E>(type, getSelector());
+    }
+
+    /**
+     * @see android.support.test.espresso.contrib.PickerActions#setDate(int, int, int)
+     * @return The model reached by interacting with this element.
+     */
     public T setDate(int year, int monthOfYear, int dayOfMonth) {
         return performAction(PickerActions.setDate(year, monthOfYear, dayOfMonth));
     }
 
+    /**
+     * @see android.support.test.espresso.contrib.PickerActions#setTime(int, int)
+     * @return The model reached by interacting with this element.
+     */
     public T setTime(int hours, int minutes) {
         return performAction(PickerActions.setTime(hours, minutes));
     }
@@ -91,10 +108,5 @@ public class DatePicker<T extends PageObject> extends BaseView<T> {
     @Override
     public DatePicker<T> inFocusableRoot() {
         return (DatePicker<T>) super.inFocusableRoot();
-    }
-
-    @Override
-    protected <E extends PageObject> DatePicker<E> goesTo(Class<E> type) {
-        return new DatePicker<E>(type, getSelector());
     }
 }

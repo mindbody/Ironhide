@@ -12,7 +12,7 @@ import static android.support.test.internal.util.Checks.checkNotNull;
 import static org.hamcrest.Matchers.not;
 
 /**
- * Custom ViewMatchers used for ConnectView elements
+ * Custom ViewMatchers used for BaseView elements
  * These are already wrapped inside of elements, so there is little need to use them directly
  */
 public class BaseViewMatchers {
@@ -54,10 +54,6 @@ public class BaseViewMatchers {
         return checkHasIndex(index);
     }
 
-    /**
-     * @deprecated use: not(hasIndex(index))
-     */
-    @Deprecated
     public static Matcher<View> doesNotHaveIndex(final int index) { return not(checkHasIndex(index));}
 
     private static Matcher<View> checkHasIndex(final int index) {

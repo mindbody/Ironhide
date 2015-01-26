@@ -1,7 +1,5 @@
 package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
-import android.support.test.InstrumentationRegistry;
-import android.support.test.espresso.NoMatchingViewException;
 import android.support.test.espresso.Root;
 import android.support.test.espresso.ViewAction;
 import android.support.test.espresso.ViewAssertion;
@@ -14,17 +12,12 @@ import android.support.test.espresso.contrib.DrawerActions;
 import android.support.test.espresso.contrib.DrawerMatchers;
 import android.support.test.espresso.matcher.RootMatchers;
 import android.support.test.espresso.matcher.ViewMatchers;
-import android.support.test.espresso.util.HumanReadables;
 import android.view.View;
 
-import com.android.support.test.deps.guava.base.Optional;
 import com.mindbodyonline.ironhide.PageObjects.PageObject;
 
 import org.hamcrest.Matcher;
 
-import javax.annotation.Nullable;
-
-import static android.support.test.espresso.matcher.ViewMatchers.assertThat;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static android.support.test.espresso.matcher.RootMatchers.DEFAULT;
@@ -32,7 +25,7 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 
 /**
- * Base Class for all page elements represented in the models for the Connect Test Suite
+ * Base Class for all page elements represented in the models for application testing
  * Cannot be instantiated, only serves as a base for other elements
  * Includes all Espresso view matchers, and all view actions that are common to every type of element (e.g.: click(), scrollTo(), etc.)
  *
@@ -44,30 +37,52 @@ public class BaseView<T extends PageObject> {
     protected Matcher<View> selector;
     protected ViewInteraction viewInteraction;
 
+    /**
+     * Instantiates a {@code ViewInteraction} and retains type and selector for later access.
+     * @param type the class of the generic type
+     * @param selector  the {@code ViewMatcher} to select the view
+     */
     protected BaseView(Class<T> type, Matcher<View> selector) {
         this.type = type;
         this.selector = selector;
         this.viewInteraction = onView(selector);
     }
 
+    /**
+     * A generically typed BaseView with selector: {@code ViewMatchers.withId(resourceId)}
+     * @param resourceId    the resource id of the view to interact with
+     */
     protected BaseView(int resourceId) {
         this(ViewMatchers.withId(resourceId));
     }
 
+    /**
+     * A generically typed BaseView with selector: {@code ViewMatchers.withId(resourceId)}
+     * @param IGNORED   an ignored integer to distinguish this constructor from {@code BaseView(resourceId)}
+     * @param stringResourceId    the resource id of the string for the view to interact with
+     */
     protected BaseView(int IGNORED, int stringResourceId) {
         this(ViewMatchers.withText(stringResourceId));
     }
 
+    /**
+     * A generically typed BaseView with selector: {@code ViewMatchers.withText(displayText)}
+     * @param displayText   the text inside the view to interact with
+     */
     protected BaseView(String displayText) {
         this(ViewMatchers.withText(displayText));
     }
 
+    /**
+     * A generically typed BaseView with selector given
+     * @param selector  the matcher for the view to interact with
+     */
     protected BaseView(Matcher<View> selector) {
         this(null, selector);
     }
 
     /**
-     * Changes the destination class by returning an object of the next type
+     * Changes the destination class by returning an object of the given type
      */
     protected <E extends PageObject> BaseView<E> goesTo(Class<E> type) {
         return new BaseView<E>(type, selector);

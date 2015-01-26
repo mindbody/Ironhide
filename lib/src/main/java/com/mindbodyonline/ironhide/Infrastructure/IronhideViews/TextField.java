@@ -13,8 +13,6 @@ import com.mindbodyonline.ironhide.PageObjects.PageObject;
 
 import org.hamcrest.Matcher;
 
-import static org.hamcrest.Matchers.is;
-
 /**
  * Extends BaseView
  * Simple element that allows text interaction
@@ -25,19 +23,23 @@ import static org.hamcrest.Matchers.is;
  */
 public class TextField<T extends PageObject> extends BaseView<T> {
 
+    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(Class, org.hamcrest.Matcher) */
     public TextField(Class<T> type, Matcher<View> selector) {
         super(type, selector);
     }
 
+    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(int) */
     public TextField(int resourceId) {
         super(resourceId);
     }
 
+    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(int, int) */
     public TextField(int IGNORED, int stringResourceId) {
         super(IGNORED, stringResourceId);
     }
 
-    public TextField(int resourceId, int stringResourceId, String displayText) {
+    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(String) */
+    public TextField(String displayText) {
         super(displayText);
     }
 
