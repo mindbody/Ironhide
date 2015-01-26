@@ -261,9 +261,13 @@ public class TextViewMatchers {
         @Override
         protected boolean matchesSafely(TextView textView) {
             if (null == stringMatcher) {
-                expectedText = textView.getResources().getString(resourceId);
-                resourceName = textView.getResources().getResourceEntryName(resourceId);
-                stringMatcher = getStringMatcher(expectedText);
+                try {
+                    expectedText = textView.getResources().getString(resourceId);
+                    resourceName = textView.getResources().getResourceEntryName(resourceId);
+                    stringMatcher = getStringMatcher(expectedText);
+                } catch (Resources.NotFoundException ignored) {
+                    /* view could be from a context unaware of the resource id. */
+                }
             }
 
             return textView != null && stringMatcher != null && stringMatcher.matches(textView.getHint().toString());
