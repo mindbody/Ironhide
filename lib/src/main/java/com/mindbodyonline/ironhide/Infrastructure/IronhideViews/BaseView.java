@@ -1,5 +1,7 @@
 package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
+import android.support.test.InstrumentationRegistry;
+import android.support.test.espresso.NoMatchingViewException;
 import android.support.test.espresso.Root;
 import android.support.test.espresso.ViewAction;
 import android.support.test.espresso.ViewAssertion;
@@ -12,12 +14,17 @@ import android.support.test.espresso.contrib.DrawerActions;
 import android.support.test.espresso.contrib.DrawerMatchers;
 import android.support.test.espresso.matcher.RootMatchers;
 import android.support.test.espresso.matcher.ViewMatchers;
+import android.support.test.espresso.util.HumanReadables;
 import android.view.View;
 
+import com.android.support.test.deps.guava.base.Optional;
 import com.mindbodyonline.ironhide.PageObjects.PageObject;
 
 import org.hamcrest.Matcher;
 
+import javax.annotation.Nullable;
+
+import static android.support.test.espresso.matcher.ViewMatchers.assertThat;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static android.support.test.espresso.matcher.RootMatchers.DEFAULT;
@@ -98,11 +105,19 @@ public class BaseView<T extends PageObject> {
     }
 
     /**
-     * TODO: Need to find a way to support Root Views if we want total completeness
+     * TODO: Positive assertion rather than negative (ie. '... exists()', not '... doesNotExist()')
+     * Checks that the root of the current view matches the given rootMatcher
+     *
+     * @param rootMatcher The RootMatcher used to check the root of the element
+     * @return The model reached by interacting with this element
      */
-//    protected T checkRootMatches(Matcher<android.support.test.espresso.Root> viewMatcher) {
-//        return checkAssertion(ViewAssertions.matches(viewMatcher));
-//    }
+    protected T checkRootMatches(Matcher<Root> rootMatcher) {
+        onView(getSelector())
+                .inRoot( not(rootMatcher) )
+                .check(ViewAssertions.doesNotExist());
+
+        return returnGeneric();
+    }
 
     /**
      * Checks if an element matches a certain value using an Espresso ViewAssertion
@@ -130,6 +145,10 @@ public class BaseView<T extends PageObject> {
         }
         return null;
     }
+
+    /**
+     * Root changers
+     */
 
     /**
      * Changes the root for this view to be anything that is not the default root selected by Espresso.
@@ -188,6 +207,8 @@ public class BaseView<T extends PageObject> {
     /**
      * End Root changers
      */
+
+    /*============================================================================================*/
 
     /**
      * ViewActions
@@ -683,6 +704,8 @@ public class BaseView<T extends PageObject> {
      * End View Assertions
      */
 
+    /*============================================================================================*/
+
     /**
      * Position-based Assertions
      */
@@ -759,6 +782,10 @@ public class BaseView<T extends PageObject> {
         return checkAssertion(PositionAssertions.isTopAlignedWith(matcher));
     }
 
+    /**
+     * End Position-based Assertions
+     */
+
     /*============================================================================================*/
 
     /**
@@ -766,7 +793,8 @@ public class BaseView<T extends PageObject> {
      */
 
     /**
-     * Pause the test run for 2 seconds
+     * Pause the test run for DEFAULT_PAUSE_TIME seconds
+     * @see com.mindbodyonline.ironhide.PageObjects.PageObject
      * @return The model reached by interacting with this element.
      */
     public T pause() {
