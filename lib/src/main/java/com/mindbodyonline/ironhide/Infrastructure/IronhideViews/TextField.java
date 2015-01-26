@@ -43,6 +43,7 @@ public class TextField<T extends PageObject> extends BaseView<T> {
         super(displayText);
     }
 
+    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(org.hamcrest.Matcher) */
     public TextField(Matcher<View> selector) {
         super(selector);
     }

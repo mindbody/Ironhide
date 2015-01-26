@@ -44,26 +44,50 @@ public class Recycler<T extends PageObject> extends BaseView<T> {
         return new Recycler<E>(type, getSelector());
     }
 
+    /**
+     * @see android.support.test.espresso.contrib.RecyclerViewActions#actionOnHolderItem(org.hamcrest.Matcher, android.support.test.espresso.ViewAction)
+     * @return  The model reached by interacting with this element.
+     */
     public T actionOnHolderItem(Matcher<? extends RecyclerView.ViewHolder> viewHolderMatcher, ViewAction viewAction) {
         return performAction(RecyclerViewActions.actionOnHolderItem(viewHolderMatcher, viewAction));
     }
 
+    /**
+     * @see android.support.test.espresso.contrib.RecyclerViewActions#actionOnItem(org.hamcrest.Matcher, android.support.test.espresso.ViewAction)
+     * @return  The model reached by interacting with this element
+     */
     public T actionOnItem(Matcher<View> itemViewMatcher, ViewAction viewAction) {
         return performAction(RecyclerViewActions.actionOnItem(itemViewMatcher, viewAction));
     }
 
+    /**
+     * @see android.support.test.espresso.contrib.RecyclerViewActions#actionOnItemAtPosition(int, android.support.test.espresso.ViewAction)
+     * @return  The model reached by interacting with this element
+     */
     public T actionOnItemAtPosition(int position, ViewAction viewAction) {
         return performAction(RecyclerViewActions.actionOnItemAtPosition(position, viewAction));
     }
 
+    /**
+     * @see android.support.test.espresso.contrib.RecyclerViewActions#scrollTo(org.hamcrest.Matcher)
+     * @return  The model reached by interacting with this element
+     */
     public T scrollTo(Matcher<View> itemViewMatcher) {
         return performAction(RecyclerViewActions.scrollTo(itemViewMatcher));
     }
 
+    /**
+     * @see android.support.test.espresso.contrib.RecyclerViewActions#scrollToHolder(org.hamcrest.Matcher)
+     * @return  The model reached by interacting with this element
+     */
     public T scrollToHolder(Matcher<? extends RecyclerView.ViewHolder> viewHolderMatcher) {
         return performAction(RecyclerViewActions.scrollToHolder(viewHolderMatcher));
     }
 
+    /**
+     * @see android.support.test.espresso.contrib.RecyclerViewActions#scrollToPosition(int)
+     * @return  The model reached by interacting with this element
+     */
     public T scrollToPosition(int position) {
         return performAction(RecyclerViewActions.scrollToPosition(position));
     }

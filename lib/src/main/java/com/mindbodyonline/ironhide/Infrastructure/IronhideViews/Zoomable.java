@@ -54,6 +54,7 @@ public class Zoomable<T extends PageObject> extends BaseView<T> {
     Point finger2Start;
     Point finger2End;
 
+    // TODO: cleanup and refactor this method
     public void generateZoomGesture(Instrumentation inst,
                                     long startTime, boolean ifMove, Point startPoint1,
                                     Point startPoint2, Point endPoint1,
