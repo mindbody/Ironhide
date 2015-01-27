@@ -482,6 +482,14 @@ public class BaseView<T extends PageObject> {
     }
 
     /**
+     * Checks to see if a WebView is evaluating javascript
+     * @return  The model reached by interacting with this element.
+     */
+    public T isJavascriptEnabled() {
+        return checkMatches(ViewMatchers.isJavascriptEnabled());
+    }
+
+    /**
      * Check to see if the element has the current focus.
      * @return The model reached by interacting with this element.
      */
@@ -636,6 +644,15 @@ public class BaseView<T extends PageObject> {
     }
 
     /**
+     * TODO: extract this to be more generic similar to TextFieldMatchers
+     * Checks to see if the element is a spinner with toString matching given string matcher
+     * @return The model reached by interacting with this element.
+     */
+    public T withSpinnerText(Matcher<String> stringMatcher) {
+        return checkMatches(ViewMatchers.withSpinnerText(stringMatcher));
+    }
+
+    /**
      * Checks to see if the element has a child matching the given child.
      * @param child The child to check against.
      * @return The model reached by interacting with this element.
@@ -650,6 +667,14 @@ public class BaseView<T extends PageObject> {
      */
     public T isRoot() {
         return checkMatches(ViewMatchers.isRoot());
+    }
+
+    /**
+     * Checks to see if the element is selected
+     * @return  The model reached by interacting with this element.
+     */
+    public T isSelected() {
+        return checkMatches(ViewMatchers.isSelected());
     }
 
     /**

@@ -148,6 +148,10 @@ public class TextField<T extends PageObject> extends BaseView<T> {
      * More matchers
      */
 
+    public T hasLinks() {
+        return checkMatches(ViewMatchers.hasLinks());
+    }
+
     public T containsString(int resourceId) {
         return checkMatches(TextViewMatchers.containsString(resourceId));
     }
