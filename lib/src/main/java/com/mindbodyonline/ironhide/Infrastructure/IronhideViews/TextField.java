@@ -3,6 +3,7 @@ package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 import android.net.Uri;
 import android.support.test.espresso.Root;
 import android.support.test.espresso.action.ViewActions;
+import android.support.test.espresso.matcher.LayoutMatchers;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.view.View;
 
@@ -124,6 +125,8 @@ public class TextField<T extends PageObject> extends BaseView<T> {
         return checkMatches(ViewMatchers.withHint(string));
     }
 
+    public T withHintText(Matcher<String> stringMatcher) { return checkMatches(ViewMatchers.withHint(stringMatcher));}
+
     public T openLink(Matcher<String> linkTextMatcher, Matcher<Uri> uriMatcher) {
         return performAction(ViewActions.openLink(linkTextMatcher, uriMatcher));
     }
@@ -178,6 +181,14 @@ public class TextField<T extends PageObject> extends BaseView<T> {
 
     public T startsWith(final int resourceId) {
         return checkMatches(TextViewMatchers.startsWith(resourceId));
+    }
+
+    public T hasEllipsizeText(){
+        return checkMatches(LayoutMatchers.hasEllipsizedText());
+    }
+
+    public T hasMultilineText(){
+        return checkMatches(LayoutMatchers.hasMultilineText());
     }
 
     /**

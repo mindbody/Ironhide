@@ -1,15 +1,18 @@
 package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
+import android.net.Uri;
 import android.support.test.espresso.Root;
 import android.support.test.espresso.ViewAction;
 import android.support.test.espresso.ViewAssertion;
 import android.support.test.espresso.ViewInteraction;
 import android.support.test.espresso.action.EspressoKey;
 import android.support.test.espresso.action.ViewActions;
+import android.support.test.espresso.assertion.LayoutAssertions;
 import android.support.test.espresso.assertion.PositionAssertions;
 import android.support.test.espresso.assertion.ViewAssertions;
 import android.support.test.espresso.contrib.DrawerActions;
 import android.support.test.espresso.contrib.DrawerMatchers;
+import android.support.test.espresso.matcher.LayoutMatchers;
 import android.support.test.espresso.matcher.RootMatchers;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.view.View;
@@ -260,12 +263,25 @@ public class BaseView<T extends PageObject> {
     }
 
     /**
-     * Click on the element.
+     * Returns an action that performs a single click on the view. If the click takes longer than the 'long press' duration (which is possible) the provided rollback action is invoked on the view and a click is attempted again. This is only necessary if the view being clicked on has some different behaviour for long press versus a normal tap. For example - if a long press on a particular view element opens a popup menu - ViewActions.pressBack() may be an acceptable rollback action.
+     * View constraints:
+     *
+     * must be displayed on screen
+     * any constraints of the rollbackAction
      * @return The model reached by interacting with this element.
      */
     public T click() {
         return performAction(ViewActions.click());
     }
+
+    /**
+     * Click on the element.
+     * @return The model reached by interacting with this element.
+     */
+    public T click(ViewAction rollbackAction) {
+        return performAction(ViewActions.click(rollbackAction));
+    }
+
 
 
     /**
@@ -333,6 +349,25 @@ public class BaseView<T extends PageObject> {
     public T closeKeyboard() {
         viewInteraction.perform(closeSoftKeyboard());
         return pause();
+    }
+
+    public T openLink(Matcher<String> linkTextMatcher, Matcher<Uri> uriMatcher){
+        return performAction(ViewActions.openLink(linkTextMatcher, uriMatcher));
+    }
+
+    public T openLinkWithText(Matcher<String> linkTextMatcher){
+        return performAction(ViewActions.openLinkWithText(linkTextMatcher));
+    }
+
+    public T openLinkWithText(String linkText){
+        return performAction(ViewActions.openLinkWithText(linkText));
+    }
+    public T openLinkWithUri(String uri){
+        return performAction(ViewActions.openLinkWithUri(uri));
+    }
+
+    public T openLinkWithUri(Matcher<Uri> uriMatcher){
+        return performAction(ViewActions.openLinkWithUri(uriMatcher));
     }
 
     /**
@@ -431,9 +466,9 @@ public class BaseView<T extends PageObject> {
     }
 
     /**
-     * TODO: Im not quite sure what this does
-     * @param fromClass
-     * @return
+     * Checks whether the element is an instance of or a subclass of the provided class.
+     * @param fromClass Class to check against.
+     * @return the model reached by itneracting with this element.
      */
     public T isAssignableFrom(Class<? extends View> fromClass) {
         return checkMatches(ViewMatchers.isAssignableFrom(fromClass));
@@ -653,6 +688,24 @@ public class BaseView<T extends PageObject> {
     }
 
     /**
+     * TODO: extract this to be more generic similar to TextFieldMatchers
+     * Checks to see if the element is a spinner with toString matching given string matcher
+     * @return The model reached by interacting with this element.
+     */
+    public T withSpinnerText(String text) {
+        return checkMatches(ViewMatchers.withSpinnerText(text));
+    }
+
+    /**
+     * TODO: extract this to be more generic similar to TextFieldMatchers
+     * Checks to see if the element is a spinner with toString matching given string matcher
+     * @return The model reached by interacting with this element.
+     */
+    public T withSpinnerText(int resourceid) {
+        return checkMatches(ViewMatchers.withSpinnerText(resourceid));
+    }
+
+    /**
      * Checks to see if the element has a child matching the given child.
      * @param child The child to check against.
      * @return The model reached by interacting with this element.
@@ -703,6 +756,7 @@ public class BaseView<T extends PageObject> {
         return checkMatches(ViewMatchers.hasImeAction(imeActionMatcher));
     }
 
+
     /**
      * End ViewMatchers
      */
@@ -739,6 +793,7 @@ public class BaseView<T extends PageObject> {
     public T selectedDescendantsMatch(Matcher<View> selector, Matcher<View> matcher) {
         return checkAssertion(ViewAssertions.selectedDescendantsMatch(selector, matcher));
     }
+
 
     /**
      * End View Assertions
@@ -827,7 +882,47 @@ public class BaseView<T extends PageObject> {
      */
 
     /*============================================================================================*/
+    /**
+     * Layout-based Assertions
+     */
 
+    /**
+     * Checks whether the entire view hierarchy does not contain ellipsized or cut off text views.
+     * @return The model reached by interacting with this element.
+     */
+    public T noEllipziedText() {
+        return checkAssertion(LayoutAssertions.noEllipsizedText());
+    }
+
+    /**
+     * Checks whether the entire view hierarchy does not contain multiline buttons.
+     * @return The model reached by interacting with this element.
+     */
+    public T noMultilineButtons() {
+        return checkAssertion(LayoutAssertions.noMultilineButtons());
+    }
+
+    /**
+     * Checks that all descendant view matching the selector do not overlap each other.
+     * @param selector
+     * @return The model reached by interacting with this element.
+     */
+    public T noOverLaps(Matcher<View> selector){
+        return checkAssertion(LayoutAssertions.noOverlaps(selector));
+    }
+
+    /**
+     * Checks that descendant objects of type TextView or ImageView do not overlap each other.
+     * @return The model reached by interacting with this element.
+     */
+    public T noOverLaps(){
+        return checkAssertion(LayoutAssertions.noOverlaps());
+    }
+
+    /**
+     * End Layout-based Assertions
+     */
+    /*============================================================================================*/
     /**
      * Misc Helper Methods
      */

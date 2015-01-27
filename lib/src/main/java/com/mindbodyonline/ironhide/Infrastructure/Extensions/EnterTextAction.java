@@ -38,6 +38,7 @@ public class EnterTextAction implements ViewAction {
         return "Type this string: " + toType;
     }
 
+    //TODO: need to clean this up or completely remove. Isn't very clean.
     @Override
     public void perform(UiController uiController, View view) {
         new GeneralClickAction(Tap.SINGLE, GeneralLocation.CENTER, Press.FINGER).perform(uiController, view);

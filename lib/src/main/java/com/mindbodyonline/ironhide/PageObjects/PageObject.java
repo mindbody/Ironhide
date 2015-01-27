@@ -7,4 +7,6 @@ public class PageObject {
 
     public static final int DEFAULT_PAUSE_TIME = 2000;
 
+
+
 }

@@ -11,6 +11,11 @@
 build/
 gradle/
 .gradle/
+.idea/workspace.xml
+.idea/libraries/recyclerview_v7_21_0_3.xml
+.idea/libraries/support_v4_21_0_3.xml
+local.properties
+lib/lib.iml
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
