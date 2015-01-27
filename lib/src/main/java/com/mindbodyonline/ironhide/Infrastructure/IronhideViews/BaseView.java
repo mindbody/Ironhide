@@ -38,9 +38,9 @@ public class BaseView<T extends PageObject> {
     protected ViewInteraction viewInteraction;
 
     /**
-     * Instantiates a {@code ViewInteraction} and retains type and selector for later access.
+     * Instantiates a {@link android.support.test.espresso.ViewInteraction} and retains type and selector for later access.
      * @param type the class of the generic type
-     * @param selector  the {@code ViewMatcher} to select the view
+     * @param selector  the {@link org.hamcrest.Matcher<View>} to select the view
      */
     protected BaseView(Class<T> type, Matcher<View> selector) {
         this.type = type;
@@ -49,7 +49,7 @@ public class BaseView<T extends PageObject> {
     }
 
     /**
-     * A generically typed BaseView with selector: {@code ViewMatchers.withId(resourceId)}
+     * A generically typed BaseView with selector: {@link android.support.test.espresso.matcher.ViewMatchers#withId(int)}
      * @param resourceId    the resource id of the view to interact with
      */
     protected BaseView(int resourceId) {
@@ -57,8 +57,8 @@ public class BaseView<T extends PageObject> {
     }
 
     /**
-     * A generically typed BaseView with selector: {@code ViewMatchers.withId(resourceId)}
-     * @param IGNORED   an ignored integer to distinguish this constructor from {@code BaseView(resourceId)}
+     * A generically typed BaseView with selector: {@link android.support.test.espresso.matcher.ViewMatchers#withText(int)}
+     * @param IGNORED   an ignored integer to distinguish this constructor from {@link com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(int)}
      * @param stringResourceId    the resource id of the string for the view to interact with
      */
     protected BaseView(int IGNORED, int stringResourceId) {
@@ -66,7 +66,7 @@ public class BaseView<T extends PageObject> {
     }
 
     /**
-     * A generically typed BaseView with selector: {@code ViewMatchers.withText(displayText)}
+     * A generically typed BaseView with selector: {@link android.support.test.espresso.matcher.ViewMatchers#withText(String)}
      * @param displayText   the text inside the view to interact with
      */
     protected BaseView(String displayText) {

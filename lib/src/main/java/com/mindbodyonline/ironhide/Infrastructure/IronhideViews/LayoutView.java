@@ -51,8 +51,7 @@ public class LayoutView<T extends PageObject> extends BaseView<T> {
      */
 
     /**
-     * Checks to see if this view matches {@code LayoutMatchers.hasEllipsizedText()}
-     * @see android.support.test.espresso.matcher.LayoutMatchers#hasEllipsizedText()
+     * Checks to see if this view matches {@link LayoutMatchers#hasEllipsizedText()}
      * @return  The model reached by interacting with this element.
      */
     public T hasEllipsizedText() {
@@ -60,8 +59,7 @@ public class LayoutView<T extends PageObject> extends BaseView<T> {
     }
 
     /**
-     * Checks to see if this view matches {@code LayoutMatchers.hasMultilineText()}
-     * @see android.support.test.espresso.matcher.LayoutMatchers#hasMultilineText()
+     * Checks to see if this view matches {@link LayoutMatchers#hasMultilineText()}
      * @return  The model reached by interacting with this element.
      */
     public T hasMultilineText() {
@@ -73,8 +71,7 @@ public class LayoutView<T extends PageObject> extends BaseView<T> {
      */
 
     /**
-     * Checks to see if this view matches assertion {@code LayoutAssertions.noEllipsizedText()}
-     * @see android.support.test.espresso.assertion.LayoutAssertions#noEllipsizedText()
+     * Checks to see if this view matches assertion {@link LayoutAssertions#noEllipsizedText()}
      * @return  The model reached by interacting with this element.
      */
     public T noEllipsizedText() {
@@ -82,8 +79,7 @@ public class LayoutView<T extends PageObject> extends BaseView<T> {
     }
 
     /**
-     * Checks to see if this view matches assertion {@code LayoutAssertions.noMultilineButtons()}
-     * @see android.support.test.espresso.assertion.LayoutAssertions#noMultilineButtons()
+     * Checks to see if this view matches assertion {@link LayoutAssertions#noMultilineButtons()}
      * @return  The model reached by interacting with this element.
      */
     public T noMultilineButtons() {
@@ -91,8 +87,7 @@ public class LayoutView<T extends PageObject> extends BaseView<T> {
     }
 
     /**
-     * Checks to see if this view matches assertion {@code LayoutAssertions.noOverlaps(org.hamcrest.Matcher)}
-     * @see android.support.test.espresso.assertion.LayoutAssertions#noOverlaps(org.hamcrest.Matcher)
+     * Checks to see if this view matches assertion {@link LayoutAssertions#noOverlaps(org.hamcrest.Matcher)}
      * @return  The model reached by interacting with this element.
      */
     public T noOverlaps(Matcher<View> selector) {
@@ -100,8 +95,7 @@ public class LayoutView<T extends PageObject> extends BaseView<T> {
     }
 
     /**
-     * Checks to see if this view matches assertion {@code LayoutAssertions.noMultilineButtons()}
-     * @see android.support.test.espresso.assertion.LayoutAssertions#noOverlaps()
+     * Checks to see if this view matches assertion {@link LayoutAssertions#noMultilineButtons()}
      * @return  The model reached by interacting with this element.
      */
     public T noOverlaps() {

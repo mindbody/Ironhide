@@ -251,7 +251,7 @@ public class TextViewMatchers {
      */
 
     /**
-     * A generic matcher to test the hint text of {@code TextView}s
+     * A generic matcher to test the hint text of {@link android.widget.TextView}s
      */
     public static abstract class HintStringIdViewMatcher extends StringIdViewMatcher {
         public HintStringIdViewMatcher(int resourceId) {
@@ -275,7 +275,7 @@ public class TextViewMatchers {
     }
 
     /**
-     * A generic matcher class to test the text of {@code TextView}s.
+     * A generic matcher class to test the text of {@link android.widget.TextView}s.
      * (Adapted from Espresso.ViewMatchers.withText)
      */
     public static abstract class StringIdViewMatcher extends BoundedMatcher<View, TextView> {
