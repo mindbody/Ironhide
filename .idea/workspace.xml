@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1905f372-6d34-42cf-8ffd-b59b82bddeb5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/Cursors.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/Preferences.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/Preferences.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/Cursors.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/Cursors.java" />
     </list>
     <ignored path="Ironhide.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -80,14 +78,12 @@
       <file leaf-file-name="Cursors.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/Cursors.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.212174" vertical-offset="37" max-vertical-offset="1479">
-              <caret line="77" column="5" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
+            <state vertical-scroll-proportion="1.2713044" vertical-offset="0" max-vertical-offset="6664">
+              <caret line="43" column="19" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#314#315#0" expanded="true" />
                 <element signature="e#345#346#0" expanded="true" />
-                <marker date="1422398590780" expanded="true" signature="703:922" placeholder="/**...*/" />
-                <marker date="1422398590780" expanded="true" signature="1075:1295" placeholder="/**...*/" />
               </folding>
             </state>
           </provider>
@@ -2379,14 +2375,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/Cursors.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.212174" vertical-offset="37" max-vertical-offset="1479">
-          <caret line="77" column="5" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
+        <state vertical-scroll-proportion="1.2713044" vertical-offset="0" max-vertical-offset="6664">
+          <caret line="43" column="19" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#314#315#0" expanded="true" />
             <element signature="e#345#346#0" expanded="true" />
-            <marker date="1422398590780" expanded="true" signature="703:922" placeholder="/**...*/" />
-            <marker date="1422398590780" expanded="true" signature="1075:1295" placeholder="/**...*/" />
           </folding>
         </state>
       </provider>
