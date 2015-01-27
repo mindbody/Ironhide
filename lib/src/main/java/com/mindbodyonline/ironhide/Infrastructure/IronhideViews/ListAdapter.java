@@ -43,6 +43,14 @@ public class ListAdapter<T extends PageObject> {
         adapter = onData(is(instanceOf(itemType))).inAdapterView(selector);
     }
 
+    public ListAdapter(Matcher<Object> cursorMatcher) {
+        adapter = onData(cursorMatcher);
+    }
+
+    public ListAdapter(Matcher<Object> cursorMatcher, Matcher<View> selector) {
+        adapter = onData(cursorMatcher).inAdapterView(selector);
+    }
+
     public <E extends PageObject> ListAdapter<E> goesTo(Class<E> type) {
         return new ListAdapter<E>(type, adapter);
     }
