@@ -92,6 +92,11 @@ public class TextField<T extends PageObject> extends BaseView<T> {
         return performAction(enterTextAction(toType));
     }
 
+    /**
+     * Replace the current text in the text field with the given new text.
+     * @param newText Text to replace with
+     * @return The model reached by interacting with this element.
+     */
     public T replaceText(String newText) {
         return performAction(ViewActions.replaceText(newText));
     }
@@ -117,32 +122,73 @@ public class TextField<T extends PageObject> extends BaseView<T> {
         return true;
     }
 
+    /**
+     * Check to see if the element contains the given hint text.
+     * @param stringId Resource id of the string to check for.
+     * @return The model reached by interacting with this element.
+     */
     public T withHintText(int stringId) {
         return checkMatches(ViewMatchers.withHint(stringId));
     }
 
+    /**
+     * Check to see if the element contains the given hint text.
+     * @param string The string to check for.
+     * @return The model reached by interacting with this element.
+     */
     public T withHintText(String string) {
         return checkMatches(ViewMatchers.withHint(string));
     }
 
+    /**
+     * Check to see if the element contains the given hint text.
+     * @param stringMatcher String matcher to check against.
+     * @return The model reached by interacting with this element.
+     */
     public T withHintText(Matcher<String> stringMatcher) { return checkMatches(ViewMatchers.withHint(stringMatcher));}
 
+    /**
+     * Opens the link that matches the link and uri matchers.
+     * @param linkTextMatcher Link matcher to check match against.
+     * @param uriMatcher URI matcher to match against
+     * @return The model reached by interacting with this element.
+     */
     public T openLink(Matcher<String> linkTextMatcher, Matcher<Uri> uriMatcher) {
         return performAction(ViewActions.openLink(linkTextMatcher, uriMatcher));
     }
 
+    /**
+     * Open the link that matches the link matcher.
+     * @param linkTextMatcher Link matcher to check match against.
+     * @return The model reached by interacting with this element.
+     */
     public T openLinkWithText(Matcher<String> linkTextMatcher) {
         return performAction(ViewActions.openLinkWithText(linkTextMatcher));
     }
 
+    /**
+     * Open the link with the given link text.
+     * @param linkText Text to match against
+     * @return The model reached by interacting with this element.
+     */
     public T openLinkWithText(String linkText) {
         return performAction(ViewActions.openLinkWithText(linkText));
     }
 
+    /**
+     * Open the link that matches the uri matcher.
+     * @param uriMatcher URI matcher to match against.
+     * @return The model reached by interacting with this element.
+     */
     public T openLinkWithUri(Matcher<Uri> uriMatcher) {
         return performAction(ViewActions.openLinkWithUri(uriMatcher));
     }
 
+    /**
+     * Open the link that matches the given uri text.
+     * @param uri Uri to match against
+     * @return The model reached by interacting with this element.
+     */
     public T openLinkWithUri(String uri) {
         return performAction(ViewActions.openLinkWithUri(uri));
     }
@@ -151,10 +197,19 @@ public class TextField<T extends PageObject> extends BaseView<T> {
      * More matchers
      */
 
+    /**
+     * Checks if the element has any links in it.
+     * @return The model reached by interacting with this element.
+     */
     public T hasLinks() {
         return checkMatches(ViewMatchers.hasLinks());
     }
 
+    /**
+     * Checks to see if the element contains the string with the given resourceId.
+     * @param resourceId Resource ID of the string to check for.
+     * @return The model reached by interacting with this element.
+     */
     public T containsString(int resourceId) {
         return checkMatches(TextViewMatchers.containsString(resourceId));
     }

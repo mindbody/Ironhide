@@ -351,21 +351,48 @@ public class BaseView<T extends PageObject> {
         return pause();
     }
 
+    /**
+     * Opens a link matching the given link text and uri matchers.
+     * @param linkTextMatcher Link matcher to check match against.
+     * @param uriMatcher URI matcher to match against
+     * @return The model reached by interacting with this element
+     */
     public T openLink(Matcher<String> linkTextMatcher, Matcher<Uri> uriMatcher){
         return performAction(ViewActions.openLink(linkTextMatcher, uriMatcher));
     }
 
+    /**
+     * Opens a link matching the given link text matcher.
+     * @param linkTextMatcher Link matcher to check match against.
+     * @return The model reached by interacting with this element
+     */
     public T openLinkWithText(Matcher<String> linkTextMatcher){
         return performAction(ViewActions.openLinkWithText(linkTextMatcher));
     }
 
+    /**
+     * Open a link with the given text.
+     * @param linkText Text to match against
+     * @return The model reached by interacting with this element
+     */
     public T openLinkWithText(String linkText){
         return performAction(ViewActions.openLinkWithText(linkText));
     }
+
+    /**
+     * Open a link with the given uri.
+     * @param uri Uri to match against
+     * @return The model reached by interacting with this element
+     */
     public T openLinkWithUri(String uri){
         return performAction(ViewActions.openLinkWithUri(uri));
     }
 
+    /**
+     * Open a link with the given uri matcher.
+     * @param uriMatcher URI matcher to match against.
+     * @return The model reached by interacting with this element
+     */
     public T openLinkWithUri(Matcher<Uri> uriMatcher){
         return performAction(ViewActions.openLinkWithUri(uriMatcher));
     }
@@ -586,7 +613,11 @@ public class BaseView<T extends PageObject> {
         return checkMatches(ViewMatchers.withTagKey(key));
     }
 
-    // TODO: Dunno exactly how this method works.
+    /**
+     * Check to see if the element has the given tag key.
+     * @param key Tag Key to check against.
+     * @return The model reached by interacting with this element.
+     */
     public T withTagKey(int key, Matcher<Object> objectMatcher) {
         return checkMatches(ViewMatchers.withTagKey(key, objectMatcher));
     }
