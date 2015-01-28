@@ -17,7 +17,7 @@ public class Cursors {
     }
 
     /**
-     * Checks to see if this cursor matches the given {@link org.hamcrest.Matcher<android.preference.Preference>}
+     * Checks to see if this cursor matches the given {@link org.hamcrest.Matcher}
      * @param cursorMatcher The matcher to check this cursor against
      * @return  this
      */

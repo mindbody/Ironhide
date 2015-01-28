@@ -18,7 +18,7 @@ public class Preferences {
     }
 
     /**
-     * Checks to see if this preference matches the given {@link org.hamcrest.Matcher<android.preference.Preference>}
+     * Checks to see if this preference matches the given {@link org.hamcrest.Matcher}<{@link android.preference.Preference}>
      * @param preferenceMatcher The matcher to check this preference against
      * @return  this
      */
@@ -38,7 +38,7 @@ public class Preferences {
         return checkMatches(PreferenceMatchers.withKey(key));
     }
 
-    /** {@link android.support.test.espresso.matcher.PreferenceMatchers#withKey(org.hamcrest.Matcher<String>)} */
+    /** {@link android.support.test.espresso.matcher.PreferenceMatchers#withKey(org.hamcrest.Matcher)} */
     // TODO: make this more abstract similar to TextFieldMatchers
     public Preferences withKey(Matcher<String> keyMatcher) {
         return checkMatches(PreferenceMatchers.withKey(keyMatcher));
@@ -49,7 +49,7 @@ public class Preferences {
         return checkMatches(PreferenceMatchers.withSummary(resourceId));
     }
 
-    /** {@link android.support.test.espresso.matcher.PreferenceMatchers#withSummaryText(org.hamcrest.Matcher<String>)} */
+    /** {@link android.support.test.espresso.matcher.PreferenceMatchers#withSummaryText(org.hamcrest.Matcher)} */
     public Preferences withSummaryText(Matcher<String> summaryMatcher) {
         return checkMatches(PreferenceMatchers.withSummaryText(summaryMatcher));
     }
@@ -69,7 +69,7 @@ public class Preferences {
         return checkMatches(PreferenceMatchers.withTitleText(title));
     }
 
-    /** {@link android.support.test.espresso.matcher.PreferenceMatchers#withTitleText(org.hamcrest.Matcher<String>)} */
+    /** {@link android.support.test.espresso.matcher.PreferenceMatchers#withTitleText(org.hamcrest.Matcher)} */
     public Preferences withTitleText(Matcher<String> titleMatcher) {
         return checkMatches(PreferenceMatchers.withTitleText(titleMatcher));
     }
