@@ -15,9 +15,8 @@ import static com.mindbodyonline.ironhide.Infrastructure.Extensions.BaseViewMatc
 import static org.hamcrest.Matchers.allOf;
 
 /**
- * Extends BaseView
- * Simple element that allows to interact with ListViews that have children added dynamically
- * Enables access to ListItems inside a dynamic ListView that does not use an adapter
+ * Simple element that allows to interact with ListViews that have children added dynamically.
+ * Enables access to ListItems inside a dynamic ListView that does not use an adapter.
  * This element is rarely used, as these types of ListViews are considered bad practice
  *
  * @param <T> The model the current element will return when interacted with

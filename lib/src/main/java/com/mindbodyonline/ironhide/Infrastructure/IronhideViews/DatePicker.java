@@ -9,8 +9,7 @@ import com.mindbodyonline.ironhide.PageObjects.PageObject;
 import org.hamcrest.Matcher;
 
 /**
- * Extends BaseView
- * Simple element that allows to interact with a DatePicker View
+ * Simple element that allows to interact with a {@link android.widget.DatePicker} or {@link android.widget.TimePicker}
  *
  * @param <T> The model the current element will return when interacted with
  */

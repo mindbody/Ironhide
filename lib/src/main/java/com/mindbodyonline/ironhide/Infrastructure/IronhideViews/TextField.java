@@ -15,10 +15,9 @@ import com.mindbodyonline.ironhide.PageObjects.PageObject;
 import org.hamcrest.Matcher;
 
 /**
- * Extends BaseView
- * Simple element that allows text interaction
+ * Simple element that allows text interaction.
  * Implements methods such as typeText, enterText, checkHintText
- * Only use this element when dealing with an editable text field (e.g.: an EditText View)
+ * Only use this element when dealing with an editable text field (e.g. an {@link android.widget.EditText})
  *
  * @param <T> The model the current element will return when interacted with
  */

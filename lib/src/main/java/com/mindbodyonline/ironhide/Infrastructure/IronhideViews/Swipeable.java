@@ -10,9 +10,8 @@ import com.mindbodyonline.ironhide.PageObjects.PageObject;
 import org.hamcrest.Matcher;
 
 /**
- * Extends BaseView
- * Simple element that allows to perform a swipe on the screen
- * Implements swipeLeft and swipeRight methods
+ * Simple element that allows to perform a swipe on the screen.
+ * Allows fast, slow, and multiplicative versions of Espresso's swipe actions.
  * Use this when the main purpose of the element will be to swipe the screen
  *
  * @param <T> The model the current element will return when interacted with

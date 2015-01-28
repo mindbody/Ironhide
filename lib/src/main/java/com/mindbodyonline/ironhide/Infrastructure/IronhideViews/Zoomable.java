@@ -15,8 +15,7 @@ import com.mindbodyonline.ironhide.PageObjects.PageObject;
 import org.hamcrest.Matcher;
 
 /**
- * Extends BaseView
- * Simple element that allows to perform a zoom on the screen
+ * Simple element that allows to perform a zoom on the screen.
  * Provides zoomAllOut, zoomAllIn, and a generic zoom method.
  * Use this when the main purpose of the element will be to zoom in/out
  *

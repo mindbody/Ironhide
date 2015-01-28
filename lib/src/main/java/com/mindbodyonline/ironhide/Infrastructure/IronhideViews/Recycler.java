@@ -14,7 +14,8 @@ import org.hamcrest.Matcher;
  * Wrapper for RecyclerViewActions that act specifically on RecyclerViews.
  *
  * ViewActions to interact RecyclerView. RecyclerView works differently than AdapterView.
- * RecyclerView is not an AdapterView anymore, hence it can't be used in combination with onData(Matcher).
+ * RecyclerView is not an {@link android.widget.AdapterView} anymore, hence it can't be used in
+ *  combination with {@link android.support.test.espresso.Espresso#onData(org.hamcrest.Matcher)}
  */
 public class Recycler<T extends PageObject> extends BaseView<T> {
 

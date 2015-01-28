@@ -10,9 +10,8 @@ import com.mindbodyonline.ironhide.PageObjects.PageObject;
 import org.hamcrest.Matcher;
 
 /**
- * Extends BaseView
  * Defines a ViewGroup typically referenced as a layout.
- * Examples include LinearLayout, FrameLayout, and RelativeLayout.
+ * Examples include {@link android.widget.LinearLayout}, {@link android.widget.FrameLayout}, and {@link android.widget.RelativeLayout}.
  *
  * Provides generic assertions and matchers for Layouts
  *

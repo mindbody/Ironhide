@@ -13,10 +13,9 @@ import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.is;
 
 /**
- * Extends BaseView
- * Complex element that allows to interact with a ListView that uses an adapter
- * Gives access to individual ListItems inside a ListView
- * Only use this element when dealing with a ListView View that has an adapter
+ * Complex element that allows to interact with a {@link android.widget.ListView} that uses an {@link android.widget.Adapter}.
+ * Gives access to individual {@link com.mindbodyonline.ironhide.Infrastructure.IronhideViews.ListItem}s inside a {@link android.widget.ListView}.
+ * Only use this element when dealing with a {@link android.widget.ListView} that has an {@link android.widget.Adapter}
  *
  * @param <T> The model the current element will return when interacted with
  */
