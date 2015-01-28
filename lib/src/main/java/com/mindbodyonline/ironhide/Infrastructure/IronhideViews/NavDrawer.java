@@ -3,6 +3,7 @@ package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 import android.support.test.espresso.Root;
 import android.support.test.espresso.UiController;
 import android.support.test.espresso.ViewAction;
+import android.support.test.espresso.contrib.DrawerActions;
 import android.support.test.espresso.contrib.DrawerMatchers;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.v4.view.GravityCompat;
@@ -14,53 +15,46 @@ import com.mindbodyonline.ironhide.PageObjects.PageObject;
 import org.hamcrest.Matcher;
 
 /**
- * Created by Barbara.Wong on 8/14/2014.
+ * An element to interact with a navigation drawer.
+ * Provides actions {@link com.mindbodyonline.ironhide.Infrastructure.IronhideViews.NavDrawer#openDrawer(int)}
+ * and {@link com.mindbodyonline.ironhide.Infrastructure.IronhideViews.NavDrawer#closeDrawer(int)}, and checks
+ * {@link NavDrawer#isOpen()} and {@link NavDrawer#isClosed()}
  */
 public class NavDrawer<T extends PageObject> extends BaseView<T>{
 
-    public NavDrawer(Class<T> type, Matcher<View> viewMatcher) {
+    // the resource id for the navigation drawer
+    private int drawerLayoutId;
+
+    /**
+     * @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(Class, org.hamcrest.Matcher)
+     * @param resourceId the resource id for the navigation drawer for open/close drawer actions
+     */
+    public NavDrawer(Class<T> type, int resourceId, Matcher<View> viewMatcher) {
         super(type, viewMatcher);
+        this.drawerLayoutId = resourceId;
     }
 
+    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(int) */
     public NavDrawer(int resourceId) {
         super(resourceId);
+        this.drawerLayoutId = resourceId;
     }
 
-    public NavDrawer(Matcher<View> selector) {
-        super(selector);
-    }
-
-    public NavDrawer(int IGNORED, int stringResourceId) {
-        super(IGNORED, stringResourceId);
-    }
-
-    public NavDrawer(String displayText) {
-        super(displayText);
-    }
-
+    /** {@inheritDoc} */
     @Override
     public <E extends PageObject> NavDrawer<E> goesTo(Class<E> type) {
-        return new NavDrawer<E>(type, getSelector());
+        return new NavDrawer<E>(type, drawerLayoutId, getSelector());
     }
+
+    /** @see android.support.test.espresso.contrib.DrawerActions#openDrawer(int) */
     public T openDrawer() {
-
-        viewInteraction.perform(actionOpenDrawer());
-
-        pause();
-
+        openDrawer(drawerLayoutId);
         return returnGeneric();
     }
 
-    /**
-     *
-     * @return
-     */
+    /** @see android.support.test.espresso.contrib.DrawerActions#closeDrawer(int) */
     public T closeDrawer() {
-
-        viewInteraction.perform(actionCloseDrawer());
-
-        pause();
-
+        closeDrawer(drawerLayoutId);
         return returnGeneric();
     }
 
@@ -78,44 +72,6 @@ public class NavDrawer<T extends PageObject> extends BaseView<T>{
      */
     public T isClosed() {
         return checkMatches(DrawerMatchers.isClosed());
-    }
-
-    private ViewAction actionOpenDrawer() {
-        return new ViewAction() {
-            @Override
-            public Matcher<View> getConstraints() {
-                return ViewMatchers.isAssignableFrom(DrawerLayout.class);
-            }
-
-            @Override
-            public String getDescription() {
-                return "open drawer";
-            }
-
-            @Override
-            public void perform(UiController uiController, View view) {
-                ((DrawerLayout) view).openDrawer(GravityCompat.START);
-            }
-        };
-    }
-
-    private ViewAction actionCloseDrawer() {
-        return new ViewAction() {
-            @Override
-            public Matcher<View> getConstraints() {
-                return ViewMatchers.isAssignableFrom(DrawerLayout.class);
-            }
-
-            @Override
-            public String getDescription() {
-                return "close drawer";
-            }
-
-            @Override
-            public void perform(UiController uiController, View view) {
-                ((DrawerLayout) view).closeDrawer(GravityCompat.START);
-            }
-        };
     }
 
     /**
