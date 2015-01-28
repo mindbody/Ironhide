@@ -3,7 +3,6 @@ package com.mindbodyonline.ironhide.Infrastructure;
 import android.database.Cursor;
 import android.support.test.espresso.matcher.CursorMatchers;
 
-
 import org.hamcrest.Matcher;
 
 /**

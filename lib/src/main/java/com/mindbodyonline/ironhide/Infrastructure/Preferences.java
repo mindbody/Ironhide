@@ -1,6 +1,5 @@
 package com.mindbodyonline.ironhide.Infrastructure;
 
-import android.database.Cursor;
 import android.preference.Preference;
 import android.support.test.espresso.matcher.PreferenceMatchers;
 

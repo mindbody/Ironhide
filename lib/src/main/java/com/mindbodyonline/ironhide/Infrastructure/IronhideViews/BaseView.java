@@ -12,7 +12,6 @@ import android.support.test.espresso.assertion.PositionAssertions;
 import android.support.test.espresso.assertion.ViewAssertions;
 import android.support.test.espresso.contrib.DrawerActions;
 import android.support.test.espresso.contrib.DrawerMatchers;
-import android.support.test.espresso.matcher.LayoutMatchers;
 import android.support.test.espresso.matcher.RootMatchers;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.view.View;
