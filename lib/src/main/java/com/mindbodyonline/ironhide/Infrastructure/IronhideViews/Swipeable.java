@@ -11,7 +11,8 @@ import org.hamcrest.Matcher;
 
 /**
  * Simple element that allows to perform a swipe on the screen.
- * Allows fast, slow, and multiplicative versions of Espresso's swipe actions.
+ * Allows fast/slow versions of up and down swipes for scrolling through {@link android.view.ViewGroup}s
+ *  as well as multiplicative versions of left and right swipes for paging through {@link android.support.v4.view.ViewPager}s
  * Use this when the main purpose of the element will be to swipe the screen
  *
  * @param <T> The model the current element will return when interacted with
