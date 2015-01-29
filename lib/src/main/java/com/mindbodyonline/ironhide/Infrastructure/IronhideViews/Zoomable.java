@@ -14,6 +14,9 @@ import com.mindbodyonline.ironhide.PageObjects.PageObject;
 
 import org.hamcrest.Matcher;
 
+import static android.view.MotionEvent.TOOL_TYPE_FINGER;
+import static android.view.MotionEvent.obtain;
+
 /**
  * Simple element that allows to perform a zoom on the screen.
  * Provides zoomAllOut, zoomAllIn, and a generic zoom method.
@@ -53,13 +56,39 @@ public class Zoomable<T extends PageObject> extends BaseView<T> {
     Point finger2Start;
     Point finger2End;
 
-    // TODO: cleanup and refactor this method
+    private MotionEvent.PointerProperties getPointerProperties(int id, int toolType) {
+        MotionEvent.PointerProperties tmp = new MotionEvent.PointerProperties();
+        tmp.id = id;
+        tmp.toolType = toolType;
+
+        return tmp;
+    }
+
+    private MotionEvent.PointerCoords getPointerCoords(float x, float y, float pressure, float size) {
+        MotionEvent.PointerCoords tmp = new MotionEvent.PointerCoords();
+        tmp.x = x;
+        tmp.y = y;
+        tmp.pressure = pressure;
+        tmp.size = size;
+
+        return tmp;
+    }
+
+    private MotionEvent obtainWrapper(long downTime, long eventTime, int action, int pointerCount,
+                                      MotionEvent.PointerProperties[] pointerProperties,
+                                      MotionEvent.PointerCoords[] pointerCoords) {
+
+        return MotionEvent.obtain(downTime, eventTime, action, pointerCount, pointerProperties, pointerCoords, 0, 0, 1, 1, 0, 0, 0, 0);
+    }
+
+    // TODO: cleanup and refactor this method (98 lines still)
     public void generateZoomGesture(Instrumentation inst,
                                     long startTime, boolean ifMove, Point startPoint1,
                                     Point startPoint2, Point endPoint1,
                                     Point endPoint2, int duration) {
 
-        if (inst == null || startPoint1 == null
+        if (inst == null
+                || startPoint1 == null
                 || (ifMove && endPoint1 == null)) {
             return;
         }
@@ -68,40 +97,22 @@ public class Zoomable<T extends PageObject> extends BaseView<T> {
         @SuppressLint("redundant") // because it really isn't
         long downTime = startTime;
         MotionEvent event;
-        float eventX1, eventY1, eventX2, eventY2;
 
-        eventX1 = startPoint1.x;
-        eventY1 = startPoint1.y;
-        eventX2 = startPoint2.x;
-        eventY2 = startPoint2.y;
+        FPoint event1 = new FPoint(startPoint1);
+        FPoint event2 = new FPoint(startPoint2);
 
         // specify the property for the two touch points
-        MotionEvent.PointerProperties[] properties = new MotionEvent.PointerProperties[2];
-        MotionEvent.PointerProperties pp1 = new MotionEvent.PointerProperties();
-        pp1.id = 0;
-        pp1.toolType = MotionEvent.TOOL_TYPE_FINGER;
-        MotionEvent.PointerProperties pp2 = new MotionEvent.PointerProperties();
-        pp2.id = 1;
-        pp2.toolType = MotionEvent.TOOL_TYPE_FINGER;
-
-        properties[0] = pp1;
-        properties[1] = pp2;
+        MotionEvent.PointerProperties[] properties = new MotionEvent.PointerProperties[] {
+                getPointerProperties(0, TOOL_TYPE_FINGER),
+                getPointerProperties(1, TOOL_TYPE_FINGER)
+        };
 
         //specify the coordinations of the two touch points
         //NOTE: you MUST set the pressure and size value, or it doesn't work
-        MotionEvent.PointerCoords[] pointerCoords = new MotionEvent.PointerCoords[2];
-        MotionEvent.PointerCoords pc1 = new MotionEvent.PointerCoords();
-        pc1.x = eventX1;
-        pc1.y = eventY1;
-        pc1.pressure = 1;
-        pc1.size = 1;
-        MotionEvent.PointerCoords pc2 = new MotionEvent.PointerCoords();
-        pc2.x = eventX2;
-        pc2.y = eventY2;
-        pc2.pressure = 1;
-        pc2.size = 1;
-        pointerCoords[0] = pc1;
-        pointerCoords[1] = pc2;
+        MotionEvent.PointerCoords[] coords = new MotionEvent.PointerCoords[] {
+                getPointerCoords(event1.x, event1.y, 1, 1),
+                getPointerCoords(event2.x, event2.y, 1, 1)
+        };
 
         //////////////////////////////////////////////////////////////
         // events sequence of zoom gesture
@@ -115,73 +126,59 @@ public class Zoomable<T extends PageObject> extends BaseView<T> {
         //////////////////////////////////////////////////////////////
 
         // step 1
-        event = MotionEvent.obtain(downTime, eventTime,
-                MotionEvent.ACTION_DOWN, 1, properties,
-                pointerCoords, 0, 0, 1, 1, 0, 0, 0, 0);
+        event = obtainWrapper(downTime, eventTime, MotionEvent.ACTION_DOWN, 1, properties, coords);
 
         inst.sendPointerSync(event);
 
         //step 2
-        event = MotionEvent.obtain(downTime, eventTime,
-                MotionEvent.ACTION_POINTER_DOWN + (pp2.id << MotionEvent.ACTION_POINTER_INDEX_SHIFT), 2,
-                properties, pointerCoords, 0, 0, 1, 1, 0, 0, 0, 0);
+        event = obtainWrapper(downTime, eventTime,
+                   MotionEvent.ACTION_POINTER_DOWN + (properties[1].id << MotionEvent.ACTION_POINTER_INDEX_SHIFT),
+                  2, properties, coords);
 
         inst.sendPointerSync(event);
 
         //step 3, 4
         if (ifMove) {
-            int moveEventNumber = 1;
-            moveEventNumber = duration / EVENT_MIN_INTERVAL;
+            int moveEventNumber = duration / EVENT_MIN_INTERVAL;
 
-            float stepX1, stepY1, stepX2, stepY2;
+            FPoint step1 = new FPoint(endPoint1);
+            step1.offset(-startPoint1.x, -startPoint1.y);
+            step1.scale(1 / moveEventNumber);
 
-            stepX1 = (endPoint1.x - startPoint1.x) / moveEventNumber;
-            stepY1 = (endPoint1.y - startPoint1.y) / moveEventNumber;
-            stepX2 = (endPoint2.x - startPoint2.x) / moveEventNumber;
-            stepY2 = (endPoint2.y - startPoint2.y) / moveEventNumber;
+            FPoint step2 = new FPoint(endPoint2);
+            step2.offset(-startPoint2.x, -startPoint2.y);
+            step2.scale(1 / moveEventNumber);
 
-            for (int i = 0; i < moveEventNumber; i++) {
+            while (moveEventNumber-- > 0) {
                 // update the move events
                 eventTime += EVENT_MIN_INTERVAL;
-                eventX1 += stepX1;
-                eventY1 += stepY1;
-                eventX2 += stepX2;
-                eventY2 += stepY2;
+                event1.offset(step1.x, step1.y);
+                event1.offset(step2.x, step2.y);
 
-                pc1.x = eventX1;
-                pc1.y = eventY1;
-                pc2.x = eventX2;
-                pc2.y = eventY2;
+                event1.putXY(coords[0]);
+                event2.putXY(coords[1]);
 
-                pointerCoords[0] = pc1;
-                pointerCoords[1] = pc2;
-                event = MotionEvent.obtain(downTime, eventTime,
-                        MotionEvent.ACTION_MOVE, 2, properties,
-                        pointerCoords, 0, 0, 1, 1, 0, 0, 0, 0);
+                event = obtainWrapper(downTime, eventTime, MotionEvent.ACTION_MOVE, 2, properties, coords);
 
                 inst.sendPointerSync(event);
             }
         }
 
         //step 5
-        pc1.x = endPoint1.x;
-        pc1.y = endPoint1.y;
-        pc2.x = endPoint2.x;
-        pc2.y = endPoint2.y;
-        pointerCoords[0] = pc1;
-        pointerCoords[1] = pc2;
+        new FPoint(endPoint1).putXY(coords[0]);
+        new FPoint(endPoint2).putXY(coords[1]);
 
         eventTime += EVENT_MIN_INTERVAL;
-        event = MotionEvent.obtain(downTime, eventTime,
-                MotionEvent.ACTION_POINTER_DOWN + (pp2.id << MotionEvent.ACTION_POINTER_INDEX_SHIFT), 2, properties,
-                pointerCoords, 0, 0, 1, 1, 0, 0, 0, 0);
+        event = obtainWrapper(downTime, eventTime,
+                MotionEvent.ACTION_POINTER_DOWN + (properties[1].id << MotionEvent.ACTION_POINTER_INDEX_SHIFT),
+                2, properties, coords);
+
         inst.sendPointerSync(event);
 
         // step 6
         eventTime += EVENT_MIN_INTERVAL;
-        event = MotionEvent.obtain(downTime, eventTime,
-                MotionEvent.ACTION_UP, 1, properties,
-                pointerCoords, 0, 0, 1, 1, 0, 0, 0, 0);
+        event = obtainWrapper(downTime, eventTime, MotionEvent.ACTION_UP, 1, properties, coords);
+
         inst.sendPointerSync(event);
     }
 
@@ -226,6 +223,34 @@ public class Zoomable<T extends PageObject> extends BaseView<T> {
             generateZoomGesture(instr, SystemClock.uptimeMillis(), true, finger1Start, finger2Start, finger1End, finger2End, 3000);
 
         return returnGeneric();
+    }
+
+    private class FPoint {
+        float x, y;
+
+        public FPoint(float x, float y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        public FPoint(Point integerPoint) {
+            this(integerPoint.x, integerPoint.y);
+        }
+
+        public void offset(float x, float y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        public void scale(float scale) {
+            this.x *= scale;
+            this.y *= scale;
+        }
+
+        public void putXY(MotionEvent.PointerCoords coords) {
+            coords.x = this.x;
+            coords.y = this.y;
+        }
     }
 
     /**
