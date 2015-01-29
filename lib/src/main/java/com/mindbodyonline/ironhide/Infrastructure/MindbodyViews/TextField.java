@@ -92,6 +92,8 @@ public class TextField<T extends PageObject> extends MindbodyView<T> {
         return performAction(enterTextAction(toType));
     }
 
+    public T replaceText(String toType) { return performAction(ViewActions.replaceText(toType)); }
+    
     public T setCursor() {
         return performAction(setCursorAction());
     }
