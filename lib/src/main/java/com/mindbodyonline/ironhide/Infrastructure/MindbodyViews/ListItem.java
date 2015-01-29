@@ -1,6 +1,7 @@
 package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
 
 import android.support.test.espresso.DataInteraction;
+import android.support.test.espresso.Root;
 import android.support.test.espresso.ViewAction;
 import android.support.test.espresso.action.ViewActions;
 import android.support.test.espresso.assertion.ViewAssertions;
@@ -19,11 +20,24 @@ import org.hamcrest.Matcher;
  *
  * @param <T> The model the current element will return when interacted with
  */
-public class ListItem<T> extends MindbodyView<T> {
+public class ListItem<T extends PageObject> extends MindbodyView<T> {
 
-    public ListItem(Class<T> type, DataInteraction item) {
-        this.type = type;
-        this.adapter = item;
+    private DataInteraction adapter;
+
+    public ListItem(Class<T> type, DataInteraction adapter) {
+        super(type, null);
+        this.adapter = adapter;
+    }
+
+    public ListItem(DataInteraction adapter) {
+        super((Matcher<View>) null);
+        this.adapter = adapter;
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public <E extends PageObject> ListItem<E> goesTo(Class<E> type) {
+        return new ListItem<E>(type, adapter);
     }
 
     // Pass in the view to click and use its selector to find it within the list item
@@ -66,4 +80,52 @@ public class ListItem<T> extends MindbodyView<T> {
         adapter.onChildView(viewToMatch.getSelector()).check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
         return returnGeneric(type);
     }
+
+    /**
+     * Root Matchers return ListItem
+     */
+
+    /** {@inheritDoc} */
+    @Override
+    public ListItem<T> changeRoot() {
+        return (ListItem<T>) super.changeRoot();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public ListItem<T> inRoot(Matcher<Root> rootMatcher) {
+        return (ListItem<T>) super.inRoot(rootMatcher);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public ListItem<T> inDialogRoot() {
+        return (ListItem<T>) super.inDialogRoot();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public ListItem<T> inPlatformPopup() {
+        return (ListItem<T>) super.inPlatformPopup();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public ListItem<T> inTouchableRoot() {
+        return (ListItem<T>) super.inTouchableRoot();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public ListItem<T> inDecorView(Matcher<View> decorViewMatcher) {
+        return (ListItem<T>) super.inDecorView(decorViewMatcher);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public ListItem<T> inFocusableRoot() {
+        return (ListItem<T>) super.inFocusableRoot();
+    }
+
+
 }

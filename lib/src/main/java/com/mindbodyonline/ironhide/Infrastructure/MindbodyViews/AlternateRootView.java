@@ -25,55 +25,59 @@ import static org.hamcrest.Matchers.not;
  *
  * @param <T> The model the current element will return when interacted with
  */
-public class AlternateRootView<T> extends MindbodyView<T> {
+@Deprecated
+public class AlternateRootView<T extends PageObject> extends MindbodyView<T> {
 
     protected Matcher<Root> rootMatcher = not(is(DEFAULT));
-
-    public AlternateRootView(Class<T> type, int resourceId) {
-        this.type = type;
-        id = resourceId;
+    public AlternateRootView(Class<T> type, Matcher<View> viewMatcher) {
+        super(type, viewMatcher);
     }
 
-    public AlternateRootView(Class<T> type, Matcher<View> selector) {
-        this.type = type;
-        this.selector = selector;
-    }
-
-    public AlternateRootView(Class<T> type, int resourceId, int stringResourceId) {
-        this.type = type;
-        id = resourceId;
-        stringId = stringResourceId;
-    }
-
-    public AlternateRootView(Class<T> type, String displayText) {
-        this.type = type;
-        text = displayText;
-    }
-
-    public AlternateRootView(Class<T> type, int resourceId, Matcher<Root> rootMatcher) {
-        this.type = type;
-        id = resourceId;
-        this.rootMatcher = rootMatcher;
-    }
-
-    public AlternateRootView(Class<T> type, Matcher<View> selector, Matcher<Root> rootMatcher) {
-        this.type = type;
-        this.selector = selector;
-        this.rootMatcher = rootMatcher;
-    }
-
-    public AlternateRootView(Class<T> type, int resourceId, int stringResourceId, Matcher<Root> rootMatcher) {
-        this.type = type;
-        id = resourceId;
-        stringId = stringResourceId;
-        this.rootMatcher = rootMatcher;
-    }
-
-    public AlternateRootView(Class<T> type, String displayText, Matcher<Root> rootMatcher) {
-        this.type = type;
-        text = displayText;
-        this.rootMatcher = rootMatcher;
-    }
+//    public AlternateRootView(Class<T> type, int resourceId) {
+//        this.type = type;
+//        id = resourceId;
+//    }
+//
+//    public AlternateRootView(Class<T> type, Matcher<View> selector) {
+//        this.type = type;
+//        this.selector = selector;
+//    }
+//
+//    public AlternateRootView(Class<T> type, int resourceId, int stringResourceId) {
+//        this.type = type;
+//        id = resourceId;
+//        stringId = stringResourceId;
+//    }
+//
+//    public AlternateRootView(Class<T> type, String displayText) {
+//        this.type = type;
+//        text = displayText;
+//    }
+//
+//    public AlternateRootView(Class<T> type, int resourceId, Matcher<Root> rootMatcher) {
+//        this.type = type;
+//        id = resourceId;
+//        this.rootMatcher = rootMatcher;
+//    }
+//
+//    public AlternateRootView(Class<T> type, Matcher<View> selector, Matcher<Root> rootMatcher) {
+//        this.type = type;
+//        this.selector = selector;
+//        this.rootMatcher = rootMatcher;
+//    }
+//
+//    public AlternateRootView(Class<T> type, int resourceId, int stringResourceId, Matcher<Root> rootMatcher) {
+//        this.type = type;
+//        id = resourceId;
+//        stringId = stringResourceId;
+//        this.rootMatcher = rootMatcher;
+//    }
+//
+//    public AlternateRootView(Class<T> type, String displayText, Matcher<Root> rootMatcher) {
+//        this.type = type;
+//        text = displayText;
+//        this.rootMatcher = rootMatcher;
+//    }
 
     /** {@inheritDoc} */
     @Override

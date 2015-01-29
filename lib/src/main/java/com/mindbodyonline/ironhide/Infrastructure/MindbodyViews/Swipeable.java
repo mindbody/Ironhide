@@ -3,6 +3,7 @@ package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
 import android.app.Instrumentation;
 import android.graphics.Point;
 import android.os.SystemClock;
+import android.support.test.espresso.Root;
 import android.support.test.espresso.action.ViewActions;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.view.MotionEvent;
@@ -10,6 +11,7 @@ import android.view.View;
 
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.MindbodyViewActions;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.MindbodyViewMatchers;
+import com.mindbodyonline.ironhide.PageObjects.PageObject;
 
 import org.hamcrest.Matcher;
 
@@ -23,14 +25,16 @@ import static org.hamcrest.Matchers.allOf;
  *
  * @param <T> The model the current element will return when interacted with
  */
-public class Swipeable<T> extends MindbodyView<T> {
+public class Swipeable<T extends PageObject> extends MindbodyView<T> {
 
     public Swipeable(Class<T> type, int resourceId) {
+        super(resourceId);
         this.id = resourceId;
         this.type = type;
     }
 
     public Swipeable(Class<T> type, Matcher<View> selector) {
+        super(type, selector);
         this.selector = selector;
         this.type = type;
     }
@@ -301,6 +305,52 @@ public class Swipeable<T> extends MindbodyView<T> {
             generateZoomGesture(instr, SystemClock.uptimeMillis(), true, finger1Start, finger2Start, finger1End, finger2End, 3000);
 
         return returnGeneric();
+    }
+
+    /**
+     * Root Matchers return Swipeable
+     */
+
+    /** {@inheritDoc} */
+    @Override
+    public Swipeable<T> changeRoot() {
+        return (Swipeable<T>) super.changeRoot();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public Swipeable<T> inRoot(Matcher<Root> rootMatcher) {
+        return (Swipeable<T>) super.inRoot(rootMatcher);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public Swipeable<T> inDialogRoot() {
+        return (Swipeable<T>) super.inDialogRoot();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public Swipeable<T> inPlatformPopup() {
+        return (Swipeable<T>) super.inPlatformPopup();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public Swipeable<T> inTouchableRoot() {
+        return (Swipeable<T>) super.inTouchableRoot();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public Swipeable<T> inDecorView(Matcher<View> decorViewMatcher) {
+        return (Swipeable<T>) super.inDecorView(decorViewMatcher);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public Swipeable<T> inFocusableRoot() {
+        return (Swipeable<T>) super.inFocusableRoot();
     }
 
 }

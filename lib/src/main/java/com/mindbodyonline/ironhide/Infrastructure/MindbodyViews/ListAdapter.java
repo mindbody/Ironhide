@@ -1,7 +1,10 @@
 package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
 
+import android.support.test.espresso.DataInteraction;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.view.View;
+
+import com.mindbodyonline.ironhide.PageObjects.PageObject;
 
 import org.hamcrest.Matcher;
 
@@ -17,7 +20,10 @@ import static org.hamcrest.Matchers.is;
  *
  * @param <T> The model the current element will return when interacted with
  */
-public class ListAdapter<T> extends MindbodyView<T> {
+public class ListAdapter<T extends PageObject> {
+
+    private Class<T> type;
+    private DataInteraction adapter;
 
     // itemType is the class of the objects that make up the list items in the list view
     public ListAdapter(Class<T> type, Class itemType) {
@@ -33,6 +39,15 @@ public class ListAdapter<T> extends MindbodyView<T> {
     public ListAdapter(Class<T> type, Class itemType, Matcher<View> selector) {
         this.type = type;
         adapter = onData(is(instanceOf(itemType))).inAdapterView(selector);
+    }
+
+    private ListAdapter(Class<T> type, DataInteraction adapter) {
+        this.type = type;
+        this.adapter = adapter;
+    }
+
+    public <E extends PageObject> ListAdapter<E> goesTo(Class<E> type) {
+        return new ListAdapter<E>(type, adapter);
     }
 
     public ListItem<T> getItemAtPosition(int index) {

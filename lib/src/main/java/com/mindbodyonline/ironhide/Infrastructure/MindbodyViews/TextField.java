@@ -11,6 +11,7 @@ import com.mindbodyonline.ironhide.Infrastructure.Extensions.EnterTextAction;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.MindbodyViewMatchers;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.SetCursorAction;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.TextViewMatchers;
+import com.mindbodyonline.ironhide.PageObjects.PageObject;
 
 import org.hamcrest.Matcher;
 
@@ -24,24 +25,55 @@ import static org.hamcrest.Matchers.anything;
  *
  * @param <T> The model the current element will return when interacted with
  */
-public class TextField<T> extends MindbodyView<T> {
+public class TextField<T extends PageObject> extends MindbodyView<T> {
 
     public TextField(Class<T> type, int resourceId) {
+        super(resourceId);
         this.type = type;
         id = resourceId;
     }
 
     public TextField(Class<T> type, int resourceId, int stringResourceId) {
+        super(resourceId);
         this.type = type;
         id = resourceId;
         stringId = stringResourceId;
     }
 
     public TextField(Class<T> type, int resourceId, int stringResourceId, String displayText) {
+        super(resourceId);
         this.type = type;
         id = resourceId;
         stringId = stringResourceId;
         text = displayText;
+    }
+
+    public TextField(Class<T> type, Matcher<View> selector) {
+        super(type, selector);
+    }
+
+    public TextField(int resourceId) {
+        super(resourceId);
+    }
+
+    public TextField(int IGNORED, int stringResourceId) {
+        super(IGNORED, stringResourceId);
+    }
+
+    public TextField(String displayText) {
+        super(displayText);
+    }
+
+    public TextField(Matcher<View> selector) {
+        super(selector);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public <E extends PageObject> TextField<E> goesTo(Class<E> type) {
+        return new TextField<E>(type, getSelector());
     }
 
     public T typeText(String toType) {
@@ -80,6 +112,7 @@ public class TextField<T> extends MindbodyView<T> {
         }
         return true;
     }
+
     public T withHintText(int stringId) {
         return checkMatches(MindbodyViewMatchers.withHintText(stringId));
     }
@@ -107,6 +140,7 @@ public class TextField<T> extends MindbodyView<T> {
 
     /**
      * Checks if the element has any links in it.
+     *
      * @return The model reached by interacting with this element.
      */
     public T hasLinks() {
@@ -115,6 +149,7 @@ public class TextField<T> extends MindbodyView<T> {
 
     /**
      * Checks to see if the element contains the string with the given resourceId.
+     *
      * @param resourceId Resource ID of the string to check for.
      * @return The model reached by interacting with this element.
      */
@@ -146,57 +181,71 @@ public class TextField<T> extends MindbodyView<T> {
         return checkMatches(TextViewMatchers.startsWith(resourceId));
     }
 
-    public T hasEllipsizeText(){
+    public T hasEllipsizeText() {
         return checkMatches(LayoutMatchers.hasEllipsizedText());
     }
 
-    public T hasMultilineText(){
+    public T hasMultilineText() {
         return checkMatches(LayoutMatchers.hasMultilineText());
     }
 
-//    /**
-//     * Root Matchers return LayoutView
-//     */
-//
-//    /** {@inheritDoc} */
-//    @Override
-//    public TextField<T> changeRoot() {
-//        return (TextField<T>) super.changeRoot();
-//    }
-//
-//    /** {@inheritDoc} */
-//    @Override
-//    public TextField<T> inRoot(Matcher<Root> rootMatcher) {
-//        return (TextField<T>) super.inRoot(rootMatcher);
-//    }
-//
-//    /** {@inheritDoc} */
-//    @Override
-//    public TextField<T> inDialogRoot() {
-//        return (TextField<T>) super.inDialogRoot();
-//    }
-//
-//    /** {@inheritDoc} */
-//    @Override
-//    public TextField<T> inPlatformPopup() {
-//        return (TextField<T>) super.inPlatformPopup();
-//    }
-//
-//    /** {@inheritDoc} */
-//    @Override
-//    public TextField<T> inTouchableRoot() {
-//        return (TextField<T>) super.inTouchableRoot();
-//    }
-//
-//    /** {@inheritDoc} */
-//    @Override
-//    public TextField<T> inDecorView(Matcher<View> decorViewMatcher) {
-//        return (TextField<T>) super.inDecorView(decorViewMatcher);
-//    }
-//
-//    /** {@inheritDoc} */
-//    @Override
-//    public TextField<T> inFocusableRoot() {
-//        return (TextField<T>) super.inFocusableRoot();
-//    }
+    /**
+     * Root Matchers return LayoutView
+     */
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public TextField<T> changeRoot() {
+        return (TextField<T>) super.changeRoot();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public TextField<T> inRoot(Matcher<Root> rootMatcher) {
+        return (TextField<T>) super.inRoot(rootMatcher);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public TextField<T> inDialogRoot() {
+        return (TextField<T>) super.inDialogRoot();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public TextField<T> inPlatformPopup() {
+        return (TextField<T>) super.inPlatformPopup();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public TextField<T> inTouchableRoot() {
+        return (TextField<T>) super.inTouchableRoot();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public TextField<T> inDecorView(Matcher<View> decorViewMatcher) {
+        return (TextField<T>) super.inDecorView(decorViewMatcher);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public TextField<T> inFocusableRoot() {
+        return (TextField<T>) super.inFocusableRoot();
+    }
 }

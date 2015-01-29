@@ -46,7 +46,6 @@ public class MindbodyView<T extends PageObject> {
     protected Class<T> type;
     protected Matcher<View> selector;
     protected DataInteraction adapter;
-    protected Matcher<Root> rootMatcher = RootMatchers.DEFAULT;
     protected ViewInteraction viewInteraction;
 
 
@@ -224,7 +223,7 @@ public class MindbodyView<T extends PageObject> {
      * @return this
      */
     public MindbodyView<T> changeRoot() {
-        return inRoot(not(is(DEFAULT)));
+        return inRoot(not(is(RootMatchers.DEFAULT)));
     }
 
     /**

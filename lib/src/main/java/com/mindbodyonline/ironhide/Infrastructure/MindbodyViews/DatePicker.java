@@ -5,6 +5,7 @@ import android.support.test.espresso.contrib.PickerActions;
 import android.view.View;
 
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.PickDateAction;
+import com.mindbodyonline.ironhide.PageObjects.PageObject;
 
 import org.hamcrest.Matcher;
 
@@ -18,29 +19,25 @@ import java.util.Date;
  *
  * @param <T> The model the current element will return when interacted with
  */
-public class DatePicker<T> extends MindbodyView<T> {
+public class DatePicker< T extends PageObject> extends MindbodyView<T> {
 
-    public DatePicker(Class<T> type, int resourceId) {
-        this.type = type;
-        id = resourceId;
+    public DatePicker(Class<T> type, Matcher<View> viewMatcher) {
+        super(type, viewMatcher);
     }
 
-    public DatePicker(Class<T> type, Matcher<View> selector) {
-        this.type = type;
-        this.selector = selector;
+    public DatePicker(int resourceId) {
+        super(resourceId);
     }
 
-    public DatePicker(Class<T> type, int resourceId, int stringResourceId) {
-        this.type = type;
-        id = resourceId;
-        stringId = stringResourceId;
+    public DatePicker(Matcher<View> selector) {
+        super(selector);
     }
 
-    public DatePicker(Class<T> type, int resourceId, int stringResourceId, String displayText) {
-        this.type = type;
-        id = resourceId;
-        stringId = stringResourceId;
-        text = displayText;
+    public DatePicker(int IGNORED, int stringResourceId) {
+        super(IGNORED, stringResourceId);
+    }
+    public DatePicker(String displayText) {
+        super(displayText);
     }
 
     public T setDate(int year, int monthOfYear, int dayOfMonth) {

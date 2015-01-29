@@ -4,6 +4,7 @@ import android.support.test.espresso.matcher.ViewMatchers;
 import android.view.View;
 
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.MindbodyViewMatchers;
+import com.mindbodyonline.ironhide.PageObjects.PageObject;
 
 import org.hamcrest.Matcher;
 
@@ -20,11 +21,14 @@ import static org.hamcrest.Matchers.is;
  *
  * @param <T> The model the current element will return when interacted with
  */
-public class DynamicListAdapter<T> extends MindbodyView<T> {
+public class DynamicListAdapter<T extends PageObject> {
 
     private int parentId;
     private Class parentClass;
     private Class itemType;
+
+    private Class<T> type;
+    private Matcher<View> childMatcher;
 
     public DynamicListAdapter(Class<T> type, Class itemType) {
         this.type = type;
@@ -49,11 +53,6 @@ public class DynamicListAdapter<T> extends MindbodyView<T> {
         this.parentId = parentId;
         this.itemType = itemType;
         this.parentClass = parentClass;
-    }
-
-    public DynamicListAdapter(Class<T> type, Class itemType, Matcher<View> selector) {
-        this.type = type;
-        adapter = onData(is(instanceOf(itemType))).inAdapterView(selector);
     }
 
     public Clickable<T> getItemAt(int index) {
