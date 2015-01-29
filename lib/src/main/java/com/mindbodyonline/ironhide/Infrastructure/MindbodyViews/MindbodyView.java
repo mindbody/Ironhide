@@ -7,6 +7,7 @@ import android.support.test.espresso.DataInteraction;
 import android.support.test.espresso.Root;
 import android.support.test.espresso.ViewAction;
 import android.support.test.espresso.ViewAssertion;
+import android.support.test.espresso.ViewInteraction;
 import android.support.test.espresso.action.EspressoKey;
 import android.support.test.espresso.action.ViewActions;
 import android.support.test.espresso.assertion.LayoutAssertions;
@@ -37,7 +38,7 @@ import static org.hamcrest.Matchers.not;
  *
  * @param <T> The model the current element will return when interacted with
  */
-public class MindbodyView<T> {
+public class MindbodyView<T extends PageObject> {
 
     protected int id;
     protected int stringId;
@@ -46,6 +47,59 @@ public class MindbodyView<T> {
     protected Matcher<View> selector;
     protected DataInteraction adapter;
     protected Matcher<Root> rootMatcher = RootMatchers.DEFAULT;
+    protected ViewInteraction viewInteraction;
+
+
+    /**
+     * Instantiates a {@link android.support.test.espresso.ViewInteraction} and retains type and selector for later access.
+     * @param type the class of the generic type
+     * @param selector  the {@link org.hamcrest.Matcher<View>} to select the view
+     */
+    protected MindbodyView(Class<T> type, Matcher<View> selector) {
+        this.type = type;
+        this.selector = selector;
+        this.viewInteraction = onView(selector);
+    }
+
+    /**
+     * A generically typed MindbodyView with selector: {@link android.support.test.espresso.matcher.ViewMatchers#withId(int)}
+     * @param resourceId    the resource id of the view to interact with
+     */
+    protected MindbodyView(int resourceId) {
+        this(ViewMatchers.withId(resourceId));
+    }
+
+    /**
+     * A generically typed MindbodyView with selector: {@link android.support.test.espresso.matcher.ViewMatchers#withText(int)}
+     * @param IGNORED   an ignored integer to distinguish this constructor from {@link com.mindbodyonline.ironhide.Infrastructure.MindbodyViews.MindbodyView(int)}
+     * @param stringResourceId    the resource id of the string for the view to interact withn
+     */
+    protected MindbodyView(int IGNORED, int stringResourceId) {
+        this(ViewMatchers.withText(stringResourceId));
+    }
+
+    /**
+     * A generically typed MindbodyView with selector: {@link android.support.test.espresso.matcher.ViewMatchers#withText(String)}
+     * @param displayText   the text inside the view to interact with
+     */
+    protected MindbodyView(String displayText) {
+        this(ViewMatchers.withText(displayText));
+    }
+
+    /**
+     * A generically typed MindbodyView with selector given
+     * @param selector  the matcher for the view to interact with
+     */
+    protected MindbodyView(Matcher<View> selector) {
+        this(null, selector);
+    }
+
+    /**
+     * Changes the destination class by returning an object of the given type
+     */
+    protected <E extends PageObject> MindbodyView<E> goesTo(Class<E> type) {
+        return new MindbodyView<E>(type, selector);
+    }
 
     /**
      * Gets the appropriate selector for the current view element
@@ -161,17 +215,69 @@ public class MindbodyView<T> {
         }
     }
 
-    /** Changes the root for this view to be anything that is not the default root selected by Espresso.
-            * @return this		      * @return this
-            **/
-//       public MindbodyView<T> changeRoot() {
-//           return inRoot(not(is(DEFAULT)));
-//    }
+/**
+ * Root changers
+ */
 
-    public MindbodyView<T> inRoot(Matcher<Root> rootMatcher) {
-        this.rootMatcher = rootMatcher;
+    /**
+     * Changes the root for this view to be anything that is not the default root selected by Espresso.
+     * @return this
+     */
+    public MindbodyView<T> changeRoot() {
+        return inRoot(not(is(DEFAULT)));
+    }
+
+    /**
+     * Changes the root to search for this view to be a dialog
+     */
+    public MindbodyView<T> inDialogRoot() {
+        return inRoot(RootMatchers.isDialog());
+    }
+
+    /**
+     * Changes the root to search for this view to be a platform popup
+     */
+    public MindbodyView<T> inPlatformPopup() {
+        return inRoot(RootMatchers.isPlatformPopup());
+    }
+
+    /**
+     * Changes the root to search for this view to be touchable
+     */
+    public MindbodyView<T> inTouchableRoot() {
+        return inRoot(RootMatchers.isTouchable());
+    }
+
+    /**
+     * Changes the root to search for this view to be a decor view
+     */
+    public MindbodyView<T> inDecorView(Matcher<View> decorViewMatcher) {
+        return inRoot(RootMatchers.withDecorView(decorViewMatcher));
+    }
+
+    /**
+     * Changes the root to search for this view to be focusable
+     */
+    public MindbodyView<T> inFocusableRoot() {
+        return inRoot(RootMatchers.isFocusable());
+    }
+
+    /**
+     * Changes the root for this view to match the given rootMatcher
+     * @param rootMatcher a rootMatcher using Espresso's RootMatchers
+     * @return  this
+     */
+    protected MindbodyView<T> inRoot(Matcher<Root> rootMatcher) {
+        this.viewInteraction = this.viewInteraction.inRoot(rootMatcher);
+
         return this;
     }
+
+    /**
+     * End Root changers
+     */
+
+    /*============================================================================================*/
     /**
      * ViewActions
      */

@@ -104,9 +104,6 @@ public class TextField<T> extends MindbodyView<T> {
      * More matchers
      */
 
-    /**
-     * More matchers
-     */
 
     /**
      * Checks if the element has any links in it.
