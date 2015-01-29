@@ -1,8 +1,11 @@
 package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
 
 import android.net.Uri;
+import android.support.test.espresso.Root;
 import android.support.test.espresso.action.ViewActions;
+import android.support.test.espresso.matcher.LayoutMatchers;
 import android.support.test.espresso.matcher.ViewMatchers;
+import android.view.View;
 
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.EnterTextAction;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.MindbodyViewMatchers;
@@ -101,6 +104,23 @@ public class TextField<T> extends MindbodyView<T> {
      * More matchers
      */
 
+    /**
+     * More matchers
+     */
+
+    /**
+     * Checks if the element has any links in it.
+     * @return The model reached by interacting with this element.
+     */
+    public T hasLinks() {
+        return checkMatches(ViewMatchers.hasLinks());
+    }
+
+    /**
+     * Checks to see if the element contains the string with the given resourceId.
+     * @param resourceId Resource ID of the string to check for.
+     * @return The model reached by interacting with this element.
+     */
     public T containsString(int resourceId) {
         return checkMatches(TextViewMatchers.containsString(resourceId));
     }
@@ -128,4 +148,58 @@ public class TextField<T> extends MindbodyView<T> {
     public T startsWith(final int resourceId) {
         return checkMatches(TextViewMatchers.startsWith(resourceId));
     }
+
+    public T hasEllipsizeText(){
+        return checkMatches(LayoutMatchers.hasEllipsizedText());
+    }
+
+    public T hasMultilineText(){
+        return checkMatches(LayoutMatchers.hasMultilineText());
+    }
+
+//    /**
+//     * Root Matchers return LayoutView
+//     */
+//
+//    /** {@inheritDoc} */
+//    @Override
+//    public TextField<T> changeRoot() {
+//        return (TextField<T>) super.changeRoot();
+//    }
+//
+//    /** {@inheritDoc} */
+//    @Override
+//    public TextField<T> inRoot(Matcher<Root> rootMatcher) {
+//        return (TextField<T>) super.inRoot(rootMatcher);
+//    }
+//
+//    /** {@inheritDoc} */
+//    @Override
+//    public TextField<T> inDialogRoot() {
+//        return (TextField<T>) super.inDialogRoot();
+//    }
+//
+//    /** {@inheritDoc} */
+//    @Override
+//    public TextField<T> inPlatformPopup() {
+//        return (TextField<T>) super.inPlatformPopup();
+//    }
+//
+//    /** {@inheritDoc} */
+//    @Override
+//    public TextField<T> inTouchableRoot() {
+//        return (TextField<T>) super.inTouchableRoot();
+//    }
+//
+//    /** {@inheritDoc} */
+//    @Override
+//    public TextField<T> inDecorView(Matcher<View> decorViewMatcher) {
+//        return (TextField<T>) super.inDecorView(decorViewMatcher);
+//    }
+//
+//    /** {@inheritDoc} */
+//    @Override
+//    public TextField<T> inFocusableRoot() {
+//        return (TextField<T>) super.inFocusableRoot();
+//    }
 }

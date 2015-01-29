@@ -2,11 +2,14 @@ package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
 
 
 import android.app.Activity;
+import android.net.Uri;
 import android.support.test.espresso.DataInteraction;
+import android.support.test.espresso.Root;
 import android.support.test.espresso.ViewAction;
 import android.support.test.espresso.ViewAssertion;
 import android.support.test.espresso.action.EspressoKey;
 import android.support.test.espresso.action.ViewActions;
+import android.support.test.espresso.assertion.LayoutAssertions;
 import android.support.test.espresso.assertion.PositionAssertions;
 import android.support.test.espresso.assertion.ViewAssertions;
 import android.support.test.espresso.contrib.DrawerActions;
@@ -24,6 +27,7 @@ import org.hamcrest.Matcher;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
+import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 
 /**
@@ -41,6 +45,7 @@ public class MindbodyView<T> {
     protected Class<T> type;
     protected Matcher<View> selector;
     protected DataInteraction adapter;
+    protected Matcher<Root> rootMatcher = RootMatchers.DEFAULT;
 
     /**
      * Gets the appropriate selector for the current view element
@@ -156,6 +161,17 @@ public class MindbodyView<T> {
         }
     }
 
+    /** Changes the root for this view to be anything that is not the default root selected by Espresso.
+            * @return this		      * @return this
+            **/
+//       public MindbodyView<T> changeRoot() {
+//           return inRoot(not(is(DEFAULT)));
+//    }
+
+    public MindbodyView<T> inRoot(Matcher<Root> rootMatcher) {
+        this.rootMatcher = rootMatcher;
+        return this;
+    }
     /**
      * ViewActions
      */
@@ -182,6 +198,14 @@ public class MindbodyView<T> {
 
     public T click() {
         return performAction(ViewActions.click());
+    }
+
+    /**
+     * Click on the element.
+     * @return The model reached by interacting with this element.
+     */
+    public T click(ViewAction rollbackAction) {
+        return performAction(ViewActions.click(rollbackAction));
     }
 
     public <E extends PageObject> E click(Class<E> type) {
@@ -224,6 +248,52 @@ public class MindbodyView<T> {
     public <E extends PageObject> E screenShot(Activity activity, String tag, Class<E> type) {
         Spoon.screenshot(activity, tag);
         return returnGeneric(type);
+    }
+
+    /**
+     * Opens a link matching the given link text and uri matchers.
+     * @param linkTextMatcher Link matcher to check match against.
+     * @param uriMatcher URI matcher to match against
+     * @return The model reached by interacting with this element
+     */
+    public T openLink(Matcher<String> linkTextMatcher, Matcher<Uri> uriMatcher){
+        return performAction(ViewActions.openLink(linkTextMatcher, uriMatcher));
+    }
+
+    /**
+     * Opens a link matching the given link text matcher.
+     * @param linkTextMatcher Link matcher to check match against.
+     * @return The model reached by interacting with this element
+     */
+    public T openLinkWithText(Matcher<String> linkTextMatcher){
+        return performAction(ViewActions.openLinkWithText(linkTextMatcher));
+    }
+
+    /**
+     * Open a link with the given text.
+     * @param linkText Text to match against
+     * @return The model reached by interacting with this element
+     */
+    public T openLinkWithText(String linkText){
+        return performAction(ViewActions.openLinkWithText(linkText));
+    }
+
+    /**
+     * Open a link with the given uri.
+     * @param uri Uri to match against
+     * @return The model reached by interacting with this element
+     */
+    public T openLinkWithUri(String uri){
+        return performAction(ViewActions.openLinkWithUri(uri));
+    }
+
+    /**
+     * Open a link with the given uri matcher.
+     * @param uriMatcher URI matcher to match against.
+     * @return The model reached by interacting with this element
+     */
+    public T openLinkWithUri(Matcher<Uri> uriMatcher){
+        return performAction(ViewActions.openLinkWithUri(uriMatcher));
     }
 
     /**
@@ -413,6 +483,34 @@ public class MindbodyView<T> {
     }
 
     /**
+     * TODO: extract this to be more generic similar to TextFieldMatchers
+     * Checks to see if the element is a spinner with toString matching given string matcher
+     * @return The model reached by interacting with this element.
+     */
+    public T withSpinnerText(Matcher<String> stringMatcher) {
+        return checkMatches(ViewMatchers.withSpinnerText(stringMatcher));
+    }
+
+    /**
+     * TODO: extract this to be more generic similar to TextFieldMatchers
+     * Checks to see if the element is a spinner with toString matching given string matcher
+     * @return The model reached by interacting with this element.
+     */
+    public T withSpinnerText(String text) {
+        return checkMatches(ViewMatchers.withSpinnerText(text));
+    }
+
+    /**
+     * TODO: extract this to be more generic similar to TextFieldMatchers
+     * Checks to see if the element is a spinner with toString matching given string matcher
+     * @return The model reached by interacting with this element.
+     */
+    public T withSpinnerText(int resourceid) {
+        return checkMatches(ViewMatchers.withSpinnerText(resourceid));
+    }
+
+
+    /**
      * End ViewMatchers
      */
 
@@ -474,6 +572,47 @@ public class MindbodyView<T> {
         return checkAssertion(PositionAssertions.isTopAlignedWith(matcher));
     }
 
+    /*============================================================================================*/
+    /**
+     * Layout-based Assertions
+     */
+
+    /**
+     * Checks whether the entire view hierarchy does not contain ellipsized or cut off text views.
+     * @return The model reached by interacting with this element.
+     */
+    public T noEllipziedText() {
+        return checkAssertion(LayoutAssertions.noEllipsizedText());
+    }
+
+    /**
+     * Checks whether the entire view hierarchy does not contain multiline buttons.
+     * @return The model reached by interacting with this element.
+     */
+    public T noMultilineButtons() {
+        return checkAssertion(LayoutAssertions.noMultilineButtons());
+    }
+
+    /**
+     * Checks that all descendant view matching the selector do not overlap each other.
+     * @param selector
+     * @return The model reached by interacting with this element.
+     */
+    public T noOverLaps(Matcher<View> selector){
+        return checkAssertion(LayoutAssertions.noOverlaps(selector));
+    }
+
+    /**
+     * Checks that descendant objects of type TextView or ImageView do not overlap each other.
+     * @return The model reached by interacting with this element.
+     */
+    public T noOverLaps(){
+        return checkAssertion(LayoutAssertions.noOverlaps());
+    }
+
+    /**
+     * End Layout-based Assertions
+     */
     /*============================================================================================*/
 
     /**
