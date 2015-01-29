@@ -7,7 +7,7 @@
 
 *.war
 *.ear
-.idea\
+.idea/
 build/
 gradle/
 .gradle/
