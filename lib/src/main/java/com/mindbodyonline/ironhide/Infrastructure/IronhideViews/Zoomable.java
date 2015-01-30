@@ -1,19 +1,25 @@
 package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
-import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Instrumentation;
 import android.graphics.Point;
 import android.os.SystemClock;
 import android.support.test.espresso.Root;
 import android.support.test.espresso.action.ViewActions;
-import android.view.MotionEvent;
+import android.view.MotionEvent.PointerCoords;
+import android.view.MotionEvent.PointerProperties;
 import android.view.View;
 
 import com.mindbodyonline.ironhide.PageObjects.PageObject;
 
 import org.hamcrest.Matcher;
 
+import static android.view.MotionEvent.ACTION_DOWN;
+import static android.view.MotionEvent.ACTION_POINTER_DOWN;
+import static android.view.MotionEvent.ACTION_UP;
+import static android.view.MotionEvent.ACTION_POINTER_UP;
+import static android.view.MotionEvent.ACTION_MOVE;
+import static android.view.MotionEvent.ACTION_POINTER_INDEX_SHIFT;
 import static android.view.MotionEvent.TOOL_TYPE_FINGER;
 import static android.view.MotionEvent.obtain;
 
@@ -56,16 +62,16 @@ public class Zoomable<T extends PageObject> extends BaseView<T> {
     Point finger2Start;
     Point finger2End;
 
-    private MotionEvent.PointerProperties getPointerProperties(int id, int toolType) {
-        MotionEvent.PointerProperties tmp = new MotionEvent.PointerProperties();
+    private PointerProperties getPointerProperties(int id, int toolType) {
+        PointerProperties tmp = new PointerProperties();
         tmp.id = id;
         tmp.toolType = toolType;
 
         return tmp;
     }
 
-    private MotionEvent.PointerCoords getPointerCoords(float x, float y, float pressure, float size) {
-        MotionEvent.PointerCoords tmp = new MotionEvent.PointerCoords();
+    private PointerCoords getPointerCoords(float x, float y, float pressure, float size) {
+        PointerCoords tmp = new PointerCoords();
         tmp.x = x;
         tmp.y = y;
         tmp.pressure = pressure;
@@ -74,14 +80,13 @@ public class Zoomable<T extends PageObject> extends BaseView<T> {
         return tmp;
     }
 
-    private MotionEvent obtainWrapper(long downTime, long eventTime, int action, int pointerCount,
-                                      MotionEvent.PointerProperties[] pointerProperties,
-                                      MotionEvent.PointerCoords[] pointerCoords) {
-
-        return MotionEvent.obtain(downTime, eventTime, action, pointerCount, pointerProperties, pointerCoords, 0, 0, 1, 1, 0, 0, 0, 0);
+    private void pointerSync(long downTime, long eventTime, int action, int pointerCount,
+                             PointerProperties[] properties,
+                             PointerCoords[] coords, Instrumentation inst) {
+        inst.sendPointerSync(obtain(downTime, eventTime, action, pointerCount, properties, coords, 0, 0, 1, 1, 0, 0, 0, 0));
     }
 
-    // TODO: cleanup and refactor this method (98 lines still)
+    // TODO 71
     public void generateZoomGesture(Instrumentation inst,
                                     long startTime, boolean ifMove, Point startPoint1,
                                     Point startPoint2, Point endPoint1,
@@ -94,50 +99,30 @@ public class Zoomable<T extends PageObject> extends BaseView<T> {
         }
 
         long eventTime = startTime;
-        @SuppressLint("redundant") // because it really isn't
-        long downTime = startTime;
-        MotionEvent event;
 
         FPoint event1 = new FPoint(startPoint1);
         FPoint event2 = new FPoint(startPoint2);
 
         // specify the property for the two touch points
-        MotionEvent.PointerProperties[] properties = new MotionEvent.PointerProperties[] {
+        PointerProperties[] properties = new PointerProperties[] {
                 getPointerProperties(0, TOOL_TYPE_FINGER),
                 getPointerProperties(1, TOOL_TYPE_FINGER)
         };
 
         //specify the coordinations of the two touch points
         //NOTE: you MUST set the pressure and size value, or it doesn't work
-        MotionEvent.PointerCoords[] coords = new MotionEvent.PointerCoords[] {
+        PointerCoords[] coords = new PointerCoords[] {
                 getPointerCoords(event1.x, event1.y, 1, 1),
                 getPointerCoords(event2.x, event2.y, 1, 1)
         };
+        
+        int action2Mod = properties[1].id << ACTION_POINTER_INDEX_SHIFT;
 
-        //////////////////////////////////////////////////////////////
-        // events sequence of zoom gesture
-        // 1. send ACTION_DOWN event of one start point
-        // 2. send ACTION_POINTER_2_DOWN of two start points
-        // 3. send ACTION_MOVE of two middle points
-        // 4. repeat step 3 with updated middle points (x,y),
-        //      until reach the end points
-        // 5. send ACTION_POINTER_2_UP of two end points
-        // 6. send ACTION_UP of one end point
-        //////////////////////////////////////////////////////////////
+        // step 1 - send ACTION_DOWN event of start points
+        pointerSync(startTime, eventTime, ACTION_DOWN, 1, properties, coords, inst);
+        pointerSync(startTime, eventTime, ACTION_POINTER_DOWN + action2Mod, 2, properties, coords, inst);
 
-        // step 1
-        event = obtainWrapper(downTime, eventTime, MotionEvent.ACTION_DOWN, 1, properties, coords);
-
-        inst.sendPointerSync(event);
-
-        //step 2
-        event = obtainWrapper(downTime, eventTime,
-                   MotionEvent.ACTION_POINTER_DOWN + (properties[1].id << MotionEvent.ACTION_POINTER_INDEX_SHIFT),
-                  2, properties, coords);
-
-        inst.sendPointerSync(event);
-
-        //step 3, 4
+        //step 2 - send ACTION_MOVE of two middle points until reach the end points
         if (ifMove) {
             int moveEventNumber = duration / EVENT_MIN_INTERVAL;
 
@@ -158,28 +143,20 @@ public class Zoomable<T extends PageObject> extends BaseView<T> {
                 event1.putXY(coords[0]);
                 event2.putXY(coords[1]);
 
-                event = obtainWrapper(downTime, eventTime, MotionEvent.ACTION_MOVE, 2, properties, coords);
-
-                inst.sendPointerSync(event);
+                pointerSync(startTime, eventTime, ACTION_MOVE, 2, properties, coords, inst);
             }
         }
 
-        //step 5
+        //step 3 - send ACTION_POINTER_2_UP of two end points
         new FPoint(endPoint1).putXY(coords[0]);
         new FPoint(endPoint2).putXY(coords[1]);
 
         eventTime += EVENT_MIN_INTERVAL;
-        event = obtainWrapper(downTime, eventTime,
-                MotionEvent.ACTION_POINTER_DOWN + (properties[1].id << MotionEvent.ACTION_POINTER_INDEX_SHIFT),
-                2, properties, coords);
+        pointerSync(startTime, eventTime, ACTION_POINTER_UP + action2Mod, 2, properties, coords, inst);
 
-        inst.sendPointerSync(event);
-
-        // step 6
+        // step 4 - send ACTION_UP of one end point
         eventTime += EVENT_MIN_INTERVAL;
-        event = obtainWrapper(downTime, eventTime, MotionEvent.ACTION_UP, 1, properties, coords);
-
-        inst.sendPointerSync(event);
+        pointerSync(startTime, eventTime, ACTION_UP, 1, properties, coords, inst);
     }
 
     public T zoomAllIn(int phoneMaxX, int phoneMaxY){
@@ -247,7 +224,7 @@ public class Zoomable<T extends PageObject> extends BaseView<T> {
             this.y *= scale;
         }
 
-        public void putXY(MotionEvent.PointerCoords coords) {
+        public void putXY(PointerCoords coords) {
             coords.x = this.x;
             coords.y = this.y;
         }
