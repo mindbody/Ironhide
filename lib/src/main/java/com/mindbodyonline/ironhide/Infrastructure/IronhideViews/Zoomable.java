@@ -6,25 +6,26 @@ import android.graphics.Point;
 import android.os.SystemClock;
 import android.support.test.espresso.Root;
 import android.support.test.espresso.ViewAction;
+import android.support.test.espresso.action.CoordinatesProvider;
+import android.support.test.espresso.action.GeneralLocation;
+import android.support.test.espresso.action.GeneralSwipeAction;
+import android.support.test.espresso.action.Swipe;
 import android.support.test.espresso.action.ViewActions;
 import android.support.v4.util.Pair;
 import android.view.MotionEvent.PointerCoords;
 import android.view.MotionEvent.PointerProperties;
 import android.view.View;
 
+import com.mindbodyonline.ironhide.Infrastructure.Extensions.SwipeAction;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.ZoomAction;
 import com.mindbodyonline.ironhide.PageObjects.PageObject;
 
 import org.hamcrest.Matcher;
 
-import static android.view.MotionEvent.ACTION_DOWN;
-import static android.view.MotionEvent.ACTION_POINTER_DOWN;
-import static android.view.MotionEvent.ACTION_UP;
-import static android.view.MotionEvent.ACTION_POINTER_UP;
-import static android.view.MotionEvent.ACTION_MOVE;
-import static android.view.MotionEvent.ACTION_POINTER_INDEX_SHIFT;
-import static android.view.MotionEvent.TOOL_TYPE_FINGER;
-import static android.view.MotionEvent.obtain;
+import static com.mindbodyonline.ironhide.Infrastructure.Extensions.SwipeAction.getSwipe;
+import static android.support.test.espresso.action.Swipe.FAST;
+import static com.mindbodyonline.ironhide.Infrastructure.Extensions.SwipeAction.SwipeDirection.DOWN;
+import static android.support.test.espresso.action.GeneralLocation.*;
 
 /**
  * Simple element that allows to perform a zoom on the screen.
@@ -66,38 +67,38 @@ public class Zoomable<T extends PageObject> extends BaseView<T> {
         return (Zoomable<E>) super.goesTo(type);
     }
 
-    private static Point finger1Start;
-    private static Point finger1End;
-    private static Point finger2Start;
-    private static Point finger2End;
+    private static CoordinatesProvider finger1Start;
+    private static CoordinatesProvider finger1End;
+    private static CoordinatesProvider finger2Start;
+    private static CoordinatesProvider finger2End;
 
     public T zoomAllIn(int phoneMaxX, int phoneMaxY){
-        finger1Start = new Point(phoneMaxX/2, phoneMaxY/2);
-        finger1End = new Point(phoneMaxX/2, phoneMaxY/3);
-        finger2Start = new Point(finger1Start);
-        finger2End = new Point(phoneMaxX/2, phoneMaxY);
+        finger1Start = CENTER;
+        finger1End = TOP_RIGHT;
+        finger2Start = CENTER;
+        finger2End = BOTTOM_LEFT;
 
         zoom(ZOOMS_IN_PER_ALL_ZOOM);
 
         for (int i = 0; i < SWIPES_PER_ALL_ZOOM_IN; i++)
-            performAction(ViewActions.swipeDown());
+            performAction(getSwipe(FAST, DOWN));
 
         return returnGeneric();
 
     }
 
     public T zoomAllOut(int phoneMaxX, int phoneMaxY){
-        finger1Start = new Point(phoneMaxX/2, phoneMaxY/3);
-        finger1End = new Point(phoneMaxX/2, phoneMaxY/2);
-        finger2Start = new Point(phoneMaxX/2, phoneMaxY);
-        finger2End = new Point(finger1End);
+        finger1Start = TOP_RIGHT;
+        finger1End = CENTER;
+        finger2Start = BOTTOM_LEFT;
+        finger2End = CENTER;
 
         return zoom(ZOOMS_OUT_PER_ALL_ZOOM);
     }
 
     // changed this one to private since we will have uninitialized variables if people black box this function
     private T zoom(int numTimes) {
-        ViewAction zoom = new ZoomAction(Pair.create(finger1Start, finger2Start), Pair.create(finger1End, finger2End));
+        ViewAction zoom = new ZoomAction(finger1Start, finger2Start, finger1End, finger2End);
 
         while (numTimes-- > 0)
             performAction(zoom);
