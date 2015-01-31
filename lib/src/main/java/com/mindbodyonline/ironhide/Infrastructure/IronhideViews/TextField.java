@@ -7,8 +7,6 @@ import android.support.test.espresso.matcher.LayoutMatchers;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.view.View;
 
-import com.mindbodyonline.ironhide.Infrastructure.Extensions.EnterTextAction;
-import com.mindbodyonline.ironhide.Infrastructure.Extensions.SetCursorAction;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.TextViewMatchers;
 import com.mindbodyonline.ironhide.PageObjects.PageObject;
 
@@ -82,43 +80,12 @@ public class TextField<T extends PageObject> extends BaseView<T> {
     }
 
     /**
-     * Method to enter text by simulating a user inputting to the android keyboard.
-     * Useful when interacting with an EditText View which uses an OnTextChangedListener
-     * @param toType Text to type.
-     * @return The model reached by interacting with this element.
-     */
-    public T enterText(String toType) {
-        return performAction(enterTextAction(toType));
-    }
-
-    /**
      * Replace the current text in the text field with the given new text.
      * @param newText Text to replace with
      * @return The model reached by interacting with this element.
      */
     public T replaceText(String newText) {
         return performAction(ViewActions.replaceText(newText));
-    }
-
-    public T setCursor() {
-        return performAction(setCursorAction());
-    }
-
-    private EnterTextAction enterTextAction(String toType) {
-        return new EnterTextAction(toType);
-    }
-
-    private SetCursorAction setCursorAction() {
-        return new SetCursorAction();
-    }
-
-    public boolean textFieldWithText(String string) {
-        try {
-            checkMatches(ViewMatchers.withText(string));
-        } catch (Exception e) {
-            return false;
-        }
-        return true;
     }
 
     /**

@@ -6,7 +6,7 @@ import android.support.test.espresso.matcher.CursorMatchers;
 import org.hamcrest.Matcher;
 
 /**
- * Created by gregory.sawers on 1/27/2015.
+ * Cursors provides cursor assertion chaining.
  */
 public class Cursors {
 

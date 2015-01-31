@@ -1,23 +1,30 @@
 package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
 import android.support.test.espresso.Root;
-import android.support.test.espresso.action.ViewActions;
+import android.support.test.espresso.ViewAction;
+import android.support.test.espresso.action.Swiper;
 import android.view.View;
 
-import com.mindbodyonline.ironhide.Infrastructure.Extensions.SwipeActions;
+import com.mindbodyonline.ironhide.Infrastructure.Extensions.SwipeAction;
 import com.mindbodyonline.ironhide.PageObjects.PageObject;
 
 import org.hamcrest.Matcher;
 
+import static android.support.test.espresso.action.Swipe.FAST;
+import static com.mindbodyonline.ironhide.Infrastructure.Extensions.SwipeAction.getSwipe;
+
 /**
  * Simple element that allows to perform a swipe on the screen.
- * Allows fast/slow versions of up and down swipes for scrolling through {@link android.view.ViewGroup}s
- *  as well as multiplicative versions of left and right swipes for paging through {@link android.support.v4.view.ViewPager}s
+ * Allows fast/slow versions of Espresso's swipes, as well as changing the number of swipes done in
+ *  one function call.
  * Use this when the main purpose of the element will be to swipe the screen
  *
  * @param <T> The model the current element will return when interacted with
  */
 public class Swipeable<T extends PageObject> extends BaseView<T> {
+
+    public static final int DEFAULT_TIMES = 1;
+    public static final Swiper DEFAULT_SPEED = FAST;
 
     /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(Class, org.hamcrest.Matcher) */
     public Swipeable(Class<T> type, Matcher<View> selector) {
@@ -40,73 +47,53 @@ public class Swipeable<T extends PageObject> extends BaseView<T> {
         return new Swipeable<E>(type, getSelector());
     }
 
-    public T swipeLeft() {
-        return performAction(ViewActions.swipeLeft());
+    /**
+     * {@link com.mindbodyonline.ironhide.Infrastructure.IronhideViews.Swipeable#swipe(
+     *  android.support.test.espresso.action.Swiper,
+     *  com.mindbodyonline.ironhide.Infrastructure.Extensions.SwipeAction.SwipeDirection,
+     *  int)}
+     * with {@link com.mindbodyonline.ironhide.Infrastructure.IronhideViews.Swipeable#DEFAULT_SPEED}
+     * and {@link com.mindbodyonline.ironhide.Infrastructure.IronhideViews.Swipeable#DEFAULT_TIMES}
+     */
+    public T swipe(SwipeAction.SwipeDirection direction) {
+        return swipe(DEFAULT_SPEED, direction, DEFAULT_TIMES);
     }
 
-    public T swipeLeft(int numTimes) {
-        for(int i = 0; i < numTimes-1 ; i++){
-            performAction(ViewActions.swipeLeft());
-        }
-        return performAction(ViewActions.swipeLeft());
+    /**
+     * {@link com.mindbodyonline.ironhide.Infrastructure.IronhideViews.Swipeable#swipe(
+     *  android.support.test.espresso.action.Swiper,
+     *  com.mindbodyonline.ironhide.Infrastructure.Extensions.SwipeAction.SwipeDirection,
+     *  int)}
+     * with {@link com.mindbodyonline.ironhide.Infrastructure.IronhideViews.Swipeable#DEFAULT_TIMES}
+     */
+    public T swipe(Swiper speed, SwipeAction.SwipeDirection direction) {
+        return swipe(speed, direction, DEFAULT_TIMES);
     }
 
-    public T swipeRight() {
-        return performAction(ViewActions.swipeRight());
+    /**
+     * {@link com.mindbodyonline.ironhide.Infrastructure.IronhideViews.Swipeable#swipe(
+     *  android.support.test.espresso.action.Swiper,
+     *  com.mindbodyonline.ironhide.Infrastructure.Extensions.SwipeAction.SwipeDirection,
+     *  int)}
+     * with {@link com.mindbodyonline.ironhide.Infrastructure.IronhideViews.Swipeable#DEFAULT_SPEED}
+     */
+    public T swipe(SwipeAction.SwipeDirection direction, int times) {
+        return swipe(DEFAULT_SPEED, direction, times);
     }
 
-    public T swipeRight(int numTimes) {
-        for(int i = 0; i < numTimes-1 ; i++){
-            performAction(ViewActions.swipeRight());
-        }
-        return performAction(ViewActions.swipeRight());
-    }
+    /**
+     * Performs a generic swipe action on the element
+     * @param speed the speed of the swipe action
+     * @param direction the direction of the swipe action
+     * @param times the number of times to perform the swipe action
+     * @return  The model reached by interacting with this element.
+     */
+    public T swipe(Swiper speed, SwipeAction.SwipeDirection direction, int times) {
+        ViewAction swipe = getSwipe(speed, direction);
+        while (times-- > 0)
+            performAction(swipe);
 
-    public T swipeDownFast(){
-        return performAction(SwipeActions.swipeDownFast());
-    }
-
-    public T swipeDownSlow(){
-        return performAction(SwipeActions.swipeDownSlow());
-    }
-
-    public T swipeDownSlow(int numTimes){
-        for(int i = 0; i < numTimes-1 ; i++){
-            performAction(SwipeActions.swipeDownSlow());
-        }
-        return performAction(SwipeActions.swipeDownSlow());
-    }
-
-    public T swipeUpFast(){ return performAction(SwipeActions.swipeUpFast()); }
-
-    public T swipeUpSlow(){ return performAction(SwipeActions.swipeUpSlow()); }
-
-    public T swipeUpSlow(int numTimes){
-        for(int i = 0; i < numTimes-1 ; i++){
-            performAction(SwipeActions.swipeUpSlow());
-        }
-        return performAction(SwipeActions.swipeUpSlow());
-
-    }
-
-    public T swipeFullRight(){ return performAction(SwipeActions.swipeFullRight()); }
-
-    public T swipeFullRight(int numTimes){
-        for(int i = 0; i < numTimes-1 ; i++){
-            performAction(SwipeActions.swipeFullRight());
-        }
-        return performAction(SwipeActions.swipeFullRight());
-
-    }
-
-    public T swipeFullLeft(){ return performAction(SwipeActions.swipeFullLeft()); }
-
-    public T swipeFullLeft(int numTimes){
-        for(int i = 0; i < numTimes-1 ; i++){
-            performAction(SwipeActions.swipeFullLeft());
-        }
-        return performAction(SwipeActions.swipeFullLeft());
-
+        return returnGeneric();
     }
 
     /**
