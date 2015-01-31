@@ -1,31 +1,22 @@
 package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
 import android.annotation.TargetApi;
-import android.app.Instrumentation;
-import android.graphics.Point;
-import android.os.SystemClock;
 import android.support.test.espresso.Root;
 import android.support.test.espresso.ViewAction;
 import android.support.test.espresso.action.CoordinatesProvider;
-import android.support.test.espresso.action.GeneralLocation;
-import android.support.test.espresso.action.GeneralSwipeAction;
-import android.support.test.espresso.action.Swipe;
-import android.support.test.espresso.action.ViewActions;
-import android.support.v4.util.Pair;
-import android.view.MotionEvent.PointerCoords;
-import android.view.MotionEvent.PointerProperties;
 import android.view.View;
 
-import com.mindbodyonline.ironhide.Infrastructure.Extensions.SwipeAction;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.ZoomAction;
 import com.mindbodyonline.ironhide.PageObjects.PageObject;
 
 import org.hamcrest.Matcher;
 
-import static com.mindbodyonline.ironhide.Infrastructure.Extensions.SwipeAction.getSwipe;
+import static android.support.test.espresso.action.GeneralLocation.BOTTOM_LEFT;
+import static android.support.test.espresso.action.GeneralLocation.CENTER;
+import static android.support.test.espresso.action.GeneralLocation.TOP_RIGHT;
 import static android.support.test.espresso.action.Swipe.FAST;
 import static com.mindbodyonline.ironhide.Infrastructure.Extensions.SwipeAction.SwipeDirection.DOWN;
-import static android.support.test.espresso.action.GeneralLocation.*;
+import static com.mindbodyonline.ironhide.Infrastructure.Extensions.SwipeAction.getSwipe;
 
 /**
  * Simple element that allows to perform a zoom on the screen.

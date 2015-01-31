@@ -7,8 +7,6 @@ import android.support.test.espresso.InjectEventSecurityException;
 import android.support.test.espresso.UiController;
 import android.support.test.espresso.ViewAction;
 import android.support.test.espresso.action.CoordinatesProvider;
-import android.support.v4.util.Pair;
-import android.text.format.DateUtils;
 import android.view.MotionEvent;
 import android.view.MotionEvent.PointerCoords;
 import android.view.MotionEvent.PointerProperties;
@@ -16,10 +14,17 @@ import android.view.View;
 
 import org.hamcrest.Matcher;
 
-import static android.support.test.espresso.matcher.ViewMatchers.isDisplayingAtLeast;
-import static android.view.MotionEvent.*;
 import static android.os.SystemClock.uptimeMillis;
+import static android.support.test.espresso.matcher.ViewMatchers.isDisplayingAtLeast;
 import static android.text.format.DateUtils.SECOND_IN_MILLIS;
+import static android.view.MotionEvent.ACTION_DOWN;
+import static android.view.MotionEvent.ACTION_MOVE;
+import static android.view.MotionEvent.ACTION_POINTER_DOWN;
+import static android.view.MotionEvent.ACTION_POINTER_INDEX_SHIFT;
+import static android.view.MotionEvent.ACTION_POINTER_UP;
+import static android.view.MotionEvent.ACTION_UP;
+import static android.view.MotionEvent.TOOL_TYPE_FINGER;
+import static android.view.MotionEvent.obtain;
 
 /**
  * Enables zooming into/out of a view.
