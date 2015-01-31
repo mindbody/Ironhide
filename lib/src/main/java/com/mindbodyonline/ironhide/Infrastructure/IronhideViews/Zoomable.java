@@ -63,7 +63,7 @@ public class Zoomable<T extends PageObject> extends BaseView<T> {
     private static CoordinatesProvider finger2Start;
     private static CoordinatesProvider finger2End;
 
-    public T zoomAllIn(int phoneMaxX, int phoneMaxY){
+    public T zoomAllIn(){
         finger1Start = CENTER;
         finger1End = TOP_RIGHT;
         finger2Start = CENTER;
@@ -78,7 +78,7 @@ public class Zoomable<T extends PageObject> extends BaseView<T> {
 
     }
 
-    public T zoomAllOut(int phoneMaxX, int phoneMaxY){
+    public T zoomAllOut(){
         finger1Start = TOP_RIGHT;
         finger1End = CENTER;
         finger2Start = BOTTOM_LEFT;
