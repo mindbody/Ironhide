@@ -36,8 +36,6 @@ import static android.view.MotionEvent.obtain;
 @TargetApi(14)
 public class Zoomable<T extends PageObject> extends BaseView<T> {
 
-    private static final int DEFAULT_ZOOM_TIME = 3000;
-
     private static final int ZOOMS_IN_PER_ALL_ZOOM = 3;
 
     // number to scroll up from 6am (2 hour increments: 6am-8am-10am-12am)
@@ -99,7 +97,7 @@ public class Zoomable<T extends PageObject> extends BaseView<T> {
 
     // changed this one to private since we will have uninitialized variables if people black box this function
     private T zoom(int numTimes) {
-        ViewAction zoom = new ZoomAction(Pair.create(finger1Start, finger2Start), Pair.create(finger1End, finger2End), DEFAULT_ZOOM_TIME);
+        ViewAction zoom = new ZoomAction(Pair.create(finger1Start, finger2Start), Pair.create(finger1End, finger2End));
 
         while (numTimes-- > 0)
             performAction(zoom);
