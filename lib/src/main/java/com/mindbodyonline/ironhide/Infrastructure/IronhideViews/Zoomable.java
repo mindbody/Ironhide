@@ -4,8 +4,12 @@ import android.annotation.TargetApi;
 import android.support.test.espresso.Root;
 import android.support.test.espresso.ViewAction;
 import android.support.test.espresso.action.CoordinatesProvider;
+import android.support.test.espresso.action.Press;
+import android.support.v4.util.Pair;
 import android.view.View;
 
+import com.mindbodyonline.ironhide.Infrastructure.Extensions.GeneralZoomAction;
+import com.mindbodyonline.ironhide.Infrastructure.Extensions.Zoom;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.ZoomAction;
 import com.mindbodyonline.ironhide.PageObjects.PageObject;
 
@@ -54,8 +58,8 @@ public class Zoomable<T extends PageObject> extends BaseView<T> {
 
     /** {@inheritDoc} */
     @Override
-    protected <E extends PageObject> Zoomable<E> goesTo(Class<E> type) {
-        return (Zoomable<E>) super.goesTo(type);
+    public <E extends PageObject> Zoomable<E> goesTo(Class<E> type) {
+        return new Zoomable<E>(type, getSelector());
     }
 
     private static CoordinatesProvider finger1Start;
@@ -95,6 +99,12 @@ public class Zoomable<T extends PageObject> extends BaseView<T> {
             performAction(zoom);
 
         return returnGeneric();
+    }
+
+    public T zoom() {
+        return performAction(new GeneralZoomAction(Zoom.FAST,
+                new Pair<CoordinatesProvider, CoordinatesProvider>(CENTER, CENTER),
+                new Pair<CoordinatesProvider, CoordinatesProvider>(TOP_RIGHT, BOTTOM_LEFT), Press.FINGER));
     }
 
     /**
