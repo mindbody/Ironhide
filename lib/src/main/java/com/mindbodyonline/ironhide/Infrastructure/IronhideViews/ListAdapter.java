@@ -50,14 +50,28 @@ public class ListAdapter<T extends PageObject> {
         adapter = onData(cursorMatcher).inAdapterView(selector);
     }
 
+    /**
+     * Changes the destination class by returning an object of the given type
+     * @param type New class for Adapter to return to.
+     * @return New ListAdapter with return type of type.
+     */
     public <E extends PageObject> ListAdapter<E> goesTo(Class<E> type) {
         return new ListAdapter<E>(type, adapter);
     }
 
+    /**
+     * Returns the ListItem at the given position in the List Hierarchy.
+     * @param index Index of the ListItem to return.
+     * @return The ListItem at position index.
+     */
     public ListItem<T> getItemAtPosition(int index) {
         return new ListItem<T>(adapter.atPosition(index)).goesTo(type);
     }
 
+    /**
+     * Returns the ListItem at the first position in the List Hierarchy.
+     * @return The ListItem at the first position.
+     */
     public ListItem<T> getFirst() {
         return new ListItem<T>(adapter.atPosition(0)).goesTo(type);
     }
