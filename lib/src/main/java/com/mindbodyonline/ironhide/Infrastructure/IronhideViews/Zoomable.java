@@ -54,6 +54,18 @@ public class Zoomable<T extends PageObject> extends BaseView<T> {
     Point finger2End;
 
     // TODO: cleanup and refactor this method
+
+    /**
+     * DOES SOME MATHS AND ZOOMS IN YO.
+     * @param inst
+     * @param startTime
+     * @param ifMove
+     * @param startPoint1
+     * @param startPoint2
+     * @param endPoint1
+     * @param endPoint2
+     * @param duration
+     */
     public void generateZoomGesture(Instrumentation inst,
                                     long startTime, boolean ifMove, Point startPoint1,
                                     Point startPoint2, Point endPoint1,
@@ -185,6 +197,12 @@ public class Zoomable<T extends PageObject> extends BaseView<T> {
         inst.sendPointerSync(event);
     }
 
+    /**
+     * Zooms all the way in on the phone
+     * @param phoneMaxX
+     * @param phoneMaxY
+     * @return
+     */
     public T zoomAllIn(int phoneMaxX, int phoneMaxY){
 
         int zoomInNum = 6;
@@ -206,6 +224,12 @@ public class Zoomable<T extends PageObject> extends BaseView<T> {
 
     }
 
+    /**
+     * Zooms all the way out on the phone.
+     * @param phoneMaxX
+     * @param phoneMaxY
+     * @return
+     */
     public T zoomAllOut(int phoneMaxX, int phoneMaxY){
 
         int zoomOutNum = 3;
@@ -218,6 +242,11 @@ public class Zoomable<T extends PageObject> extends BaseView<T> {
         return this.zoom(zoomOutNum);
     }
 
+    /**
+     * Zooms in the given number of times.
+     * @param numTimes Number of times to zoom in.
+     * @return The model reached by interacting whit this element.
+     */
     public T zoom(int numTimes) {
 
         Instrumentation instr = new Instrumentation();
