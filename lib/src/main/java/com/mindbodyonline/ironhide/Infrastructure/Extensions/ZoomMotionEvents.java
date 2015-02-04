@@ -1,31 +1,48 @@
 package com.mindbodyonline.ironhide.Infrastructure.Extensions;
 
-import static android.view.MotionEvent.ACTION_POINTER_INDEX_SHIFT;
-import static com.android.support.test.deps.guava.base.Preconditions.checkNotNull;
-
 import android.annotation.TargetApi;
 import android.os.SystemClock;
-import android.support.test.espresso.FailureHandler;
 import android.support.test.espresso.InjectEventSecurityException;
 import android.support.test.espresso.PerformException;
 import android.support.test.espresso.UiController;
-import android.support.test.internal.runner.tracker.UsageTrackerRegistry;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.MotionEvent.PointerCoords;
 import android.view.MotionEvent.PointerProperties;
-import android.view.View;
 import android.view.ViewConfiguration;
 
 import com.android.support.test.deps.guava.annotations.VisibleForTesting;
 
-import org.hamcrest.Matcher;
+import java.util.Arrays;
+
+import static android.view.MotionEvent.ACTION_DOWN;
+import static android.view.MotionEvent.ACTION_MOVE;
+import static android.view.MotionEvent.ACTION_POINTER_2_DOWN;
+import static android.view.MotionEvent.ACTION_POINTER_2_UP;
+import static android.view.MotionEvent.ACTION_UP;
+import static android.view.MotionEvent.TOOL_TYPE_FINGER;
+import static com.android.support.test.deps.guava.base.Preconditions.checkNotNull;
 
 /**
  * Facilitates sending of motion events to a {@link UiController}.
  */
 @TargetApi(14)
 final class ZoomMotionEvents {
+
+    @VisibleForTesting
+    static final int MAX_CLICK_ATTEMPTS = 3;
+
+    public static final int MIN_LOOP_TIME = 10; /* milliseconds */
+
+    // default values for MotionEvent.obtain
+    private static final int DEFAULT_BUTTON_STATE = 0;
+    private static final int DEFAULT_DEVICE_ID = 0;
+    private static final int DEFAULT_EDGE_FLAGS = 0;
+    private static final int DEFAULT_FLAGS = 0;
+    private static final int DEFAULT_META_STATE = 0;
+    private static final int DEFAULT_PRESSURE = 1;
+    private static final int DEFAULT_SIZE = 1;
+    private static final int DEFAULT_SOURCE = 0;
 
     private static final String TAG = ZoomMotionEvents.class.getSimpleName();
 
@@ -35,10 +52,146 @@ final class ZoomMotionEvents {
         defaultProperties = new PointerProperties[]{ new PointerProperties(), new PointerProperties() };
         defaultProperties[0].id = 0;
         defaultProperties[1].id = 1;
-        defaultProperties[0].toolType = defaultProperties[1].toolType = MotionEvent.TOOL_TYPE_FINGER;
+        defaultProperties[0].toolType = defaultProperties[1].toolType = TOOL_TYPE_FINGER;
     }
 
-    static PointerCoords[] getCoords(float[][] coordinates) {
+
+    private UiController uiController;
+    private float[] precision;
+    public long downTime;
+
+    private MotionEvent[] downEvents;
+
+    public ZoomMotionEvents(UiController uiController, float[] precision) {
+        checkNotNull(uiController);
+        checkNotNull(precision);
+
+        this.uiController = uiController;
+        this.precision = precision;
+    }
+
+    public boolean sendDownPair(float[][] coordinates) {
+        checkNotNull(coordinates);
+
+        for (int retry = 0; retry < MAX_CLICK_ATTEMPTS; retry++) {
+            try {
+                downTime = SystemClock.uptimeMillis();
+                downEvents = new MotionEvent[] {
+                        obtainWrapper(ACTION_DOWN, coordinates[0][0], coordinates[0][1], precision),
+                        obtainWrapper(ACTION_POINTER_2_DOWN, coordinates, precision)
+                };
+
+                long isTapAt = downTime + (ViewConfiguration.getTapTimeout() / 2);
+
+                boolean injectEventsSucceeded = uiController.injectMotionEvent(downEvents[0])
+                                             && uiController.injectMotionEvent(downEvents[1]);
+
+                while (isTapAt - SystemClock.uptimeMillis() > MIN_LOOP_TIME) {
+                    // Sleep only a fraction of the time, since there may be other events in the UI queue
+                    // that could cause us to start sleeping late, and then oversleep.
+                    uiController.loopMainThreadForAtLeast( (isTapAt - SystemClock.uptimeMillis()) / 4);
+                }
+
+                if (injectEventsSucceeded)
+                    return true;
+
+                downEvents[0].recycle();
+                downEvents[1].recycle();
+                downEvents[0] = null;
+                downEvents[1] = null;
+
+            } catch (InjectEventSecurityException e) {
+                Log.e(TAG, Log.getStackTraceString(getPerformException("Send down motion events", e)));
+            }
+        }
+        Log.e(TAG, Log.getStackTraceString(getPerformException(String.format("click (after %d attempts)", MAX_CLICK_ATTEMPTS))));
+        return false;
+    }
+
+    public boolean sendMovementPair(float[][] coordinates) {
+        checkNotNull(coordinates);
+
+        MotionEvent motionEvent = null;
+        try {
+            motionEvent = obtainWrapper(ACTION_MOVE, coordinates, precision);
+            boolean injectEventSucceeded = uiController.injectMotionEvent(motionEvent);
+
+            if (!injectEventSucceeded) {
+                Log.e(TAG, String.format("Injection of motion event failed (corresponding down events: %s and %s)",
+                        downEvents[0].toString(), downEvents[1].toString()));
+                return false;
+            }
+        } catch (InjectEventSecurityException e) {
+            Log.e(TAG, String.format("Injection of motion event failed (corresponding down events: %s and %s)",
+                    downEvents[0].toString(), downEvents[1].toString()));
+            return false;
+        } finally {
+            if (motionEvent != null)
+                motionEvent.recycle();
+        }
+
+        return true;
+    }
+
+    public void sendCancelPair(float[][] coordinates) {
+        checkNotNull(coordinates);
+
+        MotionEvent motionEvent = null;
+        try {
+            // Up press.
+            motionEvent = obtainWrapper(ACTION_MOVE, coordinates, precision);
+            boolean injectEventSucceeded = uiController.injectMotionEvent(motionEvent);
+
+            if (!injectEventSucceeded) {
+                String description = String.format("inject cancel event (corresponding down event: %s and %s)", downEvents[0].toString(), downEvents[1].toString());
+                throw getPerformException(description);
+            }
+        } catch (InjectEventSecurityException e) {
+            String description = String.format("inject cancel event (corresponding down event: %s and %s)", downEvents[0].toString(), downEvents[1].toString());
+
+            throw getPerformException(description, e);
+        } finally {
+            if (motionEvent != null)
+                motionEvent.recycle();
+        }
+    }
+
+    public boolean sendUpPair(float[][] coordinates) {
+        checkNotNull(coordinates);
+
+        MotionEvent[] motionEvents = null;
+        try {
+            // Up press.
+            motionEvents = new MotionEvent[] {
+                    obtainWrapper(ACTION_POINTER_2_UP, coordinates, precision),
+                    obtainWrapper(ACTION_UP, coordinates[0][0], coordinates[0][1], precision)
+            };
+
+            if ( !(uiController.injectMotionEvent(motionEvents[0]) && uiController.injectMotionEvent(motionEvents[1])) ) {
+                Log.e(TAG, String.format("Injection of up event failed (corresponding down events: %s)", Arrays.deepToString(downEvents)));
+                return false;
+            }
+        } catch (InjectEventSecurityException e) {
+            String description = String.format("inject up event (corresponding down events: %s and %s)", downEvents[0].toString(), downEvents[1].toString());
+
+            throw getPerformException(description, e);
+        } finally {
+            if (motionEvents != null) {
+                motionEvents[0].recycle();
+                motionEvents[1].recycle();
+                motionEvents[0] = null;
+                motionEvents[1] = null;
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * Helper functions
+     */
+
+    private static PointerCoords[] getCoords(float[][] coordinates) {
         PointerCoords[] pointerCoords = new PointerCoords[]{ new PointerCoords(), new PointerCoords() };
         pointerCoords[0].pressure = pointerCoords[1].pressure = 1;
         pointerCoords[0].size = pointerCoords[1].size = 1;
@@ -51,259 +204,39 @@ final class ZoomMotionEvents {
         return pointerCoords;
     }
 
-    @VisibleForTesting
-    static final int MAX_CLICK_ATTEMPTS = 3;
-
-    private ZoomMotionEvents() {
-        // Shouldn't be instantiated
+    private static PerformException getPerformException(String description, Throwable cause) {
+        return new PerformException.Builder()
+                .withActionDescription(description)
+                .withViewDescription("unknown") // likely to be replaced by FailureHandler
+                .withCause(cause)
+                .build();
     }
 
-    static DownResultHolder sendDownPair(UiController uiController, float[][] coordinates, float[] precision) {
-        checkNotNull(uiController);
-        checkNotNull(coordinates);
-        checkNotNull(precision);
-
-        for (int retry = 0; retry < MAX_CLICK_ATTEMPTS; retry++) {
-            MotionEvent motionEvents[] = null;
-            try {
-                long downTime = SystemClock.uptimeMillis();
-                motionEvents = new MotionEvent[] {
-                        MotionEvent.obtain(downTime,
-                                SystemClock.uptimeMillis(),
-                                MotionEvent.ACTION_DOWN,
-                                1,
-                                defaultProperties,
-                                getCoords(coordinates),
-                                0, 0,
-                                precision[0], precision[1],
-                                0, 0, 0, 0),
-                        MotionEvent.obtain(downTime, SystemClock.uptimeMillis(),
-                                MotionEvent.ACTION_POINTER_DOWN + defaultProperties[1].id << ACTION_POINTER_INDEX_SHIFT,
-                                2,
-                                defaultProperties,
-                                getCoords(coordinates),
-                                0, 0,
-                                precision[0], precision[1],
-                                0, 0, 0, 0)
-                };
-
-                long isTapAt = downTime + (ViewConfiguration.getTapTimeout() / 2);
-
-                boolean injectEventSucceeded = uiController.injectMotionEvent(motionEvents[0])
-                                            && uiController.injectMotionEvent(motionEvents[1]);
-
-                while (true) {
-                    long delayToBeTap = isTapAt - SystemClock.uptimeMillis();
-                    if (delayToBeTap <= 10) {
-                        break;
-                    }
-                    // Sleep only a fraction of the time, since there may be other events in the UI queue
-                    // that could cause us to start sleeping late, and then oversleep.
-                    uiController.loopMainThreadForAtLeast(delayToBeTap / 4);
-                }
-
-                boolean longPress = false;
-                if (SystemClock.uptimeMillis() > (downTime + ViewConfiguration.getLongPressTimeout())) {
-                    longPress = true;
-                    Log.e(TAG, "Overslept and turned a tap into a long press");
-                    UsageTrackerRegistry.getInstance().trackUsage("Espresso.Tap.Error.tapToLongPress");
-                }
-
-                if (!injectEventSucceeded) {
-                    motionEvents[0].recycle();
-                    motionEvents[1].recycle();
-                    motionEvents[0] = null;
-                    motionEvents[1] = null;
-                    continue;
-                }
-
-                return new DownResultHolder(motionEvents, longPress);
-            } catch (InjectEventSecurityException e) {
-                /*new FailureHandler() {
-                    @Override
-                    public void handle(Throwable throwable, Matcher<View> viewMatcher) {
-                        // do something?
-                    }
-                }.handle(e, null);*/
-                throw new PerformException.Builder()
-                        .withActionDescription("Send down motion event")
-                        .withViewDescription("unknown") // likely to be replaced by FailureHandler
-                        .withCause(e)
-                        .build();
-            }
-        }
-        throw new PerformException.Builder()
-                .withActionDescription(String.format("click (after %s attempts)", MAX_CLICK_ATTEMPTS))
+    private static PerformException getPerformException(String description) {
+        return new PerformException.Builder()
+                .withActionDescription(description)
                 .withViewDescription("unknown") // likely to be replaced by FailureHandler
                 .build();
     }
 
-    static boolean sendMovementPair(UiController uiController, MotionEvent[] downEvent,
-                                    float[][] coordinates, float[] precision) {
-        checkNotNull(uiController);
-        checkNotNull(downEvent);
-        checkNotNull(coordinates);
-
-        MotionEvent motionEvent = null;
-        try {
-            motionEvent = MotionEvent.obtain(downEvent[0].getDownTime(),
-                    SystemClock.uptimeMillis(),
-                    MotionEvent.ACTION_MOVE,
-                    2, defaultProperties,
-                    getCoords(coordinates),
-                    0, 0,
-                    precision[0],
-                    precision[1],
-                    0, 0, 0, 0);
-            boolean injectEventSucceeded = uiController.injectMotionEvent(motionEvent);
-
-            if (!injectEventSucceeded) {
-                Log.e(TAG, String.format(
-                        "Injection of motion event failed (corresponding down events: %s and %s)",
-                        downEvent[0].toString(), downEvent[1].toString()));
-                return false;
-            }
-        } catch (InjectEventSecurityException e) {
-            throw new PerformException.Builder()
-                    .withActionDescription(String.format(
-                            "inject motion event (corresponding down events: %s and %s)", downEvent[0].toString(), downEvent[1].toString()))
-                    .withViewDescription("unknown") // likely to be replaced by FailureHandler
-                    .withCause(e)
-                    .build();
-        } finally {
-            if (null != motionEvent) {
-                motionEvent.recycle();
-                motionEvent = null;
-            }
-        }
-
-        return true;
+    private MotionEvent obtainWrapper(int action, float x, float y, float[] precision) {
+        return MotionEvent.obtain(
+                downTime, SystemClock.uptimeMillis(),
+                action,
+                x, y, DEFAULT_PRESSURE, DEFAULT_SIZE,
+                DEFAULT_META_STATE,
+                precision[0], precision[1],
+                DEFAULT_DEVICE_ID, DEFAULT_EDGE_FLAGS);
     }
 
-    static void sendCancelPair(UiController uiController, MotionEvent[] downEvents, float[] precision) {
-        sendCancelPair(uiController, new float[][] {
-                new float[] {downEvents[0].getX(), downEvents[0].getY()},
-                new float[] {downEvents[1].getX(), downEvents[1].getY()}
-        }, downEvents, precision);
+    // 2D array implies user wishes to pass 2 pointer values
+    private MotionEvent obtainWrapper(int action, float[][] coordinates, float[] precision) {
+        return MotionEvent.obtain(
+                downTime, SystemClock.uptimeMillis(),
+                action,
+                2, defaultProperties, getCoords(coordinates),
+                DEFAULT_META_STATE, DEFAULT_BUTTON_STATE,
+                precision[0], precision[1],
+                DEFAULT_DEVICE_ID, DEFAULT_EDGE_FLAGS, DEFAULT_SOURCE, DEFAULT_FLAGS);
     }
-
-    static void sendCancelPair(UiController uiController, float[][] coordinates, MotionEvent[] downEvents, float[] precision) {
-        checkNotNull(uiController);
-        checkNotNull(coordinates);
-        checkNotNull(downEvents);
-
-        MotionEvent motionEvent = null;
-        try {
-            // Up press.
-            motionEvent = MotionEvent.obtain(downEvents[0].getDownTime(),
-                    SystemClock.uptimeMillis(),
-                    MotionEvent.ACTION_MOVE,
-                    2, defaultProperties,
-                    getCoords(coordinates),
-                    0, 0,
-                    precision[0],
-                    precision[1],
-                    0, 0, 0, 0);
-            boolean injectEventSucceeded = uiController.injectMotionEvent(motionEvent);
-
-            if (!injectEventSucceeded) {
-                throw new PerformException.Builder()
-                        .withActionDescription(String.format(
-                                "inject cancel event (corresponding down events: %s and %s)", downEvents[0].toString(), downEvents[1].toString()))
-                        .withViewDescription("unknown") // likely to be replaced by FailureHandler
-                        .build();
-            }
-        } catch (InjectEventSecurityException e) {
-            throw new PerformException.Builder()
-                    .withActionDescription(String.format(
-                            "inject cancel event (corresponding down event: %s and %s)", downEvents[0].toString(), downEvents[1].toString()))
-                    .withViewDescription("unknown") // likely to be replaced by FailureHandler
-                    .withCause(e)
-                    .build();
-        } finally {
-            if (null != motionEvent) {
-                motionEvent.recycle();
-                motionEvent = null;
-            }
-        }
-    }
-
-    static boolean sendUpPair(UiController uiController, MotionEvent[] downEvents, float[] precision) {
-        return sendUpPair(uiController, new float[][] {
-                new float[] { downEvents[0].getX(), downEvents[0].getY() },
-                new float[] { downEvents[1].getX(), downEvents[1].getY() }
-        }, downEvents, precision);
-    }
-
-    static boolean sendUpPair(UiController uiController, float[][] coordinates, MotionEvent[] downEvents, float[] precision) {
-        checkNotNull(uiController);
-        checkNotNull(downEvents);
-        checkNotNull(coordinates);
-        checkNotNull(precision);
-
-        MotionEvent[] motionEvents = null;
-        try {
-            // Up press.
-            motionEvents = new MotionEvent[] {
-                    MotionEvent.obtain(downEvents[0].getDownTime(),
-                            SystemClock.uptimeMillis(),
-                            MotionEvent.ACTION_POINTER_UP,
-                            2,
-                            defaultProperties,
-                            getCoords(coordinates),
-                            0, 0,
-                            precision[0],
-                            precision[1],
-                            0, 0, 0, 0),
-                    MotionEvent.obtain(downEvents[1].getDownTime(),
-                            SystemClock.uptimeMillis(),
-                            MotionEvent.ACTION_UP,
-                            1,
-                            defaultProperties,
-                            getCoords(coordinates),
-                            0, 0,
-                            precision[0],
-                            precision[1],
-                            0, 0, 0, 0)
-            };
-
-            boolean injectEventSucceeded = uiController.injectMotionEvent(motionEvents[0])
-                                        && uiController.injectMotionEvent(motionEvents[1]);
-
-            if (!injectEventSucceeded) {
-                Log.e(TAG, String.format(
-                        "Injection of up event failed (corresponding down events: %s and %s)", downEvents[0].toString(), downEvents[1].toString()));
-                return false;
-            }
-        } catch (InjectEventSecurityException e) {
-            throw new PerformException.Builder()
-                    .withActionDescription(
-                            String.format("inject up event (corresponding down events: %s and %s)", downEvents[0].toString(), downEvents[1].toString()))
-                    .withViewDescription("unknown") // likely to be replaced by FailureHandler
-                    .withCause(e)
-                    .build();
-        } finally {
-            if (null != motionEvents) {
-                motionEvents[0].recycle();
-                motionEvents[1].recycle();
-                motionEvents[0] = null;
-                motionEvents[1] = null;
-            }
-        }
-        return true;
-    }
-
-    /**
-     * Holds the result of a down motion.
-     */
-    static class DownResultHolder {
-        public final MotionEvent[] down;
-        public final boolean longPress;
-
-        DownResultHolder(MotionEvent[] down, boolean longPress) {
-            this.down = down;
-            this.longPress = longPress;
-        }
-    }
-
 }

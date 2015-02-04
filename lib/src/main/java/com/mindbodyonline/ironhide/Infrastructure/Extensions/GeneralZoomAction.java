@@ -5,33 +5,40 @@ import android.support.test.espresso.UiController;
 import android.support.test.espresso.ViewAction;
 import android.support.test.espresso.action.CoordinatesProvider;
 import android.support.test.espresso.action.PrecisionDescriber;
-import android.support.test.espresso.util.HumanReadables;
-import android.support.v4.util.Pair;
 import android.view.View;
 import android.view.ViewConfiguration;
 
+import com.mindbodyonline.ironhide.Infrastructure.Extensions.Zoomer.Status;
+
 import org.hamcrest.Matcher;
 
+import java.util.Arrays;
+
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayingAtLeast;
+import static android.support.test.espresso.util.HumanReadables.describe;
+import static com.mindbodyonline.ironhide.Infrastructure.Extensions.Zoomer.Status.FAILURE;
+import static com.mindbodyonline.ironhide.Infrastructure.Extensions.Zoomer.Status.SUCCESS;
+import static java.lang.String.format;
 
 /**
  * Enables zooming across a view.
  */
 public class GeneralZoomAction implements ViewAction {
+
     /** Maximum number of times to attempt sending a zoom action. */
     private static final int MAX_TRIES = 3;
 
     /** The minimum amount of a view that must be displayed in order to zoom across it. */
     private static final int VIEW_DISPLAY_PERCENTAGE = 90;
 
-    private final Pair<CoordinatesProvider, CoordinatesProvider> startCoordinatesProviders;
-    private final Pair<CoordinatesProvider, CoordinatesProvider> endCoordinatesProviders;
+    private final CoordinatesProvider[] startCoordinatesProviders;
+    private final CoordinatesProvider[] endCoordinatesProviders;
     private final Zoomer zoomer;
     private final PrecisionDescriber precisionDescriber;
 
     public GeneralZoomAction(Zoomer zoomer,
-                             Pair<CoordinatesProvider, CoordinatesProvider> startCoordinatesProviders,
-                             Pair<CoordinatesProvider, CoordinatesProvider> endCoordinatesProviders,
+                             CoordinatesProvider[] startCoordinatesProviders,
+                             CoordinatesProvider[] endCoordinatesProviders,
                              PrecisionDescriber precisionDescriber) {
         this.zoomer = zoomer;
         this.startCoordinatesProviders = startCoordinatesProviders;
@@ -46,49 +53,46 @@ public class GeneralZoomAction implements ViewAction {
 
     @Override
     public void perform(UiController uiController, View view) {
-        float[][] startCoordinateses = new float[][]{startCoordinatesProviders.first.calculateCoordinates(view), startCoordinatesProviders.second.calculateCoordinates(view)};
-        float[][] endCoordinateses = new float[][]{endCoordinatesProviders.first.calculateCoordinates(view), endCoordinatesProviders.second.calculateCoordinates(view)};
+        float[][] startCoordinates = new float[][]{
+                startCoordinatesProviders[0].calculateCoordinates(view),
+                startCoordinatesProviders[1].calculateCoordinates(view)
+        };
+        float[][] endCoordinates = new float[][]{
+                endCoordinatesProviders[0].calculateCoordinates(view),
+                endCoordinatesProviders[1].calculateCoordinates(view)
+        };
         float[] precision = precisionDescriber.describePrecision();
 
-        Zoomer.Status status = Zoomer.Status.FAILURE;
+        Status status = FAILURE;
 
-        for (int tries = 0; tries < MAX_TRIES && status != Zoomer.Status.SUCCESS; tries++) {
+        for (int tries = 0; tries < MAX_TRIES && status != SUCCESS; tries++) {
             try {
-                status = zoomer.sendZoom(uiController, startCoordinateses, endCoordinateses, precision);
-            } catch (RuntimeException re) {
+                status = zoomer.sendZoom(uiController, startCoordinates, endCoordinates, precision);
+
+            } catch (RuntimeException e) {
                 throw new PerformException.Builder()
-                        .withActionDescription(this.getDescription())
-                        .withViewDescription(HumanReadables.describe(view))
-                        .withCause(re)
+                        .withActionDescription(getDescription())
+                        .withViewDescription(describe(view))
+                        .withCause(e)
                         .build();
             }
 
-            // ensures that all work enqueued to process the zoom has been run.
+            // ensures that all work queued to process the zoom has been run.
             uiController.loopMainThreadForAtLeast(ViewConfiguration.getPressedStateDuration());
         }
 
-        if (status == Zoomer.Status.FAILURE) {
+        if (status == FAILURE) {
+            String failure = format("Couldn't zoom from: %s to: %s"
+                            + " precision: %s. Zoomer: %s start coordinate providers: %s"
+                            + " precision describer: %s. Tried %s times",
+                    Arrays.deepToString(startCoordinates), Arrays.deepToString(endCoordinates),
+                    Arrays.toString(precision), zoomer, Arrays.toString(startCoordinatesProviders),
+                    precisionDescriber, MAX_TRIES);
+
             throw new PerformException.Builder()
                     .withActionDescription(getDescription())
-                    .withViewDescription(HumanReadables.describe(view))
-                    .withCause(new RuntimeException(String.format(
-                            "Couldn't zoom from: (%s,%s) (%s,%s) to: (%s,%s) (%s,%s) precision: %s, %s . Zoomer: %s "
-                                    + "start coordinate providers: %s,%s precision describer: %s. Tried %s times",
-                            startCoordinateses[0][0],
-                            startCoordinateses[0][1],
-                            startCoordinateses[1][0],
-                            startCoordinateses[1][1],
-                            endCoordinateses[0][0],
-                            endCoordinateses[0][1],
-                            endCoordinateses[1][0],
-                            endCoordinateses[1][1],
-                            precision[0],
-                            precision[1],
-                            zoomer,
-                            startCoordinatesProviders.first,
-                            startCoordinatesProviders.second,
-                            precisionDescriber,
-                            MAX_TRIES)))
+                    .withViewDescription(describe(view))
+                    .withCause(new RuntimeException(failure))
                     .build();
         }
     }

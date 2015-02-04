@@ -1,7 +1,6 @@
 package com.mindbodyonline.ironhide.Infrastructure.Extensions;
 
 import android.support.test.espresso.UiController;
-
 import android.view.MotionEvent;
 
 /**

@@ -1,31 +1,19 @@
 package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
 import android.annotation.TargetApi;
-import android.app.Instrumentation;
-import android.graphics.Point;
-import android.os.SystemClock;
-import android.support.test.InstrumentationRegistry;
 import android.support.test.espresso.Root;
 import android.support.test.espresso.ViewAction;
-import android.support.test.espresso.action.CoordinatesProvider;
-import android.support.test.espresso.action.Press;
-import android.support.v4.util.Pair;
-import android.view.MotionEvent;
 import android.view.View;
 
-import com.mindbodyonline.ironhide.Infrastructure.Extensions.GeneralZoomAction;
-import com.mindbodyonline.ironhide.Infrastructure.Extensions.Zoom;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.ZoomAction;
+import com.mindbodyonline.ironhide.Infrastructure.Extensions.ZoomAction.ZoomDirection;
+import com.mindbodyonline.ironhide.Infrastructure.Extensions.Zoomer;
 import com.mindbodyonline.ironhide.PageObjects.PageObject;
 
 import org.hamcrest.Matcher;
 
-import static android.support.test.espresso.action.GeneralLocation.BOTTOM_LEFT;
-import static android.support.test.espresso.action.GeneralLocation.CENTER;
-import static android.support.test.espresso.action.GeneralLocation.TOP_RIGHT;
-import static android.support.test.espresso.action.Swipe.FAST;
-import static com.mindbodyonline.ironhide.Infrastructure.Extensions.SwipeAction.SwipeDirection.DOWN;
-import static com.mindbodyonline.ironhide.Infrastructure.Extensions.SwipeAction.getSwipe;
+import static com.mindbodyonline.ironhide.Infrastructure.Extensions.Zoom.FAST;
+import static com.mindbodyonline.ironhide.Infrastructure.Extensions.ZoomAction.ZoomDirection.IN;
 
 /**
  * Simple element that allows to perform a zoom on the screen.
@@ -37,13 +25,9 @@ import static com.mindbodyonline.ironhide.Infrastructure.Extensions.SwipeAction.
 @TargetApi(14)
 public class Zoomable<T extends PageObject> extends BaseView<T> {
 
-    private static final int ZOOMS_IN_PER_ALL_ZOOM = 3;
-
-    // number to scroll up from 6am (2 hour increments: 6am-8am-10am-12am)
-    private static final int ZOOMS_OUT_PER_ALL_ZOOM = 6;
-
-    //scrolls to 12am
-    private static final int SWIPES_PER_ALL_ZOOM_IN = 3;
+    public static final Zoomer DEFAULT_ZOOM_SPEED = FAST;
+    public static final ZoomDirection DEFAULT_ZOOM_DIRECTION = IN;
+    public static final int DEFAULT_ZOOM_TIMES = 1;
 
     /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(Class, org.hamcrest.Matcher) */
     public Zoomable(Class<T> type, Matcher<View> selector) {
@@ -67,49 +51,40 @@ public class Zoomable<T extends PageObject> extends BaseView<T> {
         return new Zoomable<E>(type, getSelector());
     }
 
-    private static CoordinatesProvider finger1Start;
-    private static CoordinatesProvider finger1End;
-    private static CoordinatesProvider finger2Start;
-    private static CoordinatesProvider finger2End;
-
-    public T zoomAllIn(){
-        finger1Start = CENTER;
-        finger1End = TOP_RIGHT;
-        finger2Start = CENTER;
-        finger2End = BOTTOM_LEFT;
-
-        zoom(ZOOMS_IN_PER_ALL_ZOOM);
-
-        for (int i = 0; i < SWIPES_PER_ALL_ZOOM_IN; i++)
-            performAction(getSwipe(FAST, DOWN));
-
-        return returnGeneric();
-
+    public T zoom() {
+        return zoom(DEFAULT_ZOOM_SPEED, DEFAULT_ZOOM_DIRECTION, DEFAULT_ZOOM_TIMES);
     }
 
-    public T zoomAllOut(){
-        finger1Start = TOP_RIGHT;
-        finger1End = CENTER;
-        finger2Start = BOTTOM_LEFT;
-        finger2End = CENTER;
-
-        return zoom(ZOOMS_OUT_PER_ALL_ZOOM);
+    public T zoom(Zoomer speed) {
+        return zoom(speed, DEFAULT_ZOOM_DIRECTION, DEFAULT_ZOOM_TIMES);
     }
 
-    // changed this one to private since we will have uninitialized variables if people black box this function
-    private T zoom(int numTimes) {
-        ViewAction zoom = new ZoomAction(finger1Start, finger2Start, finger1End, finger2End);
+    public T zoom(ZoomDirection direction) {
+        return zoom(DEFAULT_ZOOM_SPEED, direction, DEFAULT_ZOOM_TIMES);
+    }
 
-        while (numTimes-- > 0)
+    public T zoom(int times) {
+        return zoom(DEFAULT_ZOOM_SPEED, DEFAULT_ZOOM_DIRECTION, times);
+    }
+
+    public T zoom(Zoomer speed, ZoomDirection direction) {
+        return zoom(speed, direction, DEFAULT_ZOOM_TIMES);
+    }
+
+    public T zoom(Zoomer speed, int times) {
+        return zoom(speed, DEFAULT_ZOOM_DIRECTION, times);
+    }
+
+    public T zoom(ZoomDirection direction, int times) {
+        return zoom(DEFAULT_ZOOM_SPEED, direction, times);
+    }
+
+    public T zoom(Zoomer speed, ZoomDirection direction, int times) {
+        ViewAction zoom = ZoomAction.getZoom(speed, direction);
+        while (times-- > 0)
             performAction(zoom);
 
         return returnGeneric();
-    }
-
-    public T zoom() {
-        return performAction(new GeneralZoomAction(Zoom.FAST,
-                new Pair<CoordinatesProvider, CoordinatesProvider>(CENTER, CENTER),
-                new Pair<CoordinatesProvider, CoordinatesProvider>(TOP_RIGHT, BOTTOM_LEFT), Press.FINGER));
     }
 
     /**
