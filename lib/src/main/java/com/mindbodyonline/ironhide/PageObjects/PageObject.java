@@ -6,7 +6,7 @@ package com.mindbodyonline.ironhide.PageObjects;
  * <p>
  * public class MyPageObject extends PageObject {
  * <p>
- *      Clickable<NextPage> MyButton = new Clickable(R.id.button).goesTo(NextPage.class);
+ *      Clickable &ltNextPage&gt MyButton = new Clickable &lt&gt(R.id.button);
  * <p>
  * }
  */

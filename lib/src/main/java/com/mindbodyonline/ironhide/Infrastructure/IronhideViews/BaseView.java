@@ -27,9 +27,9 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 
 /**
- * Base Class for all page elements represented in the models for application testing
- * Cannot be instantiated, only serves as a base for other elements
- * Includes all Espresso view matchers, and all view actions that are common to every type of element (e.g.: click(), scrollTo(), etc.)
+ * Base Class for all page elements represented in the models for application testing.
+ * Cannot be instantiated, only serves as a base for other elements.
+ * Includes all Espresso view matchers, and all view actions that are common to every type of element (e.g.: click(), scrollTo(), etc.).
  *
  * @param <T> The model the current element will return when interacted with
  */
@@ -262,19 +262,20 @@ public class BaseView<T extends PageObject> {
     }
 
     /**
-     * Returns an action that performs a single click on the view. If the click takes longer than the 'long press' duration (which is possible) the provided rollback action is invoked on the view and a click is attempted again. This is only necessary if the view being clicked on has some different behaviour for long press versus a normal tap. For example - if a long press on a particular view element opens a popup menu - ViewActions.pressBack() may be an acceptable rollback action.
-     * View constraints:
-     *
-     * must be displayed on screen
-     * any constraints of the rollbackAction
+     * Click on the element.
      * @return The model reached by interacting with this element.
      */
     public T click() {
         return performAction(ViewActions.click());
     }
 
+
     /**
-     * Click on the element.
+     * Returns an action that performs a single click on the view. If the click takes longer than the 'long press' duration (which is possible) the provided rollback action is invoked on the view and a click is attempted again. This is only necessary if the view being clicked on has some different behaviour for long press versus a normal tap. For example - if a long press on a particular view element opens a popup menu - ViewActions.pressBack() may be an acceptable rollback action.
+     * <p>View constraints:</p>
+     *
+     * <p>must be displayed on screen</p>
+     * <p>any constraints of the rollbackAction</p>
      * @return The model reached by interacting with this element.
      */
     public T click(ViewAction rollbackAction) {

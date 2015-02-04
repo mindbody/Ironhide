@@ -180,34 +180,76 @@ public class TextField<T extends PageObject> extends BaseView<T> {
         return checkMatches(TextViewMatchers.containsString(resourceId));
     }
 
+    /**
+     * Checks to see if a TextView's text ends with a certain string given the string's resource id.
+     *
+     * @param resourceId    The string's resource id
+     * @return  The model reached by interacting with this element.
+     */
     public T endsWith(int resourceId) {
         return checkMatches(TextViewMatchers.endsWith(resourceId));
     }
 
+    /**
+     * Checks to see if a TextView's text is equal to (ignoring case) a certain string given the string's resource id.
+     *
+     * @param resourceId    The string's resource id
+     * @return  The model reached by interacting with this element.
+     */
     public T equalToIgnoringCase(int resourceId) {
         return checkMatches(TextViewMatchers.equalToIgnoringCase(resourceId));
     }
 
+    /**
+     * Checks to see if a TextView's text is equal to (ignoring white space around words) a certain string given the string's resource id.
+     *
+     * @param resourceId    The string's resource id
+     * @return   The model reached by interacting with this element.
+     */
     public T equalToIgnoringWhiteSpace(int resourceId) {
         return checkMatches(TextViewMatchers.equalToIgnoringWhiteSpace(resourceId));
     }
 
+    /**
+     * Checks to see if a TextView's text is empty or null.
+     * NOTE: see issue 72 for Espresso (https://code.google.com/p/android-test-kit/issues/detail?id=72)
+     * @return  The model reached by interacting with this element.
+     */
     public T isEmptyOrNullString() {
         return checkMatches(TextViewMatchers.isEmptyOrNullString());
     }
 
+    /**
+     * Checks to see if a TextView's text is empty.
+     * NOTE: see issue 72 for Espresso (https://code.google.com/p/android-test-kit/issues/detail?id=72)
+     * @return  The model reached by interacting with this element.
+     */
     public T isEmptyString() {
         return checkMatches(TextViewMatchers.isEmptyString());
     }
 
+    /**
+     * Checks to see if a TextView's text starts with a certain string given the string's resource id.
+     *
+     * @param resourceId    The string's resource id
+     * @return   The model reached by interacting with this element.
+     */
     public T startsWith(final int resourceId) {
         return checkMatches(TextViewMatchers.startsWith(resourceId));
     }
 
+    /**
+     * Checks to see if the Element has ellipsized text
+     * @return The model reached by interacting with this element.
+     */
     public T hasEllipsizeText(){
         return checkMatches(LayoutMatchers.hasEllipsizedText());
     }
 
+    /**
+     * Checks to see if the element has multiline text.
+     * @return The model reached by interacting with this element.
+     */
     public T hasMultilineText(){
         return checkMatches(LayoutMatchers.hasMultilineText());
     }
