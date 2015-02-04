@@ -68,9 +68,18 @@ public enum Zoom implements Zoomer {
         checkNotNull(endCoordinates);
         checkNotNull(precision);
 
+        MotionEvent.PointerCoords[] coordinates = new MotionEvent.PointerCoords[] {new MotionEvent.PointerCoords(), new MotionEvent.PointerCoords()};
+        coordinates[0].pressure = coordinates[0].size = coordinates[1].pressure = coordinates[1].size = 1;
+
+        coordinates[0].x = startCoordinates[0][0];
+        coordinates[0].y = startCoordinates[0][1];
+        coordinates[1].x = startCoordinates[1][0];
+        coordinates[1].y = startCoordinates[1][1];
+
         long startTime = SystemClock.uptimeMillis();
         MotionEvent touch1 = MotionEvent.obtain(startTime, SystemClock.uptimeMillis(), MotionEvent.ACTION_DOWN, startCoordinates[0][0], startCoordinates[0][1], 1, 1, 0, precision[0], precision[1], 0, 0);
-        MotionEvent touch2 = MotionEvent.obtain(startTime, SystemClock.uptimeMillis(), MotionEvent.ACTION_POINTER_DOWN | 1 << MotionEvent.ACTION_POINTER_INDEX_SHIFT, startCoordinates[1][0], startCoordinates[1][1], 1);
+        //MotionEvent touch2 = MotionEvent.obtain(startTime, SystemClock.uptimeMillis(), MotionEvent.ACTION_POINTER_DOWN | 1 << MotionEvent.ACTION_POINTER_INDEX_SHIFT, startCoordinates[1][0], startCoordinates[1][1], 1);
+        MotionEvent touch2 = MotionEvent.obtain(startTime, SystemClock.uptimeMillis(), MotionEvent.ACTION_POINTER_2_DOWN, 2, properties, coordinates, 0, 0, precision[0], precision[1], 0, 0, 0, 0);
 
         try {
             boolean downInject1 = uiController.injectMotionEvent(touch1),
@@ -81,8 +90,6 @@ public enum Zoom implements Zoomer {
             for (int i = 0; i < ZOOM_EVENT_COUNT; i++) {
                 float alpha = (float)i / 10;
 
-                MotionEvent.PointerCoords[] coordinates = new MotionEvent.PointerCoords[] {new MotionEvent.PointerCoords(), new MotionEvent.PointerCoords()};
-                coordinates[0].pressure = coordinates[0].size = coordinates[1].pressure = coordinates[1].size = 1;
 
                 // TODO: use linearInterpolation(alpha, a, b)
                 coordinates[0].x = (1 - alpha) * startCoordinates[0][0] + alpha * endCoordinates[0][0];
@@ -99,7 +106,14 @@ public enum Zoom implements Zoomer {
                 //uiController.loopMainThreadForAtLeast(startTime + (long)(alpha * duration) - SystemClock.uptimeMillis());
             }
 
-            MotionEvent untouch2 = MotionEvent.obtain(startTime, SystemClock.uptimeMillis(), MotionEvent.ACTION_POINTER_UP | 1 << MotionEvent.ACTION_POINTER_INDEX_SHIFT, endCoordinates[1][0], endCoordinates[1][0], 1, 1, 0, precision[0], precision[1], 0, 0);
+
+            coordinates[0].x = endCoordinates[0][0];
+            coordinates[0].y = endCoordinates[0][1];
+            coordinates[1].x = endCoordinates[1][0];
+            coordinates[1].y = endCoordinates[1][1];
+
+            MotionEvent untouch2 = MotionEvent.obtain(startTime, SystemClock.uptimeMillis(), MotionEvent.ACTION_POINTER_2_UP, 2, properties, coordinates, 0, 0, precision[0], precision[1], 0, 0, 0, 0);
+//            MotionEvent untouch2 = MotionEvent.obtain(startTime, SystemClock.uptimeMillis(), MotionEvent.ACTION_POINTER_UP | 1 << MotionEvent.ACTION_POINTER_INDEX_SHIFT, endCoordinates[1][0], endCoordinates[1][0], 1, 1, 0, precision[0], precision[1], 0, 0);
             MotionEvent untouch1 = MotionEvent.obtain(startTime, SystemClock.uptimeMillis(), MotionEvent.ACTION_UP, endCoordinates[0][0], endCoordinates[0][1], 1, 1, 0, precision[0], precision[1], 0, 0);
 
             boolean upInject2 = uiController.injectMotionEvent(untouch2),

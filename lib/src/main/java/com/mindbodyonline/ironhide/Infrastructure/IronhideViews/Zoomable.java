@@ -1,11 +1,16 @@
 package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
 import android.annotation.TargetApi;
+import android.app.Instrumentation;
+import android.graphics.Point;
+import android.os.SystemClock;
+import android.support.test.InstrumentationRegistry;
 import android.support.test.espresso.Root;
 import android.support.test.espresso.ViewAction;
 import android.support.test.espresso.action.CoordinatesProvider;
 import android.support.test.espresso.action.Press;
 import android.support.v4.util.Pair;
+import android.view.MotionEvent;
 import android.view.View;
 
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.GeneralZoomAction;
