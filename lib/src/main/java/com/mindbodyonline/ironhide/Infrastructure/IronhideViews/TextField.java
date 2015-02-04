@@ -21,27 +21,27 @@ import org.hamcrest.Matcher;
  */
 public class TextField<T extends PageObject> extends BaseView<T> {
 
-    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(Class, org.hamcrest.Matcher) */
+    /** @see BaseView#BaseView(Class, org.hamcrest.Matcher) */
     public TextField(Class<T> type, Matcher<View> selector) {
         super(type, selector);
     }
 
-    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(int) */
+    /** @see BaseView#BaseView(int) */
     public TextField(int resourceId) {
         super(resourceId);
     }
 
-    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(int, int) */
+    /** @see BaseView#BaseView(int, int) */
     public TextField(int IGNORED, int stringResourceId) {
         super(IGNORED, stringResourceId);
     }
 
-    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(String) */
+    /** @see BaseView#BaseView(String) */
     public TextField(String displayText) {
         super(displayText);
     }
 
-    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(org.hamcrest.Matcher) */
+    /** @see BaseView#BaseView(org.hamcrest.Matcher) */
     public TextField(Matcher<View> selector) {
         super(selector);
     }

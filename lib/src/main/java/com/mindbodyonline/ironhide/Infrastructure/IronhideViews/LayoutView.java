@@ -19,22 +19,22 @@ import org.hamcrest.Matcher;
  */
 public class LayoutView<T extends PageObject> extends BaseView<T> {
 
-    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(Class, org.hamcrest.Matcher) */
+    /** @see BaseView#BaseView(Class, org.hamcrest.Matcher) */
     public LayoutView(Class<T> type, Matcher<View> viewMatcher) {
         super(type, viewMatcher);
     }
 
-    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(int) */
+    /** @see BaseView#BaseView(int) */
     public LayoutView(int resourceId) {
         super(resourceId);
     }
 
-    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(org.hamcrest.Matcher) */
+    /** @see BaseView#BaseView(org.hamcrest.Matcher) */
     public LayoutView(Matcher<View> selector) {
         super(selector);
     }
 
-    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(int, int) */
+    /** @see BaseView#BaseView(int, int) */
     public LayoutView(int IGNORED, int stringResourceId) {
         super(IGNORED, stringResourceId);
     }

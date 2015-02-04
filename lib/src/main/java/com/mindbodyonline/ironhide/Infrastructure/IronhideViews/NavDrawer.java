@@ -26,7 +26,7 @@ public class NavDrawer<T extends PageObject> extends BaseView<T>{
     private int drawerLayoutId;
 
     /**
-     * @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(Class, org.hamcrest.Matcher)
+     * @see BaseView#BaseView(Class, org.hamcrest.Matcher)
      * @param resourceId the resource id for the navigation drawer for open/close drawer actions
      */
     public NavDrawer(Class<T> type, int resourceId, Matcher<View> viewMatcher) {
@@ -34,7 +34,7 @@ public class NavDrawer<T extends PageObject> extends BaseView<T>{
         this.drawerLayoutId = resourceId;
     }
 
-    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(int) */
+    /** @see BaseView#BaseView(int) */
     public NavDrawer(int resourceId) {
         super(resourceId);
         this.drawerLayoutId = resourceId;

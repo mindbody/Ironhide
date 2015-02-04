@@ -16,27 +16,27 @@ import org.hamcrest.Matcher;
  */
 public class Clickable<T extends PageObject> extends BaseView<T> {
 
-    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(Class, org.hamcrest.Matcher) */
+    /** @see BaseView#BaseView(Class, org.hamcrest.Matcher) */
     public Clickable(Class<T> type, Matcher<View> viewMatcher) {
         super(type, viewMatcher);
     }
 
-    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(int) */
+    /** @see BaseView#BaseView(int) */
     public Clickable(int resourceId) {
         super(resourceId);
     }
 
-    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(org.hamcrest.Matcher) */
+    /** @see BaseView#BaseView(org.hamcrest.Matcher) */
     public Clickable(Matcher<View> selector) {
         super(selector);
     }
 
-    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(int, int) */
+    /** @see BaseView#BaseView(int, int) */
     public Clickable(int IGNORED, int stringResourceId) {
         super(IGNORED, stringResourceId);
     }
 
-    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(String) */
+    /** @see BaseView#BaseView(String) */
     public Clickable(String displayText) {
         super(displayText);
     }

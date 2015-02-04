@@ -26,17 +26,17 @@ public class Zoomable<T extends PageObject> extends BaseView<T> {
 
     private static final int EVENT_MIN_INTERVAL = 1000;
 
-    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(Class, org.hamcrest.Matcher) */
+    /** @see BaseView#BaseView(Class, org.hamcrest.Matcher) */
     public Zoomable(Class<T> type, Matcher<View> selector) {
         super(type, selector);
     }
 
-    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(int) */
+    /** @see BaseView#BaseView(int) */
     public Zoomable(int resourceId) {
         super(resourceId);
     }
 
-    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(org.hamcrest.Matcher) */
+    /** @see BaseView#BaseView(org.hamcrest.Matcher) */
     public Zoomable(Matcher<View> selector) {
         super(selector);
     }

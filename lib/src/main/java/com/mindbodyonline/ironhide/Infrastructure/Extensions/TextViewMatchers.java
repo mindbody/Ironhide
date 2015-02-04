@@ -10,7 +10,8 @@ import org.hamcrest.Matcher;
 import org.hamcrest.Matchers;
 
 /**
- * Created by kyle.lozier on 1/14/2015.
+ * A collection of ViewMatchers specifically for {@link TextView}s that allow the comparison of
+ *  strings inside {@link TextView}s to resource strings.
  */
 public class TextViewMatchers {
 

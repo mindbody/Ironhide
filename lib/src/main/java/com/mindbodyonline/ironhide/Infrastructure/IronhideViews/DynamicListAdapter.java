@@ -53,7 +53,7 @@ public class DynamicListAdapter<T extends PageObject> {
     }
 
 
-    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#goesTo(Class) */
+    /** @see BaseView#goesTo(Class) */
     public <E extends PageObject> DynamicListAdapter<E> goesTo(Class<E> type) {
         // TODO: remove the redundancy of isDisplayed() inside constructor
         return new DynamicListAdapter<E>(type, childMatcher);

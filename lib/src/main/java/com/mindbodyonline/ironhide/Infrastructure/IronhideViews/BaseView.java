@@ -935,10 +935,10 @@ public class BaseView<T extends PageObject> {
 
     /**
      * Checks that all descendant view matching the selector do not overlap each other.
-     * @param selector
+     * @param matcher Matcher representing a view to check for no overlaps.
      * @return The model reached by interacting with this element.
      */
-    public T noOverLaps(Matcher<View> selector){
+    public T noOverLaps(Matcher<View> matcher){
         return checkAssertion(LayoutAssertions.noOverlaps(selector));
     }
 

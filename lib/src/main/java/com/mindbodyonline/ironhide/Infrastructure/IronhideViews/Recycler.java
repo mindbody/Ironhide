@@ -19,22 +19,22 @@ import org.hamcrest.Matcher;
  */
 public class Recycler<T extends PageObject> extends BaseView<T> {
 
-    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(Class, org.hamcrest.Matcher) */
+    /** @see BaseView#BaseView(Class, org.hamcrest.Matcher) */
     public Recycler(Class<T> type, Matcher<View> viewMatcher) {
         super(type, viewMatcher);
     }
 
-    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(int) */
+    /** @see BaseView#BaseView(int) */
     public Recycler(int resourceId) {
         super(resourceId);
     }
 
-    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(org.hamcrest.Matcher) */
+    /** @see BaseView#BaseView(org.hamcrest.Matcher) */
     public Recycler(Matcher<View> selector) {
         super(selector);
     }
 
-    /** @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(int, int) */
+    /** @see BaseView#BaseView(int, int) */
     public Recycler(int IGNORED, int stringResourceId) {
         super(IGNORED, stringResourceId);
     }
