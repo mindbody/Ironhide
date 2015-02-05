@@ -122,7 +122,6 @@ public class BaseView<T extends PageObject> {
     }
 
     /**
-     * TODO: Positive assertion rather than negative (ie. '... exists()', not '... doesNotExist()')
      * Checks that the root of the current view matches the given rootMatcher
      *
      * @param rootMatcher The RootMatcher used to check the root of the element
@@ -130,8 +129,8 @@ public class BaseView<T extends PageObject> {
      */
     protected T checkRootMatches(Matcher<Root> rootMatcher) {
         onView(getSelector())
-                .inRoot( not(rootMatcher) )
-                .check(ViewAssertions.doesNotExist());
+                .inRoot(rootMatcher)
+                .check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
 
         return returnGeneric();
     }
