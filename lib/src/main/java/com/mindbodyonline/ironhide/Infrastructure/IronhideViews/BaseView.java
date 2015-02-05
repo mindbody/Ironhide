@@ -42,7 +42,7 @@ public class BaseView<T extends PageObject> {
     /**
      * Instantiates a {@link android.support.test.espresso.ViewInteraction} and retains type and selector for later access.
      * @param type the class of the generic type
-     * @param selector  the {@link org.hamcrest.Matcher<View>} to select the view
+     * @param selector  the {@link org.hamcrest.Matcher} to select the {@link android.view.View}
      */
     protected BaseView(Class<T> type, Matcher<View> selector) {
         this.type = type;

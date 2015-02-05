@@ -24,11 +24,19 @@ public class ListItem<T extends PageObject> extends BaseView<T> {
 
     private DataInteraction adapter;
 
+    /**
+     * @see BaseView#BaseView(Class, org.hamcrest.Matcher)
+     * Instead instantiates a {@link DataInteraction}
+     */
     public ListItem(Class<T> type, DataInteraction adapter) {
         super(type, null);
         this.adapter = adapter;
     }
 
+    /**
+     * A generically typed ListItem with adapter given.
+     * @param adapter   the DataInteraction representing the {@link android.widget.AdapterView}
+     */
     public ListItem(DataInteraction adapter) {
         super((Matcher<View>) null);
         this.adapter = adapter;
@@ -40,23 +48,27 @@ public class ListItem<T extends PageObject> extends BaseView<T> {
         return new ListItem<E>(type, adapter);
     }
 
+    /** {@inheritDoc} */
     @Override
     protected T performAction(ViewAction viewAction) {
         adapter.perform(viewAction);
         return returnGeneric();
     }
 
+    /** {@inheritDoc} */
     @Override
     protected T checkMatches(Matcher<? super View> viewMatcher) {
         return checkAssertion(ViewAssertions.matches(viewMatcher));
     }
 
+    /** {@inheritDoc} */
     @Override
     protected T checkAssertion(ViewAssertion viewAssertion) {
         adapter.check(viewAssertion);
         return returnGeneric();
     }
 
+    /** {@inheritDoc} */
     @Override
     public T closeKeyboard() {
         T resultObject = performAction(ViewActions.closeSoftKeyboard());
@@ -65,22 +77,42 @@ public class ListItem<T extends PageObject> extends BaseView<T> {
         return resultObject;
     }
 
-    // Pass in the view to click and use its selector to find it within the list item
+    /**
+     * Performs {@link ListItem#click()} on a view that matches the given {@link BaseView}
+     * @param viewToClick   the {@link BaseView} to get the selector in order to find it within the list item
+     * @return  The model reached by interacting with this element.
+     */
     public T clickChildView(BaseView<T> viewToClick) {
         adapter.onChildView(viewToClick.getSelector()).perform(ViewActions.click());
         return returnGeneric();
     }
 
+    /**
+     * Performs {@link ListItem#isDisplayed()} on a view that matches the given {@link BaseView}
+     * @param viewToMatch   the {@link BaseView} to get the selector in order to find it within the list item
+     * @return  The model reached by interacting with this element.
+     */
     public T childViewIsDisplayed(BaseView<T> viewToMatch) {
         adapter.onChildView(viewToMatch.getSelector()).check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
         return returnGeneric();
     }
 
+    /**
+     * Performs the {@link ViewAction} on a view that matches the given {@link BaseView}
+     * @param viewToMatch   the {@link BaseView} to get the selector in order to find it within the list item
+     * @return  The model reached by interacting with this element.
+     */
     public T performOnChildView(BaseView<T> viewToMatch, ViewAction toPerform) {
         adapter.onChildView(viewToMatch.getSelector()).perform(toPerform);
         return returnGeneric();
     }
 
+    /**
+     * Checks to see if a child view matches the {@link org.hamcrest.Matcher}
+     * @param viewToMatch   the {@link BaseView} to get the selector in order to find it within the list item
+     * @param toCheck   the check for the child view
+     * @return  the model reached by interacting with this element.
+     */
     public T checkChildView(BaseView<T> viewToMatch, Matcher<View> toCheck) {
         adapter.onChildView(viewToMatch.getSelector()).check(ViewAssertions.matches(toCheck));
         return returnGeneric();

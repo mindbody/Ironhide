@@ -26,20 +26,61 @@ public class DynamicListAdapter<T extends PageObject> {
     private Class<T> type;
     private Matcher<View> childMatcher;
 
+    /**
+     * A generically typed DynamicListAdapter with selector:
+     *  {@link com.mindbodyonline.ironhide.Infrastructure.Extensions.BaseViewMatchers#instanceOf(Class)}
+     * @param itemType the class type to use for {@link com.mindbodyonline.ironhide.Infrastructure.Extensions.BaseViewMatchers#instanceOf(Class)}
+     */
     public DynamicListAdapter(Class itemType) {
         this(null, instanceOf(itemType));
     }
 
+    /**
+     * A generically typed DynamicListAdapter with selector:
+     *  {@link org.hamcrest.Matchers#allOf(Iterable)}
+     *  with sub-matchers:
+     *   {@link com.mindbodyonline.ironhide.Infrastructure.Extensions.BaseViewMatchers#instanceOf(Class)},
+     *   and {@link android.support.test.espresso.matcher.ViewMatchers#isDescendantOfA(org.hamcrest.Matcher)},
+     *   the second of which also has sub-matcher:
+     *    {@link android.support.test.espresso.matcher.ViewMatchers#withId(int)}.
+     * @param itemType  the class type to use for {@link com.mindbodyonline.ironhide.Infrastructure.Extensions.BaseViewMatchers#instanceOf(Class)}
+     * @param parentId  the id to use for {@link android.support.test.espresso.matcher.ViewMatchers#withId(int)}
+     */
     public DynamicListAdapter(Class itemType, int parentId) {
         this(null, allOf(instanceOf(itemType),
                 isDescendantOfA(withId(parentId))));
     }
 
+    /**
+     * A generically typed DynamicListAdapter with selector:
+     *  {@link org.hamcrest.Matchers#allOf(Iterable)}
+     *  with sub-matchers:
+     *   {@link com.mindbodyonline.ironhide.Infrastructure.Extensions.BaseViewMatchers#instanceOf(Class)},
+     *   and {@link android.support.test.espresso.matcher.ViewMatchers#isDescendantOfA(org.hamcrest.Matcher)},
+     *   the second of which also has sub-matcher:
+     *    {@link com.mindbodyonline.ironhide.Infrastructure.Extensions.BaseViewMatchers#instanceOf(Class)}.
+     * @param itemType  the class type to use for the first usage of {@link com.mindbodyonline.ironhide.Infrastructure.Extensions.BaseViewMatchers#instanceOf(Class)}
+     * @param parentClass  the class to use for the second usage of {@link com.mindbodyonline.ironhide.Infrastructure.Extensions.BaseViewMatchers#instanceOf(Class)}
+     */
     public DynamicListAdapter(Class itemType, Class parentClass) {
         this(null, allOf(instanceOf(itemType),
                          isDescendantOfA( instanceOf(parentClass) )));
     }
 
+
+    /**
+     * A generically typed DynamicListAdapter with selector:
+     *  {@link org.hamcrest.Matchers#allOf(Iterable)}
+     *  with sub-matchers:
+     *   {@link com.mindbodyonline.ironhide.Infrastructure.Extensions.BaseViewMatchers#instanceOf(Class)},
+     *   and {@link android.support.test.espresso.matcher.ViewMatchers#isDescendantOfA(org.hamcrest.Matcher)},
+     *   the second of which also has sub-matchers:
+     *    {@link android.support.test.espresso.matcher.ViewMatchers#withId(int)} and
+     *    {@link com.mindbodyonline.ironhide.Infrastructure.Extensions.BaseViewMatchers#instanceOf(Class)}.
+     * @param itemType  the class type to use for the first usage of {@link com.mindbodyonline.ironhide.Infrastructure.Extensions.BaseViewMatchers#instanceOf(Class)}
+     * @param parentId  the id to use for {@link android.support.test.espresso.matcher.ViewMatchers#withId(int)}
+     * @param parentClass  the class to use for the second usage of {@link com.mindbodyonline.ironhide.Infrastructure.Extensions.BaseViewMatchers#instanceOf(Class)}
+     */
     public DynamicListAdapter(Class itemType, int parentId, Class parentClass) {
         this(null, allOf(instanceOf(itemType),
                          isDescendantOfA(allOf(
@@ -47,6 +88,11 @@ public class DynamicListAdapter<T extends PageObject> {
                                 instanceOf(parentClass) ))));
     }
 
+    /**
+     * Instantiates a {@link android.support.test.espresso.ViewInteraction} and retains type and matcher for later access.
+     * @param type  the class of the generic type
+     * @param childMatcher  the {@link org.hamcrest.Matcher} to select the {@link android.widget.AdapterView}
+     */
     private DynamicListAdapter(Class<T> type, Matcher<View> childMatcher) {
         this.type = type;
         this.childMatcher = allOf(isDisplayed(), childMatcher);
@@ -59,14 +105,29 @@ public class DynamicListAdapter<T extends PageObject> {
         return new DynamicListAdapter<E>(type, childMatcher);
     }
 
+    /**
+     * Creates a new {@link Clickable} for the matcher of the child and {@link com.mindbodyonline.ironhide.Infrastructure.Extensions.BaseViewMatchers#hasIndex(int)}
+     * @param index the index for {@link com.mindbodyonline.ironhide.Infrastructure.Extensions.BaseViewMatchers#hasIndex(int)}
+     * @return  the Clickable created
+     */
     public Clickable<T> getItemAt(int index) {
         return getItemMatching(hasIndex(index));
     }
 
+    /**
+     * Creates a new {@link Clickable} for the matcher of the child and {@link android.support.test.espresso.matcher.ViewMatchers#withText(int)}
+     * @param text  the String to use for {@link android.support.test.espresso.matcher.ViewMatchers#withText(int)}
+     * @return  the Clickable created
+     */
     public Clickable<T> getItemFromText(String text) {
         return getItemMatching(withText(text));
     }
 
+    /**
+     * Creates a new {@link Clickable} for the matcher of the child and itemMatcher
+     * @param itemMatcher the {@link org.hamcrest.Matcher} to append to the child matcher
+     * @return  the Clickable created
+     */
     public Clickable<T> getItemMatching(Matcher<View> itemMatcher) {
         return new Clickable<T>(allOf(childMatcher, itemMatcher)).goesTo(type);
     }
