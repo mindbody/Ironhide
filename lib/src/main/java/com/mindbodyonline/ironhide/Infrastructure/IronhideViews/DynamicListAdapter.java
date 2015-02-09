@@ -95,13 +95,12 @@ public class DynamicListAdapter<T extends PageObject> {
      */
     private DynamicListAdapter(Class<T> type, Matcher<View> childMatcher) {
         this.type = type;
-        this.childMatcher = allOf(isDisplayed(), childMatcher);
+        this.childMatcher = childMatcher;
     }
 
 
     /** @see BaseView#goesTo(Class) */
     public <E extends PageObject> DynamicListAdapter<E> goesTo(Class<E> type) {
-        // TODO: remove the redundancy of isDisplayed() inside constructor
         return new DynamicListAdapter<E>(type, childMatcher);
     }
 
@@ -129,6 +128,6 @@ public class DynamicListAdapter<T extends PageObject> {
      * @return  the Clickable created
      */
     public Clickable<T> getItemMatching(Matcher<View> itemMatcher) {
-        return new Clickable<T>(allOf(childMatcher, itemMatcher)).goesTo(type);
+        return new Clickable<T>(allOf(isDisplayed(), childMatcher, itemMatcher)).goesTo(type);
     }
 }
