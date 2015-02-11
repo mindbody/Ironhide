@@ -1,4 +1,4 @@
-package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
+package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
 import android.support.test.espresso.Root;
 import android.support.test.espresso.assertion.LayoutAssertions;
@@ -10,9 +10,8 @@ import com.mindbodyonline.ironhide.PageObjects.PageObject;
 import org.hamcrest.Matcher;
 
 /**
- * Extends MindbodyView
  * Defines a ViewGroup typically referenced as a layout.
- * Examples include LinearLayout, FrameLayout, and RelativeLayout.
+ * Examples include {@link android.widget.LinearLayout}, {@link android.widget.FrameLayout}, and {@link android.widget.RelativeLayout}.
  *
  * Provides generic assertions and matchers for Layouts
  *
@@ -20,34 +19,22 @@ import org.hamcrest.Matcher;
  */
 public class LayoutView<T extends PageObject> extends MindbodyView<T> {
 
-    public LayoutView(Class<T> type, int resourceId) {
-        super(resourceId);
-        this.type = type;
-        id = resourceId;
+    /** @see MindbodyView#MindbodyView(Class, org.hamcrest.Matcher) */
+    public LayoutView(Class<T> type, Matcher<View> viewMatcher) {
+        super(type, viewMatcher);
     }
 
-    public LayoutView(Class<T> type, Matcher<View> selector) {
-        super(type, selector);
-        this.type = type;
-        this.selector = selector;
-    }
-
-    public LayoutView(Class<T> type, int resourceId, int stringResourceId) {
-        super(resourceId);
-        this.type = type;
-        id = resourceId;
-        stringId = stringResourceId;
-    }
-
-
+    /** @see MindbodyView#MindbodyView(int) */
     public LayoutView(int resourceId) {
         super(resourceId);
     }
 
+    /** @see MindbodyView#MindbodyView(org.hamcrest.Matcher) */
     public LayoutView(Matcher<View> selector) {
         super(selector);
     }
 
+    /** @see MindbodyView#MindbodyView(int, int) */
     public LayoutView(int IGNORED, int stringResourceId) {
         super(IGNORED, stringResourceId);
     }
@@ -55,16 +42,27 @@ public class LayoutView<T extends PageObject> extends MindbodyView<T> {
     /** {@inheritDoc} */
     @Override
     protected <E extends PageObject> LayoutView<E> goesTo(Class<E> type) {
-        return new LayoutView<E>(type, getSelector());
+        return new LayoutView<>(type, getSelector());
     }
+
     /**
      * View matchers specific to layouts
      */
 
+    /**
+     * Checks to see if this view matches {@link LayoutMatchers#hasEllipsizedText()}
+     * @return  The model reached by interacting with this element.
+     */
+    @SuppressWarnings("unchecked")
     public T hasEllipsizedText() {
         return matches(LayoutMatchers.hasEllipsizedText());
     }
 
+    /**
+     * Checks to see if this view matches {@link LayoutMatchers#hasMultilineText()}
+     * @return  The model reached by interacting with this element.
+     */
+    @SuppressWarnings("unchecked")
     public T hasMultilineText() {
         return matches(LayoutMatchers.hasMultilineText());
     }
@@ -73,18 +71,34 @@ public class LayoutView<T extends PageObject> extends MindbodyView<T> {
      * View assertions specific to layouts
      */
 
+    /**
+     * Checks to see if this view matches assertion {@link LayoutAssertions#noEllipsizedText()}
+     * @return  The model reached by interacting with this element.
+     */
     public T noEllipsizedText() {
         return checkAssertion(LayoutAssertions.noEllipsizedText());
     }
 
+    /**
+     * Checks to see if this view matches assertion {@link LayoutAssertions#noMultilineButtons()}
+     * @return  The model reached by interacting with this element.
+     */
     public T noMultilineButtons() {
         return checkAssertion(LayoutAssertions.noMultilineButtons());
     }
 
+    /**
+     * Checks to see if this view matches assertion {@link LayoutAssertions#noOverlaps(org.hamcrest.Matcher)}
+     * @return  The model reached by interacting with this element.
+     */
     public T noOverlaps(Matcher<View> selector) {
         return checkAssertion(LayoutAssertions.noOverlaps(selector));
     }
 
+    /**
+     * Checks to see if this view matches assertion {@link LayoutAssertions#noMultilineButtons()}
+     * @return  The model reached by interacting with this element.
+     */
     public T noOverlaps() {
         return checkAssertion(LayoutAssertions.noOverlaps());
     }

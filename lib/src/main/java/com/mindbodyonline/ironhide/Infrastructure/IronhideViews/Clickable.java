@@ -1,6 +1,5 @@
-package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
+package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
-import android.graphics.pdf.PdfDocument;
 import android.support.test.espresso.Root;
 import android.view.View;
 
@@ -9,53 +8,35 @@ import com.mindbodyonline.ironhide.PageObjects.PageObject;
 import org.hamcrest.Matcher;
 
 /**
- * Extends MindbodyView
- * Most basic element in Connect Test Suite
- * Do not implement any action that are not available to MindbodyView
+ * Most basic element in Connect Test Suite.
+ * Do not implement any action that are not available to BaseView.
  * Use this for any general elements on the screen (e.g.: a background, etc.)
  *
  * @param <T> The model the current element will return when interacted with
  */
 public class Clickable<T extends PageObject> extends MindbodyView<T> {
 
-    public Clickable(Class<T> type, int resourceId) {
-        super(resourceId);
-        this.type = type;
-        id = resourceId;
+    /** @see MindbodyView#MindbodyView(Class, org.hamcrest.Matcher) */
+    public Clickable(Class<T> type, Matcher<View> viewMatcher) {
+        super(type, viewMatcher);
     }
 
-    public Clickable(Class<T> type, Matcher<View> selector) {
-        super(type, selector);
-        this.type = type;
-        this.selector = selector;
-    }
-
-    public Clickable(Class<T> type, int resourceId, int stringResourceId) {
-        super(resourceId);
-        this.type = type;
-        id = resourceId;
-        stringId = stringResourceId;
-    }
-
-    public Clickable(Class<T> type, String displayText) {
-        super(displayText);
-        this.type = type;
-        text = displayText;
-    }
-
-
+    /** @see MindbodyView#MindbodyView(int) */
     public Clickable(int resourceId) {
         super(resourceId);
     }
 
+    /** @see MindbodyView#MindbodyView(org.hamcrest.Matcher) */
     public Clickable(Matcher<View> selector) {
         super(selector);
     }
 
+    /** @see MindbodyView#MindbodyView(int, int) */
     public Clickable(int IGNORED, int stringResourceId) {
         super(IGNORED, stringResourceId);
     }
 
+    /** @see MindbodyView#MindbodyView(String) */
     public Clickable(String displayText) {
         super(displayText);
     }
@@ -64,9 +45,8 @@ public class Clickable<T extends PageObject> extends MindbodyView<T> {
     /** {@inheritDoc} */
     @Override
     public <E extends PageObject> Clickable<E> goesTo(Class<E> type) {
-        return new Clickable<E>(type, getSelector());
+        return new Clickable<>(type, getSelector());
     }
-
 
     /**
      * Root Matchers return Clickable

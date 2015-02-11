@@ -1,14 +1,9 @@
 package com.mindbodyonline.ironhide.Infrastructure.Extensions;
 
-import android.content.res.Resources;
 import android.support.test.espresso.matcher.BoundedMatcher;
-import android.support.test.espresso.matcher.ViewMatchers;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CompoundButton;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
@@ -17,13 +12,14 @@ import static android.support.test.internal.util.Checks.checkNotNull;
 import static org.hamcrest.Matchers.not;
 
 /**
- * Custom ViewMatchers used for ConnectView elements
+ * Custom ViewMatchers used for BaseView elements
  * These are already wrapped inside of elements, so there is little need to use them directly
  */
 public class MindbodyViewMatchers {
 
     /**
-     * Checks an ImageView to see if the displayed image correspondes to the image pointed to by a Drawable resource
+     * Checks an ImageView to see if the displayed image corresponds to the image pointed to by a Drawable resource
+     * NOTE: see open issue #94 for Espresso (https://code.google.com/p/android-test-kit/issues/detail?id=94)
      *
      * @param drawableId The Drawable Resource ID to compare to the ImageView's content
      * @return A Matcher to check using Espresso ViewAssertions.matches method
@@ -47,86 +43,6 @@ public class MindbodyViewMatchers {
             }
         };
     }
-
-    /**
-     * Checks an EditText to see if the hint text correspondes to the text pointed to by a String resource
-     * Deprecated: Espresso 2.0 provides ViewMatchers.withHint(int resourceId), use that instead
-     *
-     * @param stringId The String Resource ID to compare to the EditText's hint text
-     * @return A Matcher to check using Espresso ViewAssertions.matches method
-     */
-    @Deprecated
-    public static Matcher<Object> withHintText(int stringId) {
-        checkNotNull(stringId);
-        return withHint(stringId);
-    }
-
-    private static Matcher<Object> withHint(final int stringId) {
-        return new BoundedMatcher<Object, EditText>(EditText.class) {
-            @Override
-            public boolean matchesSafely(EditText hint) {
-                assert hint.getResources() != null && hint.getHint() != null;
-                String expectedText = hint.getResources().getString(stringId);
-                return expectedText.equals(hint.getHint().toString());
-            }
-
-            @Override
-            public void describeTo(Description description) {
-                description.appendText("with hint ");
-                description.appendText(stringId + "");
-            }
-        };
-    }
-
-    @Deprecated
-    // Deprecated: Espresso 2.0 provides ViewMatchers.withHint(String hintText)
-    //  along with ViewMatchers.withHint(Matcher<String> stringMatcher), use those instead
-    public static Matcher<Object> withHintText(String string) {
-        checkNotNull(string);
-        return withHint(string);
-    }
-
-    private static Matcher<Object> withHint(final String string) {
-        return new BoundedMatcher<Object, EditText>(EditText.class) {
-            @Override
-            public boolean matchesSafely(EditText hint) {
-                assert hint.getResources() != null && hint.getHint() != null;
-                return string.equals(hint.getHint().toString());
-            }
-
-            @Override
-            public void describeTo(Description description) {
-                description.appendText("with hint ");
-                description.appendText(string + "");
-            }
-        };
-    }
-
-    /**
-     * Checks to see if a View is selected on the screen
-     * Deprecated: Espresso 2.0 provides ViewMatchers.isSelected(), use that instead
-     *
-     * @return A Matcher to check using Espresso ViewAssertions.matches method
-     */
-    @Deprecated
-    public static Matcher<Object> isSelected() {
-        return checkSelected();
-    }
-
-    private static Matcher<Object> checkSelected() {
-        return new BoundedMatcher<Object, View>(View.class) {
-            @Override
-            public boolean matchesSafely(View view) {
-                return view.isSelected();
-            }
-
-            @Override
-            public void describeTo(Description description) {
-                description.appendText("is selected ");
-            }
-        };
-    }
-
 
     /**
      * Checks to see if a View has a certain index
@@ -202,61 +118,5 @@ public class MindbodyViewMatchers {
                 description.appendText("Has " + count + " children");
             }
         };
-    }
-
-    /**
-     * Checks to see if a TextView's text contains a certain string given the string's resource id.
-     * (Adapted from Espresso.ViewMatchers.withText)
-     * @deprecated use TextViewMatchers instead (more robust)
-     *
-     * @param resourceId    The string's resource id
-     * @return              A Matcher to check using Espresso ViewAssertions.matches method
-     */
-    @Deprecated
-    public static Matcher<View> containsString(final int resourceId) {
-
-        return new BoundedMatcher<View, TextView>(TextView.class) {
-            private String resourceName = null;
-            private String expectedText = null;
-
-            @Override
-            public void describeTo(Description description) {
-                description.appendText("contains string from resource id: ");
-                description.appendValue(resourceId);
-                if (null != resourceName) {
-                    description.appendText("[");
-                    description.appendText(resourceName);
-                    description.appendText("]");
-                }
-                if (null != expectedText) {
-                    description.appendText(" value: ");
-                    description.appendText(expectedText);
-                }
-            }
-
-            @Override
-            public boolean matchesSafely(TextView textView) {
-                if (null == expectedText) {
-                    try {
-                        expectedText = textView.getResources().getString(resourceId);
-                        resourceName = textView.getResources().getResourceEntryName(resourceId);
-                    } catch (Resources.NotFoundException ignored) {
-                        /* view could be from a context unaware of the resource id. */
-                    }
-                }
-                return (null != expectedText) && textView.getText().toString().contains(expectedText);
-            }
-        };
-    }
-
-    /**
-     * Checks to see if a CompoundButton is checked.
-     * Deprecated: Espresso 2.0 provides ViewMatchers.isChecked(), use that instead.
-     *
-     * @return  A Matcher to check using Espresso ViewAssertions.matchers method
-     */
-    @Deprecated
-    public static Matcher<View> isChecked() {
-        return ViewMatchers.isChecked();
     }
 }

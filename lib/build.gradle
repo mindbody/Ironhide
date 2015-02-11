@@ -1,4 +1,4 @@
-apply plugin: 'android-library'
+apply plugin: 'com.android.library'
 apply plugin: 'maven'
 apply plugin: 'signing'
 
@@ -6,18 +6,17 @@ group = "com.mindbodyonline.ironhide"
 version = "2.0.1"
 
 android {
-    compileSdkVersion 19
+    compileSdkVersion 21
     buildToolsVersion '19.1.0'
 
     defaultConfig {
         minSdkVersion 8
-        targetSdkVersion 19
+        targetSdkVersion 21
         versionCode 1
         versionName "1.0"
     }
     buildTypes {
         release {
-//            runProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
@@ -31,7 +30,6 @@ task coreLibJar(type: Jar) {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:support-v4:19.1.0'
     compile files('libs/spoon-client-1.1.1.jar')
 
     compile 'com.android.support.test:testing-support-lib:0.1'

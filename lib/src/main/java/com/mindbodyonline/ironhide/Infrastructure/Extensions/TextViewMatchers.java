@@ -10,7 +10,8 @@ import org.hamcrest.Matcher;
 import org.hamcrest.Matchers;
 
 /**
- * Created by kyle.lozier on 1/14/2015.
+ * A collection of ViewMatchers specifically for {@link TextView}s that allow the comparison of
+ *  strings inside {@link TextView}s to resource strings.
  */
 public class TextViewMatchers {
 
@@ -251,7 +252,7 @@ public class TextViewMatchers {
      */
 
     /**
-     * A generic matcher to test the hint text of {@code TextView}s
+     * A generic matcher to test the hint text of {@link android.widget.TextView}s
      */
     public static abstract class HintStringIdViewMatcher extends StringIdViewMatcher {
         public HintStringIdViewMatcher(int resourceId) {
@@ -261,9 +262,13 @@ public class TextViewMatchers {
         @Override
         protected boolean matchesSafely(TextView textView) {
             if (null == stringMatcher) {
-                expectedText = textView.getResources().getString(resourceId);
-                resourceName = textView.getResources().getResourceEntryName(resourceId);
-                stringMatcher = getStringMatcher(expectedText);
+                try {
+                    expectedText = textView.getResources().getString(resourceId);
+                    resourceName = textView.getResources().getResourceEntryName(resourceId);
+                    stringMatcher = getStringMatcher(expectedText);
+                } catch (Resources.NotFoundException ignored) {
+                    /* view could be from a context unaware of the resource id. */
+                }
             }
 
             return textView != null && stringMatcher != null && stringMatcher.matches(textView.getHint().toString());
@@ -271,14 +276,14 @@ public class TextViewMatchers {
     }
 
     /**
-     * A generic matcher class to test the text of {@code TextView}s.
+     * A generic matcher class to test the text of {@link android.widget.TextView}s.
      * (Adapted from Espresso.ViewMatchers.withText)
      */
     public static abstract class StringIdViewMatcher extends BoundedMatcher<View, TextView> {
         protected Matcher<String> stringMatcher = null;
         protected String expectedText = null;
         protected String resourceName = null;
-        protected int resourceId;
+        protected final int resourceId;
 
         public StringIdViewMatcher(int resourceId) {
             super(TextView.class);
