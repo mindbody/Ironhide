@@ -1,4 +1,4 @@
-package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
+package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
 
 import android.support.test.espresso.DataInteraction;
 import android.support.test.espresso.Root;
@@ -18,7 +18,7 @@ import static org.hamcrest.Matchers.anything;
 /**
  * Simple element that allows to interact with a single item inside a {@link android.widget.ListView} with an {@link android.widget.Adapter}.
  * Enables to interact with a ListItem and the inner Views it contains.
- * This element should never be instantiated - instead get a reference using a {@link com.mindbodyonline.ironhide.Infrastructure.IronhideViews.ListAdapter}
+ * This element should never be instantiated - instead get a reference using a {@link com.mindbodyonline.ironhide.Infrastructure.MindbodyViews.ListAdapter}
  *
  * @param <T> The model the current element will return when interacted with
  */

@@ -1,4 +1,4 @@
-package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
+package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
 
 import android.support.test.espresso.Root;
 import android.support.test.espresso.contrib.DrawerMatchers;
@@ -10,8 +10,8 @@ import org.hamcrest.Matcher;
 
 /**
  * An element to interact with a {@link android.support.v4.widget.DrawerLayout}.
- * Provides actions {@link com.mindbodyonline.ironhide.Infrastructure.IronhideViews.NavDrawer#openDrawer(int)}
- * and {@link com.mindbodyonline.ironhide.Infrastructure.IronhideViews.NavDrawer#closeDrawer(int)}, and checks
+ * Provides actions {@link com.mindbodyonline.ironhide.Infrastructure.MindbodyViews.NavDrawer#openDrawer(int)}
+ * and {@link com.mindbodyonline.ironhide.Infrastructure.MindbodyViews.NavDrawer#closeDrawer(int)}, and checks
  * {@link NavDrawer#isOpen()} and {@link NavDrawer#isClosed()}
  */
 public class NavDrawer<T extends PageObject> extends MindbodyView<T> {
