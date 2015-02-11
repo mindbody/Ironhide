@@ -30,7 +30,6 @@ task coreLibJar(type: Jar) {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:support-v4:21.0.3'
     compile files('libs/spoon-client-1.1.1.jar')
 
     compile 'com.android.support.test:testing-support-lib:0.1'
