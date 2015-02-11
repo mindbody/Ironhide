@@ -101,7 +101,7 @@ public class ListAdapter<T extends PageObject> {
      * @return The ListItem at position index.
      */
     public ListItem<T> getItemAtPosition(int index) {
-        return new ListItem<T>(type, adapter.atPosition(index)).goesTo(type);
+        return new ListItem<>(type, adapter.atPosition(index)).goesTo(type);
     }
 
     /**
@@ -109,6 +109,6 @@ public class ListAdapter<T extends PageObject> {
      * @return The ListItem at the first position.
      */
     public ListItem<T> getFirst() {
-        return new ListItem<T>(type, adapter.atPosition(0)).goesTo(type);
+        return new ListItem<>(type, adapter.atPosition(0)).goesTo(type);
     }
 }

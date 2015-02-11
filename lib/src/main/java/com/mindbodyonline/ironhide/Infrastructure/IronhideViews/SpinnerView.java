@@ -117,7 +117,7 @@ public class SpinnerView<T extends PageObject> extends BaseView<T> {
     /** {@inheritDoc} */
     @Override
     public <E extends PageObject> SpinnerView<E> goesTo(Class<E> type) {
-        return new SpinnerView<E>(type, getSelector());
+        return new SpinnerView<>(type, getSelector());
     }
 
     /**
