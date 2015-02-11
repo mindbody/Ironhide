@@ -17,8 +17,9 @@ import java.util.Arrays;
 
 import static android.view.MotionEvent.ACTION_DOWN;
 import static android.view.MotionEvent.ACTION_MOVE;
-import static android.view.MotionEvent.ACTION_POINTER_2_DOWN;
-import static android.view.MotionEvent.ACTION_POINTER_2_UP;
+import static android.view.MotionEvent.ACTION_POINTER_DOWN;
+import static android.view.MotionEvent.ACTION_POINTER_INDEX_SHIFT;
+import static android.view.MotionEvent.ACTION_POINTER_UP;
 import static android.view.MotionEvent.ACTION_UP;
 import static android.view.MotionEvent.TOOL_TYPE_FINGER;
 import static com.android.support.test.deps.guava.base.Preconditions.checkNotNull;
@@ -46,7 +47,7 @@ final class ZoomMotionEvents {
 
     private static final String TAG = ZoomMotionEvents.class.getSimpleName();
 
-    private static PointerProperties[] defaultProperties;
+    private static final PointerProperties[] defaultProperties;
 
     static {
         defaultProperties = new PointerProperties[]{ new PointerProperties(), new PointerProperties() };
@@ -78,7 +79,7 @@ final class ZoomMotionEvents {
                 downTime = SystemClock.uptimeMillis();
                 downEvents = new MotionEvent[] {
                         obtainWrapper(ACTION_DOWN, coordinates[0][0], coordinates[0][1], precision),
-                        obtainWrapper(ACTION_POINTER_2_DOWN, coordinates, precision)
+                        obtainWrapper(ACTION_POINTER_DOWN | 1 << ACTION_POINTER_INDEX_SHIFT, coordinates, precision)
                 };
 
                 long isTapAt = downTime + (ViewConfiguration.getTapTimeout() / 2);
@@ -163,7 +164,7 @@ final class ZoomMotionEvents {
         try {
             // Up press.
             motionEvents = new MotionEvent[] {
-                    obtainWrapper(ACTION_POINTER_2_UP, coordinates, precision),
+                    obtainWrapper(ACTION_POINTER_UP | 1 << ACTION_POINTER_INDEX_SHIFT, coordinates, precision),
                     obtainWrapper(ACTION_UP, coordinates[0][0], coordinates[0][1], precision)
             };
 
@@ -191,17 +192,17 @@ final class ZoomMotionEvents {
      * Helper functions
      */
 
-    private static PointerCoords[] getCoords(float[][] coordinates) {
-        PointerCoords[] pointerCoords = new PointerCoords[]{ new PointerCoords(), new PointerCoords() };
-        pointerCoords[0].pressure = pointerCoords[1].pressure = 1;
-        pointerCoords[0].size = pointerCoords[1].size = 1;
+    private static PointerCoords[] getCoordinates(float[][] coordinates) {
+        PointerCoords[] pointerCoordinates = new PointerCoords[]{ new PointerCoords(), new PointerCoords() };
+        pointerCoordinates[0].pressure = pointerCoordinates[1].pressure = 1;
+        pointerCoordinates[0].size = pointerCoordinates[1].size = 1;
 
-        pointerCoords[0].x = coordinates[0][0];
-        pointerCoords[0].y = coordinates[0][1];
-        pointerCoords[1].x = coordinates[1][0];
-        pointerCoords[1].y = coordinates[1][1];
+        pointerCoordinates[0].x = coordinates[0][0];
+        pointerCoordinates[0].y = coordinates[0][1];
+        pointerCoordinates[1].x = coordinates[1][0];
+        pointerCoordinates[1].y = coordinates[1][1];
 
-        return pointerCoords;
+        return pointerCoordinates;
     }
 
     private static PerformException getPerformException(String description, Throwable cause) {
@@ -234,7 +235,7 @@ final class ZoomMotionEvents {
         return MotionEvent.obtain(
                 downTime, SystemClock.uptimeMillis(),
                 action,
-                2, defaultProperties, getCoords(coordinates),
+                2, defaultProperties, getCoordinates(coordinates),
                 DEFAULT_META_STATE, DEFAULT_BUTTON_STATE,
                 precision[0], precision[1],
                 DEFAULT_DEVICE_ID, DEFAULT_EDGE_FLAGS, DEFAULT_SOURCE, DEFAULT_FLAGS);

@@ -10,7 +10,7 @@ import org.hamcrest.Matcher;
  */
 public class Preferences {
 
-    private Preference check;
+    private final Preference check;
 
     public Preferences(Preference toCheck) {
         this.check = toCheck;

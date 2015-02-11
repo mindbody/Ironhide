@@ -45,7 +45,7 @@ public class Clickable<T extends PageObject> extends BaseView<T> {
     /** {@inheritDoc} */
     @Override
     public <E extends PageObject> Clickable<E> goesTo(Class<E> type) {
-        return new Clickable<E>(type, getSelector());
+        return new Clickable<>(type, getSelector());
     }
 
     /**

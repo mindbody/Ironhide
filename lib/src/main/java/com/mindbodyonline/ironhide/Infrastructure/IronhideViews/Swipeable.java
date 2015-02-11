@@ -44,7 +44,7 @@ public class Swipeable<T extends PageObject> extends BaseView<T> {
     /** {@inheritDoc} */
     @Override
     public <E extends PageObject> Swipeable<E> goesTo(Class<E> type) {
-        return new Swipeable<E>(type, getSelector());
+        return new Swipeable<>(type, getSelector());
     }
 
     /**

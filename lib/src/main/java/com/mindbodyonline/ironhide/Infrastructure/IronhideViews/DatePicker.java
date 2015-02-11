@@ -44,7 +44,7 @@ public class DatePicker<T extends PageObject> extends BaseView<T> {
     /** {@inheritDoc} */
     @Override
     protected <E extends PageObject> DatePicker<E> goesTo(Class<E> type) {
-        return new DatePicker<E>(type, getSelector());
+        return new DatePicker<>(type, getSelector());
     }
 
     /**

@@ -17,17 +17,14 @@ import static android.support.test.espresso.action.GeneralLocation.TOP_RIGHT;
  */
 public class ZoomAction {
 
-    // the buffer for ZoomAction creation
-    private static HashMap<Pair<Zoomer, ZoomDirection>, GeneralZoomAction> bufferedZoomActions;
-
     /**
      * Initial size is the number of combination of most used zoom speeds
-     *  (from {@link android.support.test.espresso.action.Zoom}) and the number of
+     *  (from {@link com.mindbodyonline.ironhide.Infrastructure.Extensions.Zoom}) and the number of
      *  {@link ZoomDirection}s
      */
-    static {
-        bufferedZoomActions = new HashMap<Pair<Zoomer, ZoomDirection>, GeneralZoomAction>(ZoomDirection.values().length * Zoom.values().length);
-    }
+    private static final HashMap<Pair<Zoomer, ZoomDirection>, GeneralZoomAction> bufferedZoomActions 
+            = new HashMap<>(ZoomDirection.values().length * Zoom.values().length);
+    
 
     /**
      * Gets a zoom action.
@@ -37,7 +34,7 @@ public class ZoomAction {
      * @return  the zoom action requested
      */
     public static GeneralZoomAction getZoom(Zoomer speed, ZoomDirection direction) {
-        Pair<Zoomer, ZoomDirection> key = new Pair<Zoomer, ZoomDirection>(speed, direction);
+        Pair<Zoomer, ZoomDirection> key = new Pair<>(speed, direction);
 
         if (!bufferedZoomActions.containsKey(key))
             bufferedZoomActions.put(key, generateZoom(speed, direction));
@@ -63,7 +60,7 @@ public class ZoomAction {
         IN  (CENTER, CENTER, TOP_RIGHT, BOTTOM_LEFT),
         OUT (TOP_RIGHT, BOTTOM_LEFT, CENTER, CENTER);
 
-        public CoordinatesProvider[] start, end;
+        public final CoordinatesProvider[] start, end;
 
         /**
          * Variadic parameters to simplify the look of this function.

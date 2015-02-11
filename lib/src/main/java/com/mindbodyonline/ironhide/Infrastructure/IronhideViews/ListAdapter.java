@@ -22,7 +22,7 @@ import static org.hamcrest.Matchers.is;
 public class ListAdapter<T extends PageObject> {
 
     private Class<T> type;
-    private DataInteraction adapter;
+    private final DataInteraction adapter;
 
     /**
      * Retains type and adapter for use later on.
@@ -88,7 +88,7 @@ public class ListAdapter<T extends PageObject> {
      * @return New ListAdapter with return type of type.
      */
     public <E extends PageObject> ListAdapter<E> goesTo(Class<E> type) {
-        return new ListAdapter<E>(type, adapter);
+        return new ListAdapter<>(type, adapter);
     }
 
     /**

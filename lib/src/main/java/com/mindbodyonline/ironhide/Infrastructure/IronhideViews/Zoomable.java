@@ -48,7 +48,7 @@ public class Zoomable<T extends PageObject> extends BaseView<T> {
     /** {@inheritDoc} */
     @Override
     public <E extends PageObject> Zoomable<E> goesTo(Class<E> type) {
-        return new Zoomable<E>(type, getSelector());
+        return new Zoomable<>(type, getSelector());
     }
 
     public T zoom() {

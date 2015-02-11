@@ -10,7 +10,7 @@ import org.hamcrest.Matcher;
  */
 public class Cursors {
 
-    private Cursor check;
+    private final Cursor check;
 
     public Cursors(Cursor toCheck){
         check = toCheck;

@@ -283,7 +283,7 @@ public class TextViewMatchers {
         protected Matcher<String> stringMatcher = null;
         protected String expectedText = null;
         protected String resourceName = null;
-        protected int resourceId;
+        protected final int resourceId;
 
         public StringIdViewMatcher(int resourceId) {
             super(TextView.class);

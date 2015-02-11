@@ -42,7 +42,7 @@ public class Recycler<T extends PageObject> extends BaseView<T> {
     /** {@inheritDoc} */
     @Override
     public <E extends PageObject> Recycler<E> goesTo(Class<E> type) {
-        return new Recycler<E>(type, getSelector());
+        return new Recycler<>(type, getSelector());
     }
 
     /**

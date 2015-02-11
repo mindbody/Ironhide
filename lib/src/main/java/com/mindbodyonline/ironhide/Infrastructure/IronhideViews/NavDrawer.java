@@ -17,7 +17,7 @@ import org.hamcrest.Matcher;
 public class NavDrawer<T extends PageObject> extends BaseView<T>{
 
     // the resource id for the navigation drawer
-    private int drawerLayoutId;
+    private final int drawerLayoutId;
 
     /**
      * @see BaseView#BaseView(Class, org.hamcrest.Matcher)
@@ -37,7 +37,7 @@ public class NavDrawer<T extends PageObject> extends BaseView<T>{
     /** {@inheritDoc} */
     @Override
     public <E extends PageObject> NavDrawer<E> goesTo(Class<E> type) {
-        return new NavDrawer<E>(type, drawerLayoutId, getSelector());
+        return new NavDrawer<>(type, drawerLayoutId, getSelector());
     }
 
     /** @see android.support.test.espresso.contrib.DrawerActions#openDrawer(int) */

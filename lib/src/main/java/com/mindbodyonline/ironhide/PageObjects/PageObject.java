@@ -1,7 +1,8 @@
 package com.mindbodyonline.ironhide.PageObjects;
 
 /**
- * A container class for keeping view references, such as clickables and textfields.
+ * A container class for keeping view references, such as {@link com.mindbodyonline.ironhide.Infrastructure.IronhideViews.Clickable}s
+ *  and {@link com.mindbodyonline.ironhide.Infrastructure.IronhideViews.TextField}s.
  * E.g.,
  * <p>
  * public class MyPageObject extends PageObject {

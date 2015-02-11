@@ -35,8 +35,8 @@ import static org.hamcrest.Matchers.not;
  */
 public class BaseView<T extends PageObject> {
 
-    protected Class<T> type;
-    protected Matcher<View> selector;
+    protected final Class<T> type;
+    protected final Matcher<View> selector;
     protected ViewInteraction viewInteraction;
 
     /**
@@ -87,7 +87,7 @@ public class BaseView<T extends PageObject> {
      * Changes the destination class by returning an object of the given type
      */
     protected <E extends PageObject> BaseView<E> goesTo(Class<E> type) {
-        return new BaseView<E>(type, selector);
+        return new BaseView<>(type, selector);
     }
 
     /**
@@ -152,13 +152,12 @@ public class BaseView<T extends PageObject> {
      * @return The model reached by interacting with this element
      */
     protected T returnGeneric() {
-        try {
-            return type.newInstance();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
+        if (type != null)
+            try {
+                return type.newInstance();
+            } catch (IllegalAccessException | InstantiationException e) {
+                e.printStackTrace();
+            }
         return null;
     }
 
@@ -494,7 +493,7 @@ public class BaseView<T extends PageObject> {
     /**
      * Checks whether the element is an instance of or a subclass of the provided class.
      * @param fromClass Class to check against.
-     * @return the model reached by itneracting with this element.
+     * @return the model reached by interacting with this element.
      */
     public T isAssignableFrom(Class<? extends View> fromClass) {
         return checkMatches(ViewMatchers.isAssignableFrom(fromClass));
@@ -559,7 +558,7 @@ public class BaseView<T extends PageObject> {
     }
 
     /**
-     * Check to see if the element has a sibiling (another BaseView object with the same parent) matching the given BaseView.
+     * Check to see if the element has a sibling (another BaseView object with the same parent) matching the given BaseView.
      * @param sibling The BaseView to check as a sibling.
      * @return The model reached by interacting with this element.
      */
@@ -731,8 +730,8 @@ public class BaseView<T extends PageObject> {
      * Checks to see if the element is a spinner with toString matching given string matcher
      * @return The model reached by interacting with this element.
      */
-    public T withSpinnerText(int resourceid) {
-        return checkMatches(ViewMatchers.withSpinnerText(resourceid));
+    public T withSpinnerText(int resourceId) {
+        return checkMatches(ViewMatchers.withSpinnerText(resourceId));
     }
 
     /**
@@ -920,7 +919,7 @@ public class BaseView<T extends PageObject> {
      * Checks whether the entire view hierarchy does not contain ellipsized or cut off text views.
      * @return The model reached by interacting with this element.
      */
-    public T noEllipziedText() {
+    public T noEllipsizedText() {
         return checkAssertion(LayoutAssertions.noEllipsizedText());
     }
 
