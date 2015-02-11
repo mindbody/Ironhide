@@ -22,7 +22,7 @@ import static org.hamcrest.Matchers.is;
 public class ListAdapter<T extends PageObject> {
 
     private Class<T> type;
-    private DataInteraction adapter;
+    private final DataInteraction adapter;
 
     /**
      * Retains type and adapter for use later on.
@@ -39,7 +39,8 @@ public class ListAdapter<T extends PageObject> {
      * Instantiates a {@link android.support.test.espresso.DataInteraction}
      * @param itemType the class of the objects that make up the list items in the list view.
      */
-    public ListAdapter(Class itemType) {
+    public ListAdapter(Class<T> type,Class itemType) {
+        this.type = type;
         adapter = onData(is(instanceOf(itemType)));
     }
 
@@ -49,8 +50,8 @@ public class ListAdapter<T extends PageObject> {
      * @param itemType the class of the objects that make up the list items in the list view.
      * @param id    the id of the {@link android.widget.AdapterView}
      */
-    public ListAdapter(Class itemType, int id) {
-        this(itemType, ViewMatchers.withId(id));
+    public ListAdapter(Class<T> type, Class itemType, int id) {
+        this(type, itemType, ViewMatchers.withId(id));
     }
 
     /**
@@ -59,7 +60,8 @@ public class ListAdapter<T extends PageObject> {
      * @param itemType the class of the objects that make up the list items in the list view.
      * @param selector  the {@link org.hamcrest.Matcher} for the {@link android.widget.AdapterView}
      */
-    public ListAdapter(Class itemType, Matcher<View> selector) {
+    public ListAdapter(Class<T> type,Class itemType, Matcher<View> selector) {
+        this.type = type;
         adapter = onData(is(instanceOf(itemType))).inAdapterView(selector);
     }
 
@@ -68,7 +70,8 @@ public class ListAdapter<T extends PageObject> {
      * Instantiates a {@link android.support.test.espresso.DataInteraction}
      * @param cursorMatcher the {@link org.hamcrest.Matcher} for the {@link android.database.Cursor} held by the {@link android.widget.CursorAdapter}
      */
-    public ListAdapter(Matcher<Object> cursorMatcher) {
+    public ListAdapter(Class<T> type, Matcher<Object> cursorMatcher) {
+        this.type = type;
         adapter = onData(cursorMatcher);
     }
 
@@ -78,7 +81,8 @@ public class ListAdapter<T extends PageObject> {
      * @param cursorMatcher the {@link org.hamcrest.Matcher} for the {@link android.database.Cursor} held by the {@link android.widget.CursorAdapter}
      * @param selector  the {@link org.hamcrest.Matcher} for the {@link android.widget.AdapterView}
      */
-    public ListAdapter(Matcher<Object> cursorMatcher, Matcher<View> selector) {
+    public ListAdapter(Class<T> type,Matcher<Object> cursorMatcher, Matcher<View> selector) {
+        this.type = type;
         adapter = onData(cursorMatcher).inAdapterView(selector);
     }
 
@@ -88,7 +92,7 @@ public class ListAdapter<T extends PageObject> {
      * @return New ListAdapter with return type of type.
      */
     public <E extends PageObject> ListAdapter<E> goesTo(Class<E> type) {
-        return new ListAdapter<E>(type, adapter);
+        return new ListAdapter<>(type, adapter);
     }
 
     /**
@@ -97,7 +101,7 @@ public class ListAdapter<T extends PageObject> {
      * @return The ListItem at position index.
      */
     public ListItem<T> getItemAtPosition(int index) {
-        return new ListItem<T>(adapter.atPosition(index)).goesTo(type);
+        return new ListItem<T>(type, adapter.atPosition(index)).goesTo(type);
     }
 
     /**
@@ -105,6 +109,6 @@ public class ListAdapter<T extends PageObject> {
      * @return The ListItem at the first position.
      */
     public ListItem<T> getFirst() {
-        return new ListItem<T>(adapter.atPosition(0)).goesTo(type);
+        return new ListItem<T>(type, adapter.atPosition(0)).goesTo(type);
     }
 }

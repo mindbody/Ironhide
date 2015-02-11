@@ -42,7 +42,7 @@ public class LayoutView<T extends PageObject> extends BaseView<T> {
     /** {@inheritDoc} */
     @Override
     protected <E extends PageObject> LayoutView<E> goesTo(Class<E> type) {
-        return new LayoutView<E>(type, getSelector());
+        return new LayoutView<>(type, getSelector());
     }
 
     /**
@@ -53,6 +53,7 @@ public class LayoutView<T extends PageObject> extends BaseView<T> {
      * Checks to see if this view matches {@link LayoutMatchers#hasEllipsizedText()}
      * @return  The model reached by interacting with this element.
      */
+    @SuppressWarnings("unchecked")
     public T hasEllipsizedText() {
         return matches(LayoutMatchers.hasEllipsizedText());
     }
@@ -61,6 +62,7 @@ public class LayoutView<T extends PageObject> extends BaseView<T> {
      * Checks to see if this view matches {@link LayoutMatchers#hasMultilineText()}
      * @return  The model reached by interacting with this element.
      */
+    @SuppressWarnings("unchecked")
     public T hasMultilineText() {
         return matches(LayoutMatchers.hasMultilineText());
     }

@@ -49,7 +49,7 @@ public class TextField<T extends PageObject> extends BaseView<T> {
     /** {@inheritDoc} */
     @Override
     public <E extends PageObject> TextField<E> goesTo(Class<E> type) {
-        return new TextField<E>(type, getSelector());
+        return new TextField<>(type, getSelector());
     }
 
     /**
@@ -242,6 +242,7 @@ public class TextField<T extends PageObject> extends BaseView<T> {
      * Checks to see if the Element has ellipsized text
      * @return The model reached by interacting with this element.
      */
+    @SuppressWarnings("unchecked")
     public T hasEllipsizeText(){
         return checkMatches(LayoutMatchers.hasEllipsizedText());
     }
@@ -250,6 +251,7 @@ public class TextField<T extends PageObject> extends BaseView<T> {
      * Checks to see if the element has multiline text.
      * @return The model reached by interacting with this element.
      */
+    @SuppressWarnings("unchecked")
     public T hasMultilineText(){
         return checkMatches(LayoutMatchers.hasMultilineText());
     }

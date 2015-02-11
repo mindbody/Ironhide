@@ -21,17 +21,14 @@ import static android.support.test.espresso.action.GeneralLocation.TOP_CENTER;
  */
 public class SwipeAction {
 
-    // the buffer for SwipeAction creation
-    private static HashMap<Pair<Swiper, SwipeDirection>, GeneralSwipeAction> bufferedSwipeActions;
-
     /**
      * Initial size is the number of combination of most used swipe speeds
      *  (from {@link android.support.test.espresso.action.Swipe}) and the number of
      *  {@link com.mindbodyonline.ironhide.Infrastructure.Extensions.SwipeAction.SwipeDirection}s
      */
-    static {
-        bufferedSwipeActions = new HashMap<Pair<Swiper, SwipeDirection>, GeneralSwipeAction>(SwipeDirection.values().length * Swipe.values().length);
-    }
+    private static final HashMap<Pair<Swiper, SwipeDirection>, GeneralSwipeAction> bufferedSwipeActions
+            = new HashMap<>(SwipeDirection.values().length * Swipe.values().length);
+    
 
     /**
      * Gets a swipe action.
@@ -41,7 +38,7 @@ public class SwipeAction {
      * @return  the swipe action requested
      */
     public static GeneralSwipeAction getSwipe(Swiper speed, SwipeDirection direction) {
-        Pair<Swiper, SwipeDirection> key = new Pair<Swiper, SwipeDirection>(speed, direction);
+        Pair<Swiper, SwipeDirection> key = new Pair<>(speed, direction);
 
         if (!bufferedSwipeActions.containsKey(key))
             bufferedSwipeActions.put(key, generateSwipe(speed, direction));
@@ -69,7 +66,7 @@ public class SwipeAction {
         LEFT    (CENTER_RIGHT, CENTER_LEFT),
         RIGHT   (CENTER_LEFT, CENTER_RIGHT);
 
-        public CoordinatesProvider start, end;
+        public final CoordinatesProvider start, end;
 
         private SwipeDirection(CoordinatesProvider start, CoordinatesProvider end) {
             this.start = start;

@@ -23,8 +23,8 @@ import static org.hamcrest.Matchers.allOf;
  */
 public class DynamicListAdapter<T extends PageObject> {
 
-    private Class<T> type;
-    private Matcher<View> childMatcher;
+    private final Class<T> type;
+    private final Matcher<View> childMatcher;
 
     /**
      * A generically typed DynamicListAdapter with selector:
@@ -46,6 +46,7 @@ public class DynamicListAdapter<T extends PageObject> {
      * @param itemType  the class type to use for {@link com.mindbodyonline.ironhide.Infrastructure.Extensions.BaseViewMatchers#instanceOf(Class)}
      * @param parentId  the id to use for {@link android.support.test.espresso.matcher.ViewMatchers#withId(int)}
      */
+    @SuppressWarnings("unchecked")
     public DynamicListAdapter(Class itemType, int parentId) {
         this(null, allOf(instanceOf(itemType),
                 isDescendantOfA(withId(parentId))));
@@ -62,6 +63,7 @@ public class DynamicListAdapter<T extends PageObject> {
      * @param itemType  the class type to use for the first usage of {@link com.mindbodyonline.ironhide.Infrastructure.Extensions.BaseViewMatchers#instanceOf(Class)}
      * @param parentClass  the class to use for the second usage of {@link com.mindbodyonline.ironhide.Infrastructure.Extensions.BaseViewMatchers#instanceOf(Class)}
      */
+    @SuppressWarnings("unchecked")
     public DynamicListAdapter(Class itemType, Class parentClass) {
         this(null, allOf(instanceOf(itemType),
                          isDescendantOfA( instanceOf(parentClass) )));
@@ -81,6 +83,7 @@ public class DynamicListAdapter<T extends PageObject> {
      * @param parentId  the id to use for {@link android.support.test.espresso.matcher.ViewMatchers#withId(int)}
      * @param parentClass  the class to use for the second usage of {@link com.mindbodyonline.ironhide.Infrastructure.Extensions.BaseViewMatchers#instanceOf(Class)}
      */
+    @SuppressWarnings("unchecked")
     public DynamicListAdapter(Class itemType, int parentId, Class parentClass) {
         this(null, allOf(instanceOf(itemType),
                          isDescendantOfA(allOf(
@@ -95,14 +98,13 @@ public class DynamicListAdapter<T extends PageObject> {
      */
     private DynamicListAdapter(Class<T> type, Matcher<View> childMatcher) {
         this.type = type;
-        this.childMatcher = allOf(isDisplayed(), childMatcher);
+        this.childMatcher = childMatcher;
     }
 
 
     /** @see BaseView#goesTo(Class) */
     public <E extends PageObject> DynamicListAdapter<E> goesTo(Class<E> type) {
-        // TODO: remove the redundancy of isDisplayed() inside constructor
-        return new DynamicListAdapter<E>(type, childMatcher);
+        return new DynamicListAdapter<>(type, childMatcher);
     }
 
     /**
@@ -128,7 +130,8 @@ public class DynamicListAdapter<T extends PageObject> {
      * @param itemMatcher the {@link org.hamcrest.Matcher} to append to the child matcher
      * @return  the Clickable created
      */
+    @SuppressWarnings("unchecked")
     public Clickable<T> getItemMatching(Matcher<View> itemMatcher) {
-        return new Clickable<T>(allOf(childMatcher, itemMatcher)).goesTo(type);
+        return new Clickable<T>(allOf(isDisplayed(), childMatcher, itemMatcher)).goesTo(type);
     }
 }

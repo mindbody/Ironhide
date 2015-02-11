@@ -22,7 +22,7 @@ import org.hamcrest.Matcher;
  */
 public class ListItem<T extends PageObject> extends BaseView<T> {
 
-    private DataInteraction adapter;
+    private final DataInteraction adapter;
 
     /**
      * @see BaseView#BaseView(Class, org.hamcrest.Matcher)
@@ -45,7 +45,7 @@ public class ListItem<T extends PageObject> extends BaseView<T> {
     /** {@inheritDoc} */
     @Override
     public <E extends PageObject> ListItem<E> goesTo(Class<E> type) {
-        return new ListItem<E>(type, adapter);
+        return new ListItem<>(type, adapter);
     }
 
     /** {@inheritDoc} */
