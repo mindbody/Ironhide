@@ -708,33 +708,6 @@ public class BaseView<T extends PageObject> {
     }
 
     /**
-     * TODO: extract this to be more generic similar to TextFieldMatchers
-     * Checks to see if the element is a spinner with toString matching given string matcher
-     * @return The model reached by interacting with this element.
-     */
-    public T withSpinnerText(Matcher<String> stringMatcher) {
-        return checkMatches(ViewMatchers.withSpinnerText(stringMatcher));
-    }
-
-    /**
-     * TODO: extract this to be more generic similar to TextFieldMatchers
-     * Checks to see if the element is a spinner with toString matching given string matcher
-     * @return The model reached by interacting with this element.
-     */
-    public T withSpinnerText(String text) {
-        return checkMatches(ViewMatchers.withSpinnerText(text));
-    }
-
-    /**
-     * TODO: extract this to be more generic similar to TextFieldMatchers
-     * Checks to see if the element is a spinner with toString matching given string matcher
-     * @return The model reached by interacting with this element.
-     */
-    public T withSpinnerText(int resourceId) {
-        return checkMatches(ViewMatchers.withSpinnerText(resourceId));
-    }
-
-    /**
      * Checks to see if the element has a child matching the given child.
      * @param child The child to check against.
      * @return The model reached by interacting with this element.
