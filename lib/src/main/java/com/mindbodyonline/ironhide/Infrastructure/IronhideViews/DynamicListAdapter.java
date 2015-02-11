@@ -96,7 +96,7 @@ public class DynamicListAdapter<T extends PageObject> {
      * @param type  the class of the generic type
      * @param childMatcher  the {@link org.hamcrest.Matcher} to select the {@link android.widget.AdapterView}
      */
-    private DynamicListAdapter(Class<T> type, Matcher<View> childMatcher) {
+    public DynamicListAdapter(Class<T> type, Matcher<View> childMatcher) {
         this.type = type;
         this.childMatcher = childMatcher;
     }

@@ -13,6 +13,8 @@ import com.mindbodyonline.ironhide.PageObjects.PageObject;
 
 import org.hamcrest.Matcher;
 
+import static org.hamcrest.Matchers.anything;
+
 /**
  * Simple element that allows to interact with a single item inside a {@link android.widget.ListView} with an {@link android.widget.Adapter}.
  * Enables to interact with a ListItem and the inner Views it contains.
@@ -28,8 +30,9 @@ public class ListItem<T extends PageObject> extends BaseView<T> {
      * @see BaseView#BaseView(Class, org.hamcrest.Matcher)
      * Instead instantiates a {@link DataInteraction}
      */
+    @SuppressWarnings("unchecked")
     public ListItem(Class<T> type, DataInteraction adapter) {
-        super(type, null);
+        super(type, (Matcher) anything());
         this.adapter = adapter;
     }
 
@@ -37,8 +40,9 @@ public class ListItem<T extends PageObject> extends BaseView<T> {
      * A generically typed ListItem with adapter given.
      * @param adapter   the DataInteraction representing the {@link android.widget.AdapterView}
      */
+    @SuppressWarnings("unchecked")
     public ListItem(DataInteraction adapter) {
-        super((Matcher<View>) null);
+        super((Matcher) anything());
         this.adapter = adapter;
     }
 
