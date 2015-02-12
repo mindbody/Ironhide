@@ -43,15 +43,15 @@ public class DatePicker<T extends PageObject> extends MindbodyView<T> {
 
     // Compatibility constructors
 
-    protected DatePicker(Class<T> type, int resourceId) {
+    public DatePicker(Class<T> type, int resourceId) {
         this(type, ViewMatchers.withId(resourceId));
     }
 
-    protected DatePicker(Class<T> type, int IGNORED, int stringResourceId) {
+    public DatePicker(Class<T> type, int IGNORED, int stringResourceId) {
         this(type, ViewMatchers.withText(stringResourceId));
     }
 
-    protected DatePicker(Class<T> type, String displayText) {
+    public DatePicker(Class<T> type, String displayText) {
         this(type, ViewMatchers.withText(displayText));
     }
 

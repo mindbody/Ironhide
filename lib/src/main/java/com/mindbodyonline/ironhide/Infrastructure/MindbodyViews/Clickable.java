@@ -44,15 +44,15 @@ public class Clickable<T extends PageObject> extends MindbodyView<T> {
 
     // Compatibility constructors
 
-    protected Clickable(Class<T> type, int resourceId) {
+    public Clickable(Class<T> type, int resourceId) {
         this(type, ViewMatchers.withId(resourceId));
     }
 
-    protected Clickable(Class<T> type, int IGNORED, int stringResourceId) {
+    public Clickable(Class<T> type, int IGNORED, int stringResourceId) {
         this(type, ViewMatchers.withText(stringResourceId));
     }
 
-    protected Clickable(Class<T> type, String displayText) {
+    public Clickable(Class<T> type, String displayText) {
         this(type, ViewMatchers.withText(displayText));
     }
 
