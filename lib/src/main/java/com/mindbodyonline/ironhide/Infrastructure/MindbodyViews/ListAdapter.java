@@ -142,4 +142,8 @@ public class ListAdapter<T extends PageObject> {
 
         return null;
     }
+    
+    public T waitForElement() {
+        return getFirst().waitForElement();
+    }
 }

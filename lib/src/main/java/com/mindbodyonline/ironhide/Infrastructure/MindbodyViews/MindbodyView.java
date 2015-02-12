@@ -40,14 +40,14 @@ public class MindbodyView<T extends PageObject> {
     /**
      * Number of times to wait {@link PageObject#DEFAULT_PAUSE_TIME} for an element. 
      */
-    private static final int MAX_ELEMENT_WAIT_COUNT = 10;
+    public static final int MAX_ELEMENT_WAIT_COUNT = 10;
     
     protected final Class<T> type;
     protected final Matcher<View> selector;
     protected ViewInteraction viewInteraction;
 
     // Compatibility constructors
-    
+
     protected MindbodyView(Class<T> type, int resourceId) {
         this(type, ViewMatchers.withId(resourceId));
     }

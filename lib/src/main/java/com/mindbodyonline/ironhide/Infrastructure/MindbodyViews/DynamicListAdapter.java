@@ -174,4 +174,8 @@ public class DynamicListAdapter<T extends PageObject> {
         
         return null;
     }
+    
+    public T waitForElement() {
+        return getItemAt(0).waitForElement();
+    }
 }
