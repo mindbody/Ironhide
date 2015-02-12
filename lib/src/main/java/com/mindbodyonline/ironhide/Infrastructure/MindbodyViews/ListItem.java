@@ -86,7 +86,7 @@ public class ListItem<T extends PageObject> extends MindbodyView<T> {
      * @param viewToClick   the {@link MindbodyView} to get the selector in order to find it within the list item
      * @return  The model reached by interacting with this element.
      */
-    public T clickChildView(MindbodyView<T> viewToClick) {
+    public T clickChildView(MindbodyView<?> viewToClick) {
         adapter.onChildView(viewToClick.getSelector()).perform(ViewActions.click());
         return returnGeneric();
     }
@@ -96,7 +96,7 @@ public class ListItem<T extends PageObject> extends MindbodyView<T> {
      * @param viewToMatch   the {@link MindbodyView} to get the selector in order to find it within the list item
      * @return  The model reached by interacting with this element.
      */
-    public T childViewIsDisplayed(MindbodyView<T> viewToMatch) {
+    public T childViewIsDisplayed(MindbodyView<?> viewToMatch) {
         adapter.onChildView(viewToMatch.getSelector()).check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
         return returnGeneric();
     }
@@ -106,7 +106,7 @@ public class ListItem<T extends PageObject> extends MindbodyView<T> {
      * @param viewToMatch   the {@link MindbodyView} to get the selector in order to find it within the list item
      * @return  The model reached by interacting with this element.
      */
-    public T performOnChildView(MindbodyView<T> viewToMatch, ViewAction toPerform) {
+    public T performOnChildView(MindbodyView<?> viewToMatch, ViewAction toPerform) {
         adapter.onChildView(viewToMatch.getSelector()).perform(toPerform);
         return returnGeneric();
     }
@@ -117,7 +117,7 @@ public class ListItem<T extends PageObject> extends MindbodyView<T> {
      * @param toCheck   the check for the child view
      * @return  the model reached by interacting with this element.
      */
-    public T checkChildView(MindbodyView<T> viewToMatch, Matcher<View> toCheck) {
+    public T checkChildView(MindbodyView<?> viewToMatch, Matcher<View> toCheck) {
         adapter.onChildView(viewToMatch.getSelector()).check(ViewAssertions.matches(toCheck));
         return returnGeneric();
     }
