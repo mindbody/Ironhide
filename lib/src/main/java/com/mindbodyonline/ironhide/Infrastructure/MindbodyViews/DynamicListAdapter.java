@@ -1,5 +1,6 @@
 package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
 
+import android.support.test.espresso.matcher.ViewMatchers;
 import android.view.View;
 
 import com.mindbodyonline.ironhide.PageObjects.PageObject;
@@ -100,7 +101,28 @@ public class DynamicListAdapter<T extends PageObject> {
         this.type = type;
         this.childMatcher = childMatcher;
     }
+    
+    // Compatibility constructors
 
+    @SuppressWarnings("unchecked")
+    public DynamicListAdapter(Class<T> type, Class itemType, int parentId) {
+        this(type, allOf(instanceOf(itemType),
+                isDescendantOfA(withId(parentId))));
+    }
+    
+    @SuppressWarnings("unchecked")
+    public DynamicListAdapter(Class<T> type, Class itemType, Class parentClass) {
+        this(type, allOf(instanceOf(itemType),
+                isDescendantOfA( instanceOf(parentClass) )));
+    }
+
+    @SuppressWarnings("unchecked")
+    public DynamicListAdapter(Class<T> type, Class itemType, int parentId, Class parentClass) {
+        this(type, allOf(instanceOf(itemType),
+                isDescendantOfA(allOf(
+                        withId(parentId),
+                        instanceOf(parentClass) ))));
+    }
 
     /** @see MindbodyView#goesTo(Class) */
     public <E extends PageObject> DynamicListAdapter<E> goesTo(Class<E> type) {

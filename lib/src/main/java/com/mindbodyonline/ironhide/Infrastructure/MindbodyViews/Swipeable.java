@@ -41,6 +41,12 @@ public class Swipeable<T extends PageObject> extends MindbodyView<T> {
         super(selector);
     }
 
+    // Compatibility constructors
+
+    public Swipeable(Class<T> type, int resourceId) {
+        super(type, resourceId);
+    }
+
     /** {@inheritDoc} */
     @Override
     public <E extends PageObject> Swipeable<E> goesTo(Class<E> type) {

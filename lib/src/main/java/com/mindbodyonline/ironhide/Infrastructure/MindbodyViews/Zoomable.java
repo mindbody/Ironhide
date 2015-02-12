@@ -44,7 +44,12 @@ public class Zoomable<T extends PageObject> extends MindbodyView<T> {
         super(selector);
     }
 
+    // Compatibility constructors
 
+    public Zoomable(Class<T> type, int resourceId) {
+        super(type, resourceId);
+    }
+    
     /** {@inheritDoc} */
     @Override
     public <E extends PageObject> Zoomable<E> goesTo(Class<E> type) {

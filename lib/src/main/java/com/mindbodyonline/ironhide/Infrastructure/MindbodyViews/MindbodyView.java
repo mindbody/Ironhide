@@ -46,6 +46,20 @@ public class MindbodyView<T extends PageObject> {
     protected final Matcher<View> selector;
     protected ViewInteraction viewInteraction;
 
+    // Compatibility constructors
+    
+    protected MindbodyView(Class<T> type, int resourceId) {
+        this(type, ViewMatchers.withId(resourceId));
+    }
+    
+    protected MindbodyView(Class<T> type, int IGNORED, int stringResourceId) {
+        this(type, ViewMatchers.withText(stringResourceId));
+    }
+    
+    protected MindbodyView(Class<T> type, String displayText) {
+        this(type, ViewMatchers.withText(displayText));
+    }
+    
     /**
      * Instantiates a {@link android.support.test.espresso.ViewInteraction} and retains type and selector for later access.
      * @param type the class of the generic type

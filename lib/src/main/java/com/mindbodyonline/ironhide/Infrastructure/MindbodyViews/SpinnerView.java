@@ -42,6 +42,20 @@ public class SpinnerView<T extends PageObject> extends MindbodyView<T> {
         super(displayText);
     }
 
+    // Compatibility constructors
+
+    public SpinnerView(Class<T> type, int resourceId) {
+        super(type, resourceId);
+    }
+    
+    public SpinnerView(Class<T> type, int IGNORED, int stringResourceId) {
+        super(type, IGNORED, stringResourceId);
+    }
+
+    public SpinnerView(Class<T> type, String displayText) {
+        super(type, displayText);
+    }
+    
     /**
      * Matchers
      */

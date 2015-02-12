@@ -46,6 +46,20 @@ public class TextField<T extends PageObject> extends MindbodyView<T> {
         super(selector);
     }
 
+    // Compatibility constructors
+
+    public TextField(Class<T> type, int resourceId) {
+        super(type, resourceId);
+    }
+
+    public TextField(Class<T> type, int IGNORED, int stringResourceId) {
+        super(type, IGNORED, stringResourceId);
+    }
+
+    public TextField(Class<T> type, String displayText) {
+        super(type, displayText);
+    }
+    
     /** {@inheritDoc} */
     @Override
     public <E extends PageObject> TextField<E> goesTo(Class<E> type) {

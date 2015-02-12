@@ -39,6 +39,16 @@ public class Recycler<T extends PageObject> extends MindbodyView<T> {
         super(IGNORED, stringResourceId);
     }
 
+    // Compatibility constructors
+
+    public Recycler(Class<T> type, int resourceId) {
+        super(type, resourceId);
+    }
+
+    public Recycler(Class<T> type, int IGNORED, int stringResourceId) {
+        super(type, IGNORED, stringResourceId);
+    }
+    
     /** {@inheritDoc} */
     @Override
     public <E extends PageObject> Recycler<E> goesTo(Class<E> type) {

@@ -1,6 +1,7 @@
 package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
 
 import android.support.test.espresso.Root;
+import android.support.test.espresso.matcher.ViewMatchers;
 import android.view.View;
 
 import com.mindbodyonline.ironhide.PageObjects.PageObject;
@@ -41,6 +42,19 @@ public class Clickable<T extends PageObject> extends MindbodyView<T> {
         super(displayText);
     }
 
+    // Compatibility constructors
+
+    protected Clickable(Class<T> type, int resourceId) {
+        this(type, ViewMatchers.withId(resourceId));
+    }
+
+    protected Clickable(Class<T> type, int IGNORED, int stringResourceId) {
+        this(type, ViewMatchers.withText(stringResourceId));
+    }
+
+    protected Clickable(Class<T> type, String displayText) {
+        this(type, ViewMatchers.withText(displayText));
+    }
 
     /** {@inheritDoc} */
     @Override
