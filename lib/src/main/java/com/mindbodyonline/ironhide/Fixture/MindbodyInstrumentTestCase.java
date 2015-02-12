@@ -24,6 +24,13 @@ public class MindbodyInstrumentTestCase<T extends Activity> extends ActivityInst
         super(activityClass);
     }
 
+    // compatibility constructor
+    @Deprecated
+    public MindbodyInstrumentTestCase(String IGNORED, Class<T> activityClass) {
+        this(activityClass);
+        
+    }
+    
     /**
      * {@inheritDoc}
      * The default setup for AndroidJUnit tests.

@@ -2,6 +2,7 @@ package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
 
 import android.support.test.espresso.Root;
 import android.support.test.espresso.contrib.DrawerMatchers;
+import android.support.test.espresso.matcher.ViewMatchers;
 import android.view.View;
 
 import com.mindbodyonline.ironhide.PageObjects.PageObject;
@@ -32,6 +33,12 @@ public class NavDrawer<T extends PageObject> extends MindbodyView<T> {
     public NavDrawer(int resourceId) {
         super(resourceId);
         this.drawerLayoutId = resourceId;
+    }
+    
+    // Compatibility constructor
+    
+    public NavDrawer(Class<T> type, int resourceId) {
+        this(type, resourceId, ViewMatchers.withId(resourceId));
     }
 
     /** {@inheritDoc} */
