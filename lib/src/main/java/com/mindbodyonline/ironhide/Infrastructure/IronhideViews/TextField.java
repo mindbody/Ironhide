@@ -27,23 +27,18 @@ public class TextField<T extends PageObject> extends BaseView<T> {
     }
 
     /** @see BaseView#BaseView(int) */
-    public TextField(int resourceId) {
-        super(resourceId);
+    public TextField(Class<T> type, int resourceId) {
+        super(type, resourceId);
     }
 
     /** @see BaseView#BaseView(int, int) */
-    public TextField(int IGNORED, int stringResourceId) {
-        super(IGNORED, stringResourceId);
+    public TextField(Class<T> type, int IGNORED, int stringResourceId) {
+        super(type, IGNORED, stringResourceId);
     }
 
     /** @see BaseView#BaseView(String) */
-    public TextField(String displayText) {
-        super(displayText);
-    }
-
-    /** @see BaseView#BaseView(org.hamcrest.Matcher) */
-    public TextField(Matcher<View> selector) {
-        super(selector);
+    public TextField(Class<T> type, String displayText) {
+        super(type, displayText);
     }
 
     /** {@inheritDoc} */

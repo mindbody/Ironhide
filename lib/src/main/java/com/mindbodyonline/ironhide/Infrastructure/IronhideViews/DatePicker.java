@@ -20,24 +20,19 @@ public class DatePicker<T extends PageObject> extends BaseView<T> {
         super(type, viewMatcher);
     }
 
-    /** @see BaseView#BaseView(int) */
-    public DatePicker(int resourceId) {
-        super(resourceId);
+    /** @see BaseView#BaseView(Class, int) */
+    public DatePicker(Class<T> type, int resourceId) {
+        super(type, resourceId);
     }
 
-    /** @see BaseView#BaseView(org.hamcrest.Matcher) */
-    public DatePicker(Matcher<View> selector) {
-        super(selector);
+    /** @see BaseView#BaseView(Class, int, int) */
+    public DatePicker(Class<T> type, int IGNORED, int stringResourceId) {
+        super(type, IGNORED, stringResourceId);
     }
 
-    /** @see BaseView#BaseView(int, int) */
-    public DatePicker(int IGNORED, int stringResourceId) {
-        super(IGNORED, stringResourceId);
-    }
-
-    /** @see BaseView#BaseView(String) */
-    public DatePicker(String displayText) {
-        super(displayText);
+    /** @see BaseView#BaseView(Class, String) */
+    public DatePicker(Class<T> type, String displayText) {
+        super(type, displayText);
     }
 
 

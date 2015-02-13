@@ -36,16 +36,6 @@ public class ListItem<T extends PageObject> extends BaseView<T> {
         this.adapter = adapter;
     }
 
-    /**
-     * A generically typed ListItem with adapter given.
-     * @param adapter   the DataInteraction representing the {@link android.widget.AdapterView}
-     */
-    @SuppressWarnings("unchecked")
-    public ListItem(DataInteraction adapter) {
-        super((Matcher) anything());
-        this.adapter = adapter;
-    }
-
     /** {@inheritDoc} */
     @Override
     public <E extends PageObject> ListItem<E> goesTo(Class<E> type) {

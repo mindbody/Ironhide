@@ -54,8 +54,8 @@ public class BaseView<T extends PageObject> {
      * A generically typed BaseView with selector: {@link android.support.test.espresso.matcher.ViewMatchers#withId(int)}
      * @param resourceId    the resource id of the view to interact with
      */
-    protected BaseView(int resourceId) {
-        this(ViewMatchers.withId(resourceId));
+    protected BaseView(Class<T> type, int resourceId) {
+        this(type, ViewMatchers.withId(resourceId));
     }
 
     /**
@@ -63,25 +63,18 @@ public class BaseView<T extends PageObject> {
      * @param IGNORED   an ignored integer to distinguish this constructor from {@link com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(int)}
      * @param stringResourceId    the resource id of the string for the view to interact with
      */
-    protected BaseView(int IGNORED, int stringResourceId) {
-        this(ViewMatchers.withText(stringResourceId));
+    protected BaseView(Class<T> type, int IGNORED, int stringResourceId) {
+        this(type, ViewMatchers.withText(stringResourceId));
     }
 
     /**
      * A generically typed BaseView with selector: {@link android.support.test.espresso.matcher.ViewMatchers#withText(String)}
      * @param displayText   the text inside the view to interact with
      */
-    protected BaseView(String displayText) {
-        this(ViewMatchers.withText(displayText));
+    protected BaseView(Class<T> type, String displayText) {
+        this(type, ViewMatchers.withText(displayText));
     }
 
-    /**
-     * A generically typed BaseView with selector given
-     * @param selector  the matcher for the view to interact with
-     */
-    protected BaseView(Matcher<View> selector) {
-        this(null, selector);
-    }
 
     /**
      * Changes the destination class by returning an object of the given type

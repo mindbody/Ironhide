@@ -22,24 +22,19 @@ public class SpinnerView<T extends PageObject> extends BaseView<T> {
         super(type, viewMatcher);
     }
 
-    /** @see BaseView#BaseView(int) */
-    public SpinnerView(int resourceId) {
-        super(resourceId);
+    /** @see BaseView#BaseView(Class, int) */
+    public SpinnerView(Class<T> type, int resourceId) {
+        super(type, resourceId);
     }
 
-    /** @see BaseView#BaseView(org.hamcrest.Matcher) */
-    public SpinnerView(Matcher<View> selector) {
-        super(selector);
+    /** @see BaseView#BaseView(Class, int, int) */
+    public SpinnerView(Class<T> type, int IGNORED, int stringResourceId) {
+        super(type, IGNORED, stringResourceId);
     }
 
-    /** @see BaseView#BaseView(int, int) */
-    public SpinnerView(int IGNORED, int stringResourceId) {
-        super(IGNORED, stringResourceId);
-    }
-
-    /** @see BaseView#BaseView(String) */
-    public SpinnerView(String displayText) {
-        super(displayText);
+    /** @see BaseView#BaseView(Class,String) */
+    public SpinnerView(Class<T> type, String displayText) {
+        super(type, displayText);
     }
 
     /**

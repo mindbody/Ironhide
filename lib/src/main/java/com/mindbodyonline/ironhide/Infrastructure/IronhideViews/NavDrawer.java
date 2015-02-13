@@ -28,9 +28,9 @@ public class NavDrawer<T extends PageObject> extends BaseView<T>{
         this.drawerLayoutId = resourceId;
     }
 
-    /** @see BaseView#BaseView(int) */
-    public NavDrawer(int resourceId) {
-        super(resourceId);
+    /** @see BaseView#BaseView(Class,int) */
+    public NavDrawer(Class<T> type, int resourceId) {
+        super(type, resourceId);
         this.drawerLayoutId = resourceId;
     }
 

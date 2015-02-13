@@ -34,14 +34,9 @@ public class Zoomable<T extends PageObject> extends BaseView<T> {
         super(type, selector);
     }
 
-    /** @see BaseView#BaseView(int) */
-    public Zoomable(int resourceId) {
-        super(resourceId);
-    }
-
-    /** @see BaseView#BaseView(org.hamcrest.Matcher) */
-    public Zoomable(Matcher<View> selector) {
-        super(selector);
+    /** @see BaseView#BaseView(Class, int) */
+    public Zoomable(Class<T> type, int resourceId) {
+        super(type, resourceId);
     }
 
 
