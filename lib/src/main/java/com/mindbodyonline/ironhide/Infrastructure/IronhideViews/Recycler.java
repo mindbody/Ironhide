@@ -25,7 +25,7 @@ public class Recycler<T extends PageObject> extends BaseView<T> {
     }
 
     /** @see BaseView#BaseView(Class, int) */
-    public Recycler(Class<T> type,int resourceId) {
+    public Recycler(Class<T> type, int resourceId) {
         super(type, resourceId);
     }
 
