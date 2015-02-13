@@ -26,12 +26,12 @@ public class DatePicker<T extends PageObject> extends BaseView<T> {
     }
 
     /** @see BaseView#BaseView(Class, int, int) */
-    public DatePicker(Class<T> type,int IGNORED, int stringResourceId) {
+    public DatePicker(Class<T> type, int IGNORED, int stringResourceId) {
         super(type, IGNORED, stringResourceId);
     }
 
     /** @see BaseView#BaseView(Class, String) */
-    public DatePicker(Class<T> type,String displayText) {
+    public DatePicker(Class<T> type, String displayText) {
         super(type, displayText);
     }
 
