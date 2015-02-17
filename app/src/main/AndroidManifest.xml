@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mindbodyonline.ironhidetestapp" >
+
+    <uses-sdk
+        android:minSdkVersion="7"
+        android:targetSdkVersion="16" />
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <android:uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
+    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <android:uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
+
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="UI Test App" >
+        <activity
+            android:name=".MainActivity"
+            android:label="UI Test App" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ActionBarTestActivity"
+            android:label="actionbar test activity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity
+            android:name=".SimpleActivity"
+            android:label="simple activity" />
+        <activity
+            android:name=".SendActivity"
+            android:label="send activity" />
+        <activity
+            android:name=".DisplayActivity"
+            android:label="display activity" />
+        <activity
+            android:name=".DrawerActivity"
+            android:label="drawer activity"
+            android:theme="@style/Theme.AppCompat.Light" />
+        <activity
+            android:name=".GestureActivity"
+            android:exported="true"
+            android:label="gesture activity" />
+        <activity
+            android:name=".ScrollActivity"
+            android:exported="true"
+            android:label="scroll activity" />
+        <activity
+            android:name=".LongListActivity"
+            android:exported="true"
+            android:label="list activity" />
+        <activity
+            android:name=".MenuActivity"
+            android:label="menu activity" />
+        <activity
+            android:name=".FragmentStack"
+            android:label="fragment stack activity" />
+        <activity
+            android:name=".SyncActivity"
+            android:label="sync activity" />
+        <activity
+            android:name=".SimpleWebViewActivity"
+            android:label="web view" />
+        <activity
+            android:name=".SwipeActivity"
+            android:label="swipe activity" />
+        <activity
+            android:name=".ViewPagerActivity"
+            android:label="view pager activity" />
+        <activity
+            android:name=".ZoomActivity"
+            android:label="zoom activity"
+            android:theme="@style/Base.Theme.AppCompat.Light">
+        </activity>
+    </application>
+
+</manifest>

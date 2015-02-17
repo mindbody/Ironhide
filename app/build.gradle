@@ -1,0 +1,37 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.1.2"
+
+    defaultConfig {
+        applicationId "com.mindbodyonline.ironhidetestapp"
+        minSdkVersion 19
+        targetSdkVersion 21
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    
+    packagingOptions {
+        exclude 'LICENSE.txt'
+    }
+}
+
+dependencies {
+    compile 'com.android.support:appcompat-v7:21.0.3'
+    compile 'com.google.guava:guava:18.0'
+    
+    androidTestCompile files('libs/Ironhide-2.0.0.jar')
+    androidTestCompile 'com.android.support.test:testing-support-lib:0.1'
+    androidTestCompile ('com.android.support.test.espresso:espresso-core:2.0') {
+        exclude group: 'org.hamcrest'
+    }
+    androidTestCompile 'com.android.support.test.espresso:espresso-contrib:2.0'
+}
