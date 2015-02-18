@@ -2,16 +2,30 @@ package com.mindbodyonline.ironhidetestapp;
 
 import com.mindbodyonline.ironhide.Fixture.BaseInstrumentTestCase;
 import com.mindbodyonline.ironhidetestapp.tests.ActionBarTest;
+import com.mindbodyonline.ironhidetestapp.tests.AdapterViewTest;
+import com.mindbodyonline.ironhidetestapp.tests.BasicTest;
+import com.mindbodyonline.ironhidetestapp.tests.DrawerActionsTest;
+import com.mindbodyonline.ironhidetestapp.tests.MenuTest;
+import com.mindbodyonline.ironhidetestapp.tests.MultipleWindowTest;
+import com.mindbodyonline.ironhidetestapp.tests.ScrollToTest;
+import com.mindbodyonline.ironhidetestapp.tests.SwipeTest;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 /**
- * Created by kyle.lozier on 2/16/2015.
+ * Runs all tests that have been converted to Ironhide style
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        ActionBarTest.class
+        ActionBarTest.class,
+        AdapterViewTest.class,
+        BasicTest.class,
+        DrawerActionsTest.class,
+        MenuTest.class,
+        MultipleWindowTest.class,
+        ScrollToTest.class,
+        SwipeTest.class
 })
 public class IronhideTestSuite extends BaseInstrumentTestCase<ActionBarTestActivity> {
     public IronhideTestSuite() {
