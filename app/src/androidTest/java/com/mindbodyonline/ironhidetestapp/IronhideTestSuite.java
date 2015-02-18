@@ -13,8 +13,8 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({
         ActionBarTest.class
 })
-public class SmokeTestSuite extends BaseInstrumentTestCase<ActionBarTestActivity> {
-    public SmokeTestSuite() {
+public class IronhideTestSuite extends BaseInstrumentTestCase<ActionBarTestActivity> {
+    public IronhideTestSuite() {
         super(ActionBarTestActivity.class);
     }
 }
