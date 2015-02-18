@@ -1,5 +1,14 @@
 package com.mindbodyonline.ironhidetestapp.tests;
 
+import android.support.test.espresso.matcher.BoundedMatcher;
+
+import com.mindbodyonline.ironhidetestapp.LongListActivity;
+
+import org.hamcrest.Description;
+import org.hamcrest.Matcher;
+
+import java.util.Map;
+
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
 import static org.hamcrest.Matchers.allOf;
@@ -7,14 +16,6 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasEntry;
 import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.is;
-
-import android.support.test.espresso.matcher.BoundedMatcher;
-import com.mindbodyonline.ironhidetestapp.LongListActivity;
-
-import org.hamcrest.Description;
-import org.hamcrest.Matcher;
-
-import java.util.Map;
 
 /**
  * Static utility methods to create {@link Matcher} instances that can be applied to the data

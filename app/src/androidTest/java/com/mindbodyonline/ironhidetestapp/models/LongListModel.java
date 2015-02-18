@@ -6,8 +6,6 @@ import com.mindbodyonline.ironhide.PageObjects.PageObject;
 import com.mindbodyonline.ironhidetestapp.R;
 import com.mindbodyonline.ironhidetestapp.tests.LongListMatchers;
 
-import java.util.Map;
-
 /**
  * Page Object for {@link com.mindbodyonline.ironhidetestapp.LongListActivity}
  */

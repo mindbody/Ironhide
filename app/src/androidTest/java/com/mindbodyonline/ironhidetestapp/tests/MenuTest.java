@@ -1,6 +1,5 @@
 package com.mindbodyonline.ironhidetestapp.tests;
 
-import android.annotation.TargetApi;
 import android.os.Build;
 import android.test.suitebuilder.annotation.LargeTest;
 
@@ -22,9 +21,11 @@ public class MenuTest extends BaseInstrumentTestCase<MenuActivity> {
         super(MenuActivity.class);
     }
 
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     @Test
     public void testPopupMenu() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB)
+            return;
+        
         MenuPage
                 .Popup1.doesNotExist()
                 .PopupButton.click()

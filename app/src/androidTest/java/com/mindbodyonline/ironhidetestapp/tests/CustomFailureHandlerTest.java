@@ -1,22 +1,22 @@
 package com.mindbodyonline.ironhidetestapp.tests;
 
-import static android.support.test.espresso.Espresso.onView;
-import static android.support.test.espresso.Espresso.setFailureHandler;
-import static android.support.test.espresso.action.ViewActions.click;
-import static android.support.test.espresso.matcher.ViewMatchers.withText;
-
+import android.content.Context;
 import android.support.test.espresso.FailureHandler;
 import android.support.test.espresso.NoMatchingViewException;
 import android.support.test.espresso.base.DefaultFailureHandler;
-import com.mindbodyonline.ironhidetestapp.MainActivity;
-
-import android.content.Context;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.suitebuilder.annotation.LargeTest;
 import android.util.Log;
 import android.view.View;
 
+import com.mindbodyonline.ironhidetestapp.MainActivity;
+
 import org.hamcrest.Matcher;
+
+import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.Espresso.setFailureHandler;
+import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 /**
  * A sample of how to set a non-default {@link FailureHandler}.

@@ -1,16 +1,16 @@
 package com.mindbodyonline.ironhidetestapp.tests;
 
+import android.content.Intent;
+import android.test.ActivityUnitTestCase;
+
+import com.mindbodyonline.ironhidetestapp.LongListActivity;
+
 import static android.support.test.espresso.matcher.ViewMatchers.assertThat;
 import static com.mindbodyonline.ironhidetestapp.tests.LongListMatchers.withItemContent;
 import static com.mindbodyonline.ironhidetestapp.tests.LongListMatchers.withItemSize;
 import static org.hamcrest.Matchers.anyOf;
 import static org.hamcrest.Matchers.endsWith;
 import static org.hamcrest.Matchers.equalTo;
-
-import com.mindbodyonline.ironhidetestapp.LongListActivity;
-
-import android.content.Intent;
-import android.test.ActivityUnitTestCase;
 
 /**
  * UnitTests for LongListMatchers matcher factory.

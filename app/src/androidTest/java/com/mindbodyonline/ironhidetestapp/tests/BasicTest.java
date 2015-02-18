@@ -1,25 +1,10 @@
 package com.mindbodyonline.ironhidetestapp.tests;
 
-import static android.support.test.espresso.Espresso.onData;
-import static android.support.test.espresso.Espresso.onView;
-import static android.support.test.espresso.Espresso.pressBack;
-import static android.support.test.espresso.action.ViewActions.click;
-import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
-import static android.support.test.espresso.action.ViewActions.typeText;
-import static android.support.test.espresso.assertion.ViewAssertions.matches;
-import static android.support.test.espresso.matcher.ViewMatchers.withId;
-import static android.support.test.espresso.matcher.ViewMatchers.withText;
-import static org.hamcrest.Matchers.allOf;
-import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.instanceOf;
-import static org.hamcrest.Matchers.is;
+import android.test.suitebuilder.annotation.LargeTest;
 
 import com.mindbodyonline.ironhide.Fixture.BaseInstrumentTestCase;
-import com.mindbodyonline.ironhidetestapp.R;
 import com.mindbodyonline.ironhidetestapp.SimpleActivity;
 import com.mindbodyonline.ironhidetestapp.models.SimpleModel;
-
-import android.test.suitebuilder.annotation.LargeTest;
 
 import org.junit.Test;
 

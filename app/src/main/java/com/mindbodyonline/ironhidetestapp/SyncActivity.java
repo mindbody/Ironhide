@@ -6,11 +6,11 @@ import android.os.SystemClock;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.common.annotations.VisibleForTesting;
+
 import java.util.Random;
 
 import static com.google.common.base.Preconditions.checkNotNull;
-
-import com.google.common.annotations.VisibleForTesting;
 
 /**
  * Displays "hello world" with a random delay of 2 to 7s after the user clicks on a button. This is

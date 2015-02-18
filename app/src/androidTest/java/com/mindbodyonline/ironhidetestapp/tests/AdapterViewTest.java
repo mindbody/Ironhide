@@ -1,20 +1,20 @@
 package com.mindbodyonline.ironhidetestapp.tests;
 
-import static org.hamcrest.Matchers.not;
-
-import com.mindbodyonline.ironhide.Fixture.BaseInstrumentTestCase;
-import com.mindbodyonline.ironhidetestapp.LongListActivity;
-import com.mindbodyonline.ironhidetestapp.models.LongListModel;
-
 import android.test.suitebuilder.annotation.LargeTest;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 
+import com.mindbodyonline.ironhide.Fixture.BaseInstrumentTestCase;
+import com.mindbodyonline.ironhidetestapp.LongListActivity;
+import com.mindbodyonline.ironhidetestapp.models.LongListModel;
+
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 import org.junit.Test;
+
+import static org.hamcrest.Matchers.not;
 
 /**
  * Demonstrates the usage of
