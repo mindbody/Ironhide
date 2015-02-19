@@ -7,6 +7,8 @@ import com.mindbodyonline.ironhide.Fixture.BaseInstrumentTestCase;
 import com.mindbodyonline.ironhidetestapp.ViewPagerActivity;
 import com.mindbodyonline.ironhidetestapp.models.ViewPagerModel;
 
+import org.junit.Test;
+
 import static com.mindbodyonline.ironhide.Infrastructure.Extensions.SwipeAction.SwipeDirection.LEFT;
 import static com.mindbodyonline.ironhide.Infrastructure.Extensions.SwipeAction.SwipeDirection.RIGHT;
 
@@ -14,6 +16,7 @@ import static com.mindbodyonline.ironhide.Infrastructure.Extensions.SwipeAction.
  * Demonstrates use of {@link ViewActions#swipeLeft()} and {@link ViewActions#swipeRight()}.
  */
 @LargeTest
+// TODO: "java.lang.IllegalAccessError: Class ref in pre-verified class resolved to unexpected implementation" during 'super(ViewPagerActivity.class)'
 public class SwipeTest extends BaseInstrumentTestCase<ViewPagerActivity> {
 
     private ViewPagerModel PagerPage = new ViewPagerModel();
@@ -22,6 +25,7 @@ public class SwipeTest extends BaseInstrumentTestCase<ViewPagerActivity> {
         super(ViewPagerActivity.class);
     }
 
+    @Test
     public void testSwipingThroughViews() {
         PagerPage
                 .Position0.isDisplayed()
@@ -34,6 +38,7 @@ public class SwipeTest extends BaseInstrumentTestCase<ViewPagerActivity> {
                 ;
     }
 
+    @Test
     public void testSwipingBackAndForward() {
         PagerPage
                 .Position0.isDisplayed()

@@ -49,7 +49,7 @@ public class MenuTest extends BaseInstrumentTestCase<MenuActivity> {
     public void testOptionMenu() {
         MenuPage
                 .Options3.doesNotExist()
-                .Popup1.pressMenuKey()
+                .ContextButton.pressMenuKey()
                 .Options3.isDisplayed()
                 .Options3.click()
                 .ResultText.withText(R.string.options_item_3_text)

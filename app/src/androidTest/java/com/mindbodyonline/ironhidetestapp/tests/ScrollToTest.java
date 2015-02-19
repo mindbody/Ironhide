@@ -6,6 +6,8 @@ import com.mindbodyonline.ironhide.Fixture.BaseInstrumentTestCase;
 import com.mindbodyonline.ironhidetestapp.ScrollActivity;
 import com.mindbodyonline.ironhidetestapp.models.ScrollModel;
 
+import org.junit.Test;
+
 /**
  * Demonstrates the usage of
  * {@link android.support.test.espresso.action.ViewActions#scrollTo()}.
@@ -19,6 +21,7 @@ public class ScrollToTest extends BaseInstrumentTestCase<ScrollActivity> {
         super(ScrollActivity.class);
     }
 
+    @Test
     public void testScrollToInScrollView() {
         ScrollPage
                 .BottomLeft.scrollTo()

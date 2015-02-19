@@ -10,14 +10,15 @@ import org.junit.Test;
 
 /**
  * Demonstrates Espresso with action bar and contextual action mode. 
- * {@link openActionBarOverflowOrOptionsMenu()} opens the overflow menu from an action bar.
- * {@link openContextualActionModeOverflowMenu()} opens the overflow menu from an contextual action
+ * {@link android.support.test.espresso.Espresso#openActionBarOverflowOrOptionsMenu(android.content.Context)} opens the overflow menu from an action bar.
+ * {@link android.support.test.espresso.Espresso#openContextualActionModeOverflowMenu()} opens the overflow menu from an contextual action
  * mode.
  */
 @LargeTest
+// TODO: Test framework does not identify ActionBarTestActivity as an existing class
 public class ActionBarTest extends BaseInstrumentTestCase<ActionBarTestActivity> {
     private ActionBarModel ActionBarPage = new ActionBarModel();
-    
+
     public ActionBarTest() {
         super(ActionBarTestActivity.class);
     }
