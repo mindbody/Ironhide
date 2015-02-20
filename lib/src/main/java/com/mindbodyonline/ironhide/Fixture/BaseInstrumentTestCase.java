@@ -13,20 +13,20 @@ import org.junit.runner.RunWith;
  * This class provides functional testing of a single activity.
  */
 @RunWith(AndroidJUnit4.class)
-public class MindbodyInstrumentTestCase<T extends Activity> extends ActivityInstrumentationTestCase2<T> {
+public class BaseInstrumentTestCase<T extends Activity> extends ActivityInstrumentationTestCase2<T> {
 
     protected Activity mActivity;
 
     /**
      * @see ActivityInstrumentationTestCase2#ActivityInstrumentationTestCase2(Class)
      */
-    public MindbodyInstrumentTestCase(Class<T> activityClass) {
+    public BaseInstrumentTestCase(Class<T> activityClass) {
         super(activityClass);
     }
 
     // compatibility constructor
     @Deprecated
-    public MindbodyInstrumentTestCase(String IGNORED, Class<T> activityClass) {
+    public BaseInstrumentTestCase(String IGNORED, Class<T> activityClass) {
         this(activityClass);
         
     }

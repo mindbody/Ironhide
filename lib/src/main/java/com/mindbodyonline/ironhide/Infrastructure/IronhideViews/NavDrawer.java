@@ -1,4 +1,4 @@
-package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
+package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
 import android.support.test.espresso.Root;
 import android.support.test.espresso.contrib.DrawerMatchers;
@@ -11,17 +11,17 @@ import org.hamcrest.Matcher;
 
 /**
  * An element to interact with a {@link android.support.v4.widget.DrawerLayout}.
- * Provides actions {@link com.mindbodyonline.ironhide.Infrastructure.MindbodyViews.NavDrawer#openDrawer(int)}
- * and {@link com.mindbodyonline.ironhide.Infrastructure.MindbodyViews.NavDrawer#closeDrawer(int)}, and checks
+ * Provides actions {@link NavDrawer#openDrawer(int)}
+ * and {@link NavDrawer#closeDrawer(int)}, and checks
  * {@link NavDrawer#isOpen()} and {@link NavDrawer#isClosed()}
  */
-public class NavDrawer<T extends PageObject> extends MindbodyView<T> {
+public class NavDrawer<T extends PageObject> extends BaseView<T> {
 
     // the resource id for the navigation drawer
     private final int drawerLayoutId;
 
     /**
-     * @see MindbodyView#MindbodyView(Class, org.hamcrest.Matcher)
+     * @see BaseView#BaseView(Class, org.hamcrest.Matcher)
      * @param resourceId the resource id for the navigation drawer for open/close drawer actions
      */
     public NavDrawer(Class<T> type, int resourceId, Matcher<View> viewMatcher) {
@@ -29,7 +29,7 @@ public class NavDrawer<T extends PageObject> extends MindbodyView<T> {
         this.drawerLayoutId = resourceId;
     }
 
-    /** @see MindbodyView#MindbodyView(int) */
+    /** @see BaseView#BaseView(int) */
     public NavDrawer(int resourceId) {
         super(resourceId);
         this.drawerLayoutId = resourceId;

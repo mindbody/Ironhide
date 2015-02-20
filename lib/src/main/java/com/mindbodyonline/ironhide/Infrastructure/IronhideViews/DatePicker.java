@@ -1,4 +1,4 @@
-package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
+package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
 import android.support.test.espresso.Root;
 import android.support.test.espresso.contrib.PickerActions;
@@ -14,29 +14,29 @@ import org.hamcrest.Matcher;
  *
  * @param <T> The model the current element will return when interacted with
  */
-public class DatePicker<T extends PageObject> extends MindbodyView<T> {
+public class DatePicker<T extends PageObject> extends BaseView<T> {
 
-    /** @see MindbodyView#MindbodyView(Class, org.hamcrest.Matcher) */
+    /** @see BaseView#BaseView(Class, org.hamcrest.Matcher) */
     public DatePicker(Class<T> type, Matcher<View> viewMatcher) {
         super(type, viewMatcher);
     }
 
-    /** @see MindbodyView#MindbodyView(int) */
+    /** @see BaseView#BaseView(int) */
     public DatePicker(int resourceId) {
         super(resourceId);
     }
 
-    /** @see MindbodyView#MindbodyView(org.hamcrest.Matcher) */
+    /** @see BaseView#BaseView(org.hamcrest.Matcher) */
     public DatePicker(Matcher<View> selector) {
         super(selector);
     }
 
-    /** @see MindbodyView#MindbodyView(int, int) */
+    /** @see BaseView#BaseView(int, int) */
     public DatePicker(int IGNORED, int stringResourceId) {
         super(IGNORED, stringResourceId);
     }
 
-    /** @see MindbodyView#MindbodyView(String) */
+    /** @see BaseView#BaseView(String) */
     public DatePicker(String displayText) {
         super(displayText);
     }

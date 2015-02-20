@@ -1,4 +1,4 @@
-package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
+package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
 import android.annotation.TargetApi;
 import android.support.test.espresso.Root;
@@ -23,23 +23,23 @@ import static com.mindbodyonline.ironhide.Infrastructure.Extensions.ZoomAction.Z
  * @param <T> The model the current element will return when interacted with
  */
 @TargetApi(14)
-public class Zoomable<T extends PageObject> extends MindbodyView<T> {
+public class Zoomable<T extends PageObject> extends BaseView<T> {
 
     public static final Zoomer DEFAULT_ZOOM_SPEED = FAST;
     public static final ZoomDirection DEFAULT_ZOOM_DIRECTION = IN;
     public static final int DEFAULT_ZOOM_TIMES = 1;
 
-    /** @see MindbodyView#MindbodyView(Class, org.hamcrest.Matcher) */
+    /** @see BaseView#BaseView(Class, org.hamcrest.Matcher) */
     public Zoomable(Class<T> type, Matcher<View> selector) {
         super(type, selector);
     }
 
-    /** @see MindbodyView#MindbodyView(int) */
+    /** @see BaseView#BaseView(int) */
     public Zoomable(int resourceId) {
         super(resourceId);
     }
 
-    /** @see MindbodyView#MindbodyView(org.hamcrest.Matcher) */
+    /** @see BaseView#BaseView(org.hamcrest.Matcher) */
     public Zoomable(Matcher<View> selector) {
         super(selector);
     }

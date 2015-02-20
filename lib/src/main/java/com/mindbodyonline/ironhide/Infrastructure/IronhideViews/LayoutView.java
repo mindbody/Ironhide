@@ -1,4 +1,4 @@
-package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
+package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
 import android.support.test.espresso.Root;
 import android.support.test.espresso.assertion.LayoutAssertions;
@@ -17,24 +17,24 @@ import org.hamcrest.Matcher;
  *
  * @param <T> The model the current element will return when interacted with
  */
-public class LayoutView<T extends PageObject> extends MindbodyView<T> {
+public class LayoutView<T extends PageObject> extends BaseView<T> {
 
-    /** @see MindbodyView#MindbodyView(Class, org.hamcrest.Matcher) */
+    /** @see BaseView#BaseView(Class, org.hamcrest.Matcher) */
     public LayoutView(Class<T> type, Matcher<View> viewMatcher) {
         super(type, viewMatcher);
     }
 
-    /** @see MindbodyView#MindbodyView(int) */
+    /** @see BaseView#BaseView(int) */
     public LayoutView(int resourceId) {
         super(resourceId);
     }
 
-    /** @see MindbodyView#MindbodyView(org.hamcrest.Matcher) */
+    /** @see BaseView#BaseView(org.hamcrest.Matcher) */
     public LayoutView(Matcher<View> selector) {
         super(selector);
     }
 
-    /** @see MindbodyView#MindbodyView(int, int) */
+    /** @see BaseView#BaseView(int, int) */
     public LayoutView(int IGNORED, int stringResourceId) {
         super(IGNORED, stringResourceId);
     }

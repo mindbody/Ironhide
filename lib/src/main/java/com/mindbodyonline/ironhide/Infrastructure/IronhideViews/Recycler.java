@@ -1,4 +1,4 @@
-package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
+package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
 import android.support.test.espresso.Root;
 import android.support.test.espresso.ViewAction;
@@ -17,24 +17,24 @@ import org.hamcrest.Matcher;
  * RecyclerView is not an {@link android.widget.AdapterView} anymore, hence it can't be used in
  *  combination with {@link android.support.test.espresso.Espresso#onData(org.hamcrest.Matcher)}
  */
-public class Recycler<T extends PageObject> extends MindbodyView<T> {
+public class Recycler<T extends PageObject> extends BaseView<T> {
 
-    /** @see MindbodyView#MindbodyView(Class, org.hamcrest.Matcher) */
+    /** @see BaseView#BaseView(Class, org.hamcrest.Matcher) */
     public Recycler(Class<T> type, Matcher<View> viewMatcher) {
         super(type, viewMatcher);
     }
 
-    /** @see MindbodyView#MindbodyView(int) */
+    /** @see BaseView#BaseView(int) */
     public Recycler(int resourceId) {
         super(resourceId);
     }
 
-    /** @see MindbodyView#MindbodyView(org.hamcrest.Matcher) */
+    /** @see BaseView#BaseView(org.hamcrest.Matcher) */
     public Recycler(Matcher<View> selector) {
         super(selector);
     }
 
-    /** @see MindbodyView#MindbodyView(int, int) */
+    /** @see BaseView#BaseView(int, int) */
     public Recycler(int IGNORED, int stringResourceId) {
         super(IGNORED, stringResourceId);
     }

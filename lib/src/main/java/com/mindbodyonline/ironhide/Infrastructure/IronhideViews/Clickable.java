@@ -1,4 +1,4 @@
-package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
+package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
 import android.support.test.espresso.Root;
 import android.support.test.espresso.matcher.ViewMatchers;
@@ -15,29 +15,29 @@ import org.hamcrest.Matcher;
  *
  * @param <T> The model the current element will return when interacted with
  */
-public class Clickable<T extends PageObject> extends MindbodyView<T> {
+public class Clickable<T extends PageObject> extends BaseView<T> {
 
-    /** @see MindbodyView#MindbodyView(Class, org.hamcrest.Matcher) */
+    /** @see BaseView#BaseView(Class, org.hamcrest.Matcher) */
     public Clickable(Class<T> type, Matcher<View> viewMatcher) {
         super(type, viewMatcher);
     }
 
-    /** @see MindbodyView#MindbodyView(int) */
+    /** @see BaseView#BaseView(int) */
     public Clickable(int resourceId) {
         super(resourceId);
     }
 
-    /** @see MindbodyView#MindbodyView(org.hamcrest.Matcher) */
+    /** @see BaseView#BaseView(org.hamcrest.Matcher) */
     public Clickable(Matcher<View> selector) {
         super(selector);
     }
 
-    /** @see MindbodyView#MindbodyView(int, int) */
+    /** @see BaseView#BaseView(int, int) */
     public Clickable(int IGNORED, int stringResourceId) {
         super(IGNORED, stringResourceId);
     }
 
-    /** @see MindbodyView#MindbodyView(String) */
+    /** @see BaseView#BaseView(String) */
     public Clickable(String displayText) {
         super(displayText);
     }

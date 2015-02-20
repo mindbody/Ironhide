@@ -1,4 +1,4 @@
-package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
+package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
 import android.support.test.espresso.DataInteraction;
 import android.support.test.espresso.Root;
@@ -18,16 +18,16 @@ import static org.hamcrest.Matchers.anything;
 /**
  * Simple element that allows to interact with a single item inside a {@link android.widget.ListView} with an {@link android.widget.Adapter}.
  * Enables to interact with a ListItem and the inner Views it contains.
- * This element should never be instantiated - instead get a reference using a {@link com.mindbodyonline.ironhide.Infrastructure.MindbodyViews.ListAdapter}
+ * This element should never be instantiated - instead get a reference using a {@link ListAdapter}
  *
  * @param <T> The model the current element will return when interacted with
  */
-public class ListItem<T extends PageObject> extends MindbodyView<T> {
+public class ListItem<T extends PageObject> extends BaseView<T> {
 
     private final DataInteraction adapter;
 
     /**
-     * @see MindbodyView#MindbodyView(Class, org.hamcrest.Matcher)
+     * @see BaseView#BaseView(Class, org.hamcrest.Matcher)
      * Instead instantiates a {@link DataInteraction}
      */
     @SuppressWarnings("unchecked")
@@ -82,42 +82,42 @@ public class ListItem<T extends PageObject> extends MindbodyView<T> {
     }
 
     /**
-     * Performs {@link ListItem#click()} on a view that matches the given {@link MindbodyView}
-     * @param viewToClick   the {@link MindbodyView} to get the selector in order to find it within the list item
+     * Performs {@link ListItem#click()} on a view that matches the given {@link BaseView}
+     * @param viewToClick   the {@link BaseView} to get the selector in order to find it within the list item
      * @return  The model reached by interacting with this element.
      */
-    public T clickChildView(MindbodyView<?> viewToClick) {
+    public T clickChildView(BaseView<?> viewToClick) {
         adapter.onChildView(viewToClick.getSelector()).perform(ViewActions.click());
         return returnGeneric();
     }
 
     /**
-     * Performs {@link ListItem#isDisplayed()} on a view that matches the given {@link MindbodyView}
-     * @param viewToMatch   the {@link MindbodyView} to get the selector in order to find it within the list item
+     * Performs {@link ListItem#isDisplayed()} on a view that matches the given {@link BaseView}
+     * @param viewToMatch   the {@link BaseView} to get the selector in order to find it within the list item
      * @return  The model reached by interacting with this element.
      */
-    public T childViewIsDisplayed(MindbodyView<?> viewToMatch) {
+    public T childViewIsDisplayed(BaseView<?> viewToMatch) {
         adapter.onChildView(viewToMatch.getSelector()).check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
         return returnGeneric();
     }
 
     /**
-     * Performs the {@link ViewAction} on a view that matches the given {@link MindbodyView}
-     * @param viewToMatch   the {@link MindbodyView} to get the selector in order to find it within the list item
+     * Performs the {@link ViewAction} on a view that matches the given {@link BaseView}
+     * @param viewToMatch   the {@link BaseView} to get the selector in order to find it within the list item
      * @return  The model reached by interacting with this element.
      */
-    public T performOnChildView(MindbodyView<?> viewToMatch, ViewAction toPerform) {
+    public T performOnChildView(BaseView<?> viewToMatch, ViewAction toPerform) {
         adapter.onChildView(viewToMatch.getSelector()).perform(toPerform);
         return returnGeneric();
     }
 
     /**
      * Checks to see if a child view matches the {@link org.hamcrest.Matcher}
-     * @param viewToMatch   the {@link MindbodyView} to get the selector in order to find it within the list item
+     * @param viewToMatch   the {@link BaseView} to get the selector in order to find it within the list item
      * @param toCheck   the check for the child view
      * @return  the model reached by interacting with this element.
      */
-    public T checkChildView(MindbodyView<?> viewToMatch, Matcher<View> toCheck) {
+    public T checkChildView(BaseView<?> viewToMatch, Matcher<View> toCheck) {
         adapter.onChildView(viewToMatch.getSelector()).check(ViewAssertions.matches(toCheck));
         return returnGeneric();
     }

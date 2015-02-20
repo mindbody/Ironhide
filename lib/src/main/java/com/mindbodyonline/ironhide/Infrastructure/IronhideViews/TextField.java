@@ -1,4 +1,4 @@
-package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
+package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
 import android.net.Uri;
 import android.support.test.espresso.Root;
@@ -19,29 +19,29 @@ import org.hamcrest.Matcher;
  *
  * @param <T> The model the current element will return when interacted with
  */
-public class TextField<T extends PageObject> extends MindbodyView<T> {
+public class TextField<T extends PageObject> extends BaseView<T> {
 
-    /** @see MindbodyView#MindbodyView(Class, org.hamcrest.Matcher) */
+    /** @see BaseView#BaseView(Class, org.hamcrest.Matcher) */
     public TextField(Class<T> type, Matcher<View> selector) {
         super(type, selector);
     }
 
-    /** @see MindbodyView#MindbodyView(int) */
+    /** @see BaseView#BaseView(int) */
     public TextField(int resourceId) {
         super(resourceId);
     }
 
-    /** @see MindbodyView#MindbodyView(int, int) */
+    /** @see BaseView#BaseView(int, int) */
     public TextField(int IGNORED, int stringResourceId) {
         super(IGNORED, stringResourceId);
     }
 
-    /** @see MindbodyView#MindbodyView(String) */
+    /** @see BaseView#BaseView(String) */
     public TextField(String displayText) {
         super(displayText);
     }
 
-    /** @see MindbodyView#MindbodyView(org.hamcrest.Matcher) */
+    /** @see BaseView#BaseView(org.hamcrest.Matcher) */
     public TextField(Matcher<View> selector) {
         super(selector);
     }

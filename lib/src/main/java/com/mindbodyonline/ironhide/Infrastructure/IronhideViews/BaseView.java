@@ -1,4 +1,4 @@
-package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
+package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
 import android.net.Uri;
 import android.support.test.espresso.Root;
@@ -35,7 +35,7 @@ import static org.hamcrest.Matchers.not;
  *
  * @param <T> The model the current element will return when interacted with
  */
-public class MindbodyView<T extends PageObject> {
+public class BaseView<T extends PageObject> {
 
     /**
      * Number of times to wait {@link PageObject#DEFAULT_PAUSE_TIME} for an element. 
@@ -48,15 +48,15 @@ public class MindbodyView<T extends PageObject> {
 
     // Compatibility constructors
 
-    protected MindbodyView(Class<T> type, int resourceId) {
+    protected BaseView(Class<T> type, int resourceId) {
         this(type, ViewMatchers.withId(resourceId));
     }
     
-    protected MindbodyView(Class<T> type, int IGNORED, int stringResourceId) {
+    protected BaseView(Class<T> type, int IGNORED, int stringResourceId) {
         this(type, ViewMatchers.withText(stringResourceId));
     }
     
-    protected MindbodyView(Class<T> type, String displayText) {
+    protected BaseView(Class<T> type, String displayText) {
         this(type, ViewMatchers.withText(displayText));
     }
     
@@ -65,7 +65,7 @@ public class MindbodyView<T extends PageObject> {
      * @param type the class of the generic type
      * @param selector  the {@link org.hamcrest.Matcher} to select the {@link android.view.View}
      */
-    protected MindbodyView(Class<T> type, Matcher<View> selector) {
+    protected BaseView(Class<T> type, Matcher<View> selector) {
         this.type = type;
         this.selector = selector;
         this.viewInteraction = onView(selector);
@@ -75,16 +75,16 @@ public class MindbodyView<T extends PageObject> {
      * A generically typed BaseView with selector: {@link android.support.test.espresso.matcher.ViewMatchers#withId(int)}
      * @param resourceId    the resource id of the view to interact with
      */
-    protected MindbodyView(int resourceId) {
+    protected BaseView(int resourceId) {
         this(ViewMatchers.withId(resourceId));
     }
 
     /**
      * A generically typed BaseView with selector: {@link android.support.test.espresso.matcher.ViewMatchers#withText(int)}
-     * @param IGNORED   an ignored integer to distinguish this constructor from {@link MindbodyView#MindbodyView(int)}
+     * @param IGNORED   an ignored integer to distinguish this constructor from {@link BaseView#BaseView(int)}
      * @param stringResourceId    the resource id of the string for the view to interact with
      */
-    protected MindbodyView(int IGNORED, int stringResourceId) {
+    protected BaseView(int IGNORED, int stringResourceId) {
         this(ViewMatchers.withText(stringResourceId));
     }
 
@@ -92,7 +92,7 @@ public class MindbodyView<T extends PageObject> {
      * A generically typed BaseView with selector: {@link android.support.test.espresso.matcher.ViewMatchers#withText(String)}
      * @param displayText   the text inside the view to interact with
      */
-    protected MindbodyView(String displayText) {
+    protected BaseView(String displayText) {
         this(ViewMatchers.withText(displayText));
     }
 
@@ -100,15 +100,15 @@ public class MindbodyView<T extends PageObject> {
      * A generically typed BaseView with selector given
      * @param selector  the matcher for the view to interact with
      */
-    protected MindbodyView(Matcher<View> selector) {
+    protected BaseView(Matcher<View> selector) {
         this(null, selector);
     }
 
     /**
      * Changes the destination class by returning an object of the given type
      */
-    protected <E extends PageObject> MindbodyView<E> goesTo(Class<E> type) {
-        return new MindbodyView<>(type, selector);
+    protected <E extends PageObject> BaseView<E> goesTo(Class<E> type) {
+        return new BaseView<>(type, selector);
     }
 
     /**
@@ -205,42 +205,42 @@ public class MindbodyView<T extends PageObject> {
      * Changes the root for this view to be anything that is not the default root selected by Espresso.
      * @return this
      */
-    public MindbodyView<T> changeRoot() {
+    public BaseView<T> changeRoot() {
         return inRoot(not(is(DEFAULT)));
     }
 
     /**
      * Changes the root to search for this view to be a dialog
      */
-    public MindbodyView<T> inDialogRoot() {
+    public BaseView<T> inDialogRoot() {
         return inRoot(RootMatchers.isDialog());
     }
 
     /**
      * Changes the root to search for this view to be a platform popup
      */
-    public MindbodyView<T> inPlatformPopup() {
+    public BaseView<T> inPlatformPopup() {
         return inRoot(RootMatchers.isPlatformPopup());
     }
 
     /**
      * Changes the root to search for this view to be touchable
      */
-    public MindbodyView<T> inTouchableRoot() {
+    public BaseView<T> inTouchableRoot() {
         return inRoot(RootMatchers.isTouchable());
     }
 
     /**
      * Changes the root to search for this view to be a decor view
      */
-    public MindbodyView<T> inDecorView(Matcher<View> decorViewMatcher) {
+    public BaseView<T> inDecorView(Matcher<View> decorViewMatcher) {
         return inRoot(RootMatchers.withDecorView(decorViewMatcher));
     }
 
     /**
      * Changes the root to search for this view to be focusable
      */
-    public MindbodyView<T> inFocusableRoot() {
+    public BaseView<T> inFocusableRoot() {
         return inRoot(RootMatchers.isFocusable());
     }
 
@@ -249,7 +249,7 @@ public class MindbodyView<T extends PageObject> {
      * @param rootMatcher a rootMatcher using Espresso's RootMatchers
      * @return  this
      */
-    protected MindbodyView<T> inRoot(Matcher<Root> rootMatcher) {
+    protected BaseView<T> inRoot(Matcher<Root> rootMatcher) {
         this.viewInteraction = this.viewInteraction.inRoot(rootMatcher);
 
         return this;
@@ -611,7 +611,7 @@ public class MindbodyView<T extends PageObject> {
      * @param sibling The BaseView to check as a sibling.
      * @return The model reached by interacting with this element.
      */
-    public T hasSibling(MindbodyView<T> sibling) {
+    public T hasSibling(BaseView<T> sibling) {
         return checkMatches(ViewMatchers.hasSibling(sibling.getSelector()));
     }
 
@@ -707,7 +707,7 @@ public class MindbodyView<T extends PageObject> {
      * @param descendant The descendant(A BaseView) to match on.
      * @return The model reached by interacting with this element.
      */
-    public T hasDescendant(MindbodyView<T> descendant) {
+    public T hasDescendant(BaseView<T> descendant) {
         return checkMatches(ViewMatchers.hasDescendant(descendant.getSelector()));
     }
 
@@ -732,7 +732,7 @@ public class MindbodyView<T extends PageObject> {
      * @param parent The ancestor to check against.
      * @return The model reached by interacting with this element.
      */
-    public T isDescendantOfA(MindbodyView<T> parent) {
+    public T isDescendantOfA(BaseView<T> parent) {
         return checkMatches(ViewMatchers.isDescendantOfA(parent.getSelector()));
     }
 
@@ -752,7 +752,7 @@ public class MindbodyView<T extends PageObject> {
      * @param parent The parent to check against.
      * @return The model reached by interacting with this element.
      */
-    public T withParent(MindbodyView<T> parent) {
+    public T withParent(BaseView<T> parent) {
         return checkMatches(ViewMatchers.withParent(parent.getSelector()));
     }
 
@@ -761,7 +761,7 @@ public class MindbodyView<T extends PageObject> {
      * @param child The child to check against.
      * @return The model reached by interacting with this element.
      */
-    public T withChild(MindbodyView<T> child) {
+    public T withChild(BaseView<T> child) {
         return checkMatches(ViewMatchers.withChild(child.getSelector()));
     }
 
@@ -1003,7 +1003,7 @@ public class MindbodyView<T extends PageObject> {
 
     /**
      * Waits for the element to be displayed on the screen, for a maximum of
-     *  {@link PageObject#DEFAULT_PAUSE_TIME} * {@link MindbodyView#MAX_ELEMENT_WAIT_COUNT} milliseconds
+     *  {@link PageObject#DEFAULT_PAUSE_TIME} * {@link BaseView#MAX_ELEMENT_WAIT_COUNT} milliseconds
      * @return The model reached by interacting with this element.
      */
     public T waitForElement() {

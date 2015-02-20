@@ -1,4 +1,4 @@
-package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
+package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
 import android.support.test.espresso.Root;
 import android.support.test.espresso.ViewAction;
@@ -21,22 +21,22 @@ import static com.mindbodyonline.ironhide.Infrastructure.Extensions.SwipeAction.
  *
  * @param <T> The model the current element will return when interacted with
  */
-public class Swipeable<T extends PageObject> extends MindbodyView<T> {
+public class Swipeable<T extends PageObject> extends BaseView<T> {
 
     public static final int DEFAULT_TIMES = 1;
     public static final Swiper DEFAULT_SPEED = FAST;
 
-    /** @see MindbodyView#MindbodyView(Class, org.hamcrest.Matcher) */
+    /** @see BaseView#BaseView(Class, org.hamcrest.Matcher) */
     public Swipeable(Class<T> type, Matcher<View> selector) {
         super(type, selector);
     }
 
-    /** @see MindbodyView#MindbodyView(int) */
+    /** @see BaseView#BaseView(int) */
     public Swipeable(int resourceId) {
         super(resourceId);
     }
 
-    /** @see MindbodyView#MindbodyView(org.hamcrest.Matcher) */
+    /** @see BaseView#BaseView(org.hamcrest.Matcher) */
     public Swipeable(Matcher<View> selector) {
         super(selector);
     }
@@ -54,34 +54,34 @@ public class Swipeable<T extends PageObject> extends MindbodyView<T> {
     }
 
     /**
-     * {@link com.mindbodyonline.ironhide.Infrastructure.MindbodyViews.Swipeable#swipe(
+     * {@link Swipeable#swipe(
      *  android.support.test.espresso.action.Swiper,
      *  com.mindbodyonline.ironhide.Infrastructure.Extensions.SwipeAction.SwipeDirection,
      *  int)}
-     * with {@link com.mindbodyonline.ironhide.Infrastructure.MindbodyViews.Swipeable#DEFAULT_SPEED}
-     * and {@link com.mindbodyonline.ironhide.Infrastructure.MindbodyViews.Swipeable#DEFAULT_TIMES}
+     * with {@link Swipeable#DEFAULT_SPEED}
+     * and {@link Swipeable#DEFAULT_TIMES}
      */
     public T swipe(SwipeAction.SwipeDirection direction) {
         return swipe(DEFAULT_SPEED, direction, DEFAULT_TIMES);
     }
 
     /**
-     * {@link com.mindbodyonline.ironhide.Infrastructure.MindbodyViews.Swipeable#swipe(
+     * {@link Swipeable#swipe(
      *  android.support.test.espresso.action.Swiper,
      *  com.mindbodyonline.ironhide.Infrastructure.Extensions.SwipeAction.SwipeDirection,
      *  int)}
-     * with {@link com.mindbodyonline.ironhide.Infrastructure.MindbodyViews.Swipeable#DEFAULT_TIMES}
+     * with {@link Swipeable#DEFAULT_TIMES}
      */
     public T swipe(Swiper speed, SwipeAction.SwipeDirection direction) {
         return swipe(speed, direction, DEFAULT_TIMES);
     }
 
     /**
-     * {@link com.mindbodyonline.ironhide.Infrastructure.MindbodyViews.Swipeable#swipe(
+     * {@link Swipeable#swipe(
      *  android.support.test.espresso.action.Swiper,
      *  com.mindbodyonline.ironhide.Infrastructure.Extensions.SwipeAction.SwipeDirection,
      *  int)}
-     * with {@link com.mindbodyonline.ironhide.Infrastructure.MindbodyViews.Swipeable#DEFAULT_SPEED}
+     * with {@link Swipeable#DEFAULT_SPEED}
      */
     public T swipe(SwipeAction.SwipeDirection direction, int times) {
         return swipe(DEFAULT_SPEED, direction, times);
