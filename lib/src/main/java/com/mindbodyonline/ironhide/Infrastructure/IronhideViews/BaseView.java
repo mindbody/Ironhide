@@ -65,7 +65,7 @@ public class BaseView<T extends PageObject> {
 
     /**
      * A generically typed BaseView with selector: {@link android.support.test.espresso.matcher.ViewMatchers#withText(int)}
-     * @param IGNORED   an ignored integer to distinguish this constructor from {@link com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(int)}
+     * @param IGNORED   an ignored integer to distinguish this constructor from {@link com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(Class, int)}
      * @param stringResourceId    the resource id of the string for the view to interact with
      */
     protected BaseView(Class<T> type, int IGNORED, int stringResourceId) {
