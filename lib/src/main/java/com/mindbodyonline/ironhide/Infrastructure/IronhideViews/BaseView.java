@@ -12,6 +12,7 @@ import android.support.test.espresso.assertion.PositionAssertions;
 import android.support.test.espresso.assertion.ViewAssertions;
 import android.support.test.espresso.contrib.DrawerActions;
 import android.support.test.espresso.contrib.DrawerMatchers;
+import android.support.test.espresso.matcher.LayoutMatchers;
 import android.support.test.espresso.matcher.RootMatchers;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.view.View;
@@ -23,8 +24,12 @@ import org.hamcrest.Matcher;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static android.support.test.espresso.matcher.RootMatchers.DEFAULT;
+import static com.mindbodyonline.ironhide.Infrastructure.Extensions.ResourceStrings.fromId;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.*;
+import static android.support.test.espresso.matcher.ViewMatchers.*;
+import static com.mindbodyonline.ironhide.Infrastructure.Extensions.TextViewMatchers.*;
 
 /**
  * Base Class for all page elements represented in the models for application testing.
@@ -481,6 +486,105 @@ public class BaseView<T extends PageObject> {
      */
     public T withNotText(String string) {
         return checkMatches(not(ViewMatchers.withText(string)));
+    }
+
+    /**
+     * Checks if the element has any links in it.
+     *
+     * @return The model reached by interacting with this element.
+     */
+    public T textHasLinks() {
+        return checkMatches(hasLinks());
+    }
+
+    /**
+     * Checks to see if the element contains the string with the given resourceId.
+     *
+     * @param resourceId Resource ID of the string to check for.
+     * @return The model reached by interacting with this element.
+     */
+    public T textContainsString(int resourceId) {
+        return checkMatches(ViewMatchers.withText(containsString(fromId(resourceId))));
+    }
+
+    /**
+     * Checks to see if a TextView's text ends with a certain string given the string's resource id.
+     *
+     * @param resourceId The string's resource id
+     * @return The model reached by interacting with this element.
+     */
+    public T textEndsWith(int resourceId) {
+        return checkMatches(ViewMatchers.withText(endsWith(fromId(resourceId))));
+    }
+
+    /**
+     * Checks to see if a TextView's text is equal to (ignoring case) a certain string given the string's resource id.
+     *
+     * @param resourceId The string's resource id
+     * @return The model reached by interacting with this element.
+     */
+    public T textEqualToIgnoringCase(int resourceId) {
+        return checkMatches(ViewMatchers.withText(equalToIgnoringCase(fromId(resourceId))));
+    }
+
+    /**
+     * Checks to see if a TextView's text is equal to (ignoring white space around words) a certain string given the string's resource id.
+     *
+     * @param resourceId The string's resource id
+     * @return The model reached by interacting with this element.
+     */
+    public T textEqualToIgnoringWhiteSpace(int resourceId) {
+        return checkMatches(ViewMatchers.withText(equalToIgnoringWhiteSpace(fromId(resourceId))));
+    }
+
+    /**
+     * Checks to see if a TextView's text is empty or null.
+     * NOTE: see issue 72 for Espresso (https://code.google.com/p/android-test-kit/issues/detail?id=72)
+     *
+     * @return The model reached by interacting with this element.
+     */
+    public T textIsEmptyOrNullString() {
+        return checkMatches(isEmptyOrNullString());
+    }
+
+    /**
+     * Checks to see if a TextView's text is empty.
+     * NOTE: see issue 72 for Espresso (https://code.google.com/p/android-test-kit/issues/detail?id=72)
+     *
+     * @return The model reached by interacting with this element.
+     */
+    public T textIsEmptyString() {
+        return checkMatches(isEmptyString());
+    }
+
+    /**
+     * Checks to see if a TextView's text starts with a certain string given the string's resource id.
+     *
+     * @param resourceId The string's resource id
+     * @return The model reached by interacting with this element.
+     */
+    public T textStartsWith(final int resourceId) {
+        return checkMatches(ViewMatchers.withText(startsWith(fromId(resourceId))));
+    }
+
+    /**
+     * Checks to see if the Element has ellipsized text
+     *
+     * @return The model reached by interacting with this element.
+     */
+    @SuppressWarnings("unchecked")
+    public T hasEllipsizeText() {
+        return checkMatches(LayoutMatchers.hasEllipsizedText());
+    }
+
+    /**
+     * Checks to see if the element has multiline text.
+     *
+     * @return The model reached by interacting with this element.
+     */
+    @SuppressWarnings("unchecked")
+    public T hasMultilineText() {
+        return checkMatches(LayoutMatchers.hasMultilineText());
     }
 
     /**
