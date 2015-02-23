@@ -209,7 +209,6 @@ public class BaseView<T extends PageObject> {
      */
     protected BaseView<T> inRoot(Matcher<Root> rootMatcher) {
         this.viewInteraction = this.viewInteraction.inRoot(rootMatcher);
-
         return this;
     }
 
@@ -230,7 +229,6 @@ public class BaseView<T extends PageObject> {
      */
     public T closeDrawer(int drawerLayoutId) {
         DrawerActions.closeDrawer(drawerLayoutId);
-
         return returnGeneric();
     }
 
@@ -241,7 +239,6 @@ public class BaseView<T extends PageObject> {
      */
     public T openDrawer(int drawerLayoutId) {
         DrawerActions.openDrawer(drawerLayoutId);
-
         return returnGeneric();
     }
 
@@ -261,7 +258,6 @@ public class BaseView<T extends PageObject> {
         return performAction(ViewActions.click());
     }
 
-
     /**
      * Returns an action that performs a single click on the view. If the click takes longer than the 'long press' duration (which is possible) the provided rollback action is invoked on the view and a click is attempted again. This is only necessary if the view being clicked on has some different behaviour for long press versus a normal tap. For example - if a long press on a particular view element opens a popup menu - ViewActions.pressBack() may be an acceptable rollback action.
      * <p>View constraints:</p>
@@ -273,8 +269,6 @@ public class BaseView<T extends PageObject> {
     public T click(ViewAction rollbackAction) {
         return performAction(ViewActions.click(rollbackAction));
     }
-
-
 
     /**
      * Press the back button.
