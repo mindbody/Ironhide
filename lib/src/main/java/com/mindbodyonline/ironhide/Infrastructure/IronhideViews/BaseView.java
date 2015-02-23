@@ -1,6 +1,7 @@
 package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
 import android.net.Uri;
+import android.os.SystemClock;
 import android.support.test.espresso.Root;
 import android.support.test.espresso.ViewAction;
 import android.support.test.espresso.ViewAssertion;
@@ -937,11 +938,7 @@ public class BaseView<T extends PageObject> {
      * @return The model reached by interacting with this element.
      */
     public T pause(int timeInMillis) {
-        try {
-            Thread.sleep(timeInMillis);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        SystemClock.sleep(timeInMillis);
         return returnGeneric();
     }
 }
