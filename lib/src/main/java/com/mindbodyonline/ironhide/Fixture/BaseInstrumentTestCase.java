@@ -15,7 +15,7 @@ import org.junit.runner.RunWith;
 @RunWith(AndroidJUnit4.class)
 public class BaseInstrumentTestCase<T extends Activity> extends ActivityInstrumentationTestCase2<T> {
 
-    protected Activity mActivity;
+    protected T mActivity;
 
     /**
      * @see ActivityInstrumentationTestCase2#ActivityInstrumentationTestCase2(Class)
