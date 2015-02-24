@@ -1,0 +1,15 @@
+package com.mindbodyonline.ironhidetestapp.models;
+
+import com.mindbodyonline.ironhide.Infrastructure.IronhideViews.Clickable;
+import com.mindbodyonline.ironhide.PageObjects.PageObject;
+import com.mindbodyonline.ironhidetestapp.R;
+
+/**
+ * Created by gregory.sawers on 2/24/2015.
+ */
+public class SyncModel extends PageObject {
+
+    public Clickable<SyncModel> helloWorld = new Clickable<SyncModel>(SyncModel.class, R.id.request_button);
+
+    public Clickable<SyncModel> statusText = new Clickable<SyncModel>(SyncModel.class, R.id.status_text);
+}
