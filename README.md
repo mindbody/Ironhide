@@ -9,7 +9,7 @@ Espresso Android Testing Framework.
 * [Example App](https://github.com/mindbody/Ironhide/wiki/Example-App-with-Ironhide-Use)
 
 
-Copyright [2014] [MINDBODY]
+Copyright 2014 MINDBODY INC.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
