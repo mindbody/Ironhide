@@ -22,8 +22,7 @@ import static org.hamcrest.Matchers.not;
  * to match data within list views.
  */
 @LargeTest
-public class AdapterViewTest extends BaseInstrumentTestCase<LongListActivity> {
-    private LongListModel LongListPage = new LongListModel();
+public class AdapterViewTest extends TestFixture<LongListActivity> {
     
     public AdapterViewTest() {
         super(LongListActivity.class);

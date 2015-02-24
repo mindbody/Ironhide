@@ -13,10 +13,8 @@ import org.junit.Test;
  * {@link android.support.test.espresso.action.ViewActions#scrollTo()}.
  */
 @LargeTest
-public class ScrollToTest extends BaseInstrumentTestCase<ScrollActivity> {
+public class ScrollToTest extends TestFixture<ScrollActivity> {
 
-    private ScrollModel ScrollPage = new ScrollModel();
-    
     public ScrollToTest() {
         super(ScrollActivity.class);
     }

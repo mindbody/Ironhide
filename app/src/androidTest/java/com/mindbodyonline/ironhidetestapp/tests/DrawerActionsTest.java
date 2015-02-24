@@ -14,8 +14,7 @@ import org.junit.Test;
  */
 @LargeTest
 // TODO: Test framework does not identify DrawerActivity as an existing class
-public class DrawerActionsTest  extends BaseInstrumentTestCase<DrawerActivity> {
-    private DrawerModel DrawerPage = new DrawerModel();
+public class DrawerActionsTest  extends TestFixture<DrawerActivity> {
     
     public DrawerActionsTest() {
         super(DrawerActivity.class);

@@ -14,9 +14,7 @@ import org.junit.Test;
  * functionality.
  */
 @LargeTest
-public class BasicTest extends BaseInstrumentTestCase<SimpleActivity> {
-
-    private SimpleModel SimplePage = new SimpleModel();
+public class BasicTest extends TestFixture<SimpleActivity> {
     
     public BasicTest() {
         super(SimpleActivity.class);

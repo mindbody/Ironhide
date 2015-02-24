@@ -14,8 +14,7 @@ import org.junit.Test;
  * Ensures view root ordering works properly.
  */
 @LargeTest
-public class MenuTest extends BaseInstrumentTestCase<MenuActivity> {
-    private MenuModel MenuPage = new MenuModel();
+public class MenuTest extends TestFixture<MenuActivity> {
     
     public MenuTest() {
         super(MenuActivity.class);

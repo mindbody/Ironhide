@@ -27,10 +27,8 @@ import static org.hamcrest.Matchers.is;
  * @see android.support.test.espresso.Espresso#onData
  */
 @LargeTest
-public class MultipleWindowTest extends BaseInstrumentTestCase<SendActivity> {
+public class MultipleWindowTest extends TestFixture<SendActivity> {
 
-    private SendModel SendPage = new SendModel();
-    
     public MultipleWindowTest() {
         super(SendActivity.class);
     }
