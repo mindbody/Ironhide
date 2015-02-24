@@ -10,6 +10,6 @@ import com.mindbodyonline.ironhidetestapp.R;
  */
 public class ZoomModel extends PageObject {
 
-    public Zoomable<ZoomModel> screen = new Zoomable<ZoomModel>(ZoomModel.class, R.id.zoom_view);
+    public Zoomable<ZoomModel> screen = new Zoomable<>(ZoomModel.class, R.id.zoom_view);
 
 }

@@ -9,8 +9,10 @@ import com.mindbodyonline.ironhidetestapp.R;
  */
 public class FragmentStackModel extends PageObject {
 
-    public Clickable<FragmentStackModel> createNewFragment = new Clickable<FragmentStackModel>(FragmentStackModel.class, R.id.new_fragment);
+    public Clickable<FragmentStackModel> createNewFragment = new Clickable<>(FragmentStackModel.class, R.id.new_fragment);
 
-    //Text field?
+    public Clickable<FragmentStackModel> fragmenText1 = new Clickable<>(FragmentStackModel.class, "Fragment #1");
+
+    public Clickable<FragmentStackModel> fragmenText2 = new Clickable<>(FragmentStackModel.class, "Fragment #2");
 
 }

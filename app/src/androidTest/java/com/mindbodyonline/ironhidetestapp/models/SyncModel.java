@@ -9,7 +9,7 @@ import com.mindbodyonline.ironhidetestapp.R;
  */
 public class SyncModel extends PageObject {
 
-    public Clickable<SyncModel> helloWorld = new Clickable<SyncModel>(SyncModel.class, R.id.request_button);
+    public Clickable<SyncModel> helloWorld = new Clickable<>(SyncModel.class, R.id.request_button);
 
-    public Clickable<SyncModel> statusText = new Clickable<SyncModel>(SyncModel.class, R.id.status_text);
+    public Clickable<SyncModel> statusText = new Clickable<>(SyncModel.class, R.id.status_text);
 }
