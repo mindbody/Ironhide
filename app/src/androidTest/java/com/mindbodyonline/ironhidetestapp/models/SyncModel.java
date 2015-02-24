@@ -5,7 +5,7 @@ import com.mindbodyonline.ironhide.PageObjects.PageObject;
 import com.mindbodyonline.ironhidetestapp.R;
 
 /**
- * Created by gregory.sawers on 2/24/2015.
+ * Page Object For {@link com.mindbodyonline.ironhidetestapp.SyncActivity}
  */
 public class SyncModel extends PageObject {
 

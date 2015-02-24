@@ -6,8 +6,10 @@ import com.mindbodyonline.ironhide.PageObjects.PageObject;
 import com.mindbodyonline.ironhidetestapp.R;
 
 /**
- * Created by gregory.sawers on 2/24/2015.
+ * /**
+ * Page Object For {@link com.mindbodyonline.ironhidetestapp.SwipeActivity}
  */
+
 public class SwipeModel extends PageObject {
 
     public Swipeable<SwipeModel> smallPager = new Swipeable<SwipeModel>(SwipeModel.class, R.id.small_pager);
