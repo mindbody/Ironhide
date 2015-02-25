@@ -2,6 +2,7 @@ package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
 import android.app.Activity;
 import android.net.Uri;
+import android.support.test.InstrumentationRegistry;
 import android.support.test.espresso.Root;
 import android.support.test.espresso.ViewAction;
 import android.support.test.espresso.ViewAssertion;
@@ -432,6 +433,16 @@ public class BaseView<T extends PageObject> {
      */
     public T openLinkWithUri(Matcher<Uri> uriMatcher){
         return performAction(ViewActions.openLinkWithUri(uriMatcher));
+    }
+
+    /**
+     * Register this view as idle.
+     * @param activity the activity to use to search for the actual view
+     * @return The model reached by interacting with this element
+     */
+    public T registerAsIdle(Activity activity, boolean waitForText) {
+        registerIdlingResources(new IdlingView(activity, this, waitForText));
+        return returnGeneric();
     }
 
     /**

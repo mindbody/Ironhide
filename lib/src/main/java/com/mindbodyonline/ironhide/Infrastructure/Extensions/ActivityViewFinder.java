@@ -20,18 +20,20 @@ import static com.android.support.test.deps.guava.base.Preconditions.checkNotNul
 import static com.android.support.test.deps.guava.base.Preconditions.checkState;
 
 /**
- * Adapted from {@link android.support.test.espresso.base.ViewFinderImpl}
+ * Adapted from {@link android.support.test.espresso.base.ViewFinderImpl}.
+ * Searches the given activity for the {@link View} matching the supplied {@link Matcher}
  */
-public class ActivityViewFinderImpl implements ViewFinder {
+public class ActivityViewFinder implements ViewFinder {
     private View root;
     private Matcher<View> viewMatcher;
     
-    public ActivityViewFinderImpl(Activity from, Matcher<View> viewMatcher) {
+    public ActivityViewFinder(Activity from, Matcher<View> viewMatcher) {
         root = from.getWindow().findViewById(android.R.id.content);
         // TODO: why the heck is this giving a lint error. Matcher<View> from private field -> returned Matcher<View> -> set value of Matcher<View> ...
         this.viewMatcher = viewMatcher;
     }
 
+    /** {@inheritDoc} */
     @Override
     public View getView() throws AmbiguousViewMatcherException, NoMatchingViewException {
         checkMainThread();
@@ -62,6 +64,7 @@ public class ActivityViewFinderImpl implements ViewFinder {
         return matchedView;
     }
 
+    /** @see android.support.test.espresso.base.ViewFinderImpl#checkMainThread() */
     private void checkMainThread() {
         checkState(Thread.currentThread().equals(Looper.getMainLooper().getThread()),
                 "Executing a query on the view hierarchy outside of the main thread (on: %s)",

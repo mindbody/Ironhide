@@ -4,6 +4,7 @@ import android.support.test.espresso.contrib.CountingIdlingResource;
 import android.test.suitebuilder.annotation.LargeTest;
 
 import com.mindbodyonline.ironhide.Fixture.BaseInstrumentTestCase;
+import com.mindbodyonline.ironhide.Infrastructure.Extensions.IdlingView;
 import com.mindbodyonline.ironhidetestapp.R;
 import com.mindbodyonline.ironhidetestapp.SyncActivity;
 import com.mindbodyonline.ironhidetestapp.models.SyncModel;
