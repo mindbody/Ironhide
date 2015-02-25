@@ -24,27 +24,12 @@ public class Recycler<T extends PageObject> extends BaseView<T> {
         super(type, viewMatcher);
     }
 
-    /** @see BaseView#BaseView(int) */
-    public Recycler(int resourceId) {
-        super(resourceId);
-    }
-
-    /** @see BaseView#BaseView(org.hamcrest.Matcher) */
-    public Recycler(Matcher<View> selector) {
-        super(selector);
-    }
-
-    /** @see BaseView#BaseView(int, int) */
-    public Recycler(int IGNORED, int stringResourceId) {
-        super(IGNORED, stringResourceId);
-    }
-
-    // Compatibility constructors
-
+    /** @see BaseView#BaseView(Class, int) */
     public Recycler(Class<T> type, int resourceId) {
         super(type, resourceId);
     }
 
+    /** @see BaseView#BaseView(Class,int, int) */
     public Recycler(Class<T> type, int IGNORED, int stringResourceId) {
         super(type, IGNORED, stringResourceId);
     }

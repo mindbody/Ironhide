@@ -36,21 +36,15 @@ public class ListItem<T extends PageObject> extends BaseView<T> {
         this.adapter = adapter;
     }
 
-    /**
-     * A generically typed ListItem with adapter given.
-     * @param adapter   the DataInteraction representing the {@link android.widget.AdapterView}
-     */
-    @SuppressWarnings("unchecked")
-    public ListItem(DataInteraction adapter) {
-        super((Matcher) anything());
-        this.adapter = adapter;
-    }
-
     /** {@inheritDoc} */
     @Override
     public <E extends PageObject> ListItem<E> goesTo(Class<E> type) {
         return new ListItem<>(type, adapter);
     }
+
+    /**
+     * Actions are performed on the DataInteraction instead of the ViewInteraction 
+     */
 
     /** {@inheritDoc} */
     @Override
@@ -82,89 +76,13 @@ public class ListItem<T extends PageObject> extends BaseView<T> {
     }
 
     /**
-     * Performs {@link ListItem#click()} on a view that matches the given {@link BaseView}
-     * @param viewToClick   the {@link BaseView} to get the selector in order to find it within the list item
-     * @return  The model reached by interacting with this element.
+     * Root Matchers are not supported in ListItem.
+     * @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.ListAdapter instead
      */
-    public T clickChildView(BaseView<?> viewToClick) {
-        adapter.onChildView(viewToClick.getSelector()).perform(ViewActions.click());
-        return returnGeneric();
-    }
-
-    /**
-     * Performs {@link ListItem#isDisplayed()} on a view that matches the given {@link BaseView}
-     * @param viewToMatch   the {@link BaseView} to get the selector in order to find it within the list item
-     * @return  The model reached by interacting with this element.
-     */
-    public T childViewIsDisplayed(BaseView<?> viewToMatch) {
-        adapter.onChildView(viewToMatch.getSelector()).check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
-        return returnGeneric();
-    }
-
-    /**
-     * Performs the {@link ViewAction} on a view that matches the given {@link BaseView}
-     * @param viewToMatch   the {@link BaseView} to get the selector in order to find it within the list item
-     * @return  The model reached by interacting with this element.
-     */
-    public T performOnChildView(BaseView<?> viewToMatch, ViewAction toPerform) {
-        adapter.onChildView(viewToMatch.getSelector()).perform(toPerform);
-        return returnGeneric();
-    }
-
-    /**
-     * Checks to see if a child view matches the {@link org.hamcrest.Matcher}
-     * @param viewToMatch   the {@link BaseView} to get the selector in order to find it within the list item
-     * @param toCheck   the check for the child view
-     * @return  the model reached by interacting with this element.
-     */
-    public T checkChildView(BaseView<?> viewToMatch, Matcher<View> toCheck) {
-        adapter.onChildView(viewToMatch.getSelector()).check(ViewAssertions.matches(toCheck));
-        return returnGeneric();
-    }
-
-    /**
-     * Root Matchers return ListItem
-     */
-
-    /** {@inheritDoc} */
-    @Override
-    public ListItem<T> changeRoot() {
-        return (ListItem<T>) super.changeRoot();
-    }
 
     /** {@inheritDoc} */
     @Override
     public ListItem<T> inRoot(Matcher<Root> rootMatcher) {
-        return (ListItem<T>) super.inRoot(rootMatcher);
-    }
-
-    /** {@inheritDoc} */
-    @Override
-    public ListItem<T> inDialogRoot() {
-        return (ListItem<T>) super.inDialogRoot();
-    }
-
-    /** {@inheritDoc} */
-    @Override
-    public ListItem<T> inPlatformPopup() {
-        return (ListItem<T>) super.inPlatformPopup();
-    }
-
-    /** {@inheritDoc} */
-    @Override
-    public ListItem<T> inTouchableRoot() {
-        return (ListItem<T>) super.inTouchableRoot();
-    }
-
-    /** {@inheritDoc} */
-    @Override
-    public ListItem<T> inDecorView(Matcher<View> decorViewMatcher) {
-        return (ListItem<T>) super.inDecorView(decorViewMatcher);
-    }
-
-    /** {@inheritDoc} */
-    @Override
-    public ListItem<T> inFocusableRoot() {
-        return (ListItem<T>) super.inFocusableRoot();
+        throw new UnsupportedOperationException("It is too late to call this method. Use ListAdapter's root changers instead");
     }
 }

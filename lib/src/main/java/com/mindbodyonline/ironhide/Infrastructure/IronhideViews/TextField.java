@@ -1,9 +1,7 @@
 package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
-import android.net.Uri;
 import android.support.test.espresso.Root;
 import android.support.test.espresso.action.ViewActions;
-import android.support.test.espresso.matcher.LayoutMatchers;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.view.View;
 
@@ -11,6 +9,10 @@ import com.mindbodyonline.ironhide.Infrastructure.Extensions.TextViewMatchers;
 import com.mindbodyonline.ironhide.PageObjects.PageObject;
 
 import org.hamcrest.Matcher;
+
+import static com.mindbodyonline.ironhide.Infrastructure.Extensions.ResourceStrings.fromId;
+import static android.support.test.espresso.matcher.ViewMatchers.withHint;
+import static org.hamcrest.Matchers.*;
 
 /**
  * Simple element that allows text interaction.
@@ -27,39 +29,20 @@ public class TextField<T extends PageObject> extends BaseView<T> {
     }
 
     /** @see BaseView#BaseView(int) */
-    public TextField(int resourceId) {
-        super(resourceId);
-    }
-
-    /** @see BaseView#BaseView(int, int) */
-    public TextField(int IGNORED, int stringResourceId) {
-        super(IGNORED, stringResourceId);
-    }
-
-    /** @see BaseView#BaseView(String) */
-    public TextField(String displayText) {
-        super(displayText);
-    }
-
-    /** @see BaseView#BaseView(org.hamcrest.Matcher) */
-    public TextField(Matcher<View> selector) {
-        super(selector);
-    }
-
-    // Compatibility constructors
-
     public TextField(Class<T> type, int resourceId) {
         super(type, resourceId);
     }
 
+    /** @see BaseView#BaseView(int, int) */
     public TextField(Class<T> type, int IGNORED, int stringResourceId) {
         super(type, IGNORED, stringResourceId);
     }
 
+    /** @see BaseView#BaseView(String) */
     public TextField(Class<T> type, String displayText) {
         super(type, displayText);
     }
-    
+
     /** {@inheritDoc} */
     @Override
     public <E extends PageObject> TextField<E> goesTo(Class<E> type) {
@@ -128,146 +111,77 @@ public class TextField<T extends PageObject> extends BaseView<T> {
     public T withHintText(Matcher<String> stringMatcher) { return checkMatches(ViewMatchers.withHint(stringMatcher));}
 
     /**
-     * Opens the link that matches the link and uri matchers.
-     * @param linkTextMatcher Link matcher to check match against.
-     * @param uriMatcher URI matcher to match against
-     * @return The model reached by interacting with this element.
-     */
-    public T openLink(Matcher<String> linkTextMatcher, Matcher<Uri> uriMatcher) {
-        return performAction(ViewActions.openLink(linkTextMatcher, uriMatcher));
-    }
-
-    /**
-     * Open the link that matches the link matcher.
-     * @param linkTextMatcher Link matcher to check match against.
-     * @return The model reached by interacting with this element.
-     */
-    public T openLinkWithText(Matcher<String> linkTextMatcher) {
-        return performAction(ViewActions.openLinkWithText(linkTextMatcher));
-    }
-
-    /**
-     * Open the link with the given link text.
-     * @param linkText Text to match against
-     * @return The model reached by interacting with this element.
-     */
-    public T openLinkWithText(String linkText) {
-        return performAction(ViewActions.openLinkWithText(linkText));
-    }
-
-    /**
-     * Open the link that matches the uri matcher.
-     * @param uriMatcher URI matcher to match against.
-     * @return The model reached by interacting with this element.
-     */
-    public T openLinkWithUri(Matcher<Uri> uriMatcher) {
-        return performAction(ViewActions.openLinkWithUri(uriMatcher));
-    }
-
-    /**
-     * Open the link that matches the given uri text.
-     * @param uri Uri to match against
-     * @return The model reached by interacting with this element.
-     */
-    public T openLinkWithUri(String uri) {
-        return performAction(ViewActions.openLinkWithUri(uri));
-    }
-
-    /**
      * More matchers
      */
 
     /**
-     * Checks if the element has any links in it.
-     * @return The model reached by interacting with this element.
-     */
-    public T hasLinks() {
-        return checkMatches(ViewMatchers.hasLinks());
-    }
-
-    /**
      * Checks to see if the element contains the string with the given resourceId.
+     *
      * @param resourceId Resource ID of the string to check for.
      * @return The model reached by interacting with this element.
      */
-    public T containsString(int resourceId) {
-        return checkMatches(TextViewMatchers.containsString(resourceId));
+    public T hintContainsString(int resourceId) {
+        return withHintText(containsString(fromId(resourceId)));
     }
 
     /**
      * Checks to see if a TextView's text ends with a certain string given the string's resource id.
      *
-     * @param resourceId    The string's resource id
-     * @return  The model reached by interacting with this element.
+     * @param resourceId The string's resource id
+     * @return The model reached by interacting with this element.
      */
-    public T endsWith(int resourceId) {
-        return checkMatches(TextViewMatchers.endsWith(resourceId));
+    public T hintEndsWith(int resourceId) {
+        return withHintText(endsWith(fromId(resourceId)));
     }
 
     /**
      * Checks to see if a TextView's text is equal to (ignoring case) a certain string given the string's resource id.
      *
-     * @param resourceId    The string's resource id
-     * @return  The model reached by interacting with this element.
+     * @param resourceId The string's resource id
+     * @return The model reached by interacting with this element.
      */
-    public T equalToIgnoringCase(int resourceId) {
-        return checkMatches(TextViewMatchers.equalToIgnoringCase(resourceId));
+    public T hintEqualToIgnoringCase(int resourceId) {
+        return withHintText(equalToIgnoringCase(fromId(resourceId)));
     }
 
     /**
      * Checks to see if a TextView's text is equal to (ignoring white space around words) a certain string given the string's resource id.
      *
-     * @param resourceId    The string's resource id
-     * @return   The model reached by interacting with this element.
+     * @param resourceId The string's resource id
+     * @return The model reached by interacting with this element.
      */
-    public T equalToIgnoringWhiteSpace(int resourceId) {
-        return checkMatches(TextViewMatchers.equalToIgnoringWhiteSpace(resourceId));
+    public T hintEqualToIgnoringWhiteSpace(int resourceId) {
+        return withHintText(equalToIgnoringWhiteSpace(fromId(resourceId)));
     }
 
     /**
      * Checks to see if a TextView's text is empty or null.
      * NOTE: see issue 72 for Espresso (https://code.google.com/p/android-test-kit/issues/detail?id=72)
-     * @return  The model reached by interacting with this element.
+     *
+     * @return The model reached by interacting with this element.
      */
-    public T isEmptyOrNullString() {
-        return checkMatches(TextViewMatchers.isEmptyOrNullString());
+    public T isEmptyOrNullHint() {
+        return checkMatches(TextViewMatchers.isEmptyOrNullHint());
     }
 
     /**
      * Checks to see if a TextView's text is empty.
      * NOTE: see issue 72 for Espresso (https://code.google.com/p/android-test-kit/issues/detail?id=72)
-     * @return  The model reached by interacting with this element.
+     *
+     * @return The model reached by interacting with this element.
      */
-    public T isEmptyString() {
-        return checkMatches(TextViewMatchers.isEmptyString());
+    public T isEmptyHint() {
+        return checkMatches(TextViewMatchers.isEmptyHint());
     }
 
     /**
      * Checks to see if a TextView's text starts with a certain string given the string's resource id.
      *
-     * @param resourceId    The string's resource id
-     * @return   The model reached by interacting with this element.
-     */
-    public T startsWith(final int resourceId) {
-        return checkMatches(TextViewMatchers.startsWith(resourceId));
-    }
-
-    /**
-     * Checks to see if the Element has ellipsized text
+     * @param resourceId The string's resource id
      * @return The model reached by interacting with this element.
      */
-    @SuppressWarnings("unchecked")
-    public T hasEllipsizeText(){
-        return checkMatches(LayoutMatchers.hasEllipsizedText());
-    }
-
-    /**
-     * Checks to see if the element has multiline text.
-     * @return The model reached by interacting with this element.
-     */
-    @SuppressWarnings("unchecked")
-    public T hasMultilineText(){
-        return checkMatches(LayoutMatchers.hasMultilineText());
+    public T hintStartsWith(final int resourceId) {
+        return withHintText(startsWith(fromId(resourceId)));
     }
 
     /**

@@ -31,18 +31,7 @@ public class Swipeable<T extends PageObject> extends BaseView<T> {
         super(type, selector);
     }
 
-    /** @see BaseView#BaseView(int) */
-    public Swipeable(int resourceId) {
-        super(resourceId);
-    }
-
-    /** @see BaseView#BaseView(org.hamcrest.Matcher) */
-    public Swipeable(Matcher<View> selector) {
-        super(selector);
-    }
-
-    // Compatibility constructors
-
+    /** @see BaseView#BaseView(Class, int) */
     public Swipeable(Class<T> type, int resourceId) {
         super(type, resourceId);
     }

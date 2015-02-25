@@ -22,38 +22,19 @@ public class Clickable<T extends PageObject> extends BaseView<T> {
         super(type, viewMatcher);
     }
 
-    /** @see BaseView#BaseView(int) */
-    public Clickable(int resourceId) {
-        super(resourceId);
-    }
-
-    /** @see BaseView#BaseView(org.hamcrest.Matcher) */
-    public Clickable(Matcher<View> selector) {
-        super(selector);
-    }
-
-    /** @see BaseView#BaseView(int, int) */
-    public Clickable(int IGNORED, int stringResourceId) {
-        super(IGNORED, stringResourceId);
-    }
-
-    /** @see BaseView#BaseView(String) */
-    public Clickable(String displayText) {
-        super(displayText);
-    }
-
-    // Compatibility constructors
-
+    /** @see BaseView#BaseView(Class, int) */
     public Clickable(Class<T> type, int resourceId) {
-        this(type, ViewMatchers.withId(resourceId));
+        super(type, resourceId);
     }
 
+    /** @see BaseView#BaseView(Class, int, int) */
     public Clickable(Class<T> type, int IGNORED, int stringResourceId) {
-        this(type, ViewMatchers.withText(stringResourceId));
+        super(type, IGNORED, stringResourceId);
     }
 
+    /** @see BaseView#BaseView(Class, String) */
     public Clickable(Class<T> type, String displayText) {
-        this(type, ViewMatchers.withText(displayText));
+        super(type, displayText);
     }
 
     /** {@inheritDoc} */

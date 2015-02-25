@@ -24,27 +24,12 @@ public class LayoutView<T extends PageObject> extends BaseView<T> {
         super(type, viewMatcher);
     }
 
-    /** @see BaseView#BaseView(int) */
-    public LayoutView(int resourceId) {
-        super(resourceId);
-    }
-
-    /** @see BaseView#BaseView(org.hamcrest.Matcher) */
-    public LayoutView(Matcher<View> selector) {
-        super(selector);
-    }
-
-    /** @see BaseView#BaseView(int, int) */
-    public LayoutView(int IGNORED, int stringResourceId) {
-        super(IGNORED, stringResourceId);
-    }
-
-    // Compatibility constructors
-
+    /** @see BaseView#BaseView(Class, int) */
     public LayoutView(Class<T> type, int resourceId) {
         super(type, resourceId);
     }
 
+    /** @see BaseView#BaseView(Class, int, int) */
     public LayoutView(Class<T> type, int IGNORED, int stringResourceId) {
         super(type, IGNORED, stringResourceId);
     }
