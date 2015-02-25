@@ -1,6 +1,5 @@
 package com.mindbodyonline.ironhidetestapp.tests;
 
-import android.test.ActivityInstrumentationTestCase2;
 import android.test.suitebuilder.annotation.LargeTest;
 
 import com.mindbodyonline.ironhide.Fixture.BaseInstrumentTestCase;

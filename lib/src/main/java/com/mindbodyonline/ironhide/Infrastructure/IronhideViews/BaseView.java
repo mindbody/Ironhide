@@ -24,8 +24,8 @@ import junit.framework.AssertionFailedError;
 
 import org.hamcrest.Matcher;
 
-import static android.support.test.espresso.Espresso.registerIdlingResources;
 import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.Espresso.registerIdlingResources;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static android.support.test.espresso.matcher.RootMatchers.DEFAULT;
 import static org.hamcrest.Matchers.is;

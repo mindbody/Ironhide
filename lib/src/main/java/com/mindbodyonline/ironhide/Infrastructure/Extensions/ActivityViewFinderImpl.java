@@ -5,23 +5,18 @@ import android.os.Looper;
 import android.support.test.espresso.AmbiguousViewMatcherException;
 import android.support.test.espresso.NoMatchingViewException;
 import android.support.test.espresso.ViewFinder;
-import android.support.test.espresso.matcher.ViewMatchers;
 import android.view.View;
-import android.widget.AdapterView;
 
 import com.android.support.test.deps.guava.base.Predicate;
 import com.android.support.test.deps.guava.collect.Iterables;
 import com.android.support.test.deps.guava.collect.Iterators;
-import com.android.support.test.deps.guava.collect.Lists;
-import com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView;
 
 import org.hamcrest.Matcher;
 
 import java.util.Iterator;
-import java.util.List;
 
-import static com.android.support.test.deps.guava.base.Preconditions.checkNotNull;
 import static android.support.test.espresso.util.TreeIterables.breadthFirstViewTraversal;
+import static com.android.support.test.deps.guava.base.Preconditions.checkNotNull;
 import static com.android.support.test.deps.guava.base.Preconditions.checkState;
 
 /**

@@ -2,15 +2,10 @@ package com.mindbodyonline.ironhide.Infrastructure.Extensions;
 
 import android.app.Activity;
 import android.support.test.espresso.IdlingResource;
-import android.support.test.espresso.assertion.ViewAssertions;
-import android.support.test.runner.lifecycle.ActivityLifecycleCallback;
 import android.view.View;
 import android.widget.TextView;
 
-import com.android.support.test.deps.guava.base.Optional;
 import com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView;
-
-import org.hamcrest.Matcher;
 
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayingAtLeast;
 
