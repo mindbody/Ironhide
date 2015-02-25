@@ -29,16 +29,10 @@ public class NavDrawer<T extends PageObject> extends BaseView<T> {
         this.drawerLayoutId = resourceId;
     }
 
-    /** @see BaseView#BaseView(int) */
-    public NavDrawer(int resourceId) {
-        super(resourceId);
-        this.drawerLayoutId = resourceId;
-    }
-    
-    // Compatibility constructor
-    
+    /** @see BaseView#BaseView(Class,int) */
     public NavDrawer(Class<T> type, int resourceId) {
-        this(type, resourceId, ViewMatchers.withId(resourceId));
+        super(type, resourceId);
+        this.drawerLayoutId = resourceId;
     }
 
     /** {@inheritDoc} */

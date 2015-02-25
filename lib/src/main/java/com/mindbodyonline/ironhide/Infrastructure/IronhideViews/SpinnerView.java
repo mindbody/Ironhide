@@ -4,10 +4,12 @@ import android.support.test.espresso.Root;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.view.View;
 
-import com.mindbodyonline.ironhide.Infrastructure.Extensions.SpinnerTextMatchers;
 import com.mindbodyonline.ironhide.PageObjects.PageObject;
 
 import org.hamcrest.Matcher;
+import org.hamcrest.Matchers;
+
+import static com.mindbodyonline.ironhide.Infrastructure.Extensions.ResourceStrings.fromId;
 
 /**
  * A reference view for Spinners.
@@ -22,40 +24,21 @@ public class SpinnerView<T extends PageObject> extends BaseView<T> {
         super(type, viewMatcher);
     }
 
-    /** @see BaseView#BaseView(int) */
-    public SpinnerView(int resourceId) {
-        super(resourceId);
-    }
-
-    /** @see BaseView#BaseView(org.hamcrest.Matcher) */
-    public SpinnerView(Matcher<View> selector) {
-        super(selector);
-    }
-
-    /** @see BaseView#BaseView(int, int) */
-    public SpinnerView(int IGNORED, int stringResourceId) {
-        super(IGNORED, stringResourceId);
-    }
-
-    /** @see BaseView#BaseView(String) */
-    public SpinnerView(String displayText) {
-        super(displayText);
-    }
-
-    // Compatibility constructors
-
+    /** @see BaseView#BaseView(Class, int) */
     public SpinnerView(Class<T> type, int resourceId) {
         super(type, resourceId);
     }
-    
+
+    /** @see BaseView#BaseView(Class, int, int) */
     public SpinnerView(Class<T> type, int IGNORED, int stringResourceId) {
         super(type, IGNORED, stringResourceId);
     }
 
+    /** @see BaseView#BaseView(Class,String) */
     public SpinnerView(Class<T> type, String displayText) {
         super(type, displayText);
     }
-    
+
     /**
      * Matchers
      */
@@ -84,7 +67,7 @@ public class SpinnerView<T extends PageObject> extends BaseView<T> {
      * @return The model reached by interacting with this element.
      */
     public T containsString(int resourceId) {
-        return checkMatches(SpinnerTextMatchers.containsString(resourceId));
+        return withText(Matchers.containsString(fromId(resourceId)));
     }
 
     /**
@@ -94,7 +77,7 @@ public class SpinnerView<T extends PageObject> extends BaseView<T> {
      * @return  The model reached by interacting with this element.
      */
     public T endsWith(int resourceId) {
-        return checkMatches(SpinnerTextMatchers.endsWith(resourceId));
+        return withText(Matchers.endsWith(fromId(resourceId)));
     }
 
     /**
@@ -104,7 +87,7 @@ public class SpinnerView<T extends PageObject> extends BaseView<T> {
      * @return  The model reached by interacting with this element.
      */
     public T equalToIgnoringCase(int resourceId) {
-        return checkMatches(SpinnerTextMatchers.equalToIgnoringCase(resourceId));
+        return withText(Matchers.equalToIgnoringCase(fromId(resourceId)));
     }
 
     /**
@@ -114,7 +97,7 @@ public class SpinnerView<T extends PageObject> extends BaseView<T> {
      * @return   The model reached by interacting with this element.
      */
     public T equalToIgnoringWhiteSpace(int resourceId) {
-        return checkMatches(SpinnerTextMatchers.equalToIgnoringWhiteSpace(resourceId));
+        return withText(Matchers.equalToIgnoringWhiteSpace(fromId(resourceId)));
     }
 
     /**
@@ -124,7 +107,7 @@ public class SpinnerView<T extends PageObject> extends BaseView<T> {
      * @return   The model reached by interacting with this element.
      */
     public T startsWith(final int resourceId) {
-        return checkMatches(SpinnerTextMatchers.startsWith(resourceId));
+        return withText(Matchers.startsWith(fromId(resourceId)));
     }
 
 

@@ -2,6 +2,7 @@ package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
 import android.app.Activity;
 import android.net.Uri;
+import android.os.SystemClock;
 import android.support.test.espresso.Root;
 import android.support.test.espresso.ViewAction;
 import android.support.test.espresso.ViewAssertion;
@@ -13,6 +14,7 @@ import android.support.test.espresso.assertion.PositionAssertions;
 import android.support.test.espresso.assertion.ViewAssertions;
 import android.support.test.espresso.contrib.DrawerActions;
 import android.support.test.espresso.contrib.DrawerMatchers;
+import android.support.test.espresso.matcher.LayoutMatchers;
 import android.support.test.espresso.matcher.RootMatchers;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.view.View;
@@ -28,8 +30,12 @@ import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.Espresso.registerIdlingResources;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static android.support.test.espresso.matcher.RootMatchers.DEFAULT;
+import static com.mindbodyonline.ironhide.Infrastructure.Extensions.ResourceStrings.fromId;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.*;
+import static android.support.test.espresso.matcher.ViewMatchers.*;
+import static com.mindbodyonline.ironhide.Infrastructure.Extensions.TextViewMatchers.*;
 
 /**
  * Base Class for all page elements represented in the models for application testing.
@@ -48,20 +54,6 @@ public class BaseView<T extends PageObject> {
     protected final Class<T> type;
     protected final Matcher<View> selector;
     protected ViewInteraction viewInteraction;
-
-    // Compatibility constructors
-
-    protected BaseView(Class<T> type, int resourceId) {
-        this(type, ViewMatchers.withId(resourceId));
-    }
-    
-    protected BaseView(Class<T> type, int IGNORED, int stringResourceId) {
-        this(type, ViewMatchers.withText(stringResourceId));
-    }
-    
-    protected BaseView(Class<T> type, String displayText) {
-        this(type, ViewMatchers.withText(displayText));
-    }
     
     /**
      * Instantiates a {@link android.support.test.espresso.ViewInteraction} and retains type and selector for later access.
@@ -78,34 +70,27 @@ public class BaseView<T extends PageObject> {
      * A generically typed BaseView with selector: {@link android.support.test.espresso.matcher.ViewMatchers#withId(int)}
      * @param resourceId    the resource id of the view to interact with
      */
-    protected BaseView(int resourceId) {
-        this(ViewMatchers.withId(resourceId));
+    protected BaseView(Class<T> type, int resourceId) {
+        this(type, ViewMatchers.withId(resourceId));
     }
 
     /**
      * A generically typed BaseView with selector: {@link android.support.test.espresso.matcher.ViewMatchers#withText(int)}
-     * @param IGNORED   an ignored integer to distinguish this constructor from {@link BaseView#BaseView(int)}
+     * @param IGNORED   an ignored integer to distinguish this constructor from {@link com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(Class, int)}
      * @param stringResourceId    the resource id of the string for the view to interact with
      */
-    protected BaseView(int IGNORED, int stringResourceId) {
-        this(ViewMatchers.withText(stringResourceId));
+    protected BaseView(Class<T> type, int IGNORED, int stringResourceId) {
+        this(type, ViewMatchers.withText(stringResourceId));
     }
 
     /**
      * A generically typed BaseView with selector: {@link android.support.test.espresso.matcher.ViewMatchers#withText(String)}
      * @param displayText   the text inside the view to interact with
      */
-    protected BaseView(String displayText) {
-        this(ViewMatchers.withText(displayText));
+    protected BaseView(Class<T> type, String displayText) {
+        this(type, ViewMatchers.withText(displayText));
     }
 
-    /**
-     * A generically typed BaseView with selector given
-     * @param selector  the matcher for the view to interact with
-     */
-    protected BaseView(Matcher<View> selector) {
-        this(null, selector);
-    }
 
     /**
      * Changes the destination class by returning an object of the given type
@@ -254,7 +239,6 @@ public class BaseView<T extends PageObject> {
      */
     protected BaseView<T> inRoot(Matcher<Root> rootMatcher) {
         this.viewInteraction = this.viewInteraction.inRoot(rootMatcher);
-
         return this;
     }
 
@@ -275,7 +259,6 @@ public class BaseView<T extends PageObject> {
      */
     public T closeDrawer(int drawerLayoutId) {
         DrawerActions.closeDrawer(drawerLayoutId);
-
         return returnGeneric();
     }
 
@@ -286,7 +269,6 @@ public class BaseView<T extends PageObject> {
      */
     public T openDrawer(int drawerLayoutId) {
         DrawerActions.openDrawer(drawerLayoutId);
-
         return returnGeneric();
     }
 
@@ -306,7 +288,6 @@ public class BaseView<T extends PageObject> {
         return performAction(ViewActions.click());
     }
 
-
     /**
      * Returns an action that performs a single click on the view. If the click takes longer than the 'long press' duration (which is possible) the provided rollback action is invoked on the view and a click is attempted again. This is only necessary if the view being clicked on has some different behaviour for long press versus a normal tap. For example - if a long press on a particular view element opens a popup menu - ViewActions.pressBack() may be an acceptable rollback action.
      * <p>View constraints:</p>
@@ -318,8 +299,6 @@ public class BaseView<T extends PageObject> {
     public T click(ViewAction rollbackAction) {
         return performAction(ViewActions.click(rollbackAction));
     }
-
-
 
     /**
      * Press the back button.
@@ -560,6 +539,105 @@ public class BaseView<T extends PageObject> {
      */
     public T withNotText(String string) {
         return checkMatches(not(ViewMatchers.withText(string)));
+    }
+
+    /**
+     * Checks if the element has any links in it.
+     *
+     * @return The model reached by interacting with this element.
+     */
+    public T textHasLinks() {
+        return checkMatches(hasLinks());
+    }
+
+    /**
+     * Checks to see if the element contains the string with the given resourceId.
+     *
+     * @param resourceId Resource ID of the string to check for.
+     * @return The model reached by interacting with this element.
+     */
+    public T textContainsString(int resourceId) {
+        return checkMatches(ViewMatchers.withText(containsString(fromId(resourceId))));
+    }
+
+    /**
+     * Checks to see if a TextView's text ends with a certain string given the string's resource id.
+     *
+     * @param resourceId The string's resource id
+     * @return The model reached by interacting with this element.
+     */
+    public T textEndsWith(int resourceId) {
+        return checkMatches(ViewMatchers.withText(endsWith(fromId(resourceId))));
+    }
+
+    /**
+     * Checks to see if a TextView's text is equal to (ignoring case) a certain string given the string's resource id.
+     *
+     * @param resourceId The string's resource id
+     * @return The model reached by interacting with this element.
+     */
+    public T textEqualToIgnoringCase(int resourceId) {
+        return checkMatches(ViewMatchers.withText(equalToIgnoringCase(fromId(resourceId))));
+    }
+
+    /**
+     * Checks to see if a TextView's text is equal to (ignoring white space around words) a certain string given the string's resource id.
+     *
+     * @param resourceId The string's resource id
+     * @return The model reached by interacting with this element.
+     */
+    public T textEqualToIgnoringWhiteSpace(int resourceId) {
+        return checkMatches(ViewMatchers.withText(equalToIgnoringWhiteSpace(fromId(resourceId))));
+    }
+
+    /**
+     * Checks to see if a TextView's text is empty or null.
+     * NOTE: see issue 72 for Espresso (https://code.google.com/p/android-test-kit/issues/detail?id=72)
+     *
+     * @return The model reached by interacting with this element.
+     */
+    public T textIsEmptyOrNullString() {
+        return checkMatches(isEmptyOrNullString());
+    }
+
+    /**
+     * Checks to see if a TextView's text is empty.
+     * NOTE: see issue 72 for Espresso (https://code.google.com/p/android-test-kit/issues/detail?id=72)
+     *
+     * @return The model reached by interacting with this element.
+     */
+    public T textIsEmptyString() {
+        return checkMatches(isEmptyString());
+    }
+
+    /**
+     * Checks to see if a TextView's text starts with a certain string given the string's resource id.
+     *
+     * @param resourceId The string's resource id
+     * @return The model reached by interacting with this element.
+     */
+    public T textStartsWith(final int resourceId) {
+        return checkMatches(ViewMatchers.withText(startsWith(fromId(resourceId))));
+    }
+
+    /**
+     * Checks to see if the Element has ellipsized text
+     *
+     * @return The model reached by interacting with this element.
+     */
+    @SuppressWarnings("unchecked")
+    public T hasEllipsizeText() {
+        return checkMatches(LayoutMatchers.hasEllipsizedText());
+    }
+
+    /**
+     * Checks to see if the element has multiline text.
+     *
+     * @return The model reached by interacting with this element.
+     */
+    @SuppressWarnings("unchecked")
+    public T hasMultilineText() {
+        return checkMatches(LayoutMatchers.hasMultilineText());
     }
 
     /**
@@ -1015,11 +1093,7 @@ public class BaseView<T extends PageObject> {
      * @return The model reached by interacting with this element.
      */
     public T pause(int timeInMillis) {
-        try {
-            Thread.sleep(timeInMillis);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        SystemClock.sleep(timeInMillis);
         return returnGeneric();
     }
 

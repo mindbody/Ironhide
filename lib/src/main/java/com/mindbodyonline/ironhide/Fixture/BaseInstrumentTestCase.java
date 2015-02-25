@@ -5,6 +5,8 @@ import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 import android.test.ActivityInstrumentationTestCase2;
 
+import com.mindbodyonline.ironhide.Infrastructure.Extensions.ResourceStrings;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.runner.RunWith;
@@ -15,7 +17,7 @@ import org.junit.runner.RunWith;
 @RunWith(AndroidJUnit4.class)
 public class BaseInstrumentTestCase<T extends Activity> extends ActivityInstrumentationTestCase2<T> {
 
-    protected Activity mActivity;
+    protected T mActivity;
 
     /**
      * @see ActivityInstrumentationTestCase2#ActivityInstrumentationTestCase2(Class)
@@ -42,6 +44,7 @@ public class BaseInstrumentTestCase<T extends Activity> extends ActivityInstrume
         super.setUp();
         injectInstrumentation(InstrumentationRegistry.getInstrumentation());
         mActivity = getActivity();
+        ResourceStrings.setContext(mActivity);
     }
 
     /**
