@@ -41,7 +41,7 @@ public class SyncActivity extends Activity {
             @Override
             public String getHelloWorld() {
                 Random rand = new Random();
-                SystemClock.sleep(rand.nextInt(5000) + 2000);
+                SystemClock.sleep(/*rand.nextInt(5000) + */2000);
                 return getString(R.string.hello_world);
             }
         });

@@ -11,11 +11,11 @@ import com.mindbodyonline.ironhidetestapp.tests.LongListMatchers;
  */
 public class LongListModel extends PageObject {
     
-    public ListAdapter<LongListModel> LongListAdapter = new ListAdapter<>(LongListModel.class, LongListMatchers.withItemContent("item: 50"));
+    public ListAdapter<LongListModel> LongListAdapter = new ListAdapter<>(LongListMatchers.withItemContent("item: 50")).goesTo(LongListModel.class);
     
-    public ListAdapter<LongListModel> LongListAdapter_ItemSize8 = new ListAdapter<>(LongListModel.class, LongListMatchers.withItemSize(8));
+    public ListAdapter<LongListModel> LongListAdapter_ItemSize8 = new ListAdapter<>(LongListMatchers.withItemSize(8)).goesTo(LongListModel.class);
     
-    public ListAdapter<LongListModel> LongListAdapter_Footers = new ListAdapter<>(LongListModel.class, LongListMatchers.isFooter());
+    public ListAdapter<LongListModel> LongListAdapter_Footers = new ListAdapter<>(LongListMatchers.isFooter()).goesTo(LongListModel.class);
     
     public Clickable<LongListModel> List = new Clickable<>(LongListModel.class, R.id.list);
     
