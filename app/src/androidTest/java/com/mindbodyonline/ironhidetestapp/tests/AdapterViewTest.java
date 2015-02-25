@@ -5,9 +5,7 @@ import android.view.View;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 
-import com.mindbodyonline.ironhide.Fixture.BaseInstrumentTestCase;
 import com.mindbodyonline.ironhidetestapp.LongListActivity;
-import com.mindbodyonline.ironhidetestapp.models.LongListModel;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
@@ -22,8 +20,7 @@ import static org.hamcrest.Matchers.not;
  * to match data within list views.
  */
 @LargeTest
-public class AdapterViewTest extends BaseInstrumentTestCase<LongListActivity> {
-    private LongListModel LongListPage = new LongListModel();
+public class AdapterViewTest extends TestFixture<LongListActivity> {
     
     public AdapterViewTest() {
         super(LongListActivity.class);

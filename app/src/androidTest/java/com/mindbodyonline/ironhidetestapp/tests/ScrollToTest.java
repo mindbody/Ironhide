@@ -2,9 +2,7 @@ package com.mindbodyonline.ironhidetestapp.tests;
 
 import android.test.suitebuilder.annotation.LargeTest;
 
-import com.mindbodyonline.ironhide.Fixture.BaseInstrumentTestCase;
 import com.mindbodyonline.ironhidetestapp.ScrollActivity;
-import com.mindbodyonline.ironhidetestapp.models.ScrollModel;
 
 import org.junit.Test;
 
@@ -13,10 +11,8 @@ import org.junit.Test;
  * {@link android.support.test.espresso.action.ViewActions#scrollTo()}.
  */
 @LargeTest
-public class ScrollToTest extends BaseInstrumentTestCase<ScrollActivity> {
+public class ScrollToTest extends TestFixture<ScrollActivity> {
 
-    private ScrollModel ScrollPage = new ScrollModel();
-    
     public ScrollToTest() {
         super(ScrollActivity.class);
     }

@@ -6,9 +6,7 @@ import android.support.test.espresso.action.ViewActions;
 import android.support.test.espresso.matcher.RootMatchers;
 import android.test.suitebuilder.annotation.LargeTest;
 
-import com.mindbodyonline.ironhide.Fixture.BaseInstrumentTestCase;
 import com.mindbodyonline.ironhidetestapp.SendActivity;
-import com.mindbodyonline.ironhidetestapp.models.SendModel;
 
 import org.hamcrest.Matchers;
 import org.junit.Test;
@@ -27,10 +25,8 @@ import static org.hamcrest.Matchers.is;
  * @see android.support.test.espresso.Espresso#onData
  */
 @LargeTest
-public class MultipleWindowTest extends BaseInstrumentTestCase<SendActivity> {
+public class MultipleWindowTest extends TestFixture<SendActivity> {
 
-    private SendModel SendPage = new SendModel();
-    
     public MultipleWindowTest() {
         super(SendActivity.class);
     }

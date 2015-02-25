@@ -2,9 +2,7 @@ package com.mindbodyonline.ironhidetestapp.tests;
 
 import android.test.suitebuilder.annotation.LargeTest;
 
-import com.mindbodyonline.ironhide.Fixture.BaseInstrumentTestCase;
 import com.mindbodyonline.ironhidetestapp.DrawerActivity;
-import com.mindbodyonline.ironhidetestapp.models.DrawerModel;
 
 import org.junit.Test;
 
@@ -13,8 +11,7 @@ import org.junit.Test;
  */
 @LargeTest
 // TODO: Test framework does not identify DrawerActivity as an existing class
-public class DrawerActionsTest  extends BaseInstrumentTestCase<DrawerActivity> {
-    private DrawerModel DrawerPage = new DrawerModel();
+public class DrawerActionsTest  extends TestFixture<DrawerActivity> {
     
     public DrawerActionsTest() {
         super(DrawerActivity.class);

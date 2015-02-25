@@ -2,7 +2,6 @@ package com.mindbodyonline.ironhidetestapp.tests;
 
 import android.test.suitebuilder.annotation.LargeTest;
 
-import com.mindbodyonline.ironhide.Fixture.BaseInstrumentTestCase;
 import com.mindbodyonline.ironhidetestapp.SimpleActivity;
 import com.mindbodyonline.ironhidetestapp.models.SimpleModel;
 
@@ -14,9 +13,7 @@ import org.junit.Test;
  * functionality.
  */
 @LargeTest
-public class BasicTest extends BaseInstrumentTestCase<SimpleActivity> {
-
-    private SimpleModel SimplePage = new SimpleModel();
+public class BasicTest extends TestFixture<SimpleActivity> {
     
     public BasicTest() {
         super(SimpleActivity.class);

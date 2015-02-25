@@ -53,18 +53,24 @@ public class IdlingView implements IdlingResource {
                 }
             });
         
-        // we are still processing if the view is not displayed (or if the TextView has no text or hint text)
-        boolean curState = (view != null && isDisplayingAtLeast(90).matches(view));
-        
-        if (view instanceof TextView)
-            curState = curState && (!checkForText
-                    || ((TextView) view).getText().length() > 0
-                    || ((TextView) view).getHint().length() > 0);
+        if (view != null) {
+            // we are still processing if the view is not displayed (or if the TextView has no text or hint text)
+            boolean curState = isDisplayingAtLeast(90).matches(view);
 
-        if (!idle && curState)
-            callback.onTransitionToIdle();
+            if (view instanceof TextView) {
+                TextView textView = (TextView) view;
+                curState = curState && (!checkForText
+                        || (textView.getText() != null && textView.getText().length() > 0)
+                        || (textView.getHint() != null && textView.getHint().length() > 0));
+            }
 
-        return idle = curState;
+            if (!idle && curState)
+                callback.onTransitionToIdle();
+            
+            idle = curState;
+        }
+
+        return idle;
     }
 
     @Override

@@ -3,10 +3,8 @@ package com.mindbodyonline.ironhidetestapp.tests;
 import android.os.Build;
 import android.test.suitebuilder.annotation.LargeTest;
 
-import com.mindbodyonline.ironhide.Fixture.BaseInstrumentTestCase;
 import com.mindbodyonline.ironhidetestapp.MenuActivity;
 import com.mindbodyonline.ironhidetestapp.R;
-import com.mindbodyonline.ironhidetestapp.models.MenuModel;
 
 import org.junit.Test;
 
@@ -14,8 +12,7 @@ import org.junit.Test;
  * Ensures view root ordering works properly.
  */
 @LargeTest
-public class MenuTest extends BaseInstrumentTestCase<MenuActivity> {
-    private MenuModel MenuPage = new MenuModel();
+public class MenuTest extends TestFixture<MenuActivity> {
     
     public MenuTest() {
         super(MenuActivity.class);

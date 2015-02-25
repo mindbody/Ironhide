@@ -2,7 +2,6 @@ package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
 import android.app.Activity;
 import android.net.Uri;
-import android.support.test.InstrumentationRegistry;
 import android.support.test.espresso.Root;
 import android.support.test.espresso.ViewAction;
 import android.support.test.espresso.ViewAssertion;

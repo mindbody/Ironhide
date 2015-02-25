@@ -2,9 +2,7 @@ package com.mindbodyonline.ironhidetestapp.tests;
 
 import android.test.suitebuilder.annotation.LargeTest;
 
-import com.mindbodyonline.ironhide.Fixture.BaseInstrumentTestCase;
 import com.mindbodyonline.ironhidetestapp.ActionBarTestActivity;
-import com.mindbodyonline.ironhidetestapp.models.ActionBarModel;
 
 import org.junit.Test;
 
@@ -16,8 +14,7 @@ import org.junit.Test;
  */
 @LargeTest
 // TODO: Test framework does not identify ActionBarTestActivity as an existing class
-public class ActionBarTest extends BaseInstrumentTestCase<ActionBarTestActivity> {
-    private ActionBarModel ActionBarPage = new ActionBarModel();
+public class ActionBarTest extends TestFixture<ActionBarTestActivity> {
 
     public ActionBarTest() {
         super(ActionBarTestActivity.class);
