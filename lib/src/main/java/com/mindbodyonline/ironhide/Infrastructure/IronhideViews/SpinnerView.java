@@ -8,6 +8,9 @@ import com.mindbodyonline.ironhide.Infrastructure.Extensions.SpinnerTextMatchers
 import com.mindbodyonline.ironhide.PageObjects.PageObject;
 
 import org.hamcrest.Matcher;
+import org.hamcrest.Matchers;
+
+import static com.mindbodyonline.ironhide.Infrastructure.Extensions.ResourceStrings.fromId;
 
 /**
  * A reference view for Spinners.
@@ -65,7 +68,7 @@ public class SpinnerView<T extends PageObject> extends BaseView<T> {
      * @return The model reached by interacting with this element.
      */
     public T containsString(int resourceId) {
-        return checkMatches(SpinnerTextMatchers.containsString(resourceId));
+        return withText(Matchers.containsString(fromId(resourceId)));
     }
 
     /**
@@ -75,7 +78,7 @@ public class SpinnerView<T extends PageObject> extends BaseView<T> {
      * @return  The model reached by interacting with this element.
      */
     public T endsWith(int resourceId) {
-        return checkMatches(SpinnerTextMatchers.endsWith(resourceId));
+        return withText(Matchers.endsWith(fromId(resourceId)));
     }
 
     /**
@@ -85,7 +88,7 @@ public class SpinnerView<T extends PageObject> extends BaseView<T> {
      * @return  The model reached by interacting with this element.
      */
     public T equalToIgnoringCase(int resourceId) {
-        return checkMatches(SpinnerTextMatchers.equalToIgnoringCase(resourceId));
+        return withText(Matchers.equalToIgnoringCase(fromId(resourceId)));
     }
 
     /**
@@ -95,7 +98,7 @@ public class SpinnerView<T extends PageObject> extends BaseView<T> {
      * @return   The model reached by interacting with this element.
      */
     public T equalToIgnoringWhiteSpace(int resourceId) {
-        return checkMatches(SpinnerTextMatchers.equalToIgnoringWhiteSpace(resourceId));
+        return withText(Matchers.equalToIgnoringWhiteSpace(fromId(resourceId)));
     }
 
     /**
@@ -105,7 +108,7 @@ public class SpinnerView<T extends PageObject> extends BaseView<T> {
      * @return   The model reached by interacting with this element.
      */
     public T startsWith(final int resourceId) {
-        return checkMatches(SpinnerTextMatchers.startsWith(resourceId));
+        return withText(Matchers.startsWith(fromId(resourceId)));
     }
 
 
