@@ -29,7 +29,6 @@ public class ActivityViewFinder implements ViewFinder {
     
     public ActivityViewFinder(Activity from, Matcher<View> viewMatcher) {
         root = from.getWindow().findViewById(android.R.id.content);
-        // TODO: why the heck is this giving a lint error. Matcher<View> from private field -> returned Matcher<View> -> set value of Matcher<View> ...
         this.viewMatcher = viewMatcher;
     }
 
