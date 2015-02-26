@@ -1,4 +1,4 @@
-package com.mindbodyonline.ironhidetestapp.tests;
+package com.mindbodyonline.ironhidetestapp;
 
 import android.app.Activity;
 

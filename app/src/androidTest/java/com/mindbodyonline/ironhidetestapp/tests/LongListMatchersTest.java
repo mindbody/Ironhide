@@ -6,8 +6,8 @@ import android.test.ActivityUnitTestCase;
 import com.mindbodyonline.ironhidetestapp.LongListActivity;
 
 import static android.support.test.espresso.matcher.ViewMatchers.assertThat;
-import static com.mindbodyonline.ironhidetestapp.tests.LongListMatchers.withItemContent;
-import static com.mindbodyonline.ironhidetestapp.tests.LongListMatchers.withItemSize;
+import static com.mindbodyonline.ironhidetestapp.LongListMatchers.withItemContent;
+import static com.mindbodyonline.ironhidetestapp.LongListMatchers.withItemSize;
 import static org.hamcrest.Matchers.anyOf;
 import static org.hamcrest.Matchers.endsWith;
 import static org.hamcrest.Matchers.equalTo;

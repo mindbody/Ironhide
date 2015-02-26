@@ -3,10 +3,9 @@ package com.mindbodyonline.ironhidetestapp.tests;
 import android.os.Build;
 import android.test.suitebuilder.annotation.LargeTest;
 
-import com.mindbodyonline.ironhide.Fixture.BaseInstrumentTestCase;
 import com.mindbodyonline.ironhidetestapp.MenuActivity;
 import com.mindbodyonline.ironhidetestapp.R;
-import com.mindbodyonline.ironhidetestapp.models.MenuModel;
+import com.mindbodyonline.ironhidetestapp.TestFixture;
 
 import org.junit.Test;
 
