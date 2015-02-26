@@ -28,11 +28,6 @@ public class CustomFailureHandlerTest extends BaseInstrumentTestCase<MainActivit
         super(MainActivity.class);
     }
 
-    @Override
-    public void setUp() throws Exception {
-        super.setUp();
-    }
-
     @Test
     public void testWithCustomFailureHandler() {
         try {
