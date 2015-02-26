@@ -7,7 +7,8 @@ import android.content.Context;
  */
 public class ResourceStrings {
     private static Context context;
-    
+
+    // TODO: we should never default this to be set inside the Instrument Test Case. In the event we change activities, the context becomes null and we throw an NPE exception
     public static void setContext(Context context) {
         ResourceStrings.context = context;
     }
