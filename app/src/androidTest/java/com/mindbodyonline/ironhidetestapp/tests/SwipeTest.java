@@ -3,6 +3,7 @@ package com.mindbodyonline.ironhidetestapp.tests;
 import android.support.test.espresso.action.ViewActions;
 import android.test.suitebuilder.annotation.LargeTest;
 
+import com.mindbodyonline.ironhidetestapp.TestFixture;
 import com.mindbodyonline.ironhidetestapp.ViewPagerActivity;
 
 import org.junit.Test;

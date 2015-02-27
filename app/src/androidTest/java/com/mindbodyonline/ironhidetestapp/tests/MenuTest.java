@@ -5,6 +5,7 @@ import android.test.suitebuilder.annotation.LargeTest;
 
 import com.mindbodyonline.ironhidetestapp.MenuActivity;
 import com.mindbodyonline.ironhidetestapp.R;
+import com.mindbodyonline.ironhidetestapp.TestFixture;
 
 import org.junit.Test;
 

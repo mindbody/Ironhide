@@ -169,43 +169,43 @@ public class ListAdapter<T extends PageObject> extends BaseView<T> {
 
     /** {@inheritDoc} */
     @Override
-    public Clickable<T> changeRoot() {
-        return (Clickable<T>) super.changeRoot();
+    public ListAdapter<T> changeRoot() {
+        return (ListAdapter<T>) super.changeRoot();
     }
 
     /** {@inheritDoc} */
     @Override
-    public Clickable<T> inRoot(Matcher<Root> rootMatcher) {
-        return (Clickable<T>) super.inRoot(rootMatcher);
+    public ListAdapter<T> inRoot(Matcher<Root> rootMatcher) {
+        return (ListAdapter<T>) super.inRoot(rootMatcher);
     }
 
     /** {@inheritDoc} */
     @Override
-    public Clickable<T> inDialogRoot() {
-        return (Clickable<T>) super.inDialogRoot();
+    public ListAdapter<T> inDialogRoot() {
+        return (ListAdapter<T>) super.inDialogRoot();
     }
 
     /** {@inheritDoc} */
     @Override
-    public Clickable<T> inPlatformPopup() {
-        return (Clickable<T>) super.inPlatformPopup();
+    public ListAdapter<T> inPlatformPopup() {
+        return (ListAdapter<T>) super.inPlatformPopup();
     }
 
     /** {@inheritDoc} */
     @Override
-    public Clickable<T> inTouchableRoot() {
-        return (Clickable<T>) super.inTouchableRoot();
+    public ListAdapter<T> inTouchableRoot() {
+        return (ListAdapter<T>) super.inTouchableRoot();
     }
 
     /** {@inheritDoc} */
     @Override
-    public Clickable<T> inDecorView(Matcher<View> decorViewMatcher) {
-        return (Clickable<T>) super.inDecorView(decorViewMatcher);
+    public ListAdapter<T> inDecorView(Matcher<View> decorViewMatcher) {
+        return (ListAdapter<T>) super.inDecorView(decorViewMatcher);
     }
 
     /** {@inheritDoc} */
     @Override
-    public Clickable<T> inFocusableRoot() {
-        return (Clickable<T>) super.inFocusableRoot();
+    public ListAdapter<T> inFocusableRoot() {
+        return (ListAdapter<T>) super.inFocusableRoot();
     }
 }

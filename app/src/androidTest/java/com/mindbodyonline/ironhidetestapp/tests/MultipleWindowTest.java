@@ -7,6 +7,7 @@ import android.support.test.espresso.matcher.RootMatchers;
 import android.test.suitebuilder.annotation.LargeTest;
 
 import com.mindbodyonline.ironhidetestapp.SendActivity;
+import com.mindbodyonline.ironhidetestapp.TestFixture;
 
 import org.hamcrest.Matchers;
 import org.junit.Test;

@@ -3,6 +3,7 @@ package com.mindbodyonline.ironhidetestapp.tests;
 import android.test.suitebuilder.annotation.LargeTest;
 
 import com.mindbodyonline.ironhidetestapp.ActionBarTestActivity;
+import com.mindbodyonline.ironhidetestapp.TestFixture;
 
 import org.junit.Test;
 
