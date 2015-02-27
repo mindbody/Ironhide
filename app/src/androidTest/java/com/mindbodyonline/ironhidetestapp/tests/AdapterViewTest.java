@@ -5,9 +5,9 @@ import android.view.View;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 
-import com.mindbodyonline.ironhide.Fixture.BaseInstrumentTestCase;
 import com.mindbodyonline.ironhidetestapp.LongListActivity;
-import com.mindbodyonline.ironhidetestapp.models.LongListModel;
+import com.mindbodyonline.ironhidetestapp.LongListMatchers;
+import com.mindbodyonline.ironhidetestapp.TestFixture;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;

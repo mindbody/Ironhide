@@ -2,9 +2,8 @@ package com.mindbodyonline.ironhidetestapp.tests;
 
 import android.test.suitebuilder.annotation.LargeTest;
 
-import com.mindbodyonline.ironhide.Fixture.BaseInstrumentTestCase;
 import com.mindbodyonline.ironhidetestapp.ActionBarTestActivity;
-import com.mindbodyonline.ironhidetestapp.models.ActionBarModel;
+import com.mindbodyonline.ironhidetestapp.TestFixture;
 
 import org.junit.Test;
 

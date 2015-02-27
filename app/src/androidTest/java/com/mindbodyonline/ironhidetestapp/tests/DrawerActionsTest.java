@@ -1,11 +1,9 @@
 package com.mindbodyonline.ironhidetestapp.tests;
 
-import android.test.ActivityInstrumentationTestCase2;
 import android.test.suitebuilder.annotation.LargeTest;
 
-import com.mindbodyonline.ironhide.Fixture.BaseInstrumentTestCase;
 import com.mindbodyonline.ironhidetestapp.DrawerActivity;
-import com.mindbodyonline.ironhidetestapp.models.DrawerModel;
+import com.mindbodyonline.ironhidetestapp.TestFixture;
 
 import org.junit.Test;
 
