@@ -20,15 +20,9 @@ import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.is;
 
 /**
-<<<<<<< HEAD
- * Complex element that allows to interact with a {@link android.widget.ListView} that uses an {@link android.widget.Adapter}.
- * Gives access to individual {@link ListItem}s inside a {@link android.widget.ListView}.
- * Only use this element when dealing with a {@link android.widget.ListView} that has an {@link android.widget.Adapter}
-=======
  * Complex element that allows to interact with an {@link android.widget.AdapterView} that uses an {@link android.widget.Adapter}.
  * Gives access to individual {@link com.mindbodyonline.ironhide.Infrastructure.IronhideViews.ListItem}s inside an {@link android.widget.AdapterView}.
  * Only use this element when dealing with an {@link android.widget.AdapterView} that has an {@link android.widget.Adapter}
->>>>>>> OpenSource
  *
  * @param <T> The model the current element will return when interacted with
  */
@@ -100,16 +94,6 @@ public class ListAdapter<T extends PageObject> extends BaseView<T> {
     public ListAdapter(Class<T> type, Matcher<Object> filter, Matcher<View> selector) {
         super(type, selector);
         adapter = onData(filter).inAdapterView(selector);
-    }
-
-    /**
-     * Changes which {@link android.widget.AdapterView} to look in for the data.
-     * @param toMatch  the {@link BaseView} with the {@link org.hamcrest.Matcher} for the {@link android.widget.AdapterView}
-     * @return  this
-     */
-    public ListAdapter<T> inAdapterView(BaseView<?> toMatch) {
-        this.adapter = adapter.inAdapterView(toMatch.getSelector());
-        return this;
     }
     
     /**
