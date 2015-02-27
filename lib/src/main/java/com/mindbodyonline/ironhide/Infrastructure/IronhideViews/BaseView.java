@@ -19,7 +19,7 @@ import android.support.test.espresso.matcher.RootMatchers;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.view.View;
 
-import com.mindbodyonline.ironhide.Infrastructure.Extensions.IdlingView;
+import com.mindbodyonline.ironhide.Infrastructure.Extensions.IdlingViewResource;
 import com.mindbodyonline.ironhide.PageObjects.PageObject;
 
 import junit.framework.AssertionFailedError;
@@ -419,7 +419,7 @@ public class BaseView<T extends PageObject> {
      * @return The model reached by interacting with this element
      */
     public T registerAsIdle(Activity activity, boolean waitForText) {
-        registerIdlingResources(new IdlingView(activity, this, waitForText));
+        registerIdlingResources(new IdlingViewResource(activity, this, waitForText));
         return returnGeneric();
     }
 
@@ -429,7 +429,7 @@ public class BaseView<T extends PageObject> {
      * @return  The model reached by interacting with this element                  
      */
     public T registerAsIdle(Activity activity) {
-        registerIdlingResources(new IdlingView(activity, this));
+        registerIdlingResources(new IdlingViewResource(activity, this));
         return returnGeneric();
     }
 

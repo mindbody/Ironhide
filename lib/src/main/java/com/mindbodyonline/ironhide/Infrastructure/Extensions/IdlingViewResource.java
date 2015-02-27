@@ -15,7 +15,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.isDisplayingAtL
  * Can be used in conjunction with {@link android.support.test.espresso.Espresso#registerIdlingResources(android.support.test.espresso.IdlingResource...)}
  *  to wait for the {@link BaseView} provided 
  */
-public class IdlingView implements IdlingResource {
+public class IdlingViewResource implements IdlingResource {
     private View view;
     private boolean idle, checkForText;
     private ResourceCallback callback;
@@ -23,11 +23,11 @@ public class IdlingView implements IdlingResource {
     private ActivityViewFinder viewFinder;
     private String matcherDescription;
 
-    public IdlingView(Activity activity, BaseView<?> idling) {
+    public IdlingViewResource(Activity activity, BaseView<?> idling) {
         this(activity, idling, true);
     }
     
-    public IdlingView(Activity activity, BaseView<?> idling, boolean checkForText) {
+    public IdlingViewResource(Activity activity, BaseView<?> idling, boolean checkForText) {
         this.view = null;
         this.idle = true;
         this.checkForText = checkForText;
