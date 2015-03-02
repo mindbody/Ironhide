@@ -44,21 +44,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3c5b5478-5db5-4473-b230-ff8fdf1e2377" name="Default" comment="">
-      <change type="MOVED" beforePath="C:\Users\kyle.lozier\Documents\GitHub\Ironhide\app\src\androidTest\java\com\mindbodyonline\ironhidetestapp\tests\LongListMatchers.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/LongListMatchers.java" />
-      <change type="MOVED" beforePath="C:\Users\kyle.lozier\Documents\GitHub\Ironhide\app\src\androidTest\java\com\mindbodyonline\ironhidetestapp\tests\TestFixture.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/TestFixture.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/libs/Ironhide-2.0.0.jar" afterPath="$PROJECT_DIR$/app/libs/Ironhide-2.0.0.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/ActionBarTest.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/ActionBarTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/AdapterViewTest.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/AdapterViewTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/BasicTest.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/BasicTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/DrawerActionsTest.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/DrawerActionsTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/ListAdapter.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/ListAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/LongListMatchersTest.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/LongListMatchersTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/models/LongListModel.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/models/LongListModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/MenuTest.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/MenuTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/MultipleWindowTest.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/MultipleWindowTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/ScrollToTest.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/ScrollToTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/SwipeTest.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/SwipeTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/build.gradle" afterPath="$PROJECT_DIR$/lib/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/lib.iml" afterPath="$PROJECT_DIR$/lib/lib.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -123,52 +110,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SendModel.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/models/SendModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
-              <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MultipleWindowTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/MultipleWindowTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="901">
-              <caret line="45" column="47" selection-start-line="45" selection-start-column="47" selection-end-line="45" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AdapterViewTest.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="AdapterViewTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/AdapterViewTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1496">
-              <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
-              <folding />
+            <state vertical-scroll-proportion="0.6517572" vertical-offset="0" max-vertical-offset="1768">
+              <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#802#803#0" expanded="true" />
+                <element signature="e#847#848#0" expanded="true" />
+                <element signature="e#2468#2497#1" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.gradle" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/build.gradle">
+      <file leaf-file-name="LongListModel.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/models/LongListModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5849462" vertical-offset="0" max-vertical-offset="748">
-              <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ListAdapter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/ListAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="71" max-vertical-offset="3400">
-              <caret line="28" column="65" selection-start-line="28" selection-start-column="65" selection-end-line="28" selection-end-column="65" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="578">
+              <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1632,7 +1596,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="5699018246730" />
+        <entry key="$PROJECT_DIR$" value="5699181411440" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -2007,7 +1971,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/Zoomable.java" />
         <option value="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/Clickable.java" />
         <option value="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/DatePicker.java" />
         <option value="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Fixture/MindbodyInstrumentTestCase.java" />
@@ -2053,17 +2016,18 @@
         <option value="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/TextField.java" />
         <option value="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/Zoomable.java" />
         <option value="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/LongListMatchersTest.java" />
-        <option value="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/AdapterViewTest.java" />
         <option value="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/MultipleWindowTest.java" />
         <option value="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/IronhideViews/ListAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/CustomFailureHandlerTest.java" />
         <option value="$PROJECT_DIR$/lib/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/models/LongListModel.java" />
+        <option value="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/AdapterViewTest.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="-1928" />
+    <option name="y" value="443" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
@@ -2093,7 +2057,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -2223,9 +2186,44 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ironhide" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ironhide" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="androidTest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ironhidetestapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2259,13 +2257,36 @@
       <recent name="com.mindbodyonline.ironhidetestapp.models" />
     </key>
   </component>
-  <component name="RunManager" selected="Android Tests.testInteractionsWi...()">
+  <component name="RunManager" selected="Android Tests.AdapterViewTest">
     <configuration default="false" name="testInteractionsWi...()" type="AndroidTestRunConfigurationType" factoryName="Android Tests" temporary="true" nameIsGenerated="true">
       <module name="app" />
       <option name="TESTING_TYPE" value="3" />
       <option name="INSTRUMENTATION_RUNNER_CLASS" value="android.support.test.runner.AndroidJUnitRunner" />
       <option name="METHOD_NAME" value="testInteractionsWithAutoCompletePopup" />
       <option name="CLASS_NAME" value="com.mindbodyonline.ironhidetestapp.tests.MultipleWindowTest" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="true" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <RunnerSettings RunnerId="AndroidDebugRunner" />
+      <ConfigurationWrapper RunnerId="AndroidDebugRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="AdapterViewTest" type="AndroidTestRunConfigurationType" factoryName="Android Tests" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <option name="TESTING_TYPE" value="2" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="android.support.test.runner.AndroidJUnitRunner" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="com.mindbodyonline.ironhidetestapp.tests.AdapterViewTest" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
       <option name="USE_LAST_SELECTED_DEVICE" value="true" />
@@ -2491,15 +2512,17 @@
         <option name="Make" enabled="false" />
       </method>
     </configuration>
-    <list size="4">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Android Application.app" />
       <item index="1" class="java.lang.String" itemvalue="Android Tests.All Ironhide Tests" />
       <item index="2" class="java.lang.String" itemvalue="Groovy.Make .jar" />
       <item index="3" class="java.lang.String" itemvalue="Android Tests.testInteractionsWi...()" />
+      <item index="4" class="java.lang.String" itemvalue="Android Tests.AdapterViewTest" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Android Tests.testInteractionsWi...()" />
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Android Tests.AdapterViewTest" />
+        <item index="1" class="java.lang.String" itemvalue="Android Tests.testInteractionsWi...()" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -2525,7 +2548,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-1928" y="443" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2537,7 +2560,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3359288" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27252504" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27252504" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2835249" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2545,7 +2568,6 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18656716" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4516129" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942432" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2558,6 +2580,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4516129" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -2641,7 +2664,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1360">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2687,19 +2709,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/models/LongListModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
-          <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/models/MenuModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="38" max-vertical-offset="663">
           <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2742,9 +2755,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2760,7 +2770,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="47" max-vertical-offset="1020">
           <caret line="18" column="71" selection-start-line="18" selection-start-column="71" selection-end-line="18" selection-end-column="71" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2768,7 +2777,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.19621749" vertical-offset="174" max-vertical-offset="1020">
           <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2792,7 +2800,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="182" max-vertical-offset="1275">
           <caret line="37" column="5" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2863,7 +2870,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.17566016" vertical-offset="0" max-vertical-offset="871">
           <caret line="16" column="69" selection-start-line="16" selection-start-column="69" selection-end-line="16" selection-end-column="69" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2871,7 +2877,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.21584386" vertical-offset="135" max-vertical-offset="1768">
           <caret line="34" column="19" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2879,9 +2884,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6245695" vertical-offset="0" max-vertical-offset="871">
           <caret line="34" column="3" selection-start-line="34" selection-start-column="3" selection-end-line="34" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2889,7 +2891,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34608984" vertical-offset="727" max-vertical-offset="3910">
           <caret line="56" column="13" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2897,7 +2898,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.08785942" vertical-offset="234" max-vertical-offset="901">
           <caret line="27" column="16" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2905,7 +2905,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.24440895" vertical-offset="0" max-vertical-offset="626">
           <caret line="15" column="45" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2921,7 +2920,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5830671" vertical-offset="128" max-vertical-offset="782">
           <caret line="41" column="40" selection-start-line="41" selection-start-column="40" selection-end-line="41" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2929,7 +2927,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.38019168" vertical-offset="0" max-vertical-offset="626">
           <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2953,7 +2950,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.02715655" vertical-offset="136" max-vertical-offset="1173">
           <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="626">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13578275" vertical-offset="0" max-vertical-offset="748">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6238938" vertical-offset="1486" max-vertical-offset="1938">
+          <caret line="104" column="69" selection-start-line="104" selection-start-column="69" selection-end-line="104" selection-end-column="69" />
         </state>
       </provider>
     </entry>
@@ -2965,43 +2982,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
+    <entry file="file://$PROJECT_DIR$/lib/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="626">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.31228474" vertical-offset="0" max-vertical-offset="871">
+          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+    <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/models/LongListModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13578275" vertical-offset="0" max-vertical-offset="748">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/app.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6238938" vertical-offset="1486" max-vertical-offset="1938">
-          <caret line="104" column="69" selection-start-line="104" selection-start-column="69" selection-end-line="104" selection-end-column="69" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="578">
+          <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/AdapterViewTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1496">
-          <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5849462" vertical-offset="0" max-vertical-offset="748">
-          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-          <folding />
+        <state vertical-scroll-proportion="0.6517572" vertical-offset="0" max-vertical-offset="1768">
+          <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#802#803#0" expanded="true" />
+            <element signature="e#847#848#0" expanded="true" />
+            <element signature="e#2468#2497#1" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
