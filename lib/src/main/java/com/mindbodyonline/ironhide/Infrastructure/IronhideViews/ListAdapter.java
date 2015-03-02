@@ -186,7 +186,8 @@ public class ListAdapter<T extends PageObject> extends BaseView<T> {
     /** {@inheritDoc} */
     @Override
     public ListAdapter<T> inRoot(Matcher<Root> rootMatcher) {
-        return (ListAdapter<T>) super.inRoot(rootMatcher);
+        this.adapter = this.adapter.inRoot(rootMatcher);
+        return this;
     }
 
     /** {@inheritDoc} */
