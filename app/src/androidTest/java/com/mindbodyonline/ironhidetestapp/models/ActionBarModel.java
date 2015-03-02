@@ -1,11 +1,12 @@
 package com.mindbodyonline.ironhidetestapp.models;
 
-
 import com.mindbodyonline.ironhide.Infrastructure.IronhideViews.Clickable;
 import com.mindbodyonline.ironhide.PageObjects.PageObject;
 import com.mindbodyonline.ironhidetestapp.R;
 
 import static android.support.test.espresso.matcher.ViewMatchers.withContentDescription;
+import static org.hamcrest.Matchers.allOf;
+import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 
 /**
  * Page Object for {@link com.mindbodyonline.ironhidetestapp.ActionBarTestActivity}
@@ -20,7 +21,8 @@ public class ActionBarModel extends PageObject {
     public Clickable<ActionBarModel> SaveAction = new Clickable<>(ActionBarModel.class, R.id.action_save);
 
     // may require some additional parameters for compat lib
-    public Clickable<ActionBarModel> OverflowAction = new Clickable<>(ActionBarModel.class, withContentDescription("More options"));
+    @SuppressWarnings("unchecked")
+    public Clickable<ActionBarModel> OverflowAction = new Clickable<>(ActionBarModel.class, allOf(isDisplayed(), withContentDescription("More options")));
 
     public Clickable<ActionBarModel> KeyAction = new Clickable<>(ActionBarModel.class, "Key");
 
