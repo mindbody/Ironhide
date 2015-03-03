@@ -6,6 +6,7 @@ import android.test.suitebuilder.annotation.LargeTest;
 import com.mindbodyonline.ironhide.Fixture.BaseInstrumentTestCase;
 import com.mindbodyonline.ironhidetestapp.R;
 import com.mindbodyonline.ironhidetestapp.SyncActivity;
+import com.mindbodyonline.ironhidetestapp.TestFixture;
 import com.mindbodyonline.ironhidetestapp.models.SyncModel;
 
 import org.junit.Test;
@@ -15,9 +16,7 @@ import org.junit.Test;
  * request before continuing with a test.
  */
 @LargeTest
-public class AdvancedSynchronizationTest extends BaseInstrumentTestCase<SyncActivity> {
-
-    private SyncModel SyncPage = new SyncModel();
+public class AdvancedSynchronizationTest extends TestFixture<SyncActivity> {
     
     public AdvancedSynchronizationTest() {
         super(SyncActivity.class);

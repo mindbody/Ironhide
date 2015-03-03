@@ -33,6 +33,7 @@ public class GestureView extends View {
     private float mLastTouchY;
     
     private TextView logView;
+    private int numPointers = 0;
 
     public GestureView(Context context) {
         this(context, null, 0);
@@ -55,23 +56,7 @@ public class GestureView extends View {
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         
-        ViewGroup parent = (ViewGroup) getParentForAccessibility();
-        for (int i = 0; i < parent.getChildCount(); i++) {
-            View cur = parent.getChildAt(i);
-            if (cur != this) {
-                if (cur instanceof LinearLayout) {
-                    for (int j = 0; j < ((ViewGroup) cur).getChildCount(); j++) {
-                        if (cur instanceof FrameLayout) {
-                            ViewGroup hello = (ViewGroup) cur;
-                            for (int k = 0; k < hello.getChildCount(); k++) {
-                                Log.e("MY_TAG", hello.getChildAt(k).getClass().getSimpleName());
-                            }
-                        }
-                    }
-                        
-                }
-            }
-        }
+        this.logView = (TextView) ((ViewGroup) getParent()).getChildAt(0);
     }
 
     @Override
@@ -88,8 +73,13 @@ public class GestureView extends View {
                 mLastTouchX = x;
                 mLastTouchY = y;
                 mActivePointerId = ev.getPointerId(0);
+                numPointers++;
                 break;
             }
+            
+            case MotionEvent.ACTION_POINTER_DOWN:
+                numPointers++;
+                break;
 
             case MotionEvent.ACTION_MOVE: {
                 final int pointerIndex = ev.findPointerIndex(mActivePointerId);
@@ -109,12 +99,14 @@ public class GestureView extends View {
 
                 mLastTouchX = x;
                 mLastTouchY = y;
-
+                
                 break;
             }
 
             case MotionEvent.ACTION_UP: {
                 mActivePointerId = INVALID_POINTER_ID;
+                logView.setText(numPointers > 1 ? "Zoom" : "Swipe/click");
+                numPointers = 0;
                 break;
             }
 

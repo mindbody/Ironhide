@@ -23,7 +23,7 @@ import static com.mindbodyonline.ironhide.Infrastructure.Extensions.ZoomAction.Z
  * @param <T> The model the current element will return when interacted with
  */
 @TargetApi(14)
-public class Zoomable<T extends PageObject> extends BaseView<T> {
+public class Zoomable<T extends PageObject> extends Swipeable<T> {
 
     public static final Zoomer DEFAULT_ZOOM_SPEED = FAST;
     public static final ZoomDirection DEFAULT_ZOOM_DIRECTION = IN;
