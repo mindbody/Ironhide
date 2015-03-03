@@ -21,5 +21,5 @@ public class SendModel extends PageObject {
 
     public DynamicListAdapter<SendModel> PopupCompleteList = new DynamicListAdapter<>(SendModel.class, TextView.class);
 
-    public ListAdapter<SendModel> AutoCompleteList = new ListAdapter<>(allOf(instanceOf(String.class), is("Baltic Sea"))).goesTo(SendModel.class);
+    public ListAdapter<SendModel> AutoCompleteList = new ListAdapter<>(SendModel.class, allOf(instanceOf(String.class), is("Baltic Sea")));
 }
