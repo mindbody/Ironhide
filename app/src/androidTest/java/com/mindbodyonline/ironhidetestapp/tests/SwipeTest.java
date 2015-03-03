@@ -1,6 +1,5 @@
 package com.mindbodyonline.ironhidetestapp.tests;
 
-import android.support.test.espresso.action.ViewActions;
 import android.test.suitebuilder.annotation.LargeTest;
 
 import com.mindbodyonline.ironhidetestapp.TestFixture;
@@ -12,7 +11,9 @@ import static com.mindbodyonline.ironhide.Infrastructure.Extensions.SwipeAction.
 import static com.mindbodyonline.ironhide.Infrastructure.Extensions.SwipeAction.SwipeDirection.RIGHT;
 
 /**
- * Demonstrates use of {@link ViewActions#swipeLeft()} and {@link ViewActions#swipeRight()}.
+ * Demonstrates use of 
+ * {@link com.mindbodyonline.ironhide.Infrastructure.IronhideViews.Swipeable
+ * #swipe(com.mindbodyonline.ironhide.Infrastructure.Extensions.SwipeAction.SwipeDirection, int)}
  */
 @LargeTest
 // TODO: "java.lang.IllegalAccessError: Class ref in pre-verified class resolved to unexpected implementation" during 'super(ViewPagerActivity.class)'

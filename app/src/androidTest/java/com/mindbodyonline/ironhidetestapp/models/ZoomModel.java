@@ -1,6 +1,5 @@
 package com.mindbodyonline.ironhidetestapp.models;
 
-import com.mindbodyonline.ironhide.Infrastructure.Extensions.Zoom;
 import com.mindbodyonline.ironhide.Infrastructure.IronhideViews.Clickable;
 import com.mindbodyonline.ironhide.Infrastructure.IronhideViews.Swipeable;
 import com.mindbodyonline.ironhide.Infrastructure.IronhideViews.Zoomable;

@@ -1,20 +1,12 @@
 package com.mindbodyonline.ironhidetestapp.tests;
 
 import android.os.Build;
-import android.support.test.espresso.Espresso;
-import android.support.test.espresso.action.ViewActions;
-import android.support.test.espresso.matcher.RootMatchers;
 import android.test.suitebuilder.annotation.LargeTest;
 
 import com.mindbodyonline.ironhidetestapp.SendActivity;
 import com.mindbodyonline.ironhidetestapp.TestFixture;
 
-import org.hamcrest.Matchers;
 import org.junit.Test;
-
-import static org.hamcrest.Matchers.allOf;
-import static org.hamcrest.Matchers.instanceOf;
-import static org.hamcrest.Matchers.is;
 
 /**
  * Demonstrates dealing with multiple windows.
@@ -22,8 +14,7 @@ import static org.hamcrest.Matchers.is;
  * Espresso provides the ability to switch the default window matcher used in both onView and onData
  * interactions.
  *
- * @see android.support.test.espresso.Espresso#onView
- * @see android.support.test.espresso.Espresso#onData
+ * @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#inRoot(org.hamcrest.Matcher)
  */
 @LargeTest
 public class MultipleWindowTest extends TestFixture<SendActivity> {

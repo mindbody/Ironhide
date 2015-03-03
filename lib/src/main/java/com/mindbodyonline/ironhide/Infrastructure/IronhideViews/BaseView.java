@@ -30,12 +30,17 @@ import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.Espresso.registerIdlingResources;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static android.support.test.espresso.matcher.RootMatchers.DEFAULT;
+import static android.support.test.espresso.matcher.ViewMatchers.hasLinks;
 import static com.mindbodyonline.ironhide.Infrastructure.Extensions.ResourceStrings.fromId;
+import static com.mindbodyonline.ironhide.Infrastructure.Extensions.TextViewMatchers.isEmptyOrNullString;
+import static com.mindbodyonline.ironhide.Infrastructure.Extensions.TextViewMatchers.isEmptyString;
+import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.endsWith;
+import static org.hamcrest.Matchers.equalToIgnoringCase;
+import static org.hamcrest.Matchers.equalToIgnoringWhiteSpace;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
-import static org.hamcrest.Matchers.*;
-import static android.support.test.espresso.matcher.ViewMatchers.*;
-import static com.mindbodyonline.ironhide.Infrastructure.Extensions.TextViewMatchers.*;
+import static org.hamcrest.Matchers.startsWith;
 
 /**
  * Base Class for all page elements represented in the models for application testing.

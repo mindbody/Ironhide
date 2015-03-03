@@ -3,8 +3,8 @@ package com.mindbodyonline.ironhidetestapp.models;
 import com.mindbodyonline.ironhide.Infrastructure.IronhideViews.Clickable;
 import com.mindbodyonline.ironhide.Infrastructure.IronhideViews.ListAdapter;
 import com.mindbodyonline.ironhide.PageObjects.PageObject;
-import com.mindbodyonline.ironhidetestapp.R;
 import com.mindbodyonline.ironhidetestapp.LongListMatchers;
+import com.mindbodyonline.ironhidetestapp.R;
 
 /**
  * Page Object for {@link com.mindbodyonline.ironhidetestapp.LongListActivity}

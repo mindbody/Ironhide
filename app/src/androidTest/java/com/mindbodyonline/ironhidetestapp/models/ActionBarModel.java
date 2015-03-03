@@ -4,9 +4,9 @@ import com.mindbodyonline.ironhide.Infrastructure.IronhideViews.Clickable;
 import com.mindbodyonline.ironhide.PageObjects.PageObject;
 import com.mindbodyonline.ironhidetestapp.R;
 
+import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static org.hamcrest.Matchers.allOf;
-import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 
 /**
  * Page Object for {@link com.mindbodyonline.ironhidetestapp.ActionBarTestActivity}

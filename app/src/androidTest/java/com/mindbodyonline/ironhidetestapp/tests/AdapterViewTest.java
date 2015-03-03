@@ -18,7 +18,7 @@ import static org.hamcrest.Matchers.not;
 
 /**
  * Demonstrates the usage of
- * {@link android.support.test.espresso.Espresso#onData(org.hamcrest.Matcher)}
+ * {@link com.mindbodyonline.ironhide.Infrastructure.IronhideViews.ListAdapter}s
  * to match data within list views.
  */
 @LargeTest

@@ -8,10 +8,9 @@ import com.mindbodyonline.ironhidetestapp.TestFixture;
 import org.junit.Test;
 
 /**
- * Demonstrates use of {@link android.support.test.espresso.contrib.DrawerActions}.
+ * Demonstrates use of {@link com.mindbodyonline.ironhide.Infrastructure.IronhideViews.NavDrawer}.
  */
 @LargeTest
-// TODO: Test framework does not identify DrawerActivity as an existing class
 public class DrawerActionsTest  extends TestFixture<DrawerActivity> {
     
     public DrawerActionsTest() {
