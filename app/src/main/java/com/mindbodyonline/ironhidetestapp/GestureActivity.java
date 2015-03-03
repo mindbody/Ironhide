@@ -107,7 +107,6 @@ public class GestureActivity extends Activity {
                 if (-1 != touchDelay) {
                     Log.i(TAG, "sleeping for: " + touchDelay);
                     SystemClock.sleep(touchDelay);
-
                 }
                 return res;
             }

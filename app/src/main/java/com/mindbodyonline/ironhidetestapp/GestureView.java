@@ -4,9 +4,14 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 /**
  * Source: http://android-developers.blogspot.com/2010/06/making-sense-of-multitouch.html
@@ -26,6 +31,8 @@ public class GestureView extends View {
 
     private float mLastTouchX;
     private float mLastTouchY;
+    
+    private TextView logView;
 
     public GestureView(Context context) {
         this(context, null, 0);
@@ -42,6 +49,29 @@ public class GestureView extends View {
 
         // Create our ScaleGestureDetector
         mScaleDetector = new ScaleGestureDetector(context, new ScaleListener());
+    }
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        
+        ViewGroup parent = (ViewGroup) getParentForAccessibility();
+        for (int i = 0; i < parent.getChildCount(); i++) {
+            View cur = parent.getChildAt(i);
+            if (cur != this) {
+                if (cur instanceof LinearLayout) {
+                    for (int j = 0; j < ((ViewGroup) cur).getChildCount(); j++) {
+                        if (cur instanceof FrameLayout) {
+                            ViewGroup hello = (ViewGroup) cur;
+                            for (int k = 0; k < hello.getChildCount(); k++) {
+                                Log.e("MY_TAG", hello.getChildAt(k).getClass().getSimpleName());
+                            }
+                        }
+                    }
+                        
+                }
+            }
+        }
     }
 
     @Override

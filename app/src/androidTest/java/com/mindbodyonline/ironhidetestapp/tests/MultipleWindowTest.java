@@ -46,14 +46,7 @@ public class MultipleWindowTest extends TestFixture<SendActivity> {
                 .PopupCompleteList.getItemFromText("South China Sea").changeRoot().click()
                 .AutoCompleteTextField.clearText()
                 .AutoCompleteTextField.typeText("S")
-                ;
-        // NOTE: getFirst() is applied to ListAdapter before changeRoot(), a bug
-        Espresso.onData(allOf(instanceOf(String.class), is("Baltic Sea")))
-                .inRoot(Matchers.not(RootMatchers.DEFAULT))
-                .perform(ViewActions.click());
-                //.AutoCompleteList.getFirst().changeRoot().click()
-
-        SendPage
+                .AutoCompleteList.changeRoot().getFirst().click()
                 .AutoCompleteTextField.withText("Baltic Sea")
                 ;
     }

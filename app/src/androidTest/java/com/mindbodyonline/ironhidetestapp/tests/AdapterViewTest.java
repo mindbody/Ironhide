@@ -23,7 +23,7 @@ import static org.hamcrest.Matchers.not;
  */
 @LargeTest
 public class AdapterViewTest extends TestFixture<LongListActivity> {
-    
+
     public AdapterViewTest() {
         super(LongListActivity.class);
     }
@@ -31,43 +31,43 @@ public class AdapterViewTest extends TestFixture<LongListActivity> {
     @Test
     public void testClickOnItem50() {
         LongListPage
-                .LongListAdapter.getItemAtPosition(50).click()
+                .Item50Adapter.click()
                 .RowText.withText("50")
-                ;
+        ;
     }
 
     @Test
     public void testClickOnSpecificChildOfRow60() {
-        /*LongListPage
-                .LongListAdapter.getItemAtPosition(60).clickChildView(LongListPage.ItemSize)
+        LongListPage
+                .Item60Adapter.getItem(LongListPage.ItemSize).click()
                 .RowText.withText("60")
                 .ColumnText.withText("2")
-                ;*/
+        ;
     }
 
     @Test
     public void testClickOnFirstAndFifthItemOfLength8() {
         LongListPage
-                .LongListAdapter_ItemSize8.getFirst().click()
+                .ItemSize8Adapter.getFirst().click()
                 .RowText.withText("10")
-                .LongListAdapter.getItemAtPosition(4).click()
+                .ItemSize8Adapter.getItemAtPosition(4).click()
                 .RowText.withText("14")
-                ;
+        ;
     }
 
     @Test
     public void testClickFooter() {
         LongListPage
-                .LongListAdapter_Footers.getFirst().click()
+                .FooterAdapter.click()
                 .RowText.withText("100")
-                ;
+        ;
     }
 
     @Test
-    public void testDataItemNotInAdapter(){
+    public void testDataItemNotInAdapter() {
         LongListPage
                 .List.matches(not(withAdaptedData(LongListMatchers.withItemContent("item: 168"))))
-                ;
+        ;
     }
 
     private static Matcher<View> withAdaptedData(final Matcher<Object> dataMatcher) {
