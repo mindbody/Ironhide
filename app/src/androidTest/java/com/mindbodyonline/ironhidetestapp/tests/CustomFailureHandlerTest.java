@@ -24,7 +24,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 @LargeTest
 public class CustomFailureHandlerTest extends ActivityInstrumentationTestCase2<MainActivity> {
 
-  private static final String TAG = "CustomFailureHandlerTest";
+  private static final String TAG = "CustomFailureHandlerTes";
 
   @SuppressWarnings("deprecation")
   public CustomFailureHandlerTest() {
