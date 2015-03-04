@@ -3,6 +3,7 @@ package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 import android.app.Activity;
 import android.net.Uri;
 import android.os.SystemClock;
+import android.support.test.InstrumentationRegistry;
 import android.support.test.espresso.Root;
 import android.support.test.espresso.ViewAction;
 import android.support.test.espresso.ViewAssertion;
@@ -31,7 +32,6 @@ import static android.support.test.espresso.Espresso.registerIdlingResources;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static android.support.test.espresso.matcher.RootMatchers.DEFAULT;
 import static android.support.test.espresso.matcher.ViewMatchers.hasLinks;
-import static com.mindbodyonline.ironhide.Infrastructure.Extensions.ResourceStrings.fromId;
 import static com.mindbodyonline.ironhide.Infrastructure.Extensions.TextViewMatchers.isEmptyOrNullString;
 import static com.mindbodyonline.ironhide.Infrastructure.Extensions.TextViewMatchers.isEmptyString;
 import static org.hamcrest.Matchers.containsString;
@@ -1103,14 +1103,12 @@ public class BaseView<T extends PageObject> {
     }
 
     /**
-     * Waits for the element to be displayed on the screen, for a maximum of
-     *  {@link PageObject#DEFAULT_PAUSE_TIME} * {@link BaseView#MAX_ELEMENT_WAIT_COUNT} milliseconds
-     * @return The model reached by interacting with this element.
+     * Returns the string value associated with the resource id.
+     *
+     * @param resId the string's resource id
+     * @return the string from the target context
      */
-    public T waitForElement() {
-        for (int time = 0; time < MAX_ELEMENT_WAIT_COUNT && !this.isDisplayedBoolean(); time++)
-            pause();
-
-        return returnGeneric();
+    protected String fromId(int resId) {
+        return InstrumentationRegistry.getTargetContext().getString(resId);
     }
 }

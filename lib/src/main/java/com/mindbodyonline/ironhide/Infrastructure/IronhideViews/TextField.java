@@ -5,13 +5,11 @@ import android.support.test.espresso.action.ViewActions;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.view.View;
 
-import com.mindbodyonline.ironhide.Infrastructure.Extensions.ResourceStrings;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.TextViewMatchers;
 import com.mindbodyonline.ironhide.PageObjects.PageObject;
 
 import org.hamcrest.Matcher;
 
-import static com.mindbodyonline.ironhide.Infrastructure.Extensions.ResourceStrings.fromId;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.endsWith;
 import static org.hamcrest.Matchers.equalToIgnoringCase;
@@ -69,7 +67,7 @@ public class TextField<T extends PageObject> extends BaseView<T> {
      * @return The model reached by interacting with this element.
      */
     public T typeText(int stringIdToType) {
-        return performAction(ViewActions.typeText(ResourceStrings.fromId(stringIdToType)));
+        return performAction(ViewActions.typeText(fromId(stringIdToType)));
     }
 
     /**

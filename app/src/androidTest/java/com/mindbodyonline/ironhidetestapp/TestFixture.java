@@ -15,7 +15,8 @@ import com.mindbodyonline.ironhidetestapp.models.ViewPagerModel;
 import com.mindbodyonline.ironhidetestapp.models.ZoomModel;
 
 /**
- * Created by gregory.sawers on 2/24/2015.
+ * A specific instrumentation class for the test app.
+ * Holds references for each of the models for any extending class.
  */
 public class TestFixture <T extends Activity> extends BaseInstrumentTestCase<T>{
 
@@ -33,6 +34,4 @@ public class TestFixture <T extends Activity> extends BaseInstrumentTestCase<T>{
     public TestFixture(Class<T> activityClass) {
         super(activityClass);
     }
-
-
 }

@@ -4,7 +4,7 @@ import com.mindbodyonline.ironhide.Infrastructure.IronhideViews.Clickable;
 import com.mindbodyonline.ironhide.PageObjects.PageObject;
 
 /**
- * Created by kyle.lozier on 2/25/2015.
+ * A Page Object for {@link com.mindbodyonline.ironhidetestapp.MainActivity}
  */
 public class MainModel extends PageObject {
     

@@ -8,8 +8,6 @@ import android.support.test.runner.AndroidJUnit4;
 import android.test.ActivityInstrumentationTestCase2;
 import android.view.View;
 
-import com.mindbodyonline.ironhide.Infrastructure.Extensions.ResourceStrings;
-
 import org.hamcrest.Matcher;
 import org.junit.After;
 import org.junit.Before;

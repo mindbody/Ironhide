@@ -9,8 +9,6 @@ import com.mindbodyonline.ironhide.PageObjects.PageObject;
 import org.hamcrest.Matcher;
 import org.hamcrest.Matchers;
 
-import static com.mindbodyonline.ironhide.Infrastructure.Extensions.ResourceStrings.fromId;
-
 /**
  * A reference view for Spinners.
  * Use this when interacting directly with {@link android.widget.Spinner}s

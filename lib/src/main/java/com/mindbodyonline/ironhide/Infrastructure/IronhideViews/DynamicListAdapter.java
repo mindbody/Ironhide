@@ -131,7 +131,7 @@ public class DynamicListAdapter<T extends PageObject> {
      */
     @SuppressWarnings("unchecked")
     public Clickable<T> getItemMatching(Matcher<View> itemMatcher) {
-        return new Clickable<T>(type, allOf(isDisplayed(), childMatcher, itemMatcher));
+        return new Clickable<>(type, allOf(isDisplayed(), childMatcher, itemMatcher));
     }
     
     // Compatibility pausing
@@ -150,9 +150,5 @@ public class DynamicListAdapter<T extends PageObject> {
         }
         
         return null;
-    }
-    
-    public T waitForElement() {
-        return getItemAt(0).waitForElement();
     }
 }
