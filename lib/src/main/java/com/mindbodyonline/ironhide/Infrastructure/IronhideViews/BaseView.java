@@ -51,11 +51,8 @@ import static org.hamcrest.Matchers.startsWith;
  */
 public class BaseView<T extends PageObject> {
 
-    /**
-     * Number of times to wait {@link PageObject#DEFAULT_PAUSE_TIME} for an element. 
-     */
-    public static final int MAX_ELEMENT_WAIT_COUNT = 10;
-    
+    public static final int DEFAULT_KEYBOARD_WAIT = 2000; // ms
+
     protected final Class<T> type;
     protected final Matcher<View> selector;
     protected ViewInteraction viewInteraction;
@@ -294,7 +291,12 @@ public class BaseView<T extends PageObject> {
     }
 
     /**
-     * Returns an action that performs a single click on the view. If the click takes longer than the 'long press' duration (which is possible) the provided rollback action is invoked on the view and a click is attempted again. This is only necessary if the view being clicked on has some different behaviour for long press versus a normal tap. For example - if a long press on a particular view element opens a popup menu - ViewActions.pressBack() may be an acceptable rollback action.
+     * Returns an action that performs a single click on the view. If the click takes longer than
+     *  the 'long press' duration (which is possible) the provided rollback action is invoked on the
+     *  view and a click is attempted again. This is only necessary if the view being clicked on has
+     *  some different behaviour for long press versus a normal tap. For example - if a long press
+     *  on a particular view element opens a popup menu - ViewActions.pressBack() may be an
+     *  acceptable rollback action.
      * <p>View constraints:</p>
      *
      * <p>must be displayed on screen</p>
@@ -368,8 +370,9 @@ public class BaseView<T extends PageObject> {
      * @return     The model reached by interacting with this element.
      */
     public T closeKeyboard() {
-        viewInteraction.perform(closeSoftKeyboard());
-        return pause();
+        T model = performAction(closeSoftKeyboard());
+        SystemClock.sleep(DEFAULT_KEYBOARD_WAIT);
+        return model;
     }
 
     /**
@@ -1038,6 +1041,7 @@ public class BaseView<T extends PageObject> {
      */
 
     /*============================================================================================*/
+
     /**
      * Layout-based Assertions
      */
@@ -1078,29 +1082,12 @@ public class BaseView<T extends PageObject> {
     /**
      * End Layout-based Assertions
      */
+
     /*============================================================================================*/
+
     /**
      * Misc Helper Methods
      */
-
-    /**
-     * Pause the test run for DEFAULT_PAUSE_TIME seconds
-     * @see com.mindbodyonline.ironhide.PageObjects.PageObject
-     * @return The model reached by interacting with this element.
-     */
-    public T pause() {
-        return pause(PageObject.DEFAULT_PAUSE_TIME);
-    }
-
-    /**
-     * Pause the test run for a given amount of time(in milliseconds).
-     * @param timeInMillis Time, in milliseconds, to pause for.
-     * @return The model reached by interacting with this element.
-     */
-    public T pause(int timeInMillis) {
-        SystemClock.sleep(timeInMillis);
-        return returnGeneric();
-    }
 
     /**
      * Returns the string value associated with the resource id.

@@ -133,22 +133,4 @@ public class DynamicListAdapter<T extends PageObject> {
     public Clickable<T> getItemMatching(Matcher<View> itemMatcher) {
         return new Clickable<>(type, allOf(isDisplayed(), childMatcher, itemMatcher));
     }
-    
-    // Compatibility pausing
-
-    public T pause() {
-        return pause(PageObject.DEFAULT_PAUSE_TIME);
-    }
-    
-    public T pause(int timeInMillis) {
-        try {
-            Thread.sleep(timeInMillis);
-            if (type != null)
-                return type.newInstance();
-        } catch (InstantiationException | IllegalAccessException | InterruptedException e) {
-            e.printStackTrace();
-        }
-        
-        return null;
-    }
 }

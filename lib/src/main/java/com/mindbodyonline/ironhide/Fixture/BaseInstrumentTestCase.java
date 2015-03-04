@@ -29,12 +29,6 @@ public class BaseInstrumentTestCase<T extends Activity> extends ActivityInstrume
     public BaseInstrumentTestCase(Class<T> activityClass) {
         super(activityClass);
     }
-
-    // compatibility constructor
-    @Deprecated
-    public BaseInstrumentTestCase(String IGNORED, Class<T> activityClass) {
-        this(activityClass);
-    }
     
     /**
      * {@inheritDoc}

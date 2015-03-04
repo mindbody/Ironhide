@@ -1,5 +1,6 @@
 package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
+import android.os.SystemClock;
 import android.support.test.espresso.DataInteraction;
 import android.support.test.espresso.Root;
 import android.support.test.espresso.ViewAction;
@@ -151,15 +152,6 @@ public class ListAdapter<T extends PageObject> extends BaseView<T> {
     protected T checkAssertion(ViewAssertion viewAssertion) {
         adapter.check(viewAssertion);
         return returnGeneric();
-    }
-
-    /** {@inheritDoc} */
-    @Override
-    public T closeKeyboard() {
-        T resultObject = performAction(ViewActions.closeSoftKeyboard());
-        pause();
-
-        return resultObject;
     }
 
     /**

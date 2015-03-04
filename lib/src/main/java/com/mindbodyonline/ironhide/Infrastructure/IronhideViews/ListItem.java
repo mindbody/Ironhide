@@ -65,15 +65,6 @@ public class ListItem<T extends PageObject> extends BaseView<T> {
         return returnGeneric();
     }
 
-    /** {@inheritDoc} */
-    @Override
-    public T closeKeyboard() {
-        T resultObject = performAction(ViewActions.closeSoftKeyboard());
-        pause();
-
-        return resultObject;
-    }
-
     /**
      * Root Matchers are not supported in ListItem.
      * @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.ListAdapter instead
