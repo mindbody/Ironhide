@@ -5,6 +5,7 @@ import android.support.test.espresso.action.ViewActions;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.view.View;
 
+import com.mindbodyonline.ironhide.Infrastructure.Extensions.ResourceStrings;
 import com.mindbodyonline.ironhide.Infrastructure.Extensions.TextViewMatchers;
 import com.mindbodyonline.ironhide.PageObjects.PageObject;
 
@@ -61,6 +62,15 @@ public class TextField<T extends PageObject> extends BaseView<T> {
         return performAction(ViewActions.typeText(toType));
     }
 
+    /**
+     * Type the given text into the element.
+     *
+     * @param toType Text to type
+     * @return The model reached by interacting with this element.
+     */
+    public T typeText(int stringIdToType) {
+        return performAction(ViewActions.typeText(ResourceStrings.fromId(stringIdToType)));
+    }
 
     /**
      * Clear the text from the element.

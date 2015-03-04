@@ -2,6 +2,7 @@ package com.mindbodyonline.ironhidetestapp.tests;
 
 import android.test.suitebuilder.annotation.LargeTest;
 
+import com.mindbodyonline.ironhidetestapp.R;
 import com.mindbodyonline.ironhidetestapp.SimpleActivity;
 import com.mindbodyonline.ironhidetestapp.TestFixture;
 import com.mindbodyonline.ironhidetestapp.models.SimpleModel;
@@ -30,15 +31,13 @@ public class BasicTest extends TestFixture<SimpleActivity> {
 
     @Test
     public void testTypingAndPressBack() {
-        String sendString = "Have a cup of Espresso.";
-        
         SimplePage
-                .SimpleSendText.typeText(sendString)
+                .SimpleSendText.typeText(R.string.hello_world)
                 .SimpleSendText.closeKeyboard()
                 .SimpleSend.click()
-                .displayText.withText(sendString)
+                .displayText.withText(R.string.hello_world)
                 .displayText.goesTo(SimpleModel.class).pressBack()
-                .SimpleSendText.withText(sendString)
+                .SimpleSendText.withText(R.string.hello_world)
                 ;
     }
 

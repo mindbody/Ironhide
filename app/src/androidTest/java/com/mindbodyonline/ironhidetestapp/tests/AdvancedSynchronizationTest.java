@@ -22,7 +22,7 @@ public class AdvancedSynchronizationTest extends TestFixture<SyncActivity> {
     public void testCountingIdlingResource() {
         SyncPage
                 .helloWorld.click()
-                .statusText.registerAsIdle(mActivity)
+                .statusText.registerAsIdle(initActivity)
                 .statusText.withText(R.string.hello_world);
     }
 }

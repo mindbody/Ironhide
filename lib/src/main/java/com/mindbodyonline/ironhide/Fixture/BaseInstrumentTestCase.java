@@ -1,10 +1,8 @@
 package com.mindbodyonline.ironhide.Fixture;
 
 import android.app.Activity;
-import android.content.Context;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.espresso.FailureHandler;
-import android.support.test.espresso.NoMatchingViewException;
 import android.support.test.espresso.base.DefaultFailureHandler;
 import android.support.test.runner.AndroidJUnit4;
 import android.test.ActivityInstrumentationTestCase2;
@@ -25,7 +23,7 @@ import static android.support.test.espresso.Espresso.setFailureHandler;
 @RunWith(AndroidJUnit4.class)
 public class BaseInstrumentTestCase<T extends Activity> extends ActivityInstrumentationTestCase2<T> {
 
-    protected T mActivity;
+    protected T initActivity;
 
     /**
      * @see ActivityInstrumentationTestCase2#ActivityInstrumentationTestCase2(Class)
@@ -50,11 +48,8 @@ public class BaseInstrumentTestCase<T extends Activity> extends ActivityInstrume
     public void setUp() throws Exception {
         super.setUp();
         injectInstrumentation(InstrumentationRegistry.getInstrumentation());
-        mActivity = getActivity();
+        initActivity = getActivity();
         setFailureHandler(new BaseFailureHandler(this));
-        
-        // TODO: this is bad. Gets NPE if activity changes during test
-        ResourceStrings.setContext(mActivity);
     }
 
     /**
