@@ -79,7 +79,7 @@ public class SendActivity extends Activity {
                 "Mediterranean Sea", "Caribbean Sea", "South China Sea", "Bering Sea",
                 "Gulf of Mexico", "Okhotsk Sea", "East China Sea", "Hudson Bay", "Japan Sea",
                 "Andaman Sea", "North Sea", "Red Sea", "Baltic Sea" };
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_dropdown_item_1line,
                 completions);
         autoComplete.setAdapter(adapter);

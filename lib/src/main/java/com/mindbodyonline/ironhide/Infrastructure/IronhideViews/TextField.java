@@ -30,17 +30,17 @@ public class TextField<T extends PageObject> extends BaseView<T> {
         super(type, selector);
     }
 
-    /** @see BaseView#BaseView(int) */
+    /** @see BaseView#BaseView(Class, int) */
     public TextField(Class<T> type, int resourceId) {
         super(type, resourceId);
     }
 
-    /** @see BaseView#BaseView(int, int) */
+    /** @see BaseView#BaseView(Class, int, int) */
     public TextField(Class<T> type, int IGNORED, int stringResourceId) {
         super(type, IGNORED, stringResourceId);
     }
 
-    /** @see BaseView#BaseView(String) */
+    /** @see BaseView#BaseView(Class, String) */
     public TextField(Class<T> type, String displayText) {
         super(type, displayText);
     }

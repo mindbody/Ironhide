@@ -47,7 +47,7 @@ public class MainActivity extends ListActivity {
     }
 
     private List<Map<String, Object>> getData() {
-        List<Map<String, Object>> data = new ArrayList<Map<String, Object>>();
+        List<Map<String, Object>> data = new ArrayList<>();
 
         PackageInfo info = null;
         try {
@@ -80,7 +80,7 @@ public class MainActivity extends ListActivity {
     }
 
     private void addItem(List<Map<String, Object>> data, String name, Intent intent) {
-        Map<String, Object> temp = new HashMap<String, Object>();
+        Map<String, Object> temp = new HashMap<>();
         temp.put("title", name);
         temp.put("intent", intent);
         data.add(temp);

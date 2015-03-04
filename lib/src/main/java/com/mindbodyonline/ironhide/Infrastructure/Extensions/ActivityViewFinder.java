@@ -36,7 +36,7 @@ public class ActivityViewFinder implements ViewFinder {
     @Override
     public View getView() throws AmbiguousViewMatcherException, NoMatchingViewException {
         checkMainThread();
-        final Predicate<View> matcherPredicate = new MatcherPredicateAdapter<View>(
+        final Predicate<View> matcherPredicate = new MatcherPredicateAdapter<>(
                 checkNotNull(viewMatcher));
         Iterator<View> matchedViewIterator = Iterables.filter(
                 breadthFirstViewTraversal(root),

@@ -30,7 +30,7 @@ public class DrawerActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.drawer_activity);
 
-        ListAdapter listAdapter = new ArrayAdapter<String>(
+        ListAdapter listAdapter = new ArrayAdapter<>(
                 getApplicationContext(), R.layout.drawer_row, R.id.drawer_row_name, DRAWER_CONTENTS);
         final DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         ListView drawerList = (ListView) findViewById(R.id.drawer_list);
