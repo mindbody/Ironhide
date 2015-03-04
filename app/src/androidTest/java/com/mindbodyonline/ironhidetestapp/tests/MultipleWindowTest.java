@@ -14,7 +14,7 @@ import org.junit.Test;
  * Espresso provides the ability to switch the default window matcher used in both onView and onData
  * interactions.
  *
- * @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#inRoot(org.hamcrest.Matcher)
+ * @see com.mindbodyonline.ironhide.Infrastructure.MindbodyViews.BaseView#inRoot(org.hamcrest.Matcher)
  */
 @LargeTest
 public class MultipleWindowTest extends TestFixture<SendActivity> {

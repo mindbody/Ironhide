@@ -1,11 +1,12 @@
 package com.mindbodyonline.ironhide.Infrastructure.Extensions;
 
 import android.app.Activity;
+import android.support.test.InstrumentationRegistry;
 import android.support.test.espresso.IdlingResource;
 import android.view.View;
 import android.widget.TextView;
 
-import com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView;
+import com.mindbodyonline.ironhide.Infrastructure.MindbodyViews.BaseView;
 
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayingAtLeast;
 

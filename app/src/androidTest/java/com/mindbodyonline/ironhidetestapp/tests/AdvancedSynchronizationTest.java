@@ -9,7 +9,7 @@ import com.mindbodyonline.ironhidetestapp.TestFixture;
 import org.junit.Test;
 
 /**
- * Example for {@link com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#registerAsIdle(android.app.Activity)}
+ * Example for {@link com.mindbodyonline.ironhide.Infrastructure.MindbodyViews.BaseView#registerAsIdle(android.app.Activity)}
  */
 @LargeTest
 public class AdvancedSynchronizationTest extends TestFixture<SyncActivity> {

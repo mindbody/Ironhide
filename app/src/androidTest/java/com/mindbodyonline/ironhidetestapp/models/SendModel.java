@@ -2,9 +2,9 @@ package com.mindbodyonline.ironhidetestapp.models;
 
 import android.widget.TextView;
 
-import com.mindbodyonline.ironhide.Infrastructure.IronhideViews.DynamicListAdapter;
-import com.mindbodyonline.ironhide.Infrastructure.IronhideViews.ListAdapter;
-import com.mindbodyonline.ironhide.Infrastructure.IronhideViews.TextField;
+import com.mindbodyonline.ironhide.Infrastructure.MindbodyViews.DynamicListAdapter;
+import com.mindbodyonline.ironhide.Infrastructure.MindbodyViews.ListAdapter;
+import com.mindbodyonline.ironhide.Infrastructure.MindbodyViews.TextField;
 import com.mindbodyonline.ironhide.PageObjects.PageObject;
 import com.mindbodyonline.ironhidetestapp.R;
 

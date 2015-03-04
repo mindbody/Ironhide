@@ -1,9 +1,9 @@
 package com.mindbodyonline.ironhidetestapp.models;
 
-import com.mindbodyonline.ironhide.Infrastructure.IronhideViews.Clickable;
-import com.mindbodyonline.ironhide.Infrastructure.IronhideViews.ListAdapter;
-import com.mindbodyonline.ironhide.Infrastructure.IronhideViews.SpinnerView;
-import com.mindbodyonline.ironhide.Infrastructure.IronhideViews.TextField;
+import com.mindbodyonline.ironhide.Infrastructure.MindbodyViews.Clickable;
+import com.mindbodyonline.ironhide.Infrastructure.MindbodyViews.ListAdapter;
+import com.mindbodyonline.ironhide.Infrastructure.MindbodyViews.SpinnerView;
+import com.mindbodyonline.ironhide.Infrastructure.MindbodyViews.TextField;
 import com.mindbodyonline.ironhide.PageObjects.PageObject;
 import com.mindbodyonline.ironhidetestapp.R;
 

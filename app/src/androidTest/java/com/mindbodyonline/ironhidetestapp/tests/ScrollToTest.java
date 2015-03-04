@@ -9,7 +9,7 @@ import org.junit.Test;
 
 /**
  * Demonstrates the usage of
- * {@link com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#scrollTo()}
+ * {@link com.mindbodyonline.ironhide.Infrastructure.MindbodyViews.BaseView#scrollTo()}
  */
 @LargeTest
 public class ScrollToTest extends TestFixture<ScrollActivity> {

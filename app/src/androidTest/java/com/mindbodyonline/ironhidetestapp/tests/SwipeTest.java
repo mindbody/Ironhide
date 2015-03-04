@@ -12,7 +12,7 @@ import static com.mindbodyonline.ironhide.Infrastructure.Extensions.SwipeAction.
 
 /**
  * Demonstrates use of 
- * {@link com.mindbodyonline.ironhide.Infrastructure.IronhideViews.Swipeable
+ * {@link com.mindbodyonline.ironhide.Infrastructure.MindbodyViews.Swipeable
  * #swipe(com.mindbodyonline.ironhide.Infrastructure.Extensions.SwipeAction.SwipeDirection, int)}
  */
 @LargeTest

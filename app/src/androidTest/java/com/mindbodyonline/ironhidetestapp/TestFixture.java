@@ -2,7 +2,7 @@ package com.mindbodyonline.ironhidetestapp;
 
 import android.app.Activity;
 
-import com.mindbodyonline.ironhide.Fixture.BaseInstrumentTestCase;
+import com.mindbodyonline.ironhide.Fixture.MindbodyInstrumentTestCase;
 import com.mindbodyonline.ironhidetestapp.models.ActionBarModel;
 import com.mindbodyonline.ironhidetestapp.models.DrawerModel;
 import com.mindbodyonline.ironhidetestapp.models.LongListModel;
@@ -18,7 +18,7 @@ import com.mindbodyonline.ironhidetestapp.models.ZoomModel;
  * A specific instrumentation class for the test app.
  * Holds references for each of the models for any extending class.
  */
-public class TestFixture <T extends Activity> extends BaseInstrumentTestCase<T>{
+public class TestFixture <T extends Activity> extends MindbodyInstrumentTestCase<T>{
 
     protected ActionBarModel ActionBarPage = new ActionBarModel();
     protected LongListModel LongListPage = new LongListModel();

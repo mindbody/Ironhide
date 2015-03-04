@@ -1,6 +1,6 @@
 package com.mindbodyonline.ironhidetestapp;
 
-import com.mindbodyonline.ironhide.Fixture.BaseInstrumentTestCase;
+import com.mindbodyonline.ironhide.Fixture.MindbodyInstrumentTestCase;
 import com.mindbodyonline.ironhidetestapp.tests.ActionBarTest;
 import com.mindbodyonline.ironhidetestapp.tests.AdapterViewTest;
 import com.mindbodyonline.ironhidetestapp.tests.AdvancedSynchronizationTest;
@@ -31,7 +31,7 @@ import org.junit.runners.Suite;
         ScrollToTest.class,
         SwipeTest.class,
 })
-public class IronhideTestSuite extends BaseInstrumentTestCase<ActionBarTestActivity> {
+public class IronhideTestSuite extends MindbodyInstrumentTestCase<ActionBarTestActivity> {
     public IronhideTestSuite() {
         super(ActionBarTestActivity.class);
     }

@@ -1,4 +1,4 @@
-package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
+package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
 
 import android.support.test.espresso.DataInteraction;
 import android.support.test.espresso.Root;
@@ -65,8 +65,16 @@ public class ListItem<T extends PageObject> extends BaseView<T> {
     }
 
     /**
+     * @see android.support.test.espresso.DataInteraction#onChildView(org.hamcrest.Matcher)
+     * @return a new instance of ListItem that is the child of this ListItem
+     */
+    public ListItem<T> getChild(BaseView<?> toMatch) {
+        return new ListItem<>(type, adapter.onChildView(toMatch.getSelector()));
+    }
+
+    /**
      * Root Matchers are not supported in ListItem.
-     * @see com.mindbodyonline.ironhide.Infrastructure.IronhideViews.ListAdapter instead
+     * @see ListAdapter instead
      */
 
     /** {@inheritDoc} */

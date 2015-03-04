@@ -10,7 +10,7 @@ import com.mindbodyonline.ironhidetestapp.ZoomActivity;
 import org.junit.Test;
 
 /**
- * Demonstrating using {@link com.mindbodyonline.ironhide.Infrastructure.IronhideViews.Zoomable}
+ * Demonstrating using {@link com.mindbodyonline.ironhide.Infrastructure.MindbodyViews.Zoomable}
  */
 @LargeTest
 public class ZoomTest extends TestFixture<ZoomActivity> {

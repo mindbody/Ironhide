@@ -6,7 +6,7 @@ import android.test.suitebuilder.annotation.LargeTest;
 import android.util.Log;
 import android.view.View;
 
-import com.mindbodyonline.ironhide.Fixture.BaseInstrumentTestCase;
+import com.mindbodyonline.ironhide.Fixture.MindbodyInstrumentTestCase;
 import com.mindbodyonline.ironhidetestapp.MainActivity;
 
 import org.hamcrest.Matcher;
@@ -20,7 +20,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
  * A sample of how to set a non-default {@link FailureHandler}.
  */
 @LargeTest
-public class CustomFailureHandlerTest extends BaseInstrumentTestCase<MainActivity> {
+public class CustomFailureHandlerTest extends MindbodyInstrumentTestCase<MainActivity> {
 
     private static final String TAG = "CustomFailureHandlerTes";
 

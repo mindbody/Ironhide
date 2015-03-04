@@ -1,7 +1,7 @@
 package com.mindbodyonline.ironhidetestapp.models;
 
-import com.mindbodyonline.ironhide.Infrastructure.IronhideViews.Clickable;
-import com.mindbodyonline.ironhide.Infrastructure.IronhideViews.ListAdapter;
+import com.mindbodyonline.ironhide.Infrastructure.MindbodyViews.Clickable;
+import com.mindbodyonline.ironhide.Infrastructure.MindbodyViews.ListAdapter;
 import com.mindbodyonline.ironhide.PageObjects.PageObject;
 import com.mindbodyonline.ironhidetestapp.LongListMatchers;
 import com.mindbodyonline.ironhidetestapp.R;

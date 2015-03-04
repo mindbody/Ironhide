@@ -1,4 +1,4 @@
-package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
+package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
 
 import android.support.test.espresso.DataInteraction;
 import android.support.test.espresso.Root;
@@ -19,7 +19,7 @@ import static org.hamcrest.Matchers.is;
 
 /**
  * Complex element that allows to interact with an {@link android.widget.AdapterView} that uses an {@link android.widget.Adapter}.
- * Gives access to individual {@link com.mindbodyonline.ironhide.Infrastructure.IronhideViews.ListItem}s inside an {@link android.widget.AdapterView}.
+ * Gives access to individual {@link ListItem}s inside an {@link android.widget.AdapterView}.
  * Only use this element when dealing with an {@link android.widget.AdapterView} that has an {@link android.widget.Adapter}
  *
  * @param <T> The model the current element will return when interacted with

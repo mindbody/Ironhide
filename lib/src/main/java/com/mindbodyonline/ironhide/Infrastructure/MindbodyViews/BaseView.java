@@ -1,4 +1,4 @@
-package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
+package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
 
 import android.app.Activity;
 import android.net.Uri;
@@ -51,6 +51,10 @@ import static org.hamcrest.Matchers.startsWith;
  */
 public class BaseView<T extends PageObject> {
 
+    /**
+     * Number of times to wait {@link PageObject#DEFAULT_PAUSE_TIME} for an element.
+     */
+    public static final int MAX_ELEMENT_WAIT_COUNT = 10;
     public static final int DEFAULT_KEYBOARD_WAIT = 2000; // ms
 
     protected final Class<T> type;
@@ -78,7 +82,7 @@ public class BaseView<T extends PageObject> {
 
     /**
      * A generically typed BaseView with selector: {@link android.support.test.espresso.matcher.ViewMatchers#withText(int)}
-     * @param IGNORED   an ignored integer to distinguish this constructor from {@link com.mindbodyonline.ironhide.Infrastructure.IronhideViews.BaseView#BaseView(Class, int)}
+     * @param IGNORED   an ignored integer to distinguish this constructor from {@link BaseView#BaseView(Class, int)}
      * @param stringResourceId    the resource id of the string for the view to interact with
      */
     protected BaseView(Class<T> type, int IGNORED, int stringResourceId) {
@@ -1088,6 +1092,46 @@ public class BaseView<T extends PageObject> {
     /**
      * Misc Helper Methods
      */
+
+    /**
+     * Pause the test run for DEFAULT_PAUSE_TIME seconds
+     *
+     * @return The model reached by interacting with this element.
+     * @see com.mindbodyonline.ironhide.PageObjects.PageObject
+     */
+    public T pause() {
+        return pause(PageObject.DEFAULT_PAUSE_TIME);
+    }
+
+    /**
+     * Pause the test run for a given amount of time(in milliseconds).
+     *
+     * @param timeInMillis Time, in milliseconds, to pause for.
+     * @return The model reached by interacting with this element.
+     */
+    public T pause(int timeInMillis) {
+        try {
+            Thread.sleep(timeInMillis);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return returnGeneric();
+    }
+
+    /**
+     * Waits for the element to be displayed on the screen, for a maximum of
+     * {@link PageObject#DEFAULT_PAUSE_TIME} * {@link BaseView#MAX_ELEMENT_WAIT_COUNT} milliseconds
+     * @deprecated use {@link BaseView#registerAsIdle(Activity)}
+     *
+     * @return The model reached by interacting with this element.
+     */
+    @Deprecated
+    public T waitForElement() {
+        for (int time = 0; time < MAX_ELEMENT_WAIT_COUNT && !this.isDisplayedBoolean(); time++)
+            pause();
+
+        return returnGeneric();
+    }
 
     /**
      * Returns the string value associated with the resource id.

@@ -8,7 +8,7 @@ import com.mindbodyonline.ironhidetestapp.TestFixture;
 import org.junit.Test;
 
 /**
- * Demonstrates use of {@link com.mindbodyonline.ironhide.Infrastructure.IronhideViews.NavDrawer}.
+ * Demonstrates use of {@link com.mindbodyonline.ironhide.Infrastructure.MindbodyViews.NavDrawer}.
  */
 @LargeTest
 public class DrawerActionsTest  extends TestFixture<DrawerActivity> {

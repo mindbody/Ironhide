@@ -19,14 +19,21 @@ import static android.support.test.espresso.Espresso.setFailureHandler;
  * This class provides functional testing of a single activity.
  */
 @RunWith(AndroidJUnit4.class)
-public class BaseInstrumentTestCase<T extends Activity> extends ActivityInstrumentationTestCase2<T> {
+public class MindbodyInstrumentTestCase<T extends Activity> extends ActivityInstrumentationTestCase2<T> {
 
     protected T initActivity;
 
     /**
      * @see ActivityInstrumentationTestCase2#ActivityInstrumentationTestCase2(Class)
      */
-    public BaseInstrumentTestCase(Class<T> activityClass) {
+    public MindbodyInstrumentTestCase(Class<T> activityClass) {
+        super(activityClass);
+    }
+
+    /**
+     * @see android.test.ActivityInstrumentationTestCase2#ActivityInstrumentationTestCase2(String, Class)
+     */
+    public MindbodyInstrumentTestCase(String IGNORED, Class<T> activityClass) {
         super(activityClass);
     }
     
@@ -61,15 +68,15 @@ public class BaseInstrumentTestCase<T extends Activity> extends ActivityInstrume
     }
 
     /**
-     * A failure handler that calls {@link BaseInstrumentTestCase#onFailure(FailureHandler, Throwable, Matcher)}
+     * A failure handler that calls {@link MindbodyInstrumentTestCase#onFailure(FailureHandler, Throwable, Matcher)}
      *  so that failures can be more easily handled. Does not prevent use of ones own FailureHandler
      *  to handle errors as seen fit.  
      */
     private static class BaseFailureHandler implements FailureHandler {
         private final FailureHandler delegate;
-        private final BaseInstrumentTestCase fixture;
+        private final MindbodyInstrumentTestCase fixture;
 
-        public BaseFailureHandler(BaseInstrumentTestCase fixture) {
+        public BaseFailureHandler(MindbodyInstrumentTestCase fixture) {
             this.fixture = fixture;
             this.delegate = new DefaultFailureHandler(fixture.getInstrumentation().getTargetContext());
         }

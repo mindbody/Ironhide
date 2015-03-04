@@ -18,7 +18,7 @@ import static org.hamcrest.Matchers.not;
 
 /**
  * Demonstrates the usage of
- * {@link com.mindbodyonline.ironhide.Infrastructure.IronhideViews.ListAdapter}s
+ * {@link com.mindbodyonline.ironhide.Infrastructure.MindbodyViews.ListAdapter}s
  * to match data within list views.
  */
 @LargeTest

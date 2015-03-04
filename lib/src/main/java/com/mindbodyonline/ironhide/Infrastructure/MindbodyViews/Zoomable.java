@@ -1,4 +1,4 @@
-package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
+package com.mindbodyonline.ironhide.Infrastructure.MindbodyViews;
 
 import android.annotation.TargetApi;
 import android.support.test.espresso.Root;
