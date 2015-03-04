@@ -7,6 +7,8 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 /**
  * Source: http://android-developers.blogspot.com/2010/06/making-sense-of-multitouch.html
@@ -26,6 +28,9 @@ public class GestureView extends View {
 
     private float mLastTouchX;
     private float mLastTouchY;
+    
+    private TextView logView;
+    private int numPointers = 0;
 
     public GestureView(Context context) {
         this(context, null, 0);
@@ -45,6 +50,13 @@ public class GestureView extends View {
     }
 
     @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        
+        this.logView = (TextView) ((ViewGroup) getParent()).getChildAt(0);
+    }
+
+    @Override
     public boolean onTouchEvent(MotionEvent ev) {
         // Let the ScaleGestureDetector inspect all events.
         mScaleDetector.onTouchEvent(ev);
@@ -58,8 +70,13 @@ public class GestureView extends View {
                 mLastTouchX = x;
                 mLastTouchY = y;
                 mActivePointerId = ev.getPointerId(0);
+                numPointers++;
                 break;
             }
+            
+            case MotionEvent.ACTION_POINTER_DOWN:
+                numPointers++;
+                break;
 
             case MotionEvent.ACTION_MOVE: {
                 final int pointerIndex = ev.findPointerIndex(mActivePointerId);
@@ -79,12 +96,14 @@ public class GestureView extends View {
 
                 mLastTouchX = x;
                 mLastTouchY = y;
-
+                
                 break;
             }
 
             case MotionEvent.ACTION_UP: {
                 mActivePointerId = INVALID_POINTER_ID;
+                logView.setText(numPointers > 1 ? "Zoom" : "Swipe/click");
+                numPointers = 0;
                 break;
             }
 

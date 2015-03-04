@@ -2,8 +2,6 @@ package com.mindbodyonline.ironhidetestapp;
 
 import android.support.test.espresso.matcher.BoundedMatcher;
 
-import com.mindbodyonline.ironhidetestapp.LongListActivity;
-
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 

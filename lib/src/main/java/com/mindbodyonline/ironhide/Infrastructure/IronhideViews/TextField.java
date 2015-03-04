@@ -11,8 +11,11 @@ import com.mindbodyonline.ironhide.PageObjects.PageObject;
 import org.hamcrest.Matcher;
 
 import static com.mindbodyonline.ironhide.Infrastructure.Extensions.ResourceStrings.fromId;
-import static android.support.test.espresso.matcher.ViewMatchers.withHint;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.endsWith;
+import static org.hamcrest.Matchers.equalToIgnoringCase;
+import static org.hamcrest.Matchers.equalToIgnoringWhiteSpace;
+import static org.hamcrest.Matchers.startsWith;
 
 /**
  * Simple element that allows text interaction.

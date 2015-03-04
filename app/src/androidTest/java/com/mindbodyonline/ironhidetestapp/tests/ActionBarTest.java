@@ -8,13 +8,9 @@ import com.mindbodyonline.ironhidetestapp.TestFixture;
 import org.junit.Test;
 
 /**
- * Demonstrates Espresso with action bar and contextual action mode. 
- * {@link android.support.test.espresso.Espresso#openActionBarOverflowOrOptionsMenu(android.content.Context)} opens the overflow menu from an action bar.
- * {@link android.support.test.espresso.Espresso#openContextualActionModeOverflowMenu()} opens the overflow menu from an contextual action
- * mode.
+ * Demonstrates some basic functionality and matchers working on the {@link android.app.ActionBar}
  */
 @LargeTest
-// TODO: Test framework does not identify ActionBarTestActivity as an existing class
 public class ActionBarTest extends TestFixture<ActionBarTestActivity> {
 
     public ActionBarTest() {

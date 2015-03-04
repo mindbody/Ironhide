@@ -1,13 +1,11 @@
 package com.mindbodyonline.ironhide.Infrastructure.Extensions;
 
-import android.content.res.Resources;
 import android.support.test.espresso.matcher.BoundedMatcher;
 import android.view.View;
 import android.widget.TextView;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
-import org.hamcrest.Matchers;
 
 /**
  * A collection of ViewMatchers specifically for {@link TextView}s that allow the comparison of

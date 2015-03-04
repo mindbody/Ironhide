@@ -6,7 +6,6 @@ import android.support.test.espresso.ViewAction;
 import android.support.test.espresso.ViewAssertion;
 import android.support.test.espresso.action.ViewActions;
 import android.support.test.espresso.assertion.ViewAssertions;
-import android.support.test.espresso.matcher.RootMatchers;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.view.View;
 
@@ -95,16 +94,6 @@ public class ListAdapter<T extends PageObject> extends BaseView<T> {
         super(type, selector);
         adapter = onData(filter).inAdapterView(selector);
     }
-
-    /**
-     * Changes which {@link android.widget.AdapterView} to look in for the data.
-     * @param toMatch  the {@link BaseView} with the {@link org.hamcrest.Matcher} for the {@link android.widget.AdapterView}
-     * @return  this
-     */
-    public ListAdapter<T> inAdapterView(BaseView<?> toMatch) {
-        this.adapter = adapter.inAdapterView(toMatch.getSelector());
-        return this;
-    }
     
     /**
      * Changes the destination class by returning an object of the given type
@@ -186,7 +175,8 @@ public class ListAdapter<T extends PageObject> extends BaseView<T> {
     /** {@inheritDoc} */
     @Override
     public ListAdapter<T> inRoot(Matcher<Root> rootMatcher) {
-        return (ListAdapter<T>) super.inRoot(rootMatcher);
+        this.adapter = this.adapter.inRoot(rootMatcher);
+        return this;
     }
 
     /** {@inheritDoc} */

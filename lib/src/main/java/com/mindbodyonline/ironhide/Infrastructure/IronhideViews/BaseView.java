@@ -1,5 +1,6 @@
 package com.mindbodyonline.ironhide.Infrastructure.IronhideViews;
 
+import android.app.Activity;
 import android.net.Uri;
 import android.os.SystemClock;
 import android.support.test.espresso.Root;
@@ -18,6 +19,7 @@ import android.support.test.espresso.matcher.RootMatchers;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.view.View;
 
+import com.mindbodyonline.ironhide.Infrastructure.Extensions.IdlingViewResource;
 import com.mindbodyonline.ironhide.PageObjects.PageObject;
 
 import junit.framework.AssertionFailedError;
@@ -25,14 +27,20 @@ import junit.framework.AssertionFailedError;
 import org.hamcrest.Matcher;
 
 import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.Espresso.registerIdlingResources;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static android.support.test.espresso.matcher.RootMatchers.DEFAULT;
+import static android.support.test.espresso.matcher.ViewMatchers.hasLinks;
 import static com.mindbodyonline.ironhide.Infrastructure.Extensions.ResourceStrings.fromId;
+import static com.mindbodyonline.ironhide.Infrastructure.Extensions.TextViewMatchers.isEmptyOrNullString;
+import static com.mindbodyonline.ironhide.Infrastructure.Extensions.TextViewMatchers.isEmptyString;
+import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.endsWith;
+import static org.hamcrest.Matchers.equalToIgnoringCase;
+import static org.hamcrest.Matchers.equalToIgnoringWhiteSpace;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
-import static org.hamcrest.Matchers.*;
-import static android.support.test.espresso.matcher.ViewMatchers.*;
-import static com.mindbodyonline.ironhide.Infrastructure.Extensions.TextViewMatchers.*;
+import static org.hamcrest.Matchers.startsWith;
 
 /**
  * Base Class for all page elements represented in the models for application testing.
@@ -102,7 +110,7 @@ public class BaseView<T extends PageObject> {
      *
      * @return The highest order selector available for an element
      */
-    protected Matcher<View> getSelector() {
+    public Matcher<View> getSelector() {
         return selector;
     }
 
@@ -408,6 +416,26 @@ public class BaseView<T extends PageObject> {
      */
     public T openLinkWithUri(Matcher<Uri> uriMatcher){
         return performAction(ViewActions.openLinkWithUri(uriMatcher));
+    }
+
+    /**
+     * Register this view as idle.
+     * @param activity the activity to use to search for the actual view
+     * @return The model reached by interacting with this element
+     */
+    public T registerAsIdle(Activity activity, boolean waitForText) {
+        registerIdlingResources(new IdlingViewResource(activity, this, waitForText));
+        return returnGeneric();
+    }
+
+    /**
+     * Register this view as idle.
+     * @param activity  the activity to use to search for the actual view
+     * @return  The model reached by interacting with this element                  
+     */
+    public T registerAsIdle(Activity activity) {
+        registerIdlingResources(new IdlingViewResource(activity, this));
+        return returnGeneric();
     }
 
     /**
@@ -884,7 +912,6 @@ public class BaseView<T extends PageObject> {
     public T hasImeAction(Matcher<Integer> imeActionMatcher) {
         return checkMatches(ViewMatchers.hasImeAction(imeActionMatcher));
     }
-
 
     /**
      * End ViewMatchers
