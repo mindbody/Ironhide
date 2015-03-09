@@ -44,54 +44,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3c5b5478-5db5-4473-b230-ff8fdf1e2377" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/Ironhide-2.2.0.jar" />
-      <change type="DELETED" beforePath="C:\Users\kyle.lozier\Documents\GitHub\Ironhide\app\libs\Ironhide-2.1.0.jar" afterPath="" />
-      <change type="MOVED" beforePath="C:\Users\kyle.lozier\Documents\GitHub\Ironhide\lib\src\main\java\com\mindbodyonline\ironhide\Fixture\BaseInstrumentTestCase.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Fixture/MindbodyInstrumentTestCase.java" />
-      <change type="MOVED" beforePath="C:\Users\kyle.lozier\Documents\GitHub\Ironhide\lib\src\main\java\com\mindbodyonline\ironhide\Infrastructure\Extensions\BaseViewMatchers.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/Extensions/MindbodyViewMatchers.java" />
-      <change type="MOVED" beforePath="C:\Users\kyle.lozier\Documents\GitHub\Ironhide\lib\src\main\java\com\mindbodyonline\ironhide\Infrastructure\IronhideViews\BaseView.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/BaseView.java" />
-      <change type="MOVED" beforePath="C:\Users\kyle.lozier\Documents\GitHub\Ironhide\lib\src\main\java\com\mindbodyonline\ironhide\Infrastructure\IronhideViews\Clickable.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/Clickable.java" />
-      <change type="MOVED" beforePath="C:\Users\kyle.lozier\Documents\GitHub\Ironhide\lib\src\main\java\com\mindbodyonline\ironhide\Infrastructure\IronhideViews\DatePicker.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/DatePicker.java" />
-      <change type="MOVED" beforePath="C:\Users\kyle.lozier\Documents\GitHub\Ironhide\lib\src\main\java\com\mindbodyonline\ironhide\Infrastructure\IronhideViews\DynamicListAdapter.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/DynamicListAdapter.java" />
-      <change type="MOVED" beforePath="C:\Users\kyle.lozier\Documents\GitHub\Ironhide\lib\src\main\java\com\mindbodyonline\ironhide\Infrastructure\IronhideViews\LayoutView.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/LayoutView.java" />
-      <change type="MOVED" beforePath="C:\Users\kyle.lozier\Documents\GitHub\Ironhide\lib\src\main\java\com\mindbodyonline\ironhide\Infrastructure\IronhideViews\ListAdapter.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/ListAdapter.java" />
-      <change type="MOVED" beforePath="C:\Users\kyle.lozier\Documents\GitHub\Ironhide\lib\src\main\java\com\mindbodyonline\ironhide\Infrastructure\IronhideViews\ListItem.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/ListItem.java" />
-      <change type="MOVED" beforePath="C:\Users\kyle.lozier\Documents\GitHub\Ironhide\lib\src\main\java\com\mindbodyonline\ironhide\Infrastructure\IronhideViews\NavDrawer.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/NavDrawer.java" />
-      <change type="MOVED" beforePath="C:\Users\kyle.lozier\Documents\GitHub\Ironhide\lib\src\main\java\com\mindbodyonline\ironhide\Infrastructure\IronhideViews\Recycler.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/Recycler.java" />
-      <change type="MOVED" beforePath="C:\Users\kyle.lozier\Documents\GitHub\Ironhide\lib\src\main\java\com\mindbodyonline\ironhide\Infrastructure\IronhideViews\SpinnerView.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/SpinnerView.java" />
-      <change type="MOVED" beforePath="C:\Users\kyle.lozier\Documents\GitHub\Ironhide\lib\src\main\java\com\mindbodyonline\ironhide\Infrastructure\IronhideViews\Swipeable.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/Swipeable.java" />
-      <change type="MOVED" beforePath="C:\Users\kyle.lozier\Documents\GitHub\Ironhide\lib\src\main\java\com\mindbodyonline\ironhide\Infrastructure\IronhideViews\TextField.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/TextField.java" />
-      <change type="MOVED" beforePath="C:\Users\kyle.lozier\Documents\GitHub\Ironhide\lib\src\main\java\com\mindbodyonline\ironhide\Infrastructure\IronhideViews\Zoomable.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/Zoomable.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/models/ActionBarModel.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/models/ActionBarModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/AdapterViewTest.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/AdapterViewTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/AdvancedSynchronizationTest.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/AdvancedSynchronizationTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/CustomFailureHandlerTest.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/CustomFailureHandlerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/models/DisplayModel.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/models/DisplayModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/DrawerActionsTest.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/DrawerActionsTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/models/DrawerModel.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/models/DrawerModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/models/FragmentStackModel.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/models/FragmentStackModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/models/GestureModel.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/models/GestureModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/Extensions/IdlingViewResource.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/Extensions/IdlingViewResource.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/IronhideTestSuite.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/IronhideTestSuite.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/models/LongListModel.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/models/LongListModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/models/MainModel.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/models/MainModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/models/MenuModel.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/models/MenuModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/MultipleWindowTest.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/MultipleWindowTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/PageObjects/PageObject.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/PageObjects/PageObject.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/models/ScrollModel.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/models/ScrollModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/ScrollToTest.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/ScrollToTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/models/SendModel.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/models/SendModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/models/SimpleModel.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/models/SimpleModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/models/SwipeModel.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/models/SwipeModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/SwipeTest.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/SwipeTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/models/SyncModel.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/models/SyncModel.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/InjectActivityTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/libs/Ironhide-2.2.0.jar" afterPath="$PROJECT_DIR$/app/libs/Ironhide-2.2.0.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/ListItem.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/ListItem.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Fixture/MindbodyInstrumentTestCase.java" afterPath="$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Fixture/MindbodyInstrumentTestCase.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/TestFixture.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/TestFixture.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/models/ViewPagerModel.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/models/ViewPagerModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/models/ZoomModel.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/models/ZoomModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/ZoomTest.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/ZoomTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/build.gradle" afterPath="$PROJECT_DIR$/lib/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/lib.iml" afterPath="$PROJECT_DIR$/lib/lib.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Ironhide.iws" />
@@ -158,8 +115,8 @@
       <file leaf-file-name="ListItem.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/ListItem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6751592" vertical-offset="919" max-vertical-offset="1547">
-              <caret line="79" column="24" selection-start-line="79" selection-start-column="24" selection-end-line="79" selection-end-column="24" />
+            <state vertical-scroll-proportion="1.0780712" vertical-offset="404" max-vertical-offset="1632">
+              <caret line="79" column="7" selection-start-line="79" selection-start-column="7" selection-end-line="79" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -170,11 +127,9 @@
       <file leaf-file-name="ListAdapter.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/ListAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1172" max-vertical-offset="3349">
+            <state vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="3519">
               <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -182,7 +137,7 @@
       <file leaf-file-name="AdapterViewTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/com/mindbodyonline/ironhidetestapp/tests/AdapterViewTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1496">
+            <state vertical-scroll-proportion="0.0" vertical-offset="748" max-vertical-offset="1768">
               <caret line="44" column="9" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
               <folding />
             </state>
@@ -192,11 +147,9 @@
       <file leaf-file-name="MindbodyInstrumentTestCase.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Fixture/MindbodyInstrumentTestCase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1547">
+            <state vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="1598">
               <caret line="36" column="27" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1837,7 +1790,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="5702025718844" />
+        <entry key="$PROJECT_DIR$" value="5702042397773" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -2301,7 +2254,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectReloadState">
-    <option name="STATE" value="1" />
+    <option name="STATE" value="2" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -2316,7 +2269,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -2661,8 +2613,9 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -3019,14 +2972,13 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32703003" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3359288" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27030033" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27005076" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2835249" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -3034,7 +2986,6 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18656716" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4516129" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942432" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -3045,8 +2996,10 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="TeamCity" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32703003" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39933258" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4516129" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -3254,9 +3207,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.26021504" vertical-offset="32" max-vertical-offset="2499">
           <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3287,7 +3237,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.21935484" vertical-offset="0" max-vertical-offset="1768">
           <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3303,7 +3252,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.23242188" vertical-offset="0" max-vertical-offset="512">
           <caret line="7" column="53" selection-start-line="7" selection-start-column="53" selection-end-line="7" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3311,7 +3259,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="2856">
           <caret line="20" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3319,7 +3266,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="984" max-vertical-offset="1496">
           <caret line="41" column="29" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3327,7 +3273,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="1768">
           <caret line="32" column="51" selection-start-line="32" selection-start-column="51" selection-end-line="32" selection-end-column="51" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3335,7 +3280,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="916" max-vertical-offset="1428">
           <caret line="82" column="47" selection-start-line="82" selection-start-column="47" selection-end-line="82" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3351,9 +3295,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="3689">
           <caret line="42" column="38" selection-start-line="42" selection-start-column="38" selection-end-line="42" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3361,7 +3302,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="1751">
           <caret line="44" column="43" selection-start-line="44" selection-start-column="43" selection-end-line="44" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3369,7 +3309,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="629" max-vertical-offset="2567">
           <caret line="59" column="44" selection-start-line="59" selection-start-column="44" selection-end-line="59" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3377,7 +3316,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="797" max-vertical-offset="1309">
           <caret line="69" column="62" selection-start-line="69" selection-start-column="62" selection-end-line="69" selection-end-column="62" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3385,7 +3323,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33203125" vertical-offset="153" max-vertical-offset="1258">
           <caret line="27" column="18" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3393,7 +3330,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33203125" vertical-offset="187" max-vertical-offset="1224">
           <caret line="38" column="77" selection-start-line="38" selection-start-column="77" selection-end-line="38" selection-end-column="77" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3511,7 +3447,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.48" vertical-offset="0" max-vertical-offset="748">
           <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3519,7 +3454,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
           <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3555,9 +3489,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.17482518" vertical-offset="1074" max-vertical-offset="66164">
           <caret line="72" column="140" selection-start-line="72" selection-start-column="140" selection-end-line="72" selection-end-column="140" />
-          <folding>
-            <marker date="1425508642591" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3565,21 +3496,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.9219288" vertical-offset="1968" max-vertical-offset="2873">
           <caret line="163" column="1" selection-start-line="163" selection-start-column="1" selection-end-line="163" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1628#1629#0" expanded="true" />
-            <element signature="e#1676#1677#0" expanded="true" />
-            <element signature="e#2460#2490#0" expanded="true" />
-            <element signature="e#3561#3591#0" expanded="true" />
-            <element signature="e#4885#4915#0" expanded="true" />
-            <element signature="e#6261#6262#0" expanded="true" />
-            <element signature="e#6316#6317#0" expanded="true" />
-            <element signature="e#6686#6687#0" expanded="true" />
-            <element signature="e#6740#6741#0" expanded="true" />
-            <element signature="e#6975#7005#0" expanded="true" />
-            <element signature="e#7400#7401#0" expanded="true" />
-            <element signature="e#7459#7460#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3595,9 +3511,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1172" max-vertical-offset="3349">
           <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3613,9 +3527,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1547">
           <caret line="36" column="27" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3623,14 +3535,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34745762" vertical-offset="50" max-vertical-offset="680">
           <caret line="16" column="57" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/src/main/java/com/mindbodyonline/ironhide/Infrastructure/MindbodyViews/ListItem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6751592" vertical-offset="919" max-vertical-offset="1547">
-          <caret line="79" column="24" selection-start-line="79" selection-start-column="24" selection-end-line="79" selection-end-column="24" />
+        <state vertical-scroll-proportion="1.0780712" vertical-offset="404" max-vertical-offset="1632">
+          <caret line="79" column="7" selection-start-line="79" selection-start-column="7" selection-end-line="79" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

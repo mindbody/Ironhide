@@ -4,6 +4,7 @@ import android.app.Activity;
 
 import com.mindbodyonline.ironhide.Fixture.MindbodyInstrumentTestCase;
 import com.mindbodyonline.ironhidetestapp.models.ActionBarModel;
+import com.mindbodyonline.ironhidetestapp.models.DisplayModel;
 import com.mindbodyonline.ironhidetestapp.models.DrawerModel;
 import com.mindbodyonline.ironhidetestapp.models.LongListModel;
 import com.mindbodyonline.ironhidetestapp.models.MenuModel;
@@ -24,6 +25,7 @@ public class TestFixture <T extends Activity> extends MindbodyInstrumentTestCase
     protected LongListModel LongListPage = new LongListModel();
     protected SimpleModel SimplePage = new SimpleModel();
     protected DrawerModel DrawerPage = new DrawerModel();
+    protected DisplayModel DisplayPage = new DisplayModel();
     protected MenuModel MenuPage = new MenuModel();
     protected SendModel SendPage = new SendModel();
     protected ScrollModel ScrollPage = new ScrollModel();

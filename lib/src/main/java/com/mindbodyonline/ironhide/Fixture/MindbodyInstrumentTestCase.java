@@ -36,7 +36,7 @@ public class MindbodyInstrumentTestCase<T extends Activity> extends ActivityInst
     public MindbodyInstrumentTestCase(String IGNORED, Class<T> activityClass) {
         super(activityClass);
     }
-    
+
     /**
      * {@inheritDoc}
      * The default setup for AndroidJUnit tests.
@@ -45,7 +45,6 @@ public class MindbodyInstrumentTestCase<T extends Activity> extends ActivityInst
     @Override
     @Before
     public void setUp() throws Exception {
-        super.setUp();
         injectInstrumentation(InstrumentationRegistry.getInstrumentation());
         initActivity = getActivity();
         setFailureHandler(new BaseFailureHandler(this));
