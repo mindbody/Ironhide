@@ -29,7 +29,7 @@ public class BaseInstrumentTestCase<T extends Activity> extends ActivityInstrume
     public BaseInstrumentTestCase(Class<T> activityClass) {
         super(activityClass);
     }
-    
+
     /**
      * {@inheritDoc}
      * The default setup for AndroidJUnit tests.
@@ -38,7 +38,6 @@ public class BaseInstrumentTestCase<T extends Activity> extends ActivityInstrume
     @Override
     @Before
     public void setUp() throws Exception {
-        super.setUp();
         injectInstrumentation(InstrumentationRegistry.getInstrumentation());
         initActivity = getActivity();
         setFailureHandler(new BaseFailureHandler(this));

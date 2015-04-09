@@ -66,7 +66,6 @@ public class ListItem<T extends PageObject> extends BaseView<T> {
 
     /**
      * @return a new instance of ListItem that is the child of this ListItem
-     * @see android.support.test.espresso.DataInteraction#onChildView(org.hamcrest.Matcher)
      */
     public ListItem<T> getChild(BaseView<?> toMatch) {
         return new ListItem<>(type, adapter.onChildView(toMatch.getSelector()));
