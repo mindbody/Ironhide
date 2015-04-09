@@ -3,7 +3,7 @@ apply plugin: 'maven'
 apply plugin: 'signing'
 
 group = "com.mindbodyonline.ironhide"
-version = "2.2.0"
+version = "1.0.0"
 
 android {
     compileSdkVersion 21
@@ -30,7 +30,6 @@ task coreLibJar(type: Jar) {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile files('libs/spoon-client-1.1.1.jar')
 
     compile 'com.android.support.test:testing-support-lib:0.1'
     compile 'com.android.support.test.espresso:espresso-core:2.0'
