@@ -35,5 +35,5 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-contrib:2.0') {
         exclude group: 'com.android.support', module: 'support-v4'
     }
-    androidTestCompile files('libs/Ironhide-2.2.0.jar')
+    androidTestCompile files('libs/Ironhide-1.0.0.jar')
 }
