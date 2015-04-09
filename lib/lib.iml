@@ -81,7 +81,6 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/res" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/rs" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/symbols" />
-      <excludeFolder url="file://$MODULE_DIR$/build/libs" />
       <excludeFolder url="file://$MODULE_DIR$/build/outputs" />
       <excludeFolder url="file://$MODULE_DIR$/build/tmp" />
     </content>
@@ -91,8 +90,8 @@
     <orderEntry type="library" exported="" name="espresso-contrib-2.0" level="project" />
     <orderEntry type="library" exported="" name="support-v4-21.0.3" level="project" />
     <orderEntry type="library" exported="" name="javax.annotation-api-1.2" level="project" />
-    <orderEntry type="library" exported="" name="hamcrest-library-1.1" level="project" />
     <orderEntry type="library" exported="" name="javax.inject-1" level="project" />
+    <orderEntry type="library" exported="" name="hamcrest-library-1.1" level="project" />
     <orderEntry type="library" exported="" name="hamcrest-integration-1.1" level="project" />
     <orderEntry type="library" exported="" name="junit-dep-4.10" level="project" />
     <orderEntry type="library" exported="" name="javawriter-2.1.1" level="project" />
