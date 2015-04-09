@@ -2,7 +2,7 @@ Ironhide
 ========
 
 Espresso Android Testing Framework.
-
+* [Setting up Ironhide] (https://github.com/mindbody/Ironhide/wiki/Setting-Up-Ironhide)
 * [Introduction to Ironhide](https://github.com/mindbody/Ironhide/wiki/Introduction-to-Ironhide)
 * [Why Ironhide](https://github.com/mindbody/Ironhide/wiki/Why-Ironhide%3F)
 * [Tips and Tricks](https://github.com/mindbody/Ironhide/wiki/Tips-and-Tricks)
