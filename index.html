@@ -31,33 +31,41 @@
 <h1>
 <a id="how-does-it-work" class="anchor" href="#how-does-it-work" aria-hidden="true"><span class="octicon octicon-link"></span></a>How does it work?</h1>
 
-<p>Ironhide is composed of Models and Page Elements.  Models represent the various pages in your application. These Models are in turn populated by Page Elements that represent the various views and elements on the page. A test built with Ironhide will give the starting model and then chain together actions or assertions taken on page elements.  Because of the nature of Ironhide, almost all tests can be made in one chain of actions, which results in tests being written much like they might be spoken. Here is an example of what a simple test might look like:</p>
+<p>Ironhide is composed of Models and Page Elements.  Models represent the various pages in your application. These Models are in turn populated by Page Elements that represent the various views and elements on the page. A test built with Ironhide will give the starting model and then chain together actions or assertions taken on page elements.  Because of the nature of Ironhide, almost all tests can be made in one chain of actions, which results in tests being written much like they might be spoken. Here is an example of what a simple test might look like.</p>
 
-<pre><code>@Test
-public void testgetToAddClientActivity(){
-SchedulePage
-    .NavDrawerButtonIcon.pause()
-    .NavDrawerButton.click()
-    .ClientsButton.click()
-    .SearchClientField.pause()
-    .AddClientButton.click()
-    .FirstNameField.isDisplayed()
-    .LastNameField.isDisplayed()
-  ;
+<p>This is a model of an Action Bar.</p>
+<pre><code>public class ActionBarModel extends PageObject {
+    public Clickable<ActionBarModel> HideContextualActionBar = new Clickable<>(ActionBarModel.class, R.id.hide_contextual_action_bar);
+    public Clickable<ActionBarModel> ShowContextualActionBar = new Clickable<>(ActionBarModel.class, R.id.show_contextual_action_bar);
+    public Clickable<ActionBarModel> LockAction = new Clickable<>(ActionBarModel.class, R.id.action_lock);
+    public Clickable<ActionBarModel> SaveAction = new Clickable<>(ActionBarModel.class, R.id.action_save);
+    // may require some additional parameters for compat lib
+    @SuppressWarnings("unchecked")
+    public Clickable<ActionBarModel> OverflowAction = new Clickable<>(ActionBarModel.class, allOf(isDisplayed(), withContentDescription("More options")));
+    public Clickable<ActionBarModel> KeyAction = new Clickable<>(ActionBarModel.class, "Key");
+    public Clickable<ActionBarModel> CalendarAction = new Clickable<>(ActionBarModel.class, "Calendar");
+    public Clickable<ActionBarModel> SearchAction = new Clickable<>(ActionBarModel.class, "Search");
+    public Clickable<ActionBarModel> WorldAction = new Clickable<>(ActionBarModel.class, "World");
+    public Clickable<ActionBarModel> TextResult = new Clickable<>(ActionBarModel.class, R.id.text_action_bar_result);
 }
 </code></pre>
+
+<p>This is a test that uses the Action Bar model.</p>
+<pre><code>@Test
+    public void testclickActionBarItem() {
+        ActionBarPage
+                .HideContextualActionBar.click()
+                .SaveAction.click()
+                .TextResult.withText("Save")
+                ;
+    }</code></pre>
 
 <p>This test does the following:</p>
 
 <ul>
-<li>Starts on the SchedulePage</li>
-<li>Pauses to allow the page to load.</li>
-<li>Clicks on the Navigation Drawer button to open the Navigation Drawer</li>
-<li>Clicks on the Clients button in the navigation drawer.</li>
-<li>Wait for the clients page to load (by pausing on the SearchClientField).</li>
-<li>Click on the Add Client button.</li>
-<li>Checks if the FirstNameField is displayed.</li>
-<li>Checks if the LastNameField is displayed.</li>
+<li>Clicks on the HideContextualActionBar button.</li>
+<li>Clicks on the SaveAction button in the action bar.</li>
+<li>Checks that the TextResult text field contains "Save".</li>
 </ul>
 
 <h1>
