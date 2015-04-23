@@ -34,21 +34,21 @@
 <p>Ironhide is composed of Models and Page Elements.  Models represent the various pages in your application. These Models are in turn populated by Page Elements that represent the various views and elements on the page. A test built with Ironhide will give the starting model and then chain together actions or assertions taken on page elements.  Because of the nature of Ironhide, almost all tests can be made in one chain of actions, which results in tests being written much like they might be spoken. Here is an example, from the test app, of what a simple test might look like.</p>
 
 <p>This is what the page looks like.</p>
-<img src="http://i.imgur.com/0MsTkc1.jpg"/>
+<img src="http://i.imgur.com/0MsTkc1.jpg" style="width:236px;height:400px"/>
 
 <p>This is a model of the Simple Activity.</p>
 <pre><code>public class SimpleModel extends PageObject {
-    public Clickable\<SimpleModel\> SimpleButton = new Clickable<>(SimpleModel.class, R.id.button_simple);
+    public Clickable&lt;SimpleModel&gt; SimpleButton = new Clickable<>(SimpleModel.class, R.id.button_simple);
     
-    public Clickable\<SimpleModel\> SimpleText = new Clickable<>(SimpleModel.class, R.id.text_simple);
+    public Clickable&lt;SimpleModel&gt; SimpleText = new Clickable<>(SimpleModel.class, R.id.text_simple);
     
-    public TextField\<SimpleModel\> SimpleSendText = new TextField<>(SimpleModel.class, R.id.sendtext_simple);
+    public TextField&lt;SimpleModel&gt; SimpleSendText = new TextField<>(SimpleModel.class, R.id.sendtext_simple);
     
-    public Clickable\<DisplayModel\> SimpleSend = new Clickable<>(DisplayModel.class, R.id.send_simple);
+    public Clickable&lt;DisplayModel&gt; SimpleSend = new Clickable<>(DisplayModel.class, R.id.send_simple);
     
-    public SpinnerView\<SimpleModel\> SimpleSpinner = new SpinnerView<>(SimpleModel.class, R.id.spinner_simple);
+    public SpinnerView&lt;SimpleModel&gt; SimpleSpinner = new SpinnerView<>(SimpleModel.class, R.id.spinner_simple);
     
-    public ListAdapter\<SimpleModel\> SpinnerList = new ListAdapter<>(SimpleModel.class, String.class);
+    public ListAdapter&lt;SimpleModel&gt; SpinnerList = new ListAdapter<>(SimpleModel.class, String.class);
 }
 </code></pre>
 
