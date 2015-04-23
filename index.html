@@ -33,39 +33,47 @@
 
 <p>Ironhide is composed of Models and Page Elements.  Models represent the various pages in your application. These Models are in turn populated by Page Elements that represent the various views and elements on the page. A test built with Ironhide will give the starting model and then chain together actions or assertions taken on page elements.  Because of the nature of Ironhide, almost all tests can be made in one chain of actions, which results in tests being written much like they might be spoken. Here is an example, from the test app, of what a simple test might look like.</p>
 
-<p>This is a model of an Action Bar.</p>
-<pre><code>public class ActionBarModel extends PageObject {
-    public Clickable<ActionBarModel> HideContextualActionBar = new Clickable<>(ActionBarModel.class, R.id.hide_contextual_action_bar);
-    public Clickable<ActionBarModel> ShowContextualActionBar = new Clickable<>(ActionBarModel.class, R.id.show_contextual_action_bar);
-    public Clickable<ActionBarModel> LockAction = new Clickable<>(ActionBarModel.class, R.id.action_lock);
-    public Clickable<ActionBarModel> SaveAction = new Clickable<>(ActionBarModel.class, R.id.action_save);
-    // may require some additional parameters for compat lib
-    @SuppressWarnings("unchecked")
-    public Clickable<ActionBarModel> OverflowAction = new Clickable<>(ActionBarModel.class, allOf(isDisplayed(), withContentDescription("More options")));
-    public Clickable<ActionBarModel> KeyAction = new Clickable<>(ActionBarModel.class, "Key");
-    public Clickable<ActionBarModel> CalendarAction = new Clickable<>(ActionBarModel.class, "Calendar");
-    public Clickable<ActionBarModel> SearchAction = new Clickable<>(ActionBarModel.class, "Search");
-    public Clickable<ActionBarModel> WorldAction = new Clickable<>(ActionBarModel.class, "World");
-    public Clickable<ActionBarModel> TextResult = new Clickable<>(ActionBarModel.class, R.id.text_action_bar_result);
+<p>This is what the page looks like.</p>
+<img src="http://i.imgur.com/0MsTkc1.jpg"/>
+
+<p>This is a model of the Simple Activity.</p>
+<pre><code>public class SimpleModel extends PageObject {
+    public Clickable\<SimpleModel\> SimpleButton = new Clickable<>(SimpleModel.class, R.id.button_simple);
+    
+    public Clickable\<SimpleModel\> SimpleText = new Clickable<>(SimpleModel.class, R.id.text_simple);
+    
+    public TextField\<SimpleModel\> SimpleSendText = new TextField<>(SimpleModel.class, R.id.sendtext_simple);
+    
+    public Clickable\<DisplayModel\> SimpleSend = new Clickable<>(DisplayModel.class, R.id.send_simple);
+    
+    public SpinnerView\<SimpleModel\> SimpleSpinner = new SpinnerView<>(SimpleModel.class, R.id.spinner_simple);
+    
+    public ListAdapter\<SimpleModel\> SpinnerList = new ListAdapter<>(SimpleModel.class, String.class);
 }
 </code></pre>
 
-<p>This is a test that uses the Action Bar model.</p>
+<p>This is a test that uses the Simple Activity Model.</p>
 <pre><code>@Test
-public void testclickActionBarItem() {
-  ActionBarPage
-    .HideContextualActionBar.click()
-    .SaveAction.click()
-    .TextResult.withText("Save")
-    ;
+public void testTypingAndPressBack() {
+  SimplePage
+    .SimpleSendText.typeText(R.string.hello_world)
+    .SimpleSendText.closeKeyboard()
+    .SimpleSend.click()
+    .displayText.withText(R.string.hello_world)
+    .displayText.goesTo(SimpleModel.class).pressBack()
+    .SimpleSendText.withText(R.string.hello_world)
+;
 }</code></pre>
 
 <p>This test does the following:</p>
 
 <ul>
-<li>Clicks on the HideContextualActionBar button.</li>
-<li>Clicks on the SaveAction button in the action bar.</li>
-<li>Checks that the TextResult text field contains "Save".</li>
+<li>Types hello world in the SimpleSendText text field.</li>
+<li>Closes the keyboard.</li>
+<li>Clicks the send button.</li>
+<li>Checks that the text field contains "hello world!"</li>
+<li>Goes back a page.</li>
+<li>Checks that the SimpleSendText text field contains "hello world!"</li>
 </ul>
 
 <h1>
