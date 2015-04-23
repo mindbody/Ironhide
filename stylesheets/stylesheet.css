@@ -9,7 +9,7 @@ body {
   line-height: 1.5;
   color: #606c71; }
 
-img pageImage {
+img.pageImage {
   display: block;
   margin-left: auto;
   margin-right: auto
